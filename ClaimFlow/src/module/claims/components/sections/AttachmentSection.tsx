@@ -1,38 +1,50 @@
-import { useFormContext, useWatch } from "react-hook-form";
+import { useController, useFormContext } from "react-hook-form";
+
+type FileWithId = {
+  file: File;
+  id: string;
+};
 
 export default function AttachmentsSection() {
   const {
-    setValue,
-    formState: { errors },
     control,
+    formState: { errors },
   } = useFormContext();
 
-  const attachments: File[] = useWatch({
-    control,
+  const {
+    field: { value = [], onChange },
+  } = useController({
     name: "attachments",
+    control,
     defaultValue: [],
   });
+
+  const attachments: FileWithId[] = value;
 
   const handleFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files) return;
 
-    const fileArray = Array.from(files);
-
     const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
     const maxSize = 5 * 1024 * 1024; // 5MB
 
-    const validFiles = fileArray.filter(
-      (file) =>
-        allowedTypes.includes(file.type) && file.size <= maxSize
-    );
+    const validFiles: FileWithId[] = Array.from(files)
+      .filter(
+        (file) => allowedTypes.includes(file.type) && file.size <= maxSize,
+      )
+      .map((file) => ({
+        file,
+        id: crypto.randomUUID(),
+      }));
 
-    setValue("attachments", [...attachments, ...validFiles]);
+    onChange([...attachments, ...validFiles]);
+
+    e.target.value = "";
   };
 
-  const removeFile = (index: number) => {
-    const updated = attachments.filter((_, i) => i !== index);
-    setValue("attachments", updated);
+  const removeFile = (id: string) => {
+    const updated = attachments.filter((f) => f.id !== id);
+    onChange(updated);
   };
 
   const formatSize = (size: number) => {
@@ -49,21 +61,19 @@ export default function AttachmentsSection() {
 
       {/* File List */}
       <ul className="mt-3 space-y-2">
-        {attachments?.map((file, index) => (
+        {attachments.map(({ file, id }) => (
           <li
-            key={`${file.name}-${index}`}
+            key={id}
             className="flex justify-between items-center border p-2 rounded"
           >
             <div>
               <p className="text-sm font-medium">{file.name}</p>
-              <p className="text-xs text-gray-500">
-                {formatSize(file.size)}
-              </p>
+              <p className="text-xs text-gray-500">{formatSize(file.size)}</p>
             </div>
 
             <button
               type="button"
-              onClick={() => removeFile(index)}
+              onClick={() => removeFile(id)}
               className="text-red-500 text-sm"
             >
               Remove
@@ -72,7 +82,7 @@ export default function AttachmentsSection() {
         ))}
       </ul>
 
-      {/* Error display (supports array or single message) */}
+      {/* Error display */}
       <ul className="text-red-500 mt-2 text-sm">
         {Array.isArray(errors.attachments)
           ? errors.attachments.map((err: any, i: number) => (
