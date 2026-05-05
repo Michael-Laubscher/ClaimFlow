@@ -1,15 +1,30 @@
+import { claimsDB } from "../../mock/data/claims";
+
 const API_MODE = "mock";
 
 const mockApi = {
   post: async (url: string, data: any) => {
-    console.log("Mock POST:", url, data);
-    return { success: true };
+    if (url === "/claims") {
+      const newClaim = {
+        id: Date.now(),
+        ...data,
+        createdAt: new Date(),
+      };
+
+      claimsDB.push(newClaim);
+
+      console.log("Saved to mock DB:", claimsDB);
+
+      return { success: true, data: newClaim };
+    }
+
+    throw new Error("Unknown endpoint");
   },
 };
 
 const realApi = {
   post: async (url: string, data: any) => {
-    // future axios implementation
+    // future axios logic
   },
 };
 

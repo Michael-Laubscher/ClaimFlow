@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import ClaimsPage from "../../module/claims/pages/ClaimsPage";
+import SuccessPage from "../../module/claims/pages/SuccessPage";
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +13,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/claims/success",
-    element: <div>Success</div>,
+    element: <SuccessPage />,
   },
 ]);

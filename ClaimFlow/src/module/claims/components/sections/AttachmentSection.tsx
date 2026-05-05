@@ -30,7 +30,8 @@ export default function AttachmentsSection() {
 
     const validFiles: FileWithId[] = Array.from(files)
       .filter(
-        (file) => allowedTypes.includes(file.type) && file.size <= maxSize,
+        (file) =>
+          allowedTypes.includes(file.type) && file.size <= maxSize
       )
       .map((file) => ({
         file,
@@ -49,7 +50,8 @@ export default function AttachmentsSection() {
 
   const formatSize = (size: number) => {
     if (size < 1024) return `${size} B`;
-    if (size < 1024 * 1024) return `${(size / 1024).toFixed(1)} KB`;
+    if (size < 1024 * 1024)
+      return `${(size / 1024).toFixed(1)} KB`;
     return `${(size / (1024 * 1024)).toFixed(1)} MB`;
   };
 
@@ -68,7 +70,9 @@ export default function AttachmentsSection() {
           >
             <div>
               <p className="text-sm font-medium">{file.name}</p>
-              <p className="text-xs text-gray-500">{formatSize(file.size)}</p>
+              <p className="text-xs text-gray-500">
+                {formatSize(file.size)}
+              </p>
             </div>
 
             <button
@@ -84,13 +88,15 @@ export default function AttachmentsSection() {
 
       {/* Error display */}
       <ul className="text-red-500 mt-2 text-sm">
-        {Array.isArray(errors.attachments)
-          ? errors.attachments.map((err: any, i: number) => (
-              <li key={i}>{err?.message}</li>
-            ))
-          : errors.attachments?.message && (
-              <li>{errors.attachments.message as string}</li>
-            )}
+        {Array.isArray(errors.attachments) ? (
+          errors.attachments.map((err: any, i: number) => (
+            <li key={i}>{err?.message}</li>
+          ))
+        ) : (
+          errors.attachments?.message && (
+            <li>{errors.attachments.message as string}</li>
+          )
+        )}
       </ul>
     </div>
   );
