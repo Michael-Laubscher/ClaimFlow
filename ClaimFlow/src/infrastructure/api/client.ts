@@ -1,4 +1,4 @@
-import { claimsDB } from "../../mock/data/claims";
+import { claimsDB } from "@/mock/data/claims";
 
 const API_MODE = "mock";
 

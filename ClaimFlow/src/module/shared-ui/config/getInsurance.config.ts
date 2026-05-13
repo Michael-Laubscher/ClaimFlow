@@ -1,4 +1,4 @@
-import type { PageConfig } from "../../../shared/types/page.types";
+import type { PageConfig } from "@/shared/types/page.types";
 
 export const getInsuranceConfig: PageConfig = {
   sections: [

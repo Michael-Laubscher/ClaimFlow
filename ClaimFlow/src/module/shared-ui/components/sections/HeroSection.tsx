@@ -1,4 +1,4 @@
-import type { HeroSection as HeroSectionType } from "../../../../shared/types/page.types";
+import type { HeroSection as HeroSectionType } from "@/shared/types/page.types";
 
 import { Link } from "react-router-dom";
 
