@@ -1,67 +1,58 @@
-import type { PageConfig } from "../../../shared/types/page.types";
+import type { PageConfig } from "@/shared/types/page.types";
 
 export const homeConfig: PageConfig = {
   sections: [
     {
       type: "hero",
-      title: "Insurance You Can Rely On",
+      eyebrow: "Askari Insure",
+      title: "Protect what matters. Manage claims online.",
       subtitle:
-        "Protecting what matters most with fast claims, trusted partners, and seamless service.",
+        "Insurance solutions with streamlined claims submission, secure document handling, and customer-first support.",
       buttonText: "Get Insurance",
       buttonLink: "/get-insurance",
       secondaryButtonText: "Submit Claim",
       secondaryButtonLink: "/claims/new",
-      image: "/images/hero-insurance.jpg",
-    },
-
-    {
-      type: "stats",
-      items: [
-        { label: "Trusted Partners", value: "Hollard + COMESA" },
-        { label: "Claims Process", value: "Digital FNOL" },
-        { label: "Support", value: "Fast Assistance" },
+      stats: [
+        { label: "Partners", value: "Hollard + COMESA" },
+        { label: "Claims", value: "Digital FNOL" },
+        { label: "Support", value: "Fast turnaround" },
       ],
     },
-
     {
       type: "cards",
-      title: "Our Insurance Solutions",
+      title: "Insurance Solutions",
       items: [
         {
           title: "Motor Insurance",
-          description: "Comprehensive and third-party cover.",
-          icon: "car",
+          description: "Comprehensive and third-party vehicle cover.",
         },
         {
           title: "Travel Insurance",
-          description: "Regional and international travel cover.",
-          icon: "plane",
+          description: "Regional and international protection.",
         },
         {
-          title: "Commercial Insurance",
-          description: "Business and enterprise protection.",
-          icon: "briefcase",
+          title: "Business Cover",
+          description: "Commercial asset and operations protection.",
         },
       ],
     },
-
     {
       type: "feature",
-      title: "Why Choose Askari Insure",
-      content:
-        "We combine trusted insurance expertise with digital-first service delivery.",
-      bullets: [
-        "Fast claims submission",
-        "Secure document handling",
-        "Partner-backed cover",
-        "Responsive customer support",
+      title: "Why Askari Insure",
+      items: [
+        "Fast digital first-notice-of-loss submission",
+        "Integrated partner workflows",
+        "Secure document uploads",
+        "Future-ready Azure integration",
       ],
+      description:
+        "Designed for customers to request cover, manage policies, and submit claims in one platform.",
     },
-
     {
       type: "cta",
-      title: "Need to Submit a Claim?",
-      subtitle: "Complete your first notification of loss online.",
+      title: "Need to submit a claim?",
+      subtitle:
+        "Complete your first notification of loss online and upload supporting documents securely.",
       buttonText: "Start Claim",
       buttonLink: "/claims/new",
     },

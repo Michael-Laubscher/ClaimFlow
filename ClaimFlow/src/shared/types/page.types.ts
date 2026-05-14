@@ -2,8 +2,14 @@ export type BaseSection = {
   type: string;
 };
 
+export type StatItem = {
+  label: string;
+  value: string;
+};
+
 export type HeroSection = BaseSection & {
   type: "hero";
+  eyebrow?: string;
   title: string;
   subtitle: string;
   buttonText?: string;
@@ -11,6 +17,7 @@ export type HeroSection = BaseSection & {
   secondaryButtonText?: string;
   secondaryButtonLink?: string;
   image?: string;
+  stats?: StatItem[];
 };
 
 export type TextSection = BaseSection & {
@@ -39,11 +46,6 @@ export type CTASection = BaseSection & {
   buttonLink: string;
 };
 
-export type StatItem = {
-  label: string;
-  value: string;
-};
-
 export type StatsSection = BaseSection & {
   type: "stats";
   items: StatItem[];
@@ -52,8 +54,8 @@ export type StatsSection = BaseSection & {
 export type FeatureSection = BaseSection & {
   type: "feature";
   title: string;
-  content: string;
-  bullets: string[];
+  description?: string;
+  items: string[];
 };
 
 export type ImageSection = BaseSection & {

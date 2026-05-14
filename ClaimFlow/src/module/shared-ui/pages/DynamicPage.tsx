@@ -8,6 +8,7 @@ import FeatureSection from "@/module/shared-ui/components/sections/FeatureSectio
 import TestimonialsSection from "@/module/shared-ui/components/sections/TestimonialSection";
 import FAQSection from "@/module/shared-ui/components/sections/FAQSection";
 
+
 import type { PageConfig, PageSection } from "@/shared/types/page.types";
 
 type DynamicPageProps = {
