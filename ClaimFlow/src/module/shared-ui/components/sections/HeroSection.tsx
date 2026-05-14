@@ -13,8 +13,8 @@ export default function HeroSection({
   image,
 }: HeroSectionType) {
   return (
-    <section className="bg-linear-to-r from-blue-900 to-blue-700 py-24 text-white">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
+    <section className="bg-gradient-to-r from-blue-900 to-blue-700 py-24 text-white">
+      <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
         {/* Left Content */}
         <div>
           {eyebrow && (
