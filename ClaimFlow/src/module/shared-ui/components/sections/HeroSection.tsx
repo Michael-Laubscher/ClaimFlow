@@ -17,7 +17,7 @@ export default function AskariHero() {
       >
         {/* Main Hero Content */}
         <div className="relative z-10 flex-1 flex items-center">
-          <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24 w-full">
+          <div className="max-w-full mx-auto px-40 py-16 lg:py-24 w-full">
             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
               {/* LEFT COLUMN */}
               <div className="flex-1 text-white">
