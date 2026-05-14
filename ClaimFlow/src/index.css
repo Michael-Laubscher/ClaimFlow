@@ -1,5 +1,18 @@
-@import "tailwindcss";
-@reference "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-text font-sans antialiased;
+}
+
+* {
+  @apply border-border;
+}
 
 .input {
   @apply border p-2 rounded w-full mb-2;

@@ -4,8 +4,14 @@ type Props = {
 
 export default function Card({ children }: Props) {
   return (
-    <div className="rounded-3xl border bg-white p-6 shadow-sm">
-      {children}
+    <div className="bg-background text-text">
+      <section className="py-section">
+        <div className="container">
+          <div className="rounded-2xl bg-surface shadow-card border border-border p-6">
+            {children}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
