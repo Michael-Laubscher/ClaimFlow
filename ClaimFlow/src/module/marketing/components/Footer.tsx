@@ -45,13 +45,13 @@ export function Footer() {
           <div className="flex gap-4 flex-wrap">
             <Link
               to="/get-quote"
-              className="rounded-2xl bg-white px-7 py-3.5 font-semibold text-[--color-orange-dark] text-sm hover:bg-orange-50 transition-colors shadow-lg"
+              className="rounded-xl bg-white px-7 py-3.5 font-semibold text-[--color-orange-dark] text-sm hover:bg-orange-50 transition-colors shadow-lg"
             >
               Get Instant Quote →
             </Link>
             <Link
               to="/claims/new"
-              className="rounded-2xl border-2 border-white/40 px-7 py-3.5 font-semibold text-white text-sm hover:bg-white/10 transition-colors"
+              className="rounded-xl border-2 border-white/40 px-7 py-3.5 font-semibold text-white text-sm hover:bg-white/10 transition-colors"
             >
               File a Claim
             </Link>

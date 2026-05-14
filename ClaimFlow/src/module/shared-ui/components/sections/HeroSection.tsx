@@ -152,7 +152,7 @@ export default function AskariHero() {
                   {/* Claims Badge */}
                   <div className="float-card absolute -top-6 -right-2 lg:right-4 z-20">
                     <div className="claims-badge text-white px-5 py-3 text-center shadow-2xl">
-                      <div className="text-2xl font-extrabold">$500M+</div>
+                      <div className="text-2xl font-extrabold">R500M+</div>
 
                       <div className="font-dm text-orange-100 text-xs mt-0.5">
                         Claims Paid
