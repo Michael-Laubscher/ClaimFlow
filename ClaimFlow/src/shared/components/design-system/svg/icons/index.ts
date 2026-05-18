@@ -17,3 +17,11 @@ export * from "./MenuIcon";
 export * from "./PhoneIcon";
 
 export * from "./XIcon";
+
+export * from './FacebookIcon';
+
+export * from './LinkedInIcon';
+
+export * from './TwitterIcon';
+
+export * from './PinIcon';
