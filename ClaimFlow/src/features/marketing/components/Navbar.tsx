@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import AskariLogo from '@/assets/logos/AskariLogo.png';
 
-import { Button } from '@/shared/components/ui/Button';
+import { Button } from '@/shared/components/design-system/Button';
 
 const PRODUCTS_ITEMS = [
   {

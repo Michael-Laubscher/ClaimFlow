@@ -1,12 +1,12 @@
-import HeroSection from "@/module/shared-ui/components/sections/HeroSection";
-import TextSection from "@/module/shared-ui/components/sections/TextSection";
-import CardGrid from "@/module/shared-ui/components/sections/CardGrid";
-import CTASection from "@/module/shared-ui/components/sections/CTASection";
-import StatsSection from "@/module/shared-ui/components/sections/StatsSection";
-import ImageSection from "@/module/shared-ui/components/sections/ImageSection";
-import FeatureSection from "@/module/shared-ui/components/sections/FeatureSection";
-import TestimonialsSection from "@/module/shared-ui/components/sections/TestimonialSection";
-import FAQSection from "@/module/shared-ui/components/sections/FAQSection";
+import HeroSection from "@/features/shared-ui/components/sections/hero/HeroSection";
+import TextSection from "@/features/shared-ui/components/sections/TextSection";
+import CardGrid from "@/features/shared-ui/components/sections/CardGrid";
+import CTASection from "@/features/shared-ui/components/sections/CTASection";
+import StatsSection from "@/features/shared-ui/components/sections/StatsSection";
+import ImageSection from "@/features/shared-ui/components/sections/ImageSection";
+import FeatureSection from "@/features/shared-ui/components/sections/FeatureSection";
+import TestimonialsSection from "@/features/shared-ui/components/sections/TestimonialSection";
+import FAQSection from "@/features/shared-ui/components/sections/FAQSection";
 
 
 import type { PageConfig, PageSection } from "@/shared/types/page.types";

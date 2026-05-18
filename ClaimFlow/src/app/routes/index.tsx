@@ -1,24 +1,24 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import PublicLayout from "@/module/marketing/components/MainLayout";
-import PortalLayout from "@/module/portal/pages/PortalLayout";
+import PublicLayout from "@/features/marketing/components/MainLayout";
+import PortalLayout from "@/features/portal/pages/PortalLayout";
 
-import DynamicPage from "@/module/shared-ui/pages/DynamicPage";
+import DynamicPage from "@/features/shared-ui/pages/DynamicPage";
 
-import { homeConfig } from "@/module/shared-ui/config/home.config";
-import { aboutConfig } from "@/module/shared-ui/config/about.config";
-import { productsConfig } from "@/module/shared-ui/config/products.config";
-import { partnershipsConfig } from "@/module/shared-ui/config/partnerships.config";
-import { newsConfig } from "@/module/shared-ui/config/news.config";
-import { contactConfig } from "@/module/shared-ui/config/contact.config";
-import { getInsuranceConfig } from "@/module/shared-ui/config/getInsurance.config";
+import { homeConfig } from "@/features/shared-ui/config/home.config";
+import { aboutConfig } from "@/features/shared-ui/config/about.config";
+import { productsConfig } from "@/features/shared-ui/config/products.config";
+import { partnershipsConfig } from "@/features/shared-ui/config/partnerships.config";
+import { newsConfig } from "@/features/shared-ui/config/news.config";
+import { contactConfig } from "@/features/shared-ui/config/contact.config";
+import { getInsuranceConfig } from "@/features/shared-ui/config/getInsurance.config";
 
-import ClaimsPage from "@/module/claims/pages/ClaimsPage";
-import SuccessPage from "@/module/claims/pages/SuccessPage";
+import ClaimsPage from "@/features/claims/pages/ClaimsPage";
+import SuccessPage from "@/features/claims/pages/SuccessPage";
 
-import DashboardPage from "@/module/portal/pages/DashboardPage";
+import DashboardPage from "@/features/portal/pages/DashboardPage";
 
-import ErrorPage from "@/module/marketing/components/ErrorPage";
+import ErrorPage from "@/features/marketing/components/ErrorPage";
 
 export const router = createBrowserRouter([
   /**
