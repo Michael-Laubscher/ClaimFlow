@@ -1,151 +1,503 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import AskariLogo from '@/assets/logos/AskariLogo.png';
+import AskariLogo from "@/assets/logos/AskariLogo.png";
 
-import {
-  FOOTER_LINKS,
-  SOCIAL_LINKS,
-} from './footer.config';
+import { footerConfig } from "./footer.config";
 
-import { FOOTER_LEGAL_LINKS } from './footer.constants';
+import { FooterColumn } from "./FooterColumn";
 
-import { FooterColumn } from './FooterColumn';
-
-import { FooterSocials } from './FooterSocials';
+import { FooterSocials } from "./FooterSocials";
 
 import {
   MailIcon,
   PhoneIcon,
   PinIcon,
-} from '@/shared/components/design-system/svg/icons';
+} from "@/shared/components/design-system/svg/icons";
+
+const CONTACT_ICONS = {
+  phone: PhoneIcon,
+  email: MailIcon,
+  address: PinIcon,
+};
 
 export function Footer() {
+  const {
+    brand,
+    cta,
+    sections,
+    socials,
+    trustBadges,
+    contact,
+    legal,
+  } = footerConfig;
+
   return (
     <footer
-      className="bg-gradient-to-r from-blue-900 to-blue-700 font-[--font-body]"
+      className="
+        overflow-x-hidden
+        bg-[#071A52]
+        font-[--font-body]
+      "
       aria-label="Site footer"
     >
-      {/* CTA */}
+      {/* CTA SECTION */}
 
-      <div className="mx-auto max-w-7xl px-6 pt-16">
-        <div className="flex flex-col items-center justify-between gap-8 rounded-3xl bg-gradient-to-br from-[--color-orange] to-[--color-orange-dark] px-8 py-12 md:flex-row md:px-14">
-          <div>
-            <h2 className="font-[--font-display] text-3xl text-white">
-              Ready to protect your cargo?
+      <section
+        className="
+          border-b
+          border-white/10
+          footer-bg
+        "
+      >
+        {/* Decorative Icon */}
+
+        <div
+          className="
+            mx-auto
+            mt-10
+            flex
+            justify-center
+          "
+        >
+          <div
+            className="
+              flex
+              h-14
+              w-14
+              items-center
+              justify-center
+              rounded-xl
+              bg-white/10
+            "
+          />
+        </div>
+
+        {/* CTA Content */}
+
+        <div
+          className="
+            mx-auto
+            max-w-7xl
+            px-5
+            py-14
+            text-center
+            sm:px-6
+            sm:py-16
+            lg:px-8
+          "
+        >
+          <div
+            className="
+              mx-auto
+              mb-10
+              max-w-2xl
+            "
+          >
+            <h2
+              className="
+                text-2xl
+                font-semibold
+                leading-tight
+                text-white
+                sm:text-3xl
+                lg:text-4xl
+              "
+            >
+              {cta.heading}
             </h2>
 
-            <p className="mt-2 text-lg text-orange-100">
-              Get an instant quote in under 2
-              minutes.
+            <p
+              className="
+                mt-4
+                text-sm
+                leading-relaxed
+                text-slate-300
+                sm:text-base
+              "
+            >
+              {cta.description}
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4">
+          {/* CTA Buttons */}
+
+          <div
+            className="
+              flex
+              w-full
+              flex-col
+              gap-3
+              sm:flex-row
+              sm:flex-wrap
+              sm:justify-center
+            "
+          >
             <Link
-              to="/get-quote"
-              className="rounded-xl bg-white px-7 py-3.5 text-sm font-semibold text-[--color-orange-dark] shadow-lg transition-colors hover:bg-orange-50"
+              to={cta.primary.to}
+              className="
+                w-full
+                rounded-xl
+                border
+                border-white/15
+                bg-white
+                px-7
+                py-3.5
+                text-center
+                text-sm
+                font-semibold
+                text-primary-dark
+                transition-colors
+                hover:bg-white/80
+                sm:w-auto
+              "
             >
-              Get Instant Quote →
+              {cta.primary.label}
             </Link>
 
             <Link
-              to="/claims/new"
-              className="rounded-xl border-2 border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+              to={cta.secondary.to}
+              className="
+                w-full
+                rounded-xl
+                border
+                border-white/15
+                bg-white/5
+                px-7
+                py-3.5
+                text-center
+                text-sm
+                font-semibold
+                text-white
+                transition-colors
+                hover:bg-white/10
+                sm:w-auto
+              "
             >
-              File a Claim
+              {cta.secondary.label}
             </Link>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Main Grid */}
+      {/* MAIN FOOTER */}
 
-      <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-12 lg:grid-cols-[2fr_1fr_1fr_1fr]">
-          {/* Brand */}
+      <div
+        className="
+          mx-auto
+          max-w-7xl
+          px-5
+          py-16
+          sm:px-6
+          lg:px-8
+        "
+      >
+        <div
+          className="
+            grid
+            grid-cols-1
+            gap-14
+            sm:grid-cols-2
+            xl:grid-cols-[1.8fr_1fr_1fr_1.2fr]
+          "
+        >
+          {/* BRAND */}
 
           <div>
             <Link
               to="/"
-              className="flex items-center gap-3"
+              className="
+                flex
+                items-center
+                gap-3
+                sm:gap-4
+              "
             >
               <img
                 src={AskariLogo}
                 alt="Askari Insurance"
-                className="h-10 w-auto object-contain"
+                className="
+                  h-10
+                  w-auto
+                  object-contain
+                  brightness-0
+                  invert
+                "
               />
 
-              <div className="hidden flex-col leading-none sm:flex">
-                <span className="text-xs tracking-wide text-[--color-slate-500]">
-                  Protecting African Trade
+              <div
+                className="
+                  flex
+                  flex-col
+                  leading-none
+                "
+              >
+                <span
+                  className="
+                    text-sm
+                    tracking-wide
+                    text-slate-100
+                  "
+                >
+                  {brand.tagline}
                 </span>
               </div>
             </Link>
 
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/50">
-              Comprehensive insurance
-              solutions for transporters,
-              fleet operators, and
-              cross-border businesses
-              throughout Africa.
+            <p
+              className="
+                mt-6
+                max-w-sm
+                text-sm
+                leading-relaxed
+                text-slate-300
+              "
+            >
+              {brand.description}
             </p>
 
-            <FooterSocials
-              socials={SOCIAL_LINKS}
-            />
+            {/* TRUST BADGES */}
 
-            <div className="mt-6 space-y-1.5 text-sm text-white/50">
-              <p className="flex items-center gap-2">
-                <PhoneIcon className="h-3.5 w-3.5 shrink-0" />
-                +254 700 000 000
-              </p>
-
-              <p className="flex items-center gap-2">
-                <MailIcon className="h-3.5 w-3.5 shrink-0" />
-                info@askariinsure.com
-              </p>
-
-              <p className="flex items-center gap-2">
-                <PinIcon className="h-3.5 w-3.5 shrink-0" />
-                Nairobi, Kenya ·
-                Pan-African
-              </p>
+            <div
+              className="
+                mt-7
+                flex
+                flex-wrap
+                gap-2
+                sm:gap-3
+              "
+            >
+              {trustBadges.map((badge) => (
+                <span
+                  key={badge}
+                  className="
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-white/5
+                    px-2.5
+                    py-1
+                    text-xs
+                    text-slate-300
+                    sm:px-3
+                    sm:py-1.5
+                  "
+                >
+                  {badge}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Columns */}
+          {/* NAVIGATION */}
 
-          {FOOTER_LINKS.map(
-            (section) => (
-              <FooterColumn
-                key={section.heading}
-                section={section}
-              />
-            ),
-          )}
+          {sections.map((section) => (
+            <FooterColumn
+              key={section.heading}
+              section={section}
+            />
+          ))}
         </div>
 
-        {/* Bottom Bar */}
+        {/* CONTACT CARD */}
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/30 md:flex-row">
-          <p>
-            © {new Date().getFullYear()}{' '}
-            Askari Insure. All rights
-            reserved.
-          </p>
+        <div className="mt-14">
+          <h3
+            className="
+              mb-4
+              text-sm
+              font-semibold
+              text-white
+            "
+          >
+            Contact
+          </h3>
 
-          <div className="flex gap-6">
-            {FOOTER_LEGAL_LINKS.map(
-              (link) => (
+          <div
+            className="
+              rounded-2xl
+              border
+              border-white/10
+              bg-white/5
+              p-5
+            "
+          >
+            <div
+              className="
+                grid
+                grid-cols-1
+                gap-6
+                sm:grid-cols-2
+                xl:grid-cols-3
+              "
+            >
+              {contact.map((item) => {
+                const Icon =
+                  CONTACT_ICONS[item.type];
+
+                const content = (
+                  <>
+                    <div
+                      className="
+                        flex
+                        h-10
+                        w-10
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-xl
+                        bg-white/10
+                      "
+                    >
+                      <Icon
+                        className="
+                          h-4
+                          w-4
+                          text-white
+                        "
+                      />
+                    </div>
+
+                    <div className="min-w-0">
+                      <p
+                        className="
+                          text-xs
+                          uppercase
+                          tracking-wide
+                          text-white
+                        "
+                      >
+                        {item.label}
+                      </p>
+
+                      <p
+                        className="
+                          mt-1
+                          break-words
+                          text-sm
+                          leading-relaxed
+                          text-slate-200
+                        "
+                      >
+                        {item.value}
+                      </p>
+                    </div>
+                  </>
+                );
+
+                return item.href ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="
+                      flex
+                      min-w-0
+                      items-start
+                      gap-3
+                      text-white
+                      transition-colors
+                      hover:text-white/80
+                    "
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div
+                    key={item.label}
+                    className="
+                      flex
+                      min-w-0
+                      items-start
+                      gap-3
+                      text-white
+                    "
+                  >
+                    {content}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* SOCIALS */}
+
+          <div
+            className="
+              mt-10
+              flex
+              justify-center
+              sm:justify-end
+            "
+          >
+            <FooterSocials socials={socials} />
+          </div>
+        </div>
+
+        {/* BOTTOM BAR */}
+
+        <div
+          className="
+            mt-10
+            border-t
+            border-white/10
+            pt-6
+          "
+        >
+          <div
+            className="
+              flex
+              flex-col
+              gap-5
+              md:flex-row
+              md:items-center
+              md:justify-between
+            "
+          >
+            <div>
+              <p
+                className="
+                  text-xs
+                  text-white
+                "
+              >
+                {legal.copyright}
+              </p>
+
+              <p
+                className="
+                  mt-2
+                  text-xs
+                  text-white
+                "
+              >
+                {legal.compliance}
+              </p>
+            </div>
+
+            <div
+              className="
+                flex
+                flex-wrap
+                justify-center
+                gap-x-6
+                gap-y-2
+                md:justify-end
+              "
+            >
+              {legal.links.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className="transition-colors hover:text-white/60"
+                  className="
+                    text-xs
+                    text-white
+                    transition-colors
+                    hover:text-slate-200
+                  "
                 >
                   {link.label}
                 </Link>
-              ),
-            )}
+              ))}
+            </div>
           </div>
         </div>
       </div>

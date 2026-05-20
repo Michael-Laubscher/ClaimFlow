@@ -1,4 +1,4 @@
-import type { HeroStat, Partner } from "./hero.types";
+import type { HeroStat, Partner } from "../../../shared/types/hero.types";
 
 export const HERO_STATS: HeroStat[] = [
   {

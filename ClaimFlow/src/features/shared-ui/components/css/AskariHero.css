@@ -18,25 +18,14 @@ body {
 }
 
 .hero-bg {
-  background: radial-gradient(
-    ellipse at 70% 50%,
-    #1a4fd6 0%,
-    #1238a8 40%,
-    #0c2578 70%,
-    #071852 100%
-  );
+  background: linear-gradient(135deg, #0c2578 0%, #071A52 100%);
   position: relative;
   overflow: hidden;
 }
-
-.hero-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 15% 85%, rgba(255,100,50,0.12) 0%, transparent 40%),
-    radial-gradient(circle at 85% 15%, rgba(100,150,255,0.15) 0%, transparent 40%);
-  pointer-events: none;
+.footer-bg {
+  background: linear-gradient(135deg, #233C7B 0%, #224C7C 7.14%, #205B7C 14.29%, #1E6A7C 21.43%, #1B797A 28.57%, #188879 35.71%, #149676 42.86%, #0EA572 50%, #0E916C 57.14%, #0D7E65 64.29%, #0D6C5F 71.43%, #0C5958 78.57%, #0C4850 85.71%, #0B3648 92.86%, #0A2540 100%);]
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-bg::after {
