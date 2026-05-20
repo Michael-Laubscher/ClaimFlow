@@ -4,15 +4,29 @@ import { wavePaths } from "./wave.paths";
 
 import type { WaveDividerProps } from "./wave.types";
 
+const waveColors = {
+  blue: {
+    start: "#2563eb", // blue-600
+    end: "#60a5fa", // blue-400
+  },
+
+  white: {
+    start: "#f8fafc",
+    end: "#f8fafc", // slate-50
+  },
+} as const;
+
 export function WaveDivider({
   variant = "soft",
-  fill = "currentColor",
   flip = false,
   className,
   animated = false,
   customPath,
-}: WaveDividerProps) {
+  color = "blue",
+}: WaveDividerProps & { color?: keyof typeof waveColors }) {
   const path = customPath || wavePaths[variant];
+
+  const selected = waveColors[color];
 
   return (
     <div
@@ -32,21 +46,29 @@ export function WaveDivider({
       >
         <defs>
           <linearGradient
-            id="wave-gradient"
+            id={`wave-gradient-${color}`}
             x1="0%"
             y1="0%"
             x2="100%"
             y2="0%"
           >
-            <stop offset="0%" stopColor={fill} stopOpacity="1" />
+            <stop
+              offset="0%"
+              stopColor={selected.start}
+              stopOpacity="1"
+            />
 
-            <stop offset="100%" stopColor={fill} stopOpacity="0.92" />
+            <stop
+              offset="100%"
+              stopColor={selected.end}
+              stopOpacity="1"
+            />
           </linearGradient>
         </defs>
 
         <path
           d={path}
-          fill="url(#wave-gradient)"
+          fill={`url(#wave-gradient-${color})`}
           className={clsx(
             animated &&
               "animate-[waveFloat_8s_ease-in-out_infinite_alternate]"

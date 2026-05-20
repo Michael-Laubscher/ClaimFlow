@@ -484,12 +484,7 @@ export function HeroSection() {
 
         {/* WAVE DIVIDER */}
 
-        <WaveDivider
-          variant="layered"
-          fill="white"
-          animated
-          className="h-16 sm:h-24"
-        />
+        <WaveDivider color="white" />
       </section>
     </div>
   );

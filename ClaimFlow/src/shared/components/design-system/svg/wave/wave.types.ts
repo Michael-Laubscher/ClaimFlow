@@ -1,20 +1,15 @@
 export type WaveVariant =
   | "soft"
   | "curve"
-  | "layered"
   | "sharp"
+  | "layered"
   | "minimal";
 
 export interface WaveDividerProps {
   variant?: WaveVariant;
-
-  fill?: string;
-
   flip?: boolean;
-
   className?: string;
-
   animated?: boolean;
-
   customPath?: string;
+  color?: "blue" | "white";
 }
