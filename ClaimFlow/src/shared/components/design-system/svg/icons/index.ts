@@ -1,3 +1,5 @@
+export * from './PlaceholderIcon';
+
 export * from "./CheckIcon";
 
 export * from "./ArrowRightIcon";
@@ -25,3 +27,5 @@ export * from './LinkedInIcon';
 export * from './TwitterIcon';
 
 export * from './PinIcon';
+
+export * from "./iconMap";

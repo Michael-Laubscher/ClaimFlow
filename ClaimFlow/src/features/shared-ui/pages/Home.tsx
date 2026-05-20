@@ -1,0 +1,18 @@
+import { HeroSection } from "@/features/shared-ui/components/sections/HeroSection";
+import { TrustSection } from "@/features/shared-ui/components/sections/trust/TrustSection";
+import { ProductsSection } from "@/features/shared-ui/components/sections/ProductsSection";
+import { WhyChooseSection } from "@/features/shared-ui/components/sections/WhyChooseSection";
+
+export default function HomePage() {
+  return (
+    <>
+      <HeroSection />
+
+      <TrustSection />
+
+      <ProductsSection />
+
+      <WhyChooseSection />
+    </>
+  )
+}
