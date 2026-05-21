@@ -1,12 +1,14 @@
 import type {
   SocialLink,
-} from './footer.types';
+} from '@/shared/types/footer.types';
 
 import {
   FacebookIcon,
   LinkedInIcon,
   TwitterIcon,
 } from '@/shared/components/design-system/svg/icons';
+
+import { SocialButton } from '@/shared/components/design-system/navigation/SocialButton';
 
 interface Props {
   socials: SocialLink[];
@@ -22,35 +24,19 @@ export function FooterSocials({
   socials,
 }: Props) {
   return (
-    <div className="mt-7 flex gap-3">
+    <div className="flex gap-3">
       {socials.map((social) => {
         const Icon =
           ICONS[social.icon];
 
         return (
-          <a
+          <SocialButton
             key={social.label}
             href={social.href}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={social.label}
-            className="
-              flex
-              h-10
-              w-10
-              items-center
-              justify-center
-              rounded-full
-              bg-white/5
-              text-slate-300
-              transition-all
-              duration-200
-              hover:bg-[--color-orange]
-              hover:text-white
-            "
+            label={social.label}
           >
             <Icon className="h-4 w-4" />
-          </a>
+          </SocialButton>
         );
       })}
     </div>

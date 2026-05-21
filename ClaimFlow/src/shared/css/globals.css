@@ -18,10 +18,94 @@ body {
 }
 
 .hero-bg {
-  background: linear-gradient(135deg, #0c2578 0%, #071A52 100%);
+  background: linear-gradient(135deg, #0c2570 0%, #071a52 100%);
   position: relative;
   overflow: hidden;
 }
+
+.gradient-text {
+  background: linear-gradient(135deg, #f59e0b, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.trusted-badge {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.claims-badge {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  border-radius: 1rem;
+}
+
+.pre-animate {
+  opacity: 0;
+}
+
+.animate-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.animate-left {
+  animation: fadeLeft 0.8s ease forwards;
+}
+
+.animate-right {
+  animation: fadeRight 0.8s ease forwards;
+}
+
+.animate-stat {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.delay-3 {
+  animation-delay: 0.3s;
+}
+
+.delay-4 {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .footer-bg {
   background: linear-gradient(135deg, #233C7B 0%, #224C7C 7.14%, #205B7C 14.29%, #1E6A7C 21.43%, #1B797A 28.57%, #188879 35.71%, #149676 42.86%, #0EA572 50%, #0E916C 57.14%, #0D7E65 64.29%, #0D6C5F 71.43%, #0C5958 78.57%, #0C4850 85.71%, #0B3648 92.86%, #0A2540 100%);]
   position: relative;

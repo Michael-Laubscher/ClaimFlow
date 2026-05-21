@@ -1,4 +1,5 @@
-import type { FooterConfig } from './footer.types';
+import type { FooterConfig } from "@/shared/types/footer.types";
+
 
 export const footerConfig: FooterConfig =
   {

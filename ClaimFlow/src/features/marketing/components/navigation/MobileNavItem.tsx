@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { clsx } from "clsx";
 
-import type { NavItem } from "./nav.types";
+import type { NavItem } from "../../../../shared/types/nav.types";
 
-import { isActiveRoute } from "./nav.utils";
+import { isActiveRoute } from "../../../../shared/utilis/nav.utils";
 
 import { ChevronDownIcon } from "@/shared/components/design-system/svg/icons";
 

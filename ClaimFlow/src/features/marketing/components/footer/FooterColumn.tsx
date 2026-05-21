@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom';
-
 import type {
   FooterSection,
 } from './footer.types';
+
+import { Pill } from '@/shared/components/design-system/feedback/Pill';
+
+import { NavLink } from '@/shared/components/design-system/navigation/NavLink';
+
+import { FooterHeading } from '@/shared/components/design-system/typography/FooterHeading';
 
 interface Props {
   section: FooterSection;
@@ -13,21 +17,14 @@ export function FooterColumn({
 }: Props) {
   return (
     <div>
-      <h3
-        className="
-          mb-5
-          text-sm
-          font-semibold
-          text-white
-        "
-      >
+      <FooterHeading>
         {section.heading}
-      </h3>
+      </FooterHeading>
 
       <ul className="space-y-3">
         {section.items.map((item) => (
           <li key={item.to}>
-            <Link
+            <NavLink
               to={item.to}
               className="
                 group
@@ -35,29 +32,16 @@ export function FooterColumn({
                 items-center
                 gap-2
                 text-sm
-                text-slate-300
-                transition-colors
-                hover:text-white
               "
             >
               <span>{item.label}</span>
 
               {item.badge && (
-                <span
-                  className="
-                    rounded-full
-                    bg-[--color-orange]
-                    px-2
-                    py-0.5
-                    text-[10px]
-                    font-semibold
-                    text-white
-                  "
-                >
+                <Pill>
                   {item.badge}
-                </span>
+                </Pill>
               )}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>

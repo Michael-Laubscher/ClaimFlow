@@ -1,4 +1,4 @@
-import type { NavItem } from './nav.types';
+import type { NavItem } from '../../../shared/types/nav.types';
 
 export const PRODUCTS_ITEMS: NavItem['children'] = [
   {

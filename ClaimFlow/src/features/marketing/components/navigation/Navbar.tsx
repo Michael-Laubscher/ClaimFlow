@@ -4,9 +4,9 @@ import { clsx } from "clsx";
 
 import AskariLogo from "@/assets/logos/AskariLogo.png";
 
-import { Button } from "@/shared/components/design-system/Button";
+import { Button } from "@/shared/components/design-system/buttons/Button";
 
-import { NAV_LINKS } from "./nav.config";
+import { NAV_LINKS } from "../../../shared-ui/configs/nav.config";
 
 import { DesktopNavItem } from "./DesktopNavItem";
 import { MobileNavItem } from "./MobileNavItem";
