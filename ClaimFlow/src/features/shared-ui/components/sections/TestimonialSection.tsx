@@ -1,6 +1,6 @@
 type Testimonial = { name: string; role?: string; quote: string };
 
-export default function TestimonialsSection({ title, items }: { title: string; items: Testimonial[] }) {
+export default function TestimonialSection({ title, items }: { title: string; items: Testimonial[] }) {
   return (
     <section className="bg-slate-50 py-20">
       <div className="mx-auto max-w-6xl px-6">

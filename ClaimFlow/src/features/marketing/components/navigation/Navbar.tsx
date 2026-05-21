@@ -13,9 +13,7 @@ import { MobileNavItem } from "./MobileNavItem";
 
 import {
   ClipboardIcon,
-  MailIcon,
   MenuIcon,
-  PhoneIcon,
   XIcon,
 } from "@/shared/components/design-system/svg/icons";
 
@@ -61,37 +59,54 @@ export function Navbar() {
     <>
       {/* Top Bar */}
 
-      <div className="bg-gradient-to-r from-blue-900 to-blue-700 px-6 py-2 text-xs font-[--font-body] text-white/80">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <div className="flex items-center gap-6">
-            <a
-              href="tel:+254700000000"
-              className="flex items-center gap-1.5 transition-colors hover:text-white"
-            >
-              <PhoneIcon className="h-3.5 w-3.5" />
-              +254 700 000 000
-            </a>
-
-            <a
-              href="mailto:info@askariinsure.com"
-              className="flex items-center gap-1.5 transition-colors hover:text-white"
-            >
-              <MailIcon className="h-3.5 w-3.5" />
-              info@askariinsure.com
-            </a>
-          </div>
-
-          <div className="flex items-center gap-5">
+      <div
+        className="
+    bg-gradient-to-r
+    from-blue-900
+    to-blue-950
+    px-4
+    py-3
+    text-xs
+    font-[--font-body]
+    text-white/80
+    sm:px-6
+  "
+      >
+        <div
+          className="
+      mx-auto
+      flex
+      max-w-7xl
+      flex-col
+      gap-3
+      sm:gap-4
+      lg:flex-row
+      lg:items-center
+      lg:justify-between
+    "
+        >
+          <div
+            className="
+        flex
+        flex-wrap
+        items-center
+        gap-4
+        sm:gap-5
+      "
+          >
             <Link
               to="/claims/new"
-              className="flex items-center gap-1.5 transition-colors hover:text-white"
+              className="
+          flex
+          items-center
+          gap-1.5
+          transition-colors
+          hover:text-white
+        "
             >
-              <ClipboardIcon className="h-3.5 w-3.5" />
-              File a Claim
-            </Link>
+              <ClipboardIcon className="h-3.5 w-3.5 shrink-0" />
 
-            <Link to="/portal" className="transition-colors hover:text-white">
-              Dashboard
+              <span>File a Claim</span>
             </Link>
           </div>
         </div>
@@ -181,8 +196,6 @@ export function Navbar() {
                 variant="secondary"
                 to="/get-quote"
               />
-
-              <Button label="Dashboard" variant="outline" to="/portal" />
             </div>
           </div>
         )}

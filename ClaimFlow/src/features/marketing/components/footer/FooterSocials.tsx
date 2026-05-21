@@ -1,4 +1,6 @@
-import type { SocialLink } from './footer.types';
+import type {
+  SocialLink,
+} from './footer.types';
 
 import {
   FacebookIcon,
@@ -20,7 +22,7 @@ export function FooterSocials({
   socials,
 }: Props) {
   return (
-    <div className="mt-6 flex gap-3">
+    <div className="mt-7 flex gap-3">
       {socials.map((social) => {
         const Icon =
           ICONS[social.icon];
@@ -29,8 +31,23 @@ export function FooterSocials({
           <a
             key={social.label}
             href={social.href}
+            target="_blank"
+            rel="noreferrer"
             aria-label={social.label}
-            className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 text-white/50 transition-colors hover:border-[--color-orange] hover:text-[--color-orange]"
+            className="
+              flex
+              h-10
+              w-10
+              items-center
+              justify-center
+              rounded-full
+              bg-white/5
+              text-slate-300
+              transition-all
+              duration-200
+              hover:bg-[--color-orange]
+              hover:text-white
+            "
           >
             <Icon className="h-4 w-4" />
           </a>
