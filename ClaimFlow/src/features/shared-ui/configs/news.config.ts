@@ -1,6 +1,6 @@
 import type { PageConfig } from "@/shared/types/page.types";
 
-export const newsConfig: PageConfig = {
+const newsConfig: PageConfig = {
   sections: [
     {
       type: "hero",
@@ -26,3 +26,5 @@ export const newsConfig: PageConfig = {
     },
   ],
 };
+
+export default newsConfig;

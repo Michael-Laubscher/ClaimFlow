@@ -1,4 +1,4 @@
-import { trustPillars } from "./trust";
+import { trustPillars } from "@/features/shared-ui/configs";
 import { iconMap } from "@/shared/components/design-system/svg/icons";
 import { PlaceholderIcon } from "@/shared/components/design-system/svg/icons/PlaceholderIcon";
 

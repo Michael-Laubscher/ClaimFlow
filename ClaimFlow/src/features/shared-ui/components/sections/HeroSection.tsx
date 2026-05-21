@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 
 import "@/features/shared-ui/components/css/AskariHero.css";
 
-import { HERO_CONTENT, HERO_STATS } from "../../config/hero.config";
+import {
+  HERO_CONTENT,
+  HERO_STATS,
+} from "@/features/shared-ui/configs";
 
 import {
   WaveDivider,

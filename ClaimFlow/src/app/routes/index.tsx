@@ -1,42 +1,163 @@
-import { createBrowserRouter } from "react-router-dom";
+import { lazy, Suspense, type ReactNode } from "react";
+import { createBrowserRouter, type RouteObject } from "react-router-dom";
 
 import PublicLayout from "@/features/marketing/components/MainLayout";
-import DynamicPage from "@/features/shared-ui/pages/DynamicPage";
-
-import { aboutConfig } from "@/features/shared-ui/config/about.config";
-import { productsConfig } from "@/features/shared-ui/config/products.config";
-import { partnershipsConfig } from "@/features/shared-ui/config/partnerships.config";
-import { newsConfig } from "@/features/shared-ui/config/news.config";
-import { contactConfig } from "@/features/shared-ui/config/contact.config";
-import { getInsuranceConfig } from "@/features/shared-ui/config/getInsurance.config";
-
-import ClaimsPage from "@/features/claims/pages/ClaimsPage";
-import SuccessPage from "@/features/claims/pages/SuccessPage";
-
 import ErrorPage from "@/features/marketing/components/ErrorPage";
-import HomePage from "@/features/shared-ui/pages/Home";
+import Spinner from "@/features/shared-ui/components/sections/Spinner";
+
+// -----------------------------
+// Lazy-loaded pages
+// -----------------------------
+
+const DynamicPage = lazy(() => import("@/features/shared-ui/pages/DynamicPage"));
+const HomePage = lazy(() => import("@/features/shared-ui/pages/Home"));
+
+const ClaimsPage = lazy(() => import("@/features/claims/pages/ClaimsPage"));
+const SuccessPage = lazy(() => import("@/features/claims/pages/SuccessPage"));
+
+// -----------------------------
+// Configs
+// -----------------------------
+
+import {
+  aboutConfig,
+  productsConfig,
+  partnershipsConfig,
+  newsConfig,
+  contactConfig,
+  getInsuranceConfig,
+} from "@/features/shared-ui/configs";
+
+// -----------------------------
+// Route constants (optional but consistent)
+// -----------------------------
+
+export const ROUTES = {
+  HOME: "/",
+  ABOUT: "about",
+  PRODUCTS: "products",
+  PARTNERSHIPS: "partnerships",
+  NEWS: "news",
+  CONTACT: "contact",
+  GET_INSURANCE: "get-insurance",
+  CLAIMS: "claims",
+} as const;
+
+// -----------------------------
+// Suspense helper (removes repetition)
+// -----------------------------
+
+const withSuspense = (node: ReactNode) => (
+  <Suspense fallback={<Spinner />}>{node}</Suspense>
+);
+
+// -----------------------------
+// Route factories
+// -----------------------------
+
+const createDynamicRoute = ({
+  path,
+  config,
+  title,
+}: {
+  path: string;
+  config: any;
+  title: string;
+}): RouteObject => ({
+  path,
+  element: withSuspense(<DynamicPage config={config} />),
+  handle: { title },
+});
+
+// -----------------------------
+// Dynamic marketing routes
+// -----------------------------
+
+const dynamicRoutes: RouteObject[] = [
+  createDynamicRoute({
+    path: ROUTES.ABOUT,
+    config: aboutConfig,
+    title: "About Us",
+  }),
+  createDynamicRoute({
+    path: ROUTES.PRODUCTS,
+    config: productsConfig,
+    title: "Products",
+  }),
+  createDynamicRoute({
+    path: ROUTES.PARTNERSHIPS,
+    config: partnershipsConfig,
+    title: "Partnerships",
+  }),
+  createDynamicRoute({
+    path: ROUTES.NEWS,
+    config: newsConfig,
+    title: "News",
+  }),
+  createDynamicRoute({
+    path: ROUTES.CONTACT,
+    config: contactConfig,
+    title: "Contact",
+  }),
+  createDynamicRoute({
+    path: ROUTES.GET_INSURANCE,
+    config: getInsuranceConfig,
+    title: "Get Insurance",
+  }),
+];
+
+// -----------------------------
+// Claims routes (renamed for clarity)
+// -----------------------------
+
+const claimsRouteChildren: RouteObject[] = [
+  {
+    path: "new",
+    element: withSuspense(<ClaimsPage />),
+    handle: {
+      title: "Submit Claim",
+    },
+  },
+  {
+    path: "success",
+    element: withSuspense(<SuccessPage />),
+    handle: {
+      title: "Claim Submitted",
+    },
+  },
+];
+
+// -----------------------------
+// Router
+// -----------------------------
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: ROUTES.HOME,
     element: <PublicLayout />,
     errorElement: <ErrorPage />,
 
     children: [
-      { index: true, element: <HomePage /> },
+      {
+        index: true,
+        element: withSuspense(<HomePage />),
+        handle: {
+          title: "Home",
+        },
+      },
 
-      { path: "about", element: <DynamicPage config={aboutConfig} /> },
-      { path: "products", element: <DynamicPage config={productsConfig} /> },
-      { path: "partnerships", element: <DynamicPage config={partnershipsConfig} /> },
-      { path: "news", element: <DynamicPage config={newsConfig} /> },
-      { path: "contact", element: <DynamicPage config={contactConfig} /> },
-      { path: "get-insurance", element: <DynamicPage config={getInsuranceConfig} /> },
+      // Marketing pages
+      ...dynamicRoutes,
 
-      { path: "claims/new", element: <ClaimsPage /> },
-      { path: "claims/success", element: <SuccessPage /> },
-
-      // ✅ IMPORTANT: catch-all 404 route
-      { path: "*", element: <ErrorPage /> },
+      // Claims
+      {
+        path: ROUTES.CLAIMS,
+        children: claimsRouteChildren,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
+      },
     ],
   },
 ]);

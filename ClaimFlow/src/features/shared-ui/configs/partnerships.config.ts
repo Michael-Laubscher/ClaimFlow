@@ -1,6 +1,6 @@
 import type { PageConfig } from "@/shared/types/page.types";
 
-export const partnershipsConfig: PageConfig = {
+const partnershipsConfig: PageConfig = {
   sections: [
     {
       type: "hero",
@@ -32,3 +32,5 @@ export const partnershipsConfig: PageConfig = {
     },
   ],
 };
+
+export default partnershipsConfig;

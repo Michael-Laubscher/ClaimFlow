@@ -1,6 +1,6 @@
 import type { PageConfig } from "@/shared/types/page.types";
 
-export const getInsuranceConfig: PageConfig = {
+const getInsuranceConfig: PageConfig = {
   sections: [
     {
       type: "hero",
@@ -22,3 +22,5 @@ export const getInsuranceConfig: PageConfig = {
     },
   ],
 };
+
+export default getInsuranceConfig;

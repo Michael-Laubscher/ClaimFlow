@@ -1,6 +1,6 @@
 import type { PageConfig } from "@/shared/types/page.types";
 
-export const contactConfig: PageConfig = {
+const contactConfig: PageConfig = {
   sections: [
     {
       type: "hero",
@@ -22,3 +22,5 @@ export const contactConfig: PageConfig = {
     },
   ],
 };
+
+export default contactConfig;
