@@ -1,13 +1,10 @@
-import { Link } from "react-router-dom";
 import { clsx } from "clsx";
-
-import type { NavItem } from "./nav.types";
-
-import { isActiveRoute } from "./nav.utils";
-
-import { useOutsideClick } from "./useOutsideClick";
-
+import type { NavItem } from "@/shared/types/nav.types";
+import { useOutsideClick } from "@/shared/hooks/useOutsideClick";
+import { NavLink } from "@/shared/components/design-system/navigation/NavLink";
+import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { ChevronDownIcon } from "@/shared/components/design-system/svg/icons";
+import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
 
 interface Props {
   item: NavItem;
@@ -18,29 +15,19 @@ interface Props {
 
 export function DesktopNavItem({
   item,
-  pathname,
+  pathname: _pathname,
   openDropdown,
   setOpenDropdown,
 }: Props) {
-  const ref = useOutsideClick<HTMLDivElement>(() => setOpenDropdown(null));
-
-  const active = isActiveRoute(pathname, item.to);
-
   const isOpen = openDropdown === item.label;
+
+  const ref = useOutsideClick<HTMLDivElement>(() => setOpenDropdown(null));
 
   if (!item.children) {
     return (
-      <Link
-        to={item.to!}
-        className={clsx(
-          "rounded-xl px-4 py-2 text-sm font-semibold transition-colors",
-          active
-            ? "bg-[--color-slate-50] text-[--color-navy]"
-            : "text-[--color-slate-600] hover:bg-[--color-slate-50] hover:text-[--color-navy]",
-        )}
-      >
+      <NavLink to={item.to!} variant="pill" size="md">
         {item.label}
-      </Link>
+      </NavLink>
     );
   }
 
@@ -48,13 +35,11 @@ export function DesktopNavItem({
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpenDropdown(isOpen ? null : item.label)}
-        aria-expanded={isOpen}
-        aria-haspopup="menu"
         className={clsx(
-          "flex items-center gap-1 rounded-xl px-4 py-2 text-sm font-semibold transition-colors",
+          "flex items-center gap-1 rounded-xl px-4 py-2 text-sm transition-colors",
           isOpen
             ? "bg-[--color-slate-50] text-[--color-navy]"
-            : "text-[--color-slate-600] hover:bg-[--color-slate-50] hover:text-[--color-navy]",
+            : "text-[--color-slate-600] hover:bg-[--color-slate-50]",
         )}
       >
         {item.label}
@@ -68,25 +53,33 @@ export function DesktopNavItem({
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 top-full z-50 mt-2 w-72 rounded-xl border border-[--color-slate-100] bg-white py-2 shadow-[--shadow-float]">
+        <GlassCard className="absolute left-0 top-full z-50 mt-2 w-72 px-4 py-2">
           {item.children.map((child) => (
-            <Link
+            <NavLink
               key={child.to}
               to={child.to}
-              className="mx-2 flex flex-col rounded-xl px-5 py-3 transition-colors hover:bg-[--color-slate-50]"
+              className="flex flex-col items-start px-4 py-3 gap-1 rounded-none border-b-2 border-black/40 last:border-b-0 hover:bg-[--color-slate-50] transition"
             >
-              <span className="text-sm font-semibold text-[--color-navy]">
+              <Typography
+                variant="label-md"
+                color="primary"
+                className="text-left"
+              >
                 {child.label}
-              </span>
+              </Typography>
 
               {child.desc && (
-                <span className="mt-0.5 text-xs text-[--color-slate-400]">
+                <Typography
+                  variant="body-sm"
+                  color="muted"
+                  className="text-left"
+                >
                   {child.desc}
-                </span>
+                </Typography>
               )}
-            </Link>
+            </NavLink>
           ))}
-        </div>
+        </GlassCard>
       )}
     </div>
   );

@@ -1,55 +1,71 @@
 import { whyFeatures } from "@/shared/types/features";
 import { CheckIcon } from "@/shared/components/design-system/svg";
 
+import { Container } from "@/shared/components/design-system/layout/Container";
+import { Stack } from "@/shared/components/design-system/layout/Stack";
+import { Card } from "@/shared/components/design-system/surface/Card";
+import { Button } from "@/shared/components/design-system/buttons/Button";
+import { Typography } from "@/shared/components/design-system/typography/Typography";
+
 export function WhyChooseSection() {
   return (
     <section className="bg-slate-50 py-20">
-      <div className="container mx-auto px-4">
-        <div className="mb-10">
-          
-          <p className="inline-block px-6 py-2 bg-green-100 text-green-700 font-bold rounded-full">
+      <Container>
+        {/* Header */}
+        <Stack direction="col" gap="md" className="mb-12 text-center">
+          <Typography
+            variant="label-md"
+            className="inline-block max-w-fit px-6 py-2 bg-green-100 text-green-700 font-bold rounded-full"
+          >
             Why Choose Us
-          </p>
+          </Typography>
 
-        
-          <p className="mt-4 text-3xl md:text-4xl font-bold">
+          <Typography
+            variant="body-3xl"
+            className="mt-4 ml-0 text-start max-w-sm text-3xl md:text-4xl font-bold"
+          >
             Why Transporters Choose Askari
-          </p>
-        </div>
+          </Typography>
+        </Stack>
 
-        <div className="grid gap-10 md:grid-cols-2 items-center">
-          
-          <div className="space-y-4">
+        {/* Features + Image */}
+        <Stack
+          direction="row"
+          gap="lg"
+          className="grid md:grid-cols-2 items-center gap-10"
+        >
+          {/* Features List */}
+          <Stack direction="col" gap="md">
             {whyFeatures.map((feature) => (
-              <div
+              <Card
                 key={feature.id}
-                className="flex items-center gap-3 bg-white rounded-xl p-4"
+                className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition"
               >
-               
-                <div className="flex items-center justify-center w-7 h-7 bg-[#0EA572] rounded-lg">
-                  <CheckIcon className="w-4 h-4 text-white" />
+                <div className="flex items-center justify-center w-10 h-10 bg-green-600 rounded-md flex-shrink-0">
+                  <CheckIcon className="w-5 h-5 text-white" />
                 </div>
 
-                <p className="text-sm font-medium">{feature.label}</p>
-              </div>
+                <Typography variant="body-sm" className="font-medium">
+                  {feature.label}
+                </Typography>
+              </Card>
             ))}
 
-           
-            <button className="mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
+            <Button className="mt-6 w-max px-6 py-3">
               Learn More About Us
-            </button>
-          </div>
+            </Button>
+          </Stack>
 
-          
+          {/* Image */}
           <div className="flex justify-center">
             <img
               src="/why-choose-us.jpg"
               alt="Why Choose Us"
-              className="rounded-xl max-w-full h-auto"
+              className="rounded-xl max-w-full h-auto shadow-lg"
             />
           </div>
-        </div>
-      </div>
+        </Stack>
+      </Container>
     </section>
   );
 }

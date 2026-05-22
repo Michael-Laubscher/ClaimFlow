@@ -1,63 +1,43 @@
-import { Link } from 'react-router-dom';
-
-import type {
-  FooterSection,
-} from './footer.types';
+import type { FooterSection } from "@/shared/types/footer.types";
+import { Pill } from "@/shared/components/design-system/feedback/Pill";
+import { NavLink } from "@/shared/components/design-system/navigation/NavLink";
+import { FooterHeading } from "@/shared/components/design-system/typography/FooterHeading";
 
 interface Props {
   section: FooterSection;
 }
 
-export function FooterColumn({
-  section,
-}: Props) {
+export function FooterColumn({ section }: Props) {
   return (
     <div>
-      <h3
-        className="
-          mb-5
-          text-sm
-          font-semibold
-          text-white
-        "
-      >
-        {section.heading}
-      </h3>
+      <FooterHeading>
+        <h3 className="mb-4">{section.heading}</h3>
+      </FooterHeading>
 
-      <ul className="space-y-3">
+      <ul className="flex flex-col gap-3">
         {section.items.map((item) => (
           <li key={item.to}>
-            <Link
+            <NavLink
               to={item.to}
               className="
                 group
-                inline-flex
+                flex
                 items-center
+                justify-between
                 gap-2
                 text-sm
-                text-slate-300
+                text-white
+                hover:text-white/70
                 transition-colors
-                hover:text-white
               "
             >
-              <span>{item.label}</span>
-
+              <span className="truncate">{item.label}</span>
               {item.badge && (
-                <span
-                  className="
-                    rounded-full
-                    bg-[--color-orange]
-                    px-2
-                    py-0.5
-                    text-[10px]
-                    font-semibold
-                    text-white
-                  "
-                >
-                  {item.badge}
-                </span>
+                <Pill>
+                  <span className="ml-auto">{item.badge}</span>
+                </Pill>
               )}
-            </Link>
+            </NavLink>
           </li>
         ))}
       </ul>

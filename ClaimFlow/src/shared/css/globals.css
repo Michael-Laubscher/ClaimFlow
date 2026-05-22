@@ -1,0 +1,407 @@
+/* AskariHero.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.font-sora {
+  font-family: 'Sora', sans-serif;
+}
+
+.font-dm {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.hero-bg {
+  background: linear-gradient(135deg, #0c2570 0%, #071a52 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #f59e0b, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.trusted-badge {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.claims-badge {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  border-radius: 1rem;
+}
+
+.pre-animate {
+  opacity: 0;
+}
+
+.animate-up {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.animate-left {
+  animation: fadeLeft 0.8s ease forwards;
+}
+
+.animate-right {
+  animation: fadeRight 0.8s ease forwards;
+}
+
+.animate-stat {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.delay-3 {
+  animation-delay: 0.3s;
+}
+
+.delay-4 {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.footer-bg {
+  background: linear-gradient(135deg, #233C7B 0%, #224C7C 7.14%, #205B7C 14.29%, #1E6A7C 21.43%, #1B797A 28.57%, #188879 35.71%, #149676 42.86%, #0EA572 50%, #0E916C 57.14%, #0D7E65 64.29%, #0D6C5F 71.43%, #0C5958 78.57%, #0C4850 85.71%, #0B3648 92.86%, #0A2540 100%);]
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.hero-wave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 80px;
+}
+
+@keyframes floatUp {
+  0%,100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.float-card {
+  animation: floatUp 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.float-card-2 {
+  animation: floatUp 4s ease-in-out infinite 1s;
+  will-change: transform;
+}
+
+.animate-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-right {
+  animation: slideInRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-up {
+  animation: slideInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade {
+  animation: fadeIn 1s ease forwards;
+}
+
+.animate-stat {
+  animation: countUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.delay-3 {
+  animation-delay: 0.3s;
+}
+
+.delay-4 {
+  animation-delay: 0.5s;
+}
+
+.delay-5 {
+  animation-delay: 0.65s;
+}
+
+.delay-6 {
+  animation-delay: 0.8s;
+}
+
+.delay-7 {
+  animation-delay: 0.95s;
+}
+
+.pre-animate {
+  opacity: 0;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    #e8723a 0%,
+    #f5a623 50%,
+    #68c957 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #c9562a, #e8723a);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(232,114,58,0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 30px rgba(232,114,58,0.6);
+
+  background: linear-gradient(135deg, #d4602f, #f07d45);
+}
+
+.btn-outline {
+  border: 2px solid rgba(255,255,255,0.6);
+
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline:hover {
+  border-color: white;
+
+  background: rgba(255,255,255,0.15);
+
+  transform: translateY(-2px);
+}
+
+.truck-card {
+  background: white;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.3),
+    0 0 0 1px rgba(255,255,255,0.1);
+}
+
+.truck-img-placeholder {
+  background: linear-gradient(
+    135deg,
+    #e8e8e8 0%,
+    #f5f5f5 100%
+  );
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.glass-card {
+  background: rgba(255,255,255,0.97);
+
+  backdrop-filter: blur(20px);
+
+  border-radius: 16px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.claims-badge {
+  background: linear-gradient(135deg, #c9562a, #e8723a);
+
+  border-radius: 14px;
+
+  box-shadow: 0 8px 30px rgba(232,114,58,0.5);
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.25);
+}
+
+.trusted-badge {
+  border: 1px solid rgba(255,255,255,0.25);
+
+  background: rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(10px);
+}
+
+.btn-quote {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-quote::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 60%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.3),
+    transparent
+  );
+
+  animation: shimmer 3s ease infinite;
+
+  background-size: 200% auto;
+}
+
+.text-muted {
+  opacity: 0.7;
+  letter-spacing: 0.5px;
+}
