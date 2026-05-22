@@ -7,6 +7,8 @@ interface Props {
   variant?:
     | "body-sm"
     | "body-md"
+    | "body-lg"
+    | "body-3xl"
     | "label-sm"
     | "label-md";
 
@@ -16,7 +18,8 @@ interface Props {
 const variantMap = {
   "body-sm": "text-sm font-normal",
   "body-md": "text-base font-normal",
-
+  "body-3xl": "text-3xl font-large",
+  "body-lg": "text-lg font-large",
   "label-sm": "text-xs font-semibold",
   "label-md": "text-sm font-semibold",
 };
@@ -34,13 +37,7 @@ export function Typography({
   color = "default",
 }: Props) {
   return (
-    <span
-      className={clsx(
-        variantMap[variant],
-        colorMap[color],
-        className,
-      )}
-    >
+    <span className={clsx(variantMap[variant], colorMap[color], className)}>
       {children}
     </span>
   );
