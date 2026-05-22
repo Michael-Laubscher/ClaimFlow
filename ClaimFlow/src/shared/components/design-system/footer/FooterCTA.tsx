@@ -1,18 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import type {
-  FooterConfig,
-} from '@/shared/types/footer.types';
+import type { FooterConfig } from "@/shared/types/footer.types";
 
-import { Button } from '@/shared/components/design-system/buttons/Button';
+import { Button } from "@/shared/components/design-system/buttons/Button";
+import { Headphones } from "lucide-react";
 
 interface Props {
-  cta: FooterConfig['cta'];
+  cta: FooterConfig["cta"];
 }
 
-export function FooterCTA({
-  cta,
-}: Props) {
+export function FooterCTA({ cta }: Props) {
   return (
     <section
       className="
@@ -27,6 +24,7 @@ export function FooterCTA({
           mt-10
           flex
           justify-center
+          relative
         "
       >
         <div
@@ -38,10 +36,11 @@ export function FooterCTA({
             justify-center
             rounded-xl
             bg-white/10
+            
           "
         />
+        <Headphones className="h-7 w-7 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
       </div>
-
       <div
         className="
           mx-auto
@@ -104,9 +103,7 @@ export function FooterCTA({
             size="lg"
             className="w-full sm:w-auto"
           >
-            <Link to={cta.primary.to}>
-              {cta.primary.label}
-            </Link>
+            <Link to={cta.primary.to}>{cta.primary.label}</Link>
           </Button>
 
           <Button
@@ -115,9 +112,7 @@ export function FooterCTA({
             size="lg"
             className="w-full sm:w-auto"
           >
-            <Link to={cta.secondary.to}>
-              {cta.secondary.label}
-            </Link>
+            <Link to={cta.secondary.to}>{cta.secondary.label}</Link>
           </Button>
         </div>
       </div>
