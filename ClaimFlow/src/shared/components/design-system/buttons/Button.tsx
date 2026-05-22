@@ -11,12 +11,9 @@ import { buttonVariants } from './button.variants';
 
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'outline';
-
+  variant?: 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md' | 'lg';
-
   iconRight?: ReactNode;
-
   asChild?: boolean;
 }
 

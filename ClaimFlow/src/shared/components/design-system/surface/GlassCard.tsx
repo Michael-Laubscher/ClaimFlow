@@ -1,18 +1,19 @@
-import type { ReactNode } from 'react';
+import { clsx } from "clsx";
 
-import { cn } from '@/shared/utilis/cn';
-
-interface GlassCardProps {
-  children: ReactNode;
+interface Props {
+  children: React.ReactNode;
   className?: string;
 }
 
-export function GlassCard({ children, className }: GlassCardProps) {
+export function GlassCard({
+  children,
+  className,
+}: Props) {
   return (
     <div
-      className={cn(
-        'glass-card rounded-2xl backdrop-blur-xl',
-        className
+      className={clsx(
+        "rounded-2xl border border-[--color-slate-100] bg-white/90 backdrop-blur-xl shadow-[--shadow-float]",
+        className,
       )}
     >
       {children}

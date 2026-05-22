@@ -1,44 +1,40 @@
-import type {
-  FooterSection,
-} from './footer.types';
-
-import { Pill } from '@/shared/components/design-system/feedback/Pill';
-
-import { NavLink } from '@/shared/components/design-system/navigation/NavLink';
-
-import { FooterHeading } from '@/shared/components/design-system/typography/FooterHeading';
+import type { FooterSection } from "@/shared/types/footer.types";
+import { Pill } from "@/shared/components/design-system/feedback/Pill";
+import { NavLink } from "@/shared/components/design-system/navigation/NavLink";
+import { FooterHeading } from "@/shared/components/design-system/typography/FooterHeading";
 
 interface Props {
   section: FooterSection;
 }
 
-export function FooterColumn({
-  section,
-}: Props) {
+export function FooterColumn({ section }: Props) {
   return (
     <div>
       <FooterHeading>
-        {section.heading}
+        <h3 className="mb-4">{section.heading}</h3>
       </FooterHeading>
 
-      <ul className="space-y-3">
+      <ul className="flex flex-col gap-3">
         {section.items.map((item) => (
           <li key={item.to}>
             <NavLink
               to={item.to}
               className="
                 group
-                inline-flex
+                flex
                 items-center
+                justify-between
                 gap-2
                 text-sm
+                text-white
+                hover:text-white/70
+                transition-colors
               "
             >
-              <span>{item.label}</span>
-
+              <span className="truncate">{item.label}</span>
               {item.badge && (
                 <Pill>
-                  {item.badge}
+                  <span className="ml-auto">{item.badge}</span>
                 </Pill>
               )}
             </NavLink>

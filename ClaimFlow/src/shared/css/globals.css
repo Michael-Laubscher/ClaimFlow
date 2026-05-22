@@ -400,3 +400,8 @@ body {
 
   background-size: 200% auto;
 }
+
+.text-muted {
+  opacity: 0.7;
+  letter-spacing: 0.5px;
+}

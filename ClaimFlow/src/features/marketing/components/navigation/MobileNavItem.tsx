@@ -1,73 +1,67 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { clsx } from "clsx";
-
-import type { NavItem } from "../../../../shared/types/nav.types";
-
-import { isActiveRoute } from "../../../../shared/utilis/nav.utils";
-
+import type { NavItem } from "@/shared/types/nav.types";
+import { NavLink } from "@/shared/components/design-system/navigation/NavLink";
 import { ChevronDownIcon } from "@/shared/components/design-system/svg/icons";
+import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
 
 interface Props {
   item: NavItem;
   pathname: string;
-  openDropdown: string | null;
-  setOpenDropdown: (value: string | null) => void;
 }
 
-export function MobileNavItem({
-  item,
-  pathname,
-  openDropdown,
-  setOpenDropdown,
-}: Props) {
-  const active = isActiveRoute(pathname, item.to);
-
-  const isOpen = openDropdown === item.label;
+export function MobileNavItem({ item, pathname: _pathname }: Props) {
+  const [open, setOpen] = useState(false);
 
   if (!item.children) {
     return (
-      <Link
-        to={item.to!}
-        className={clsx(
-          "rounded-xl px-4 py-3 text-sm font-medium transition-colors",
-          active
-            ? "bg-[--color-slate-50] text-[--color-navy]"
-            : "text-[--color-slate-700] hover:bg-[--color-slate-50] hover:text-[--color-navy]",
-        )}
-      >
+      <NavLink to={item.to!} variant="pill" size="md">
         {item.label}
-      </Link>
+      </NavLink>
     );
   }
 
   return (
     <div className="space-y-1">
       <button
-        onClick={() => setOpenDropdown(isOpen ? null : item.label)}
-        className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-[--color-slate-700] transition-colors hover:bg-[--color-slate-50]"
+        onClick={() => setOpen(!open)}
+        className="flex items-center justify-between rounded-xl mx-auto px-8 py-3 text-sm font-semibold text-[--color-black]"
       >
-        {item.label}
-
+        {item.label} &nbsp;
         <ChevronDownIcon
-          className={clsx(
-            "h-4 w-4 transition-transform",
-            isOpen && "rotate-180",
-          )}
+          className={clsx("h-4 w-4 transition-transform", open && "rotate-180")}
         />
       </button>
 
-      {isOpen && (
-        <div className="ml-3 flex flex-col border-l border-[--color-slate-100] pl-3">
+      {open && (
+        <GlassCard className="ml-3 flex flex-col gap-2 px-4 py-2">
           {item.children.map((child) => (
-            <Link
+            <NavLink
               key={child.to}
               to={child.to}
-              className="rounded-lg px-3 py-2 text-sm text-[--color-slate-600] transition-colors hover:bg-[--color-slate-50]"
+              className="flex flex-col w-full px-3 py-2 rounded-none border-b-2 border-black/40 last:border-b-0 hover:bg-[--color-slate-50] transition"
             >
-              {child.label}
-            </Link>
+              <Typography
+                variant="label-md"
+                color="primary"
+                className="text-left block w-full"
+              >
+                {child.label}
+              </Typography>
+
+              {child.desc && (
+                <Typography
+                  variant="body-sm"
+                  color="muted"
+                  className="text-left block w-full mt-1"
+                >
+                  {child.desc}
+                </Typography>
+              )}
+            </NavLink>
           ))}
-        </div>
+        </GlassCard>
       )}
     </div>
   );
