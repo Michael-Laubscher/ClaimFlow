@@ -8,6 +8,8 @@ import { FooterColumn } from "./FooterColumn";
 
 import { FooterSocials } from "./FooterSocials";
 
+import { Headphones } from "lucide-react";
+
 import {
   MailIcon,
   PhoneIcon,
@@ -69,7 +71,11 @@ export function Footer() {
               rounded-xl
               bg-white/10
             "
-          />
+          >
+            <Headphones
+              className="h-7 w-7 text-white"
+            />
+          </div>
         </div>
 
         {/* CTA Content */}

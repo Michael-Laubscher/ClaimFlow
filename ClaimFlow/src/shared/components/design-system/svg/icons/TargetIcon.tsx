@@ -1,16 +1,16 @@
 import clsx from "clsx";
-import { CircleCheckBig } from "lucide-react";
+import { Target } from 'lucide-react';
 import type { IconProps } from "./icon.types";
 
-export function CheckIcon({
+export function TargetIcon({
   className,
   size = 20,
 }: IconProps) {
   return (
-    <CircleCheckBig
+    <Target
       size={size}
       className={clsx(className)}
-      aria-hidden="true"
+        aria-hidden="true"
     />
   );
 }
