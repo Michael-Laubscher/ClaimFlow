@@ -14,7 +14,7 @@ export function Footer() {
     <footer
       className="
         overflow-x-hidden
-        bg-[--color-primary-dark]
+        bg-[--color-brand-primary-dark]
         font-[--font-body]
       "
       aria-label="Site footer"

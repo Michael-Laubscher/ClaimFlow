@@ -7,7 +7,7 @@ interface TextProps {
   className?: string;
 }
 
-export function Text({ children, className }: TextProps) {
+export function GenericText({ children, className }: TextProps) {
   return (
     <p
       className={cn(
