@@ -11,12 +11,16 @@ import Spinner from "@/features/shared-ui/components/sections/Spinner";
 
 const HomePage = lazy(() => import("@/features/shared-ui/pages/Home"));
 const DynamicPage = lazy(
-  () => import("@/features/shared-ui/pages/DynamicPage")
+  () => import("@/features/shared-ui/pages/DynamicPage"),
 );
 
 // CUSTOM PAGES
 const AboutPage = lazy(() => import("@/features/shared-ui/pages/About"));
+const ProductsPage = lazy(() => import("@/features/shared-ui/pages/Products"));
 
+const ProductDetailsPage = lazy(
+  () => import("@/features/shared-ui/pages/ProductDetails"),
+);
 const ClaimsPage = lazy(() => import("@/features/claims/pages/ClaimsPage"));
 const SuccessPage = lazy(() => import("@/features/claims/pages/SuccessPage"));
 
@@ -25,6 +29,7 @@ const SuccessPage = lazy(() => import("@/features/claims/pages/SuccessPage"));
 // -----------------------------
 
 import * as sharedUiConfigs from "@/features/shared-ui/configs";
+import PartnersPage from "@/features/shared-ui/pages/Partners";
 
 const getInsuranceConfig =
   (sharedUiConfigs as any).getInsuranceConfig ??
@@ -45,6 +50,7 @@ const newsConfig = (sharedUiConfigs as any).newsConfig;
 export const ROUTES = {
   HOME: "/",
   ABOUT: "/about",
+  PRODUCTS: "/products",
   PARTNERSHIPS: "/partnerships",
   NEWS: "/news",
   CONTACT: "/contact",
@@ -88,6 +94,37 @@ const marketingRoutes: RouteObject[] = [
     path: ROUTES.ABOUT,
     element: withSuspense(<AboutPage />),
     handle: { title: "About Us" },
+  },
+
+  // PRODUCTS PAGE
+  {
+    path: ROUTES.PRODUCTS,
+
+    element: withSuspense(<ProductsPage />),
+
+    handle: {
+      title: "Products",
+    },
+  },
+
+  // PRODUCT DETAILS PAGE
+  {
+    path: `${ROUTES.PRODUCTS}/:productId`,
+
+    element: withSuspense(<ProductDetailsPage />),
+
+    handle: {
+      title: "Product Details",
+    },
+  },
+
+  // PARTNERSHIPS PAGE
+  {
+    path: ROUTES.PARTNERSHIPS,
+    element: withSuspense(<PartnersPage />),
+    handle: {
+      title: "Partnerships",
+    },
   },
 
   // NEWS PAGE

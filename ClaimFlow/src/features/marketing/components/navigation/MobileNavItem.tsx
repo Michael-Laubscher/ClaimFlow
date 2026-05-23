@@ -24,15 +24,39 @@ export function MobileNavItem({ item, pathname: _pathname }: Props) {
 
   return (
     <div className="space-y-1">
-      <button
-        onClick={() => setOpen(!open)}
-        className="flex items-center justify-between rounded-xl mx-auto px-8 py-3 text-sm font-semibold text-[--color-black]"
+      <div
+        className="
+    flex
+    items-center
+    justify-center
+  "
       >
-        {item.label} &nbsp;
-        <ChevronDownIcon
-          className={clsx("h-4 w-4 transition-transform", open && "rotate-180")}
-        />
-      </button>
+        <NavLink
+          to={item.to!}
+          variant="pill"
+          size="md"
+          className="rounded-r-none"
+        >
+          {item.label}
+        </NavLink>
+
+        <button
+          type="button"
+          onClick={() => setOpen(!open)}
+          className="
+      rounded-r-xl
+      px-3
+      py-3
+    "
+        >
+          <ChevronDownIcon
+            className={clsx(
+              "h-4 w-4 transition-transform",
+              open && "rotate-180",
+            )}
+          />
+        </button>
+      </div>
 
       {open && (
         <GlassCard className="ml-3 flex flex-col gap-2 px-4 py-2">
@@ -40,6 +64,7 @@ export function MobileNavItem({ item, pathname: _pathname }: Props) {
             <NavLink
               key={child.to}
               to={child.to}
+              onClick={() => setOpen(false)}
               className="flex flex-col w-full px-3 py-2 rounded-none border-b-2 border-black/40 last:border-b-0 hover:bg-[--color-slate-50] transition"
             >
               <Typography
