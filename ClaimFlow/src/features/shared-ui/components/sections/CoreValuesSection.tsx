@@ -45,7 +45,7 @@ export function CoreValuesSection({ values }: Props) {
                 key={value.id}
                 className="
                   rounded-3xl
-                  border-slate-100
+                  border-black/10
                   bg-white
                   p-10
                   text-center
