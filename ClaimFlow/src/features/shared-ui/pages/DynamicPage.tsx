@@ -1,6 +1,5 @@
 import { HeroSection } from "@/features/shared-ui/components/sections/HeroSection";
 import TextSection from "@/features/shared-ui/components/sections/TextSection";
-import CardGrid from "@/features/shared-ui/components/sections/CardGrid";
 import CTASection from "@/features/shared-ui/components/sections/CTASection";
 import StatsSection from "@/features/shared-ui/components/sections/StatsSection";
 import ImageSection from "@/features/shared-ui/components/sections/ImageSection";
@@ -15,10 +14,15 @@ type DynamicPageProps = {
 };
 
 export default function DynamicPage({ config }: DynamicPageProps) {
+  const sections: PageSection[] = Array.isArray(config?.sections)
+    ? config.sections
+    : [];
+
   return (
     <div>
-      {config.sections.map((section: PageSection, index: number) => {
+      {sections.map((section, index) => {
         console.log("Section:", section.type, section);
+
         switch (section.type) {
           case "hero":
             return <HeroSection key={index} {...section} />;
@@ -40,9 +44,6 @@ export default function DynamicPage({ config }: DynamicPageProps) {
 
           case "text":
             return <TextSection key={index} {...section} />;
-
-          case "cards":
-            return <CardGrid key={index} {...section} />;
 
           case "cta":
             return <CTASection key={index} {...section} />;

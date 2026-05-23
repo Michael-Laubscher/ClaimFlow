@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 
 import { homeProducts } from "@/shared/types/products";
-import { iconMap } from "@/shared/components/design-system/svg/icons";
+
 import { PlaceholderIcon } from "@/shared/components/design-system/svg/icons/PlaceholderIcon";
 
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Card } from "@/shared/components/design-system/surface/Card";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { lucideIconMap } from "@/shared/components/design-system/svg";
 
 const themeClassMap: Record<string, string> = {
   primary: "bg-blue-600 text-white",
@@ -39,8 +40,8 @@ export function ProductsSection() {
           {homeProducts.map((product) => {
             const iconKey = (
               product.icon || ""
-            ).toLowerCase() as keyof typeof iconMap;
-            const Icon = iconMap[iconKey] || PlaceholderIcon;
+            ).toLowerCase() as keyof typeof lucideIconMap;
+            const Icon = lucideIconMap[iconKey] || PlaceholderIcon;
 
             return (
               <Link key={product.id} to={product.to}>

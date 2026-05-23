@@ -1,24 +1,24 @@
+// src/shared/components/design-system/icons/index.ts
+
 export * from './PlaceholderIcon';
 
-export * from "./CheckIcon";
+export * from './CheckIcon';
 
-export * from "./ArrowRightIcon";
+export * from './ArrowRightIcon';
 
-export * from "./ShieldCheckIcon";
+export * from './ShieldCheckIcon';
 
-export * from "./icon.types";
+export * from './ChevronDownIcon';
 
-export * from "./ChevronDownIcon";
+export * from './ClipboardIcon';
 
-export * from "./ClipboardIcon";
+export * from './MailIcon';
 
-export * from "./MailIcon";
+export * from './MenuIcon';
 
-export * from "./MenuIcon";
+export * from './PhoneIcon';
 
-export * from "./PhoneIcon";
-
-export * from "./XIcon";
+export * from './XIcon';
 
 export * from './FacebookIcon';
 
@@ -28,4 +28,22 @@ export * from './TwitterIcon';
 
 export * from './PinIcon';
 
-export * from "./iconMap";
+/* ──────────────────────────────────────────────────────────
+   ABOUT PAGE ICONS
+────────────────────────────────────────────────────────── */
+export * from './TargetIcon';
+
+export * from './EyeIcon';
+
+export * from './SmileIcon';
+
+export * from './LockIcon';
+
+export * from './TrendingIcon';
+
+/* ──────────────────────────────────────────────────────────
+   TYPES + HELPERS
+────────────────────────────────────────────────────────── */
+export * from './icon.types';
+
+export * from './iconMap';

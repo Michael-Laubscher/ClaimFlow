@@ -10,9 +10,7 @@ interface Props {
 export function FooterColumn({ section }: Props) {
   return (
     <div>
-      <FooterHeading>
-        <h3 className="mb-4">{section.heading}</h3>
-      </FooterHeading>
+      <FooterHeading>{section.heading}</FooterHeading>
 
       <ul className="flex flex-col gap-3">
         {section.items.map((item) => (

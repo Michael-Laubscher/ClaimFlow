@@ -1,11 +1,12 @@
-import { trustPillars } from "@/features/shared-ui/configs";
-import { iconMap } from "@/shared/components/design-system/svg/icons";
+
+import { lucideIconMap } from "@/shared/components/design-system/svg/icons";
 import { PlaceholderIcon } from "@/shared/components/design-system/svg/icons/PlaceholderIcon";
 
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Card } from "@/shared/components/design-system/surface/Card";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
+import trustPillars from "../../configs/trust.config";
 
 export function TrustSection() {
   return (
@@ -19,7 +20,7 @@ export function TrustSection() {
         >
           {trustPillars.map((pillar) => {
             const Icon =
-              iconMap[pillar.icon as keyof typeof iconMap] || PlaceholderIcon;
+              lucideIconMap[pillar.icon as keyof typeof lucideIconMap] || PlaceholderIcon;
 
             return (
               <Card

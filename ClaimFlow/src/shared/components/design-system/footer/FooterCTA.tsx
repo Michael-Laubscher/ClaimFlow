@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import { Headphones } from "lucide-react";
 
 import type { FooterConfig } from "@/shared/types/footer.types";
 
 import { Button } from "@/shared/components/design-system/buttons/Button";
-import { Headphones } from "lucide-react";
+
 
 interface Props {
   cta: FooterConfig["cta"];

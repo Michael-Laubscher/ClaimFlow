@@ -9,42 +9,51 @@ import Spinner from "@/features/shared-ui/components/sections/Spinner";
 // Lazy-loaded pages
 // -----------------------------
 
-const DynamicPage = lazy(() => import("@/features/shared-ui/pages/DynamicPage"));
 const HomePage = lazy(() => import("@/features/shared-ui/pages/Home"));
+const DynamicPage = lazy(
+  () => import("@/features/shared-ui/pages/DynamicPage")
+);
+
+// CUSTOM PAGES
+const AboutPage = lazy(() => import("@/features/shared-ui/pages/About"));
 
 const ClaimsPage = lazy(() => import("@/features/claims/pages/ClaimsPage"));
 const SuccessPage = lazy(() => import("@/features/claims/pages/SuccessPage"));
 
 // -----------------------------
-// Configs
+// Page configs
 // -----------------------------
 
-import {
-  aboutConfig,
-  productsConfig,
-  partnershipsConfig,
-  newsConfig,
-  contactConfig,
-  getInsuranceConfig,
-} from "@/features/shared-ui/configs";
+import * as sharedUiConfigs from "@/features/shared-ui/configs";
+
+const getInsuranceConfig =
+  (sharedUiConfigs as any).getInsuranceConfig ??
+  (sharedUiConfigs as any).getInsurancePageConfig ??
+  (sharedUiConfigs as any).insuranceConfig;
+
+const contactConfig =
+  (sharedUiConfigs as any).contactConfig ??
+  (sharedUiConfigs as any).contactPageConfig ??
+  (sharedUiConfigs as any).contactUsConfig;
+
+const newsConfig = (sharedUiConfigs as any).newsConfig;
 
 // -----------------------------
-// Route constants (optional but consistent)
+// Routes
 // -----------------------------
 
 export const ROUTES = {
   HOME: "/",
-  ABOUT: "about",
-  PRODUCTS: "products",
-  PARTNERSHIPS: "partnerships",
-  NEWS: "news",
-  CONTACT: "contact",
-  GET_INSURANCE: "get-insurance",
-  CLAIMS: "claims",
+  ABOUT: "/about",
+  PARTNERSHIPS: "/partnerships",
+  NEWS: "/news",
+  CONTACT: "/contact",
+  GET_INSURANCE: "/get-insurance",
+  CLAIMS: "/claims",
 } as const;
 
 // -----------------------------
-// Suspense helper (removes repetition)
+// Suspense wrapper
 // -----------------------------
 
 const withSuspense = (node: ReactNode) => (
@@ -52,7 +61,7 @@ const withSuspense = (node: ReactNode) => (
 );
 
 // -----------------------------
-// Route factories
+// Dynamic route factory
 // -----------------------------
 
 const createDynamicRoute = ({
@@ -70,35 +79,32 @@ const createDynamicRoute = ({
 });
 
 // -----------------------------
-// Dynamic marketing routes
+// Marketing routes
 // -----------------------------
 
-const dynamicRoutes: RouteObject[] = [
-  createDynamicRoute({
+const marketingRoutes: RouteObject[] = [
+  // ABOUT PAGE (custom page)
+  {
     path: ROUTES.ABOUT,
-    config: aboutConfig,
-    title: "About Us",
-  }),
-  createDynamicRoute({
-    path: ROUTES.PRODUCTS,
-    config: productsConfig,
-    title: "Products",
-  }),
-  createDynamicRoute({
-    path: ROUTES.PARTNERSHIPS,
-    config: partnershipsConfig,
-    title: "Partnerships",
-  }),
+    element: withSuspense(<AboutPage />),
+    handle: { title: "About Us" },
+  },
+
+  // NEWS PAGE
   createDynamicRoute({
     path: ROUTES.NEWS,
     config: newsConfig,
     title: "News",
   }),
+
+  // CONTACT PAGE
   createDynamicRoute({
     path: ROUTES.CONTACT,
     config: contactConfig,
     title: "Contact",
   }),
+
+  // GET INSURANCE PAGE
   createDynamicRoute({
     path: ROUTES.GET_INSURANCE,
     config: getInsuranceConfig,
@@ -107,23 +113,19 @@ const dynamicRoutes: RouteObject[] = [
 ];
 
 // -----------------------------
-// Claims routes (renamed for clarity)
+// Claims routes
 // -----------------------------
 
 const claimsRouteChildren: RouteObject[] = [
   {
     path: "new",
     element: withSuspense(<ClaimsPage />),
-    handle: {
-      title: "Submit Claim",
-    },
+    handle: { title: "Submit Claim" },
   },
   {
     path: "success",
     element: withSuspense(<SuccessPage />),
-    handle: {
-      title: "Claim Submitted",
-    },
+    handle: { title: "Claim Submitted" },
   },
 ];
 
@@ -133,27 +135,28 @@ const claimsRouteChildren: RouteObject[] = [
 
 export const router = createBrowserRouter([
   {
-    path: ROUTES.HOME,
+    path: "/",
     element: <PublicLayout />,
     errorElement: <ErrorPage />,
 
     children: [
+      // HOME
       {
         index: true,
         element: withSuspense(<HomePage />),
-        handle: {
-          title: "Home",
-        },
+        handle: { title: "Home" },
       },
 
-      // Marketing pages
-      ...dynamicRoutes,
+      // MARKETING PAGES
+      ...marketingRoutes,
 
-      // Claims
+      // CLAIMS
       {
         path: ROUTES.CLAIMS,
         children: claimsRouteChildren,
       },
+
+      // 404
       {
         path: "*",
         element: <ErrorPage />,

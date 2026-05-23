@@ -1,41 +1,66 @@
 :root {
   /* ========================================
-   COLORS
+   BRAND
   ======================================== */
 
-  --color-primary: #f97316;
+  --color-brand-primary: #fd6a14;
+  --color-brand-primary-dark: #071a54;
+  --color-brand-primary-light: #0e2f81;
 
-  --color-primary-dark: #071a52;
+  /* ========================================
+   SURFACES
+  ======================================== */
 
-  --color-primary-light: #0c2570;
+  --color-surface: #101827;
+  --color-surface-elevated: #151d32;
 
   --color-surface-glass: rgba(255, 255, 255, 0.05);
-
   --color-surface-glass-strong: rgba(255, 255, 255, 0.1);
 
-  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  /* ========================================
+   TEXT
+  ======================================== */
 
   --color-text-primary: #ffffff;
+  --color-text-secondary: #c2ccdb;
+  --color-text-muted: #97a3b5;
 
-  --color-text-secondary: #cbd5e1;
+  /* ========================================
+   BORDER
+  ======================================== */
 
-  --color-text-muted: #94a3b8;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+
+  /* ========================================
+   FEEDBACK
+  ======================================== */
+
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
 
   /* ========================================
    RADIUS
   ======================================== */
 
   --radius-sm: 0.5rem;
-
   --radius-md: 0.75rem;
-
   --radius-lg: 1rem;
-
   --radius-xl: 1.5rem;
 
   /* ========================================
    SHADOWS
   ======================================== */
+
+  --shadow-sm:
+    0 1px 2px rgba(0, 0, 0, 0.05);
+
+  --shadow-md:
+    0 4px 12px rgba(0, 0, 0, 0.12);
+
+  --shadow-lg:
+    0 10px 30px rgba(0, 0, 0, 0.18);
 
   --shadow-glass:
     0 10px 30px rgba(0, 0, 0, 0.1);
@@ -44,7 +69,14 @@
    TYPOGRAPHY
   ======================================== */
 
-  --font-body: 'Inter', sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-heading: "Sora", sans-serif;
 
-  --font-heading: 'Sora', sans-serif;
+  /* ========================================
+   LAYOUT
+  ======================================== */
+
+  --container-max: 1280px;
+
+  --section-padding: 5rem;
 }
