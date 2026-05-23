@@ -3,22 +3,22 @@ import type { NavItem } from '../../../shared/types/nav.types';
 export const PRODUCTS_ITEMS: NavItem['children'] = [
   {
     label: 'Marine Cargo Insurance',
-    to: '/products/marine',
+    to: '/products/cargo',
     desc: 'Protect goods in transit by sea',
   },
   {
     label: 'Fleet & Motor Insurance',
-    to: '/products/fleet',
+    to: '/products/commercial-vehicle',
     desc: 'Comprehensive fleet cover',
   },
   {
     label: 'Transit Cover',
-    to: '/products/transit',
+    to: '/products/yellow-card',
     desc: 'Road & multimodal protection',
   },
   {
     label: 'Cross-Border Solutions',
-    to: '/products/crossborder',
+    to: '/products/liability',
     desc: 'Pan-African trade cover',
   },
 ];
