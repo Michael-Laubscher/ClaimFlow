@@ -21,6 +21,8 @@ const ProductsPage = lazy(() => import("@/features/shared-ui/pages/Products"));
 const ProductDetailsPage = lazy(
   () => import("@/features/shared-ui/pages/ProductDetails"),
 );
+const NewsPage = lazy(() => import("@/features/shared-ui/pages/News"));
+const ContactPage = lazy(() => import("@/features/shared-ui/pages/Contact"));
 const ClaimsPage = lazy(() => import("@/features/claims/pages/ClaimsPage"));
 const SuccessPage = lazy(() => import("@/features/claims/pages/SuccessPage"));
 
@@ -31,17 +33,11 @@ const SuccessPage = lazy(() => import("@/features/claims/pages/SuccessPage"));
 import * as sharedUiConfigs from "@/features/shared-ui/configs";
 import PartnersPage from "@/features/shared-ui/pages/Partners";
 
+
 const getInsuranceConfig =
   (sharedUiConfigs as any).getInsuranceConfig ??
   (sharedUiConfigs as any).getInsurancePageConfig ??
   (sharedUiConfigs as any).insuranceConfig;
-
-const contactConfig =
-  (sharedUiConfigs as any).contactConfig ??
-  (sharedUiConfigs as any).contactPageConfig ??
-  (sharedUiConfigs as any).contactUsConfig;
-
-const newsConfig = (sharedUiConfigs as any).newsConfig;
 
 // -----------------------------
 // Routes
@@ -128,18 +124,22 @@ const marketingRoutes: RouteObject[] = [
   },
 
   // NEWS PAGE
-  createDynamicRoute({
+  {
     path: ROUTES.NEWS,
-    config: newsConfig,
-    title: "News",
-  }),
+    element: withSuspense(<NewsPage />),
+    handle: {
+      title: "News",
+    },
+  },
 
   // CONTACT PAGE
-  createDynamicRoute({
+  {
     path: ROUTES.CONTACT,
-    config: contactConfig,
-    title: "Contact",
-  }),
+    element: withSuspense(<ContactPage />),
+    handle: {
+      title: "Contact",
+    },
+  },
 
   // GET INSURANCE PAGE
   createDynamicRoute({
