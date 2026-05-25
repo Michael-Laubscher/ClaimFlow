@@ -10,7 +10,7 @@ export default function IncidentSection() {
   const claimType = watch("claimType");
 
   return (
-    <div className="border p-4 rounded">
+    <div className="border p-4 rounded my-8">
       <h2 className="font-bold text-lg">Incident Details</h2>
 
       <select {...register("claimType")} className="input">

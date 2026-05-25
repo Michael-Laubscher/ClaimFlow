@@ -23,8 +23,11 @@ const ProductDetailsPage = lazy(
 );
 const NewsPage = lazy(() => import("@/features/shared-ui/pages/News"));
 const ContactPage = lazy(() => import("@/features/shared-ui/pages/Contact"));
+const FAQPage = lazy(() => import("@/features/shared-ui/pages/FAQPage"));
+
 const ClaimsPage = lazy(() => import("@/features/claims/pages/ClaimsPage"));
 const SuccessPage = lazy(() => import("@/features/claims/pages/SuccessPage"));
+
 
 // -----------------------------
 // Page configs
@@ -32,7 +35,6 @@ const SuccessPage = lazy(() => import("@/features/claims/pages/SuccessPage"));
 
 import * as sharedUiConfigs from "@/features/shared-ui/configs";
 import PartnersPage from "@/features/shared-ui/pages/Partners";
-
 
 const getInsuranceConfig =
   (sharedUiConfigs as any).getInsuranceConfig ??
@@ -52,6 +54,7 @@ export const ROUTES = {
   CONTACT: "/contact",
   GET_INSURANCE: "/get-insurance",
   CLAIMS: "/claims",
+  FAQ: "/faq",
 } as const;
 
 // -----------------------------
@@ -149,6 +152,14 @@ const marketingRoutes: RouteObject[] = [
   }),
 ];
 
+const supportRoutes: RouteObject[] = [
+  {
+    path: ROUTES.FAQ,
+    element: withSuspense(<FAQPage />),
+    handle: { title: "FAQ" },
+  },
+];
+
 // -----------------------------
 // Claims routes
 // -----------------------------
@@ -186,6 +197,7 @@ export const router = createBrowserRouter([
 
       // MARKETING PAGES
       ...marketingRoutes,
+      ...supportRoutes,
 
       // CLAIMS
       {

@@ -56,7 +56,7 @@ export default function AttachmentsSection() {
   };
 
   return (
-    <div className="border p-4 rounded">
+    <div className="border p-4 rounded my-8">
       <h2 className="font-bold text-lg">Attachments</h2>
 
       <input type="file" multiple onChange={handleFiles} />

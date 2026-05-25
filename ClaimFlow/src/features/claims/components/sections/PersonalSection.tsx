@@ -7,7 +7,7 @@ export default function PersonalSection() {
   } = useFormContext();
 
   return (
-    <div className="border p-4 rounded">
+    <div className="border p-4 rounded my-8">
       <h2 className="font-bold text-lg">Personal Details</h2>
 
       <input {...register("fullName")} placeholder="Full Name" className="input" />
