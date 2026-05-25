@@ -1,30 +1,32 @@
-import type { PageConfig } from "@/shared/types/page.types";
-
-const newsConfig: PageConfig = {
-  sections: [
-    {
-      type: "hero",
-      title: "Latest News & Updates",
-      subtitle:
-        "Stay informed with the latest developments and announcements.",
-    },
-    {
-      type: "cards",
-      title: "Recent Updates",
-      items: [
-        {
-          title: "New Claims System Launched",
-          description:
-            "We’ve introduced a faster and more efficient claims submission system.",
-        },
-        {
-          title: "Expanded Travel Cover",
-          description:
-            "Our travel insurance now includes additional international benefits.",
-        },
-      ],
-    },
-  ],
-};
-
-export default newsConfig;
+export const ARTICLES = [
+  {
+    id: 1,
+    category: "Company News",
+    readTime: "3 min read",
+    title: "Askari Insure Expands Coverage to West Africa",
+    excerpt:
+      "We're excited to announce our expansion into three new West African markets...",
+    date: "May 10, 2026",
+    color: "bg-slate-100",
+  },
+  {
+    id: 2,
+    category: "Product Update",
+    readTime: "2 min read",
+    title: "New Digital Claims Portal Launches",
+    excerpt:
+      "Track your claims in real-time with our new digital portal...",
+    date: "May 5, 2026",
+    color: "bg-teal-50",
+  },
+   {
+    id: 3,
+    category: "Product Update",
+    readTime: "2 min read",
+    title: "New Digital Claims Portal Launches",
+    excerpt:
+      "Track your claims in real-time with our new digital portal...",
+    date: "May 5, 2026",
+    color: "bg-teal-50",
+  },
+] as const;

@@ -21,8 +21,13 @@ const ProductsPage = lazy(() => import("@/features/shared-ui/pages/Products"));
 const ProductDetailsPage = lazy(
   () => import("@/features/shared-ui/pages/ProductDetails"),
 );
+const NewsPage = lazy(() => import("@/features/shared-ui/pages/News"));
+const ContactPage = lazy(() => import("@/features/shared-ui/pages/Contact"));
+const FAQPage = lazy(() => import("@/features/shared-ui/pages/FAQPage"));
+
 const ClaimsPage = lazy(() => import("@/features/claims/pages/ClaimsPage"));
 const SuccessPage = lazy(() => import("@/features/claims/pages/SuccessPage"));
+
 
 // -----------------------------
 // Page configs
@@ -35,13 +40,6 @@ const getInsuranceConfig =
   (sharedUiConfigs as any).getInsuranceConfig ??
   (sharedUiConfigs as any).getInsurancePageConfig ??
   (sharedUiConfigs as any).insuranceConfig;
-
-const contactConfig =
-  (sharedUiConfigs as any).contactConfig ??
-  (sharedUiConfigs as any).contactPageConfig ??
-  (sharedUiConfigs as any).contactUsConfig;
-
-const newsConfig = (sharedUiConfigs as any).newsConfig;
 
 // -----------------------------
 // Routes
@@ -56,6 +54,7 @@ export const ROUTES = {
   CONTACT: "/contact",
   GET_INSURANCE: "/get-insurance",
   CLAIMS: "/claims",
+  FAQ: "/faq",
 } as const;
 
 // -----------------------------
@@ -128,18 +127,22 @@ const marketingRoutes: RouteObject[] = [
   },
 
   // NEWS PAGE
-  createDynamicRoute({
+  {
     path: ROUTES.NEWS,
-    config: newsConfig,
-    title: "News",
-  }),
+    element: withSuspense(<NewsPage />),
+    handle: {
+      title: "News",
+    },
+  },
 
   // CONTACT PAGE
-  createDynamicRoute({
+  {
     path: ROUTES.CONTACT,
-    config: contactConfig,
-    title: "Contact",
-  }),
+    element: withSuspense(<ContactPage />),
+    handle: {
+      title: "Contact",
+    },
+  },
 
   // GET INSURANCE PAGE
   createDynamicRoute({
@@ -147,6 +150,14 @@ const marketingRoutes: RouteObject[] = [
     config: getInsuranceConfig,
     title: "Get Insurance",
   }),
+];
+
+const supportRoutes: RouteObject[] = [
+  {
+    path: ROUTES.FAQ,
+    element: withSuspense(<FAQPage />),
+    handle: { title: "FAQ" },
+  },
 ];
 
 // -----------------------------
@@ -186,6 +197,7 @@ export const router = createBrowserRouter([
 
       // MARKETING PAGES
       ...marketingRoutes,
+      ...supportRoutes,
 
       // CLAIMS
       {
