@@ -1,24 +1,29 @@
 import { useFormContext } from "react-hook-form";
+import { FormSection } from "@/shared/components/design-system/forms/FormSection";
+import { Input } from "@/shared/components/design-system/Input/Input";
+import { Typography } from "@/shared/components/design-system/typography/Typography";
 
 export default function PersonalSection() {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
+  const { register, formState: { errors } } = useFormContext();
 
   return (
-    <div className="border p-4 rounded my-8">
-      <h2 className="font-bold text-lg">Personal Details</h2>
+    <FormSection
+      title="Personal Details"
+      description="Your contact information"
+    >
+      <Input {...register("fullName")} placeholder="Full Name" />
+      {errors.fullName?.message && (
+        <Typography className="text-red-500 text-sm">
+          {errors.fullName.message as string}
+        </Typography>
+      )}
 
-      <input {...register("fullName")} placeholder="Full Name" className="input" />
-      <p className="text-red-500">
-        {errors.fullName?.message as string}
-      </p>
-
-      <input {...register("email")} placeholder="Email" className="input" />
-      <p className="text-red-500">
-        {errors.email?.message as string}
-      </p>
-    </div>
+      <Input {...register("email")} placeholder="Email" />
+      {errors.email?.message && (
+        <Typography className="text-red-500 text-sm">
+          {errors.email.message as string}
+        </Typography>
+      )}
+    </FormSection>
   );
 }

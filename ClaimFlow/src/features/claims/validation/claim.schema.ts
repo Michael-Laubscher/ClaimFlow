@@ -9,8 +9,13 @@ export const claimSchema = z.object({
   description: z.string().min(10),
 
   attachments: z
-    .any()
-    .refine((files) => files?.length > 0, "At least one file is required"),
+  .array(
+    z.object({
+      id: z.string(),
+      file: z.instanceof(File),
+    })
+  )
+  .min(1, "At least one file is required"),
 });
 
 export type ClaimFormData = z.infer<typeof claimSchema>;

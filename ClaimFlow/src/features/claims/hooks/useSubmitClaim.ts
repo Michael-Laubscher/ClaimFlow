@@ -2,20 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { submitClaim } from "../services/claims.service";
 import { generateClaimZip } from "../utils/zip.util";
 import { useAppStore } from "../../../app/store/useAppStore";
-
-type FileWithId = {
-  file: File;
-  id: string;
-};
+import type { Attachment } from "../types/Attachment.types";
 
 export function useSubmitClaim(reset: () => void) {
   const navigate = useNavigate();
   const { setLoading, setError } = useAppStore();
 
-  const extractFiles = (attachments: FileWithId[] = []) =>
-    attachments
-      .map((a) => a?.file)
-      .filter((f): f is File => f instanceof File);
+  const extractFiles = (attachments: Attachment[] = []) =>
+    attachments.map((a) => a.file);
 
   const submit = async (data: any) => {
     try {

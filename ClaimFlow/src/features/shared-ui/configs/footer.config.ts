@@ -22,12 +22,12 @@ export const footerConfig: FooterConfig =
 
       primary: {
         label: 'Get Your Quote Now',
-        to: '/get-quote',
+        to: 'claims/get-quote',
       },
 
       secondary: {
         label: 'Talk to an Expert',
-        to: '/claims/new',
+        to: 'contact',
       },
     },
 
@@ -38,24 +38,24 @@ export const footerConfig: FooterConfig =
         items: [
           {
             label: 'Marine Cargo',
-            to: '/products/marine',
+            to: '/products',
           },
 
           {
             label: 'Fleet Insurance',
-            to: '/products/fleet',
+            to: '/products',
           },
 
           {
             label: 'Transit Cover',
-            to: '/products/transit',
+            to: '/products',
           },
 
           {
             label:
               'Cross-Border Cover',
 
-            to: '/products/crossborder',
+            to: '/products',
           },
         ],
       },
