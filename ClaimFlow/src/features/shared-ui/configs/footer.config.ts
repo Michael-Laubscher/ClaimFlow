@@ -75,8 +75,8 @@ export const footerConfig: FooterConfig =
           },
 
           {
-            label: 'Customer Portal',
-            to: '/portal',
+            label: 'Our Branches',
+            to: '/branches',
           },
 
           {
