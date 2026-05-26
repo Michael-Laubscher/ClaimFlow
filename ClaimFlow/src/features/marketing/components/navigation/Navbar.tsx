@@ -43,7 +43,7 @@ export function Navbar() {
             />
 
             <div className="hidden lg:visible lg:flex">
-              <ButtonLink to="/get-quote" variant="primary">
+              <ButtonLink to="claims/get-quote" variant="primary">
                 Get Quote
               </ButtonLink>
             </div>

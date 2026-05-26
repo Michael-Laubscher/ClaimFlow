@@ -6,6 +6,7 @@ import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Card } from "@/shared/components/design-system/surface/Card";
 import { Button } from "@/shared/components/design-system/buttons/Button";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Link } from "react-router-dom";
 
 export function WhyChooseSection() {
   return (
@@ -52,7 +53,7 @@ export function WhyChooseSection() {
             ))}
 
             <Button className="mt-6 w-max px-6 py-3">
-              Learn More About Us
+              <Link to="about">Learn More About Us</Link>
             </Button>
           </Stack>
 

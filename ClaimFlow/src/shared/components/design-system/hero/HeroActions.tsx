@@ -1,17 +1,21 @@
-import { ArrowRightIcon } from '@/shared/components/design-system/svg';
+import { Link } from "react-router-dom";
 
-import { Button } from '@/shared/components/design-system/buttons/Button';
+import { ArrowRightIcon } from "@/shared/components/design-system/svg";
+import { Button } from "@/shared/components/design-system/buttons/Button";
 
 export function HeroActions() {
   return (
     <div className="mb-14 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
       <Button
+        asChild
         variant="primary"
         size="lg"
         className="w-full sm:w-auto"
         iconRight={<ArrowRightIcon size={20} />}
       >
-        Get Instant Quote
+        <Link to="/claims/get-quote">
+          Get Instant Quote
+        </Link>
       </Button>
 
       <Button
@@ -19,7 +23,9 @@ export function HeroActions() {
         size="lg"
         className="w-full sm:w-auto"
       >
-        View Products
+        <Link to="/products">
+          View Products
+        </Link>
       </Button>
     </div>
   );

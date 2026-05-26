@@ -1,103 +1,64 @@
 import { useController, useFormContext } from "react-hook-form";
+import { FormSection } from "@/shared/components/design-system/forms/FormSection";
+import { Typography } from "@/shared/components/design-system/typography/Typography";
 
-type FileWithId = {
-  file: File;
+type Attachment = {
   id: string;
+  file: File;
 };
 
 export default function AttachmentsSection() {
-  const {
-    control,
-    formState: { errors },
-  } = useFormContext();
+  const { control, formState: { errors } } = useFormContext();
 
-  const {
-    field: { value = [], onChange },
-  } = useController({
+  const { field: { value = [], onChange } } = useController({
     name: "attachments",
     control,
     defaultValue: [],
   });
 
-  const attachments: FileWithId[] = value;
+  const attachments: Attachment[] = value;
 
   const handleFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files) return;
 
-    const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
-    const maxSize = 5 * 1024 * 1024; // 5MB
+    const allowed = ["image/jpeg", "image/png", "application/pdf"];
+    const max = 5 * 1024 * 1024;
 
-    const validFiles: FileWithId[] = Array.from(files)
-      .filter(
-        (file) =>
-          allowedTypes.includes(file.type) && file.size <= maxSize
-      )
-      .map((file) => ({
-        file,
-        id: crypto.randomUUID(),
-      }));
+    const valid = Array.from(files)
+      .filter(f => allowed.includes(f.type) && f.size <= max)
+      .map(file => ({ file, id: crypto.randomUUID() }));
 
-    onChange([...attachments, ...validFiles]);
-
+    onChange([...attachments, ...valid]);
     e.target.value = "";
   };
 
-  const removeFile = (id: string) => {
-    const updated = attachments.filter((f) => f.id !== id);
-    onChange(updated);
-  };
-
-  const formatSize = (size: number) => {
-    if (size < 1024) return `${size} B`;
-    if (size < 1024 * 1024)
-      return `${(size / 1024).toFixed(1)} KB`;
-    return `${(size / (1024 * 1024)).toFixed(1)} MB`;
-  };
+  const remove = (id: string) =>
+    onChange(attachments.filter(a => a.id !== id));
 
   return (
-    <div className="border p-4 rounded my-8">
-      <h2 className="font-bold text-lg">Attachments</h2>
-
+    <FormSection title="Attachments">
       <input type="file" multiple onChange={handleFiles} />
 
-      {/* File List */}
       <ul className="mt-3 space-y-2">
         {attachments.map(({ file, id }) => (
-          <li
-            key={id}
-            className="flex justify-between items-center border p-2 rounded"
-          >
+          <li key={id} className="flex justify-between border p-2 rounded">
             <div>
               <p className="text-sm font-medium">{file.name}</p>
-              <p className="text-xs text-gray-500">
-                {formatSize(file.size)}
-              </p>
             </div>
 
-            <button
-              type="button"
-              onClick={() => removeFile(id)}
-              className="text-red-500 text-sm"
-            >
+            <button type="button" onClick={() => remove(id)}>
               Remove
             </button>
           </li>
         ))}
       </ul>
 
-      {/* Error display */}
-      <ul className="text-red-500 mt-2 text-sm">
-        {Array.isArray(errors.attachments) ? (
-          errors.attachments.map((err: any, i: number) => (
-            <li key={i}>{err?.message}</li>
-          ))
-        ) : (
-          errors.attachments?.message && (
-            <li>{errors.attachments.message as string}</li>
-          )
-        )}
-      </ul>
-    </div>
+      {errors.attachments?.message && (
+        <Typography className="text-red-500 text-sm">
+          {errors.attachments.message as string}
+        </Typography>
+      )}
+    </FormSection>
   );
 }
