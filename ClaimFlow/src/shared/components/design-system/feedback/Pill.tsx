@@ -1,12 +1,10 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 interface PillProps {
   children: ReactNode;
 }
 
-export function Pill({
-  children,
-}: PillProps) {
+export function Pill({ children }: PillProps) {
   return (
     <span
       className="

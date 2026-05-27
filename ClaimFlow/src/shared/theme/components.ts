@@ -19,4 +19,4 @@ export const componentTokens = {
     radius: "rounded-xl",
     height: "h-11",
   },
-}
+};

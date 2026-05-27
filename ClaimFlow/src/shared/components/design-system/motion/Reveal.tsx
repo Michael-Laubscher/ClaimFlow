@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
-import { cn } from '@/shared/utilis/cn';
+import { cn } from "@/shared/lib/cn";
 
 interface RevealProps {
   children: ReactNode;
@@ -10,22 +10,6 @@ interface RevealProps {
   className?: string;
 }
 
-export function Reveal({
-  children,
-  loaded,
-  animation = 'animate-up',
-  delay = '',
-  className,
-}: RevealProps) {
-  return (
-    <div
-      className={cn(
-        'pre-animate',
-        loaded && `${animation} ${delay}`,
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
+export function Reveal({ children, loaded, animation = "animate-up", delay = "", className }: RevealProps) {
+  return <div className={cn("pre-animate", loaded && `${animation} ${delay}`, className)}>{children}</div>;
 }

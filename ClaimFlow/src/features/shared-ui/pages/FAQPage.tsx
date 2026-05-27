@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 import { Card } from "@/shared/components/design-system/surface/Card";
 import { Container } from "@/shared/components/design-system/layout/Container";
 
@@ -17,8 +16,6 @@ import { filterFAQs, getTotalFAQs } from "@/shared/utilis/faq.utils";
 import { PageBanner } from "@/shared/components/design-system/banner/banner";
 import { banners } from "../configs/banners.config";
 
-
-
 export default function FAQPage() {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
@@ -32,17 +29,10 @@ export default function FAQPage() {
   return (
     <div className="bg-[--color-bg]">
       {/* HERO */}
-      <PageBanner
-        {...banners.faq}
-        title="Frequently Asked Questions"
-        subtitle="Find answers about claims, payments, Yellow Card insurance, and transport coverage across Africa."
-      />
+      <PageBanner {...banners.faq} title="Frequently Asked Questions" subtitle="Find answers about claims, payments, Yellow Card insurance, and transport coverage across Africa." />
 
       {/* FLOATING FILTER PANEL */}
-      <Container
-        size="lg"
-        className="relative z-10 -mt-16 pb-16"
-      >
+      <Container size="lg" className="relative z-10 -mt-16 pb-16">
         <Card
           className="
             border border-white/10
@@ -55,30 +45,18 @@ export default function FAQPage() {
           <div className="space-y-6">
             {/* TITLE */}
             <div className="text-center">
-              <Heading
-                size="lg"
-                className="text-white"
-              >
+              <Heading size="lg" className="text-white">
                 How can we help?
               </Heading>
 
-              <GenericText className="mt-2 text-white/60">
-                Search our support center or browse by category.
-              </GenericText>
+              <GenericText className="mt-2 text-white/60">Search our support center or browse by category.</GenericText>
             </div>
 
             {/* SEARCH */}
-            <FAQSearch
-              value={search}
-              onChange={setSearch}
-            />
+            <FAQSearch value={search} onChange={setSearch} />
 
             {/* FILTERS */}
-            <FAQCategoryPills
-              categories={categories}
-              active={activeCategory}
-              onChange={setActiveCategory}
-            />
+            <FAQCategoryPills categories={categories} active={activeCategory} onChange={setActiveCategory} />
 
             {/* RESULTS */}
             <div className="border-t border-white/10 pt-4">
@@ -95,16 +73,11 @@ export default function FAQPage() {
         <Container size="lg">
           {total === 0 ? (
             <Card className="p-12 text-center">
-              <Heading
-                size="lg"
-                className="text-white"
-              >
+              <Heading size="lg" className="text-white">
                 No FAQs found
               </Heading>
 
-              <GenericText className="mt-3 text-white/60">
-                Try searching with different keywords or browse another category.
-              </GenericText>
+              <GenericText className="mt-3 text-white/60">Try searching with different keywords or browse another category.</GenericText>
             </Card>
           ) : (
             <FAQList data={filtered} />
@@ -138,18 +111,11 @@ export default function FAQPage() {
             />
 
             <div className="relative z-10">
-              <Heading
-                size="xl"
-                className="text-white"
-              >
+              <Heading size="xl" className="text-white">
                 Still need help?
               </Heading>
 
-              <GenericText className="mx-auto mt-4 max-w-xl text-white/70">
-                Our support team can assist you with claims,
-                cross-border insurance, policy questions,
-                and fleet coverage.
-              </GenericText>
+              <GenericText className="mx-auto mt-4 max-w-xl text-white/70">Our support team can assist you with claims, cross-border insurance, policy questions, and fleet coverage.</GenericText>
 
               <div className="mt-8 flex justify-center">
                 <button

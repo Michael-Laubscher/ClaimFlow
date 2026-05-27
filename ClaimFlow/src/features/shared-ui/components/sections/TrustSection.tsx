@@ -1,4 +1,3 @@
-
 import { lucideIconMap } from "@/shared/components/design-system/svg/icons";
 import { PlaceholderIcon } from "@/shared/components/design-system/svg/icons/PlaceholderIcon";
 
@@ -12,21 +11,12 @@ export function TrustSection() {
   return (
     <section className="py-16">
       <Container>
-        <Stack
-          direction="row"
-          justify="between"
-          gap="lg"
-          className="grid md:grid-cols-4 gap-8"
-        >
+        <Stack direction="row" justify="between" gap="lg" className="grid md:grid-cols-4 gap-8">
           {trustPillars.map((pillar) => {
-            const Icon =
-              lucideIconMap[pillar.icon as keyof typeof lucideIconMap] || PlaceholderIcon;
+            const Icon = lucideIconMap[pillar.icon as keyof typeof lucideIconMap] || PlaceholderIcon;
 
             return (
-              <Card
-                key={pillar.id}
-                className="flex flex-col items-center text-center p-6 rounded-2xl border border-black/10 bg-white/5 shadow-sm"
-              >
+              <Card key={pillar.id} className="flex flex-col items-center text-center p-6 rounded-2xl border border-black/10 bg-white/5 shadow-sm">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-800 to-green-600">
                   <Icon className="h-6 w-6 text-white" />
                 </div>
@@ -35,10 +25,7 @@ export function TrustSection() {
                   {pillar.label}
                 </Typography>
 
-                <Typography
-                  variant="body-sm"
-                  className="mt-1 text-muted-foreground"
-                >
+                <Typography variant="body-sm" className="mt-1 text-muted-foreground">
                   {pillar.subtext}
                 </Typography>
               </Card>

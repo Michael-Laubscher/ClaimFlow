@@ -6,14 +6,12 @@ import { Button } from "@/shared/components/design-system/buttons/Button";
 import { Badge } from "@/shared/components/design-system/feedback/Badge";
 import type { Article } from "@/shared/types/news.types";
 
-
-
 const CATEGORY_COLORS: Record<string, string> = {
   "Company News": "bg-[--color-blue-100] text-[--color-blue-700]",
   "Product Update": "bg-[--color-teal-100] text-[--color-teal-700]",
   "Industry Insights": "bg-[--color-orange-100] text-[--color-orange-700]",
-  "Partnerships": "bg-[--color-indigo-100] text-[--color-indigo-700]",
-  "Reports": "bg-[--color-green-100] text-[--color-green-700]",
+  Partnerships: "bg-[--color-indigo-100] text-[--color-indigo-700]",
+  Reports: "bg-[--color-green-100] text-[--color-green-700]",
   "Tips & Advice": "bg-[--color-purple-100] text-[--color-purple-700]",
 };
 
@@ -25,9 +23,7 @@ export function NewsCard({ article }: { article: Article }) {
 
       <div className="p-6">
         <Stack direction="row" justify="between" align="center">
-          <Badge className={CATEGORY_COLORS[article.category]}>
-            {article.category}
-          </Badge>
+          <Badge className={CATEGORY_COLORS[article.category]}>{article.category}</Badge>
 
           <Typography variant="label-sm" color="muted">
             {article.readTime}
@@ -40,12 +36,7 @@ export function NewsCard({ article }: { article: Article }) {
           <Typography color="muted">{article.excerpt}</Typography>
         </Stack>
 
-        <Stack
-          direction="row"
-          justify="between"
-          align="center"
-          className="mt-6 pt-4 border-t border-[--color-slate-100]"
-        >
+        <Stack direction="row" justify="between" align="center" className="mt-6 pt-4 border-t border-[--color-slate-100]">
           <Typography variant="label-sm" color="muted">
             {article.date}
           </Typography>

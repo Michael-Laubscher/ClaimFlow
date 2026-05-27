@@ -1,11 +1,6 @@
-import {
-  PlaceholderIcon,
-} from "@/shared/components/design-system/svg/icons";
+import { PlaceholderIcon } from "@/shared/components/design-system/svg/icons";
 
-import {
-  PackageIcon,
-  TruckIcon,
-} from "lucide-react";
+import { PackageIcon, TruckIcon } from "lucide-react";
 
 export const INSURANCE_TYPES = [
   {
@@ -30,8 +25,6 @@ export const INSURANCE_TYPES = [
   },
 ] as const;
 
-export type InsuranceType =
-  (typeof INSURANCE_TYPES)[number]["id"];
+export type InsuranceType = (typeof INSURANCE_TYPES)[number]["id"];
 
-export const FALLBACK_INSURANCE_ICON =
-  PlaceholderIcon;
+export const FALLBACK_INSURANCE_ICON = PlaceholderIcon;

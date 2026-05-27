@@ -1,16 +1,13 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
-import { cn } from '@/shared/utilis/cn';
+import { cn } from "@/shared/lib/cn";
 
 interface CardProps {
   children: ReactNode;
   className?: string;
 }
 
-export function Card({
-  children,
-  className,
-}: CardProps) {
+export function Card({ children, className }: CardProps) {
   return (
     <div
       className={cn(

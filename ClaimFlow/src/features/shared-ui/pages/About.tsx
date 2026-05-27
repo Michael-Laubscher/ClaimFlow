@@ -7,7 +7,6 @@ import { OurStorySection } from "../components/sections/OurStorySection";
 import { banners } from "../configs/banners.config";
 import { coreValues, impactStats, missionVision, ourStory } from "../configs/about.config.data";
 
-
 export default function AboutPage() {
   return (
     <>

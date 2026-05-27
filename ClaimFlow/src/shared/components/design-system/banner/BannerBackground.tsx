@@ -3,10 +3,7 @@ interface BannerBackgroundProps {
   grid?: boolean;
 }
 
-export function BannerBackground({
-  overlay = true,
-  grid = true,
-}: BannerBackgroundProps) {
+export function BannerBackground({ overlay = true, grid = true }: BannerBackgroundProps) {
   return (
     <>
       {/* Base Gradient */}
@@ -23,9 +20,8 @@ export function BannerBackground({
         <div
           className="absolute inset-0 opacity-[0.06]"
           style={{
-            backgroundImage:
-              'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-            backgroundSize: '28px 28px',
+            backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+            backgroundSize: "28px 28px",
           }}
         />
       )}

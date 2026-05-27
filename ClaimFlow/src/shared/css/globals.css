@@ -1,5 +1,5 @@
 /* AskariHero.css */
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap");
 
 * {
   box-sizing: border-box;
@@ -10,11 +10,11 @@ body {
 }
 
 .font-sora {
-  font-family: 'Sora', sans-serif;
+  font-family: "Sora", sans-serif;
 }
 
 .font-dm {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 .hero-bg {
@@ -98,7 +98,7 @@ body {
   from {
     opacity: 0;
     transform: translateX(-40px);
-}
+  }
 
   to {
     opacity: 1;
@@ -106,7 +106,7 @@ body {
   }
 }
 .hero-bg::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -122,7 +122,8 @@ body {
 }
 
 @keyframes floatUp {
-  0%,100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
 
@@ -262,12 +263,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(
-    135deg,
-    #e8723a 0%,
-    #f5a623 50%,
-    #68c957 100%
-  );
+  background: linear-gradient(135deg, #e8723a 0%, #f5a623 50%, #68c957 100%);
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -277,19 +273,19 @@ body {
 .btn-primary {
   background: linear-gradient(135deg, #c9562a, #e8723a);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px rgba(232,114,58,0.4);
+  box-shadow: 0 4px 20px rgba(232, 114, 58, 0.4);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
 
-  box-shadow: 0 8px 30px rgba(232,114,58,0.6);
+  box-shadow: 0 8px 30px rgba(232, 114, 58, 0.6);
 
   background: linear-gradient(135deg, #d4602f, #f07d45);
 }
 
 .btn-outline {
-  border: 2px solid rgba(255,255,255,0.6);
+  border: 2px solid rgba(255, 255, 255, 0.6);
 
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -299,7 +295,7 @@ body {
 .btn-outline:hover {
   border-color: white;
 
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
 
   transform: translateY(-2px);
 }
@@ -312,16 +308,12 @@ body {
   overflow: hidden;
 
   box-shadow:
-    0 30px 80px rgba(0,0,0,0.3),
-    0 0 0 1px rgba(255,255,255,0.1);
+    0 30px 80px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .truck-img-placeholder {
-  background: linear-gradient(
-    135deg,
-    #e8e8e8 0%,
-    #f5f5f5 100%
-  );
+  background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
 
   position: relative;
 
@@ -335,13 +327,13 @@ body {
 }
 
 .glass-card {
-  background: rgba(255,255,255,0.97);
+  background: rgba(255, 255, 255, 0.97);
 
   backdrop-filter: blur(20px);
 
   border-radius: 16px;
 
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 }
 
 .claims-badge {
@@ -349,19 +341,19 @@ body {
 
   border-radius: 14px;
 
-  box-shadow: 0 8px 30px rgba(232,114,58,0.5);
+  box-shadow: 0 8px 30px rgba(232, 114, 58, 0.5);
 }
 
 .stat-divider {
   width: 1px;
   height: 40px;
-  background: rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .trusted-badge {
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 
   backdrop-filter: blur(10px);
 }
@@ -372,7 +364,7 @@ body {
 }
 
 .btn-quote::after {
-  content: '';
+  content: "";
 
   position: absolute;
 
@@ -382,12 +374,7 @@ body {
   width: 60%;
   height: 100%;
 
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.3),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 
   animation: shimmer 3s ease infinite;
 

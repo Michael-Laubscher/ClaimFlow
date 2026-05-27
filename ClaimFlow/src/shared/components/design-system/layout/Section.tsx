@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
-import { cn } from '@/shared/utilis/cn';
+import { cn } from "@/shared/lib/cn";
 
 interface SectionProps {
   children: ReactNode;

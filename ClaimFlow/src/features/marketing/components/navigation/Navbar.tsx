@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
@@ -16,16 +16,16 @@ export function Navbar() {
   const location = useLocation();
 
   const mobileMenu = useDisclosure();
+  const { close, toggle, open } = mobileMenu;
 
   const [desktopDropdown, setDesktopDropdown] = useState<string | null>(null);
 
   const scrolled = useScrolled(24);
 
-  useEffect(() => {
-    mobileMenu.close();
-
+  const resetNavbarUI = () => {
+    close();
     setDesktopDropdown(null);
-  }, [location.pathname]);
+  };
 
   return (
     <>
@@ -36,32 +36,21 @@ export function Navbar() {
           <Stack direction="row" align="center" justify="between" py="4">
             <NavbarBrand />
 
-            <DesktopNavigation
-              pathname={location.pathname}
-              openDropdown={desktopDropdown}
-              setOpenDropdown={setDesktopDropdown}
-            />
+            <DesktopNavigation pathname={location.pathname} openDropdown={desktopDropdown} setOpenDropdown={setDesktopDropdown} />
 
             <div className="hidden lg:visible lg:flex">
-              <ButtonLink to="claims/get-quote" variant="primary">
+              <ButtonLink to="claims/get-quote" variant="primary" onClick={resetNavbarUI}>
                 Get Quote
               </ButtonLink>
             </div>
 
-            <button
-              onClick={mobileMenu.toggle}
-              className="rounded-xl p-2 transition hover:bg-[--color-slate-50] lg:hidden"
-            >
-              {mobileMenu.open ? (
-                <XIcon className="h-6 w-6" />
-              ) : (
-                <MenuIcon className="h-6 w-6" />
-              )}
+            <button onClick={toggle} className="rounded-xl p-2 transition hover:bg-[--color-slate-50] lg:hidden">
+              {open ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
             </button>
           </Stack>
         </Container>
 
-        <MobileNavigation open={mobileMenu.open} pathname={location.pathname} />
+        <MobileNavigation open={open} pathname={location.pathname} />
       </NavbarShell>
     </>
   );

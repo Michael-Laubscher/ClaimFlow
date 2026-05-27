@@ -6,8 +6,6 @@ import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
 import type { ContactFormState } from "@/shared/types/contact.types";
 
-
-
 export function ContactForm() {
   const [form, setForm] = useState<ContactFormState>({
     name: "",
@@ -19,9 +17,7 @@ export function ContactForm() {
 
   const [sent, setSent] = useState(false);
 
-  const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
@@ -38,9 +34,9 @@ export function ContactForm() {
 
         <form onSubmit={onSubmit}>
           <Stack gap="md">
-            <input name="name" placeholder="Name" onChange={onChange} />
-            <input name="email" placeholder="Email" onChange={onChange} />
-            <textarea name="message" placeholder="Message" onChange={onChange} />
+            <input name="name" value={form.name} onChange={onChange} />
+            <input name="email" value={form.email} onChange={onChange} />
+            <textarea name="message" value={form.message} onChange={onChange} />
 
             <Button variant={sent ? "secondary" : "primary"} type="submit">
               {sent ? "Sent ✓" : "Send Message"}

@@ -1,11 +1,11 @@
-import { HERO_CONTENT } from '@/features/shared-ui/configs';
+import { HERO_CONTENT } from "@/features/shared-ui/configs";
 
-import { Reveal } from '@/shared/components/design-system/motion/Reveal';
+import { Reveal } from "@/shared/components/design-system/motion/Reveal";
 
-import { HeroActions } from './HeroActions';
-import { HeroHeadline } from './HeroHeadline';
-import { HeroStats } from './HeroStats';
-import { HeroBadge } from './Herobadge';
+import { HeroActions } from "./HeroActions";
+import { HeroHeadline } from "./HeroHeadline";
+import { HeroStats } from "./HeroStats";
+import { HeroBadge } from "./Herobadge";
 
 interface HeroContentProps {
   loaded: boolean;
@@ -23,9 +23,7 @@ export function HeroContent({ loaded }: HeroContentProps) {
       </Reveal>
 
       <Reveal loaded={loaded} animation="animate-up" delay="delay-3">
-        <p className="mx-auto mb-10 max-w-xl text-base leading-relaxed text-blue-100/80 sm:text-lg lg:mx-0">
-          {HERO_CONTENT.description}
-        </p>
+        <p className="mx-auto mb-10 max-w-xl text-base leading-relaxed text-blue-100/80 sm:text-lg lg:mx-0">{HERO_CONTENT.description}</p>
       </Reveal>
 
       <Reveal loaded={loaded} animation="animate-up" delay="delay-4">

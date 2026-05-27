@@ -6,7 +6,7 @@ import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { GenericText } from "@/shared/components/design-system/typography/Text";
-import { ArrowRight} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface PartnersCTASectionProps {
   badge?: string;
@@ -22,13 +22,7 @@ interface PartnersCTASectionProps {
   };
 }
 
-export function PartnersCTASection({
-  badge,
-  title,
-  description,
-  primaryAction,
-  secondaryAction,
-}: PartnersCTASectionProps) {
+export function PartnersCTASection({ badge, title, description, primaryAction, secondaryAction }: PartnersCTASectionProps) {
   return (
     <Section className="relative overflow-hidden py-24">
       <div className="absolute inset-0 bg-gradient-to-br from-[--color-navy] to-[--color-teal]" />
@@ -42,17 +36,9 @@ export function PartnersCTASection({
               {title}
             </Heading>
 
-            {description && (
-              <GenericText className="max-w-2xl">{description}</GenericText>
-            )}
+            {description && <GenericText className="max-w-2xl">{description}</GenericText>}
 
-            <Stack
-              direction="row"
-              gap="md"
-              wrap
-              justify="center"
-              className="pt-4"
-            >
+            <Stack direction="row" gap="md" wrap justify="center" className="pt-4">
               <Button asChild size="lg">
                 <a href={primaryAction.href}>
                   {primaryAction.label}
@@ -62,12 +48,7 @@ export function PartnersCTASection({
               </Button>
 
               {secondaryAction && (
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-white/20 text-white hover:bg-white/10"
-                >
+                <Button asChild variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
                   <a href={secondaryAction.href}>{secondaryAction.label}</a>
                 </Button>
               )}

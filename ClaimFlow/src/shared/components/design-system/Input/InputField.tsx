@@ -13,13 +13,7 @@ export function InputField({ label, value, onChange }: InputFieldProps) {
     <div>
       <label className="text-xs font-semibold text-slate-600">{label}</label>
 
-      <Input
-        value={value}
-        onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          onChange(e.target.value)
-        }
-        className="mt-1"
-      />
+      <Input value={value} onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)} className="mt-1" />
     </div>
   );
 }

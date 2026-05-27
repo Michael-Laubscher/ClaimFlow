@@ -9,10 +9,7 @@ import { privacyConfig } from "../configs/privacy.config";
 export default function PrivacyPolicyPage() {
   return (
     <>
-      <PageBanner
-        title="Privacy Policy"
-        subtitle="How we collect, use, and protect your personal information"
-      />
+      <PageBanner title="Privacy Policy" subtitle="How we collect, use, and protect your personal information" />
 
       <Section className="py-20 bg-[--color-slate-50]">
         <Container size="md">

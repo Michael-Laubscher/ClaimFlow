@@ -1,13 +1,13 @@
-import { clsx } from 'clsx';
-import { Link } from 'react-router-dom';
-import { BannerBackground } from './BannerBackground';
-import { BannerBreadcrumbs } from './BannerBreadcrumbs';
-import { BannerStats } from './BannerStats';
-import type { PageBannerProps } from '@/shared/types/banner.types';
-import { bannerSizeStyles } from '@/shared/constants/banner.constants';
+import { clsx } from "clsx";
+import { Link } from "react-router-dom";
+import { BannerBackground } from "./BannerBackground";
+import { BannerBreadcrumbs } from "./BannerBreadcrumbs";
+import { BannerStats } from "./BannerStats";
+import type { PageBannerProps } from "@/shared/types/banner.types";
+import { bannerSizeStyles } from "@/shared/constants/banner.constants";
 
-import { Button } from '../buttons/Button';
-import { Container } from '../layout/Container';
+import { Button } from "../buttons/Button";
+import { Container } from "../layout/Container";
 
 export function PageBanner({
   title,
@@ -22,8 +22,8 @@ export function PageBanner({
 
   stats,
 
-  align = 'left',
-  size = 'md',
+  align = "left",
+  size = "md",
 
   overlay = true,
   grid = true,
@@ -31,33 +31,19 @@ export function PageBanner({
   className,
 }: PageBannerProps) {
   return (
-    <section
-      className={clsx(
-        'relative isolate overflow-hidden bg-[#071852]',
-        className
-      )}
-    >
-      <BannerBackground
-        overlay={overlay}
-        grid={grid}
-      />
+    <section className={clsx("relative isolate overflow-hidden bg-[#071852]", className)}>
+      <BannerBackground overlay={overlay} grid={grid} />
 
       <Container className="relative z-10">
         <div
           className={clsx(
-            'flex flex-col',
+            "flex flex-col",
             bannerSizeStyles[size].wrapper,
 
-            align === 'center'
-              ? 'items-center text-center'
-              : 'items-start text-left'
+            align === "center" ? "items-center text-center" : "items-start text-left"
           )}
         >
-          {breadcrumbs && (
-            <BannerBreadcrumbs
-              items={breadcrumbs}
-            />
-          )}
+          {breadcrumbs && <BannerBreadcrumbs items={breadcrumbs} />}
 
           {badge && (
             <div
@@ -134,33 +120,20 @@ export function PageBanner({
               "
             >
               {primaryCta && (
-                <Button
-                  asChild
-                  size="lg"
-                >
-                  <Link to={primaryCta.to}>
-                    {primaryCta.label}
-                  </Link>
+                <Button asChild size="lg">
+                  <Link to={primaryCta.to}>{primaryCta.label}</Link>
                 </Button>
               )}
 
               {secondaryCta && (
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                >
-                  <Link to={secondaryCta.to}>
-                    {secondaryCta.label}
-                  </Link>
+                <Button asChild size="lg" variant="outline">
+                  <Link to={secondaryCta.to}>{secondaryCta.label}</Link>
                 </Button>
               )}
             </div>
           )}
 
-          {stats && (
-            <BannerStats items={stats} />
-          )}
+          {stats && <BannerStats items={stats} />}
         </div>
       </Container>
     </section>

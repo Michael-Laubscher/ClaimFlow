@@ -1,17 +1,17 @@
+import { useAppStore } from "@/app/store/useAppStore";
 import { useNavigate } from "react-router-dom";
 import { submitClaim } from "../services/claims.service";
-import { generateClaimZip } from "../utils/zip.util";
-import { useAppStore } from "../../../app/store/useAppStore";
 import type { Attachment } from "../types/Attachment.types";
+import { generateClaimZip } from "../utils/zip.util";
+import type { ClaimFormData } from "../validation/claim.schema";
 
 export function useSubmitClaim(reset: () => void) {
   const navigate = useNavigate();
   const { setLoading, setError } = useAppStore();
 
-  const extractFiles = (attachments: Attachment[] = []) =>
-    attachments.map((a) => a.file);
+  const extractFiles = (attachments: Attachment[] = []) => attachments.map((a) => a.file);
 
-  const submit = async (data: any) => {
+  const submit = async (data: ClaimFormData) => {
     try {
       setLoading(true);
       setError(null);

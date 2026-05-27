@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import "@/shared/css/globals.css";
 
 import { HeroContent } from "@/shared/components/design-system/hero/HeroContent";
@@ -11,11 +9,7 @@ import { Section } from "@/shared/components/design-system/layout/Section";
 import { WaveDivider } from "@/shared/components/design-system/svg";
 
 export function HeroSection() {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    setLoaded(true);
-  }, []);
+  const loaded = true;
 
   return (
     <div className="min-h-screen overflow-x-hidden font-sans antialiased">
@@ -23,7 +17,6 @@ export function HeroSection() {
         <Container className="relative z-10 flex flex-1 items-center py-14 md:py-16 lg:py-24">
           <div className="grid w-full gap-16 lg:grid-cols-2 lg:items-center">
             <HeroContent loaded={loaded} />
-
             <HeroVisual loaded={loaded} />
           </div>
         </Container>

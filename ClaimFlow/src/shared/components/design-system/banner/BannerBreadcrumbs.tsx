@@ -1,14 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import type { BannerBreadcrumb } from '@/shared/types/banner.types';
+import type { BannerBreadcrumb } from "@/shared/types/banner.types";
 
 interface Props {
   items: BannerBreadcrumb[];
 }
 
-export function BannerBreadcrumbs({
-  items,
-}: Props) {
+export function BannerBreadcrumbs({ items }: Props) {
   return (
     <nav
       aria-label="Breadcrumb"
@@ -23,15 +21,8 @@ export function BannerBreadcrumbs({
       "
     >
       {items.map((crumb, index) => (
-        <div
-          key={crumb.label}
-          className="flex items-center gap-2"
-        >
-          {index > 0 && (
-            <span className="text-white/30">
-              /
-            </span>
-          )}
+        <div key={crumb.label} className="flex items-center gap-2">
+          {index > 0 && <span className="text-white/30">/</span>}
 
           {crumb.to ? (
             <Link
@@ -44,9 +35,7 @@ export function BannerBreadcrumbs({
               {crumb.label}
             </Link>
           ) : (
-            <span className="text-white">
-              {crumb.label}
-            </span>
+            <span className="text-white">{crumb.label}</span>
           )}
         </div>
       ))}

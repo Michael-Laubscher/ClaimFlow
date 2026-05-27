@@ -31,43 +31,31 @@ export default function ClaimForm() {
               Submit a Claim
             </Typography>
 
-            <Typography color="muted">
-              Complete the form below to submit your insurance claim. We’ll
-              review and respond as soon as possible.
-            </Typography>
+            <Typography color="muted">Complete the form below to submit your insurance claim. We’ll review and respond as soon as possible.</Typography>
           </Stack>
 
           {/* Error state */}
           {error && (
             <GlassCard className="p-4 border border-red-200 bg-red-50">
-              <Typography className="text-red-600">
-                {error}
-              </Typography>
+              <Typography className="text-red-600">{error}</Typography>
             </GlassCard>
           )}
 
           {/* Form */}
           <FormProvider {...methods}>
-            <form
-              onSubmit={methods.handleSubmit(submit)}
-            >
+            <form onSubmit={methods.handleSubmit(submit)}>
               <Stack gap="lg">
                 {/* Sections */}
                 <GlassCard className="p-6">
                   <PolicySection />
-              
+
                   <PersonalSection />
-                
+
                   <IncidentSection />
-               
+
                   <AttachmentsSection />
-             
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    disabled={loading}
-                  >
+
+                  <Button type="submit" variant="primary" size="lg" disabled={loading}>
                     {loading ? "Submitting..." : "Submit Claim"}
                   </Button>
                 </GlassCard>

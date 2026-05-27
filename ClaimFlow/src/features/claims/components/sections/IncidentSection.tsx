@@ -4,15 +4,16 @@ import { Input } from "@/shared/components/design-system/Input/Input";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 
 export default function IncidentSection() {
-  const { register, watch, formState: { errors } } = useFormContext();
+  const {
+    register,
+    watch,
+    formState: { errors },
+  } = useFormContext();
 
   const claimType = watch("claimType");
 
   return (
-    <FormSection
-      title="Incident Details"
-      description="Tell us what happened"
-    >
+    <FormSection title="Incident Details" description="Tell us what happened">
       <select {...register("claimType")} className="input">
         <option value="vehicle">Vehicle</option>
         <option value="property">Property</option>
@@ -21,21 +22,11 @@ export default function IncidentSection() {
 
       <Input type="date" {...register("incidentDate")} />
 
-      {errors.incidentDate?.message && (
-        <Typography className="text-red-500 text-sm">
-          {errors.incidentDate.message as string}
-        </Typography>
-      )}
+      {errors.incidentDate?.message && <Typography className="text-red-500 text-sm">{errors.incidentDate.message as string}</Typography>}
 
-      <textarea
-        {...register("description")}
-        placeholder="Describe incident"
-        className="w-full rounded-xl border px-4 py-3"
-      />
+      <textarea {...register("description")} placeholder="Describe incident" className="w-full rounded-xl border px-4 py-3" />
 
-      {claimType === "vehicle" && (
-        <Input placeholder="Vehicle Registration Number" />
-      )}
+      {claimType === "vehicle" && <Input placeholder="Vehicle Registration Number" />}
     </FormSection>
   );
 }

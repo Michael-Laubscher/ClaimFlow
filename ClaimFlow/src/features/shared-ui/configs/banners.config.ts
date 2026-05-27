@@ -4,8 +4,7 @@ export const banners = {
 
     title: "Protecting Africa’s Logistics Future",
 
-    subtitle:
-      "Modern transport insurance solutions for fleets, cargo operators, and logistics businesses.",
+    subtitle: "Modern transport insurance solutions for fleets, cargo operators, and logistics businesses.",
 
     breadcrumbs: [
       {
@@ -48,8 +47,7 @@ export const banners = {
 
     title: "Frequently Asked Questions",
 
-    subtitle:
-      "Find answers about claims, Yellow Card insurance, fleet protection, payments, and transport coverage across Africa.",
+    subtitle: "Find answers about claims, Yellow Card insurance, fleet protection, payments, and transport coverage across Africa.",
 
     breadcrumbs: [
       {

@@ -1,16 +1,13 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
-import { cn } from '@/shared/utilis/cn';
+import { cn } from "@/shared/lib/cn";
 
 interface FooterTextProps {
   children: ReactNode;
   className?: string;
 }
 
-export function FooterText({
-  children,
-  className,
-}: FooterTextProps) {
+export function FooterText({ children, className }: FooterTextProps) {
   return (
     <p
       className={cn(

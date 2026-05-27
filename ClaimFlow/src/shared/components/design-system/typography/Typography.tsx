@@ -4,13 +4,7 @@ interface Props {
   children: React.ReactNode;
   className?: string;
 
-  variant?:
-    | "body-sm"
-    | "body-md"
-    | "body-lg"
-    | "body-3xl"
-    | "label-sm"
-    | "label-md";
+  variant?: "body-sm" | "body-md" | "body-lg" | "body-3xl" | "label-sm" | "label-md";
 
   color?: "default" | "muted" | "primary";
 }
@@ -30,15 +24,6 @@ const colorMap = {
   primary: "text-black",
 };
 
-export function Typography({
-  children,
-  className,
-  variant = "body-md",
-  color = "default",
-}: Props) {
-  return (
-    <span className={clsx(variantMap[variant], colorMap[color], className)}>
-      {children}
-    </span>
-  );
+export function Typography({ children, className, variant = "body-md", color = "default" }: Props) {
+  return <span className={clsx(variantMap[variant], colorMap[color], className)}>{children}</span>;
 }

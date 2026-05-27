@@ -8,9 +8,7 @@ interface Props {
   items: MissionVisionItem[];
 }
 
-export function MissionVisionSection({
-  items,
-}: Props) {
+export function MissionVisionSection({ items }: Props) {
   return (
     <Section className="bg-slate-50 py-20">
       <Container>

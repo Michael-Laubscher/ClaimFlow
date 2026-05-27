@@ -1,12 +1,10 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 interface IconSurfaceProps {
   children: ReactNode;
 }
 
-export function IconSurface({
-  children,
-}: IconSurfaceProps) {
+export function IconSurface({ children }: IconSurfaceProps) {
   return (
     <div
       className="

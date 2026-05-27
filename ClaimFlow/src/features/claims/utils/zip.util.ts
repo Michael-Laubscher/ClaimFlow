@@ -1,9 +1,6 @@
 import JSZip from "jszip";
 
-export async function generateClaimZip(
-  data: any,
-  attachments: Array<File | { file: File }>
-): Promise<Blob> {
+export async function generateClaimZip(data: unknown, attachments: Array<File | { file: File }>): Promise<Blob> {
   const zip = new JSZip();
 
   // Save form data

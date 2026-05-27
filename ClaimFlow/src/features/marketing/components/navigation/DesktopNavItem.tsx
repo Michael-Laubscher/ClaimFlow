@@ -8,17 +8,11 @@ import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
 
 interface Props {
   item: NavItem;
-  pathname: string;
   openDropdown: string | null;
   setOpenDropdown: (value: string | null) => void;
 }
 
-export function DesktopNavItem({
-  item,
-  pathname: _pathname,
-  openDropdown,
-  setOpenDropdown,
-}: Props) {
+export function DesktopNavItem({ item, openDropdown, setOpenDropdown }: Props) {
   const isOpen = openDropdown === item.label;
 
   const ref = useOutsideClick<HTMLDivElement>(() => setOpenDropdown(null));
@@ -41,12 +35,7 @@ export function DesktopNavItem({
     overflow-hidden
   "
       >
-        <NavLink
-          to={item.to!}
-          variant="pill"
-          size="md"
-          className="rounded-r-none"
-        >
+        <NavLink to={item.to!} variant="pill" size="md" className="rounded-r-none">
           {item.label}
         </NavLink>
 
@@ -61,15 +50,10 @@ export function DesktopNavItem({
         px-3
         transition-colors
       `,
-            isOpen ? "bg-[--color-slate-50]" : "hover:bg-[--color-slate-50]",
+            isOpen ? "bg-[--color-slate-50]" : "hover:bg-[--color-slate-50]"
           )}
         >
-          <ChevronDownIcon
-            className={clsx(
-              "h-4 w-4 transition-transform",
-              isOpen && "rotate-180",
-            )}
-          />
+          <ChevronDownIcon className={clsx("h-4 w-4 transition-transform", isOpen && "rotate-180")} />
         </button>
       </div>
 
@@ -82,20 +66,12 @@ export function DesktopNavItem({
               onClick={() => setOpenDropdown(null)}
               className="flex flex-col items-start px-4 py-3 gap-1 rounded-none border-b-2 border-black/40 last:border-b-0 hover:bg-[--color-slate-50] transition"
             >
-              <Typography
-                variant="label-md"
-                color="primary"
-                className="text-left"
-              >
+              <Typography variant="label-md" color="primary" className="text-left">
                 {child.label}
               </Typography>
 
               {child.desc && (
-                <Typography
-                  variant="body-sm"
-                  color="muted"
-                  className="text-left"
-                >
+                <Typography variant="body-sm" color="muted" className="text-left">
                   {child.desc}
                 </Typography>
               )}

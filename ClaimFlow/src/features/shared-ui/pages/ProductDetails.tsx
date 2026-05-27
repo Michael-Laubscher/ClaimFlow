@@ -56,21 +56,14 @@ export default function ProductDetailsPage() {
                 </IconSurface>
 
                 <Stack gap="xs">
-                  <Heading
-                    as="h1"
-                    size="xl"
-                    className="text-[--color-slate-900]"
-                  >
+                  <Heading as="h1" size="xl" className="text-[--color-slate-900]">
                     {product.name}
                   </Heading>
 
                   <Typography color="muted">{product.tagline}</Typography>
                 </Stack>
 
-                <ProductCoverageCard
-                  label={product.coverageLabel}
-                  description={product.coverageDesc}
-                />
+                <ProductCoverageCard label={product.coverageLabel} description={product.coverageDesc} />
 
                 <Button variant="primary" size="lg">
                   Get a Quote

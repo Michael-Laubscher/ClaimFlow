@@ -5,23 +5,12 @@ interface SelectFieldProps {
   onChange: (value: string) => void;
 }
 
-export function SelectField({
-  label,
-  value,
-  options,
-  onChange,
-}: SelectFieldProps) {
+export function SelectField({ label, value, options, onChange }: SelectFieldProps) {
   return (
     <div>
-      <label className="text-xs font-semibold text-slate-600">
-        {label}
-      </label>
+      <label className="text-xs font-semibold text-slate-600">{label}</label>
 
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="mt-1 w-full rounded-xl border px-4 py-3 text-sm"
-      >
+      <select value={value} onChange={(e) => onChange(e.target.value)} className="mt-1 w-full rounded-xl border px-4 py-3 text-sm">
         <option value="">Select {label}</option>
 
         {options.map((opt) => (

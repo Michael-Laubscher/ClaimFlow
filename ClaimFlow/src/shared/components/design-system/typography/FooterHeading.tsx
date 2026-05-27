@@ -5,9 +5,5 @@ interface FooterHeadingProps {
 }
 
 export function FooterHeading({ children }: FooterHeadingProps) {
-  return (
-    <h3 className="mb-5 text-sm font-semibold text-white">
-      {children}
-    </h3>
-  );
+  return <h3 className="mb-5 text-sm font-semibold text-white">{children}</h3>;
 }

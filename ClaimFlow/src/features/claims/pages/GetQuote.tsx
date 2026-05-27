@@ -17,8 +17,7 @@ import type { CoverageLevel } from "@/features/claims/configs/coverageLevels";
 export default function GetQuotePage() {
   const [step, setStep] = useState(1);
 
-  const [insuranceType, setInsuranceType] =
-    useState<InsuranceType | "">("");
+  const [insuranceType, setInsuranceType] = useState<InsuranceType | "">("");
 
   const [details, setDetails] = useState<QuoteDetails>({
     business: "",
@@ -28,16 +27,11 @@ export default function GetQuotePage() {
     country: "",
   });
 
-  const [coverage, setCoverage] =
-    useState<CoverageLevel | "">("");
+  const [coverage, setCoverage] = useState<CoverageLevel | "">("");
 
-  const [submitted, setSubmitted] =
-    useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  const update = (
-    key: keyof QuoteDetails,
-    value: string
-  ) => {
+  const update = (key: keyof QuoteDetails, value: string) => {
     setDetails((prev) => ({
       ...prev,
       [key]: value,
@@ -53,9 +47,7 @@ export default function GetQuotePage() {
             Get Your Insurance Quote
           </Heading>
 
-          <GenericText className="mt-2 text-blue-100/70">
-            Fast, transparent quotes in minutes. No hidden fees.
-          </GenericText>
+          <GenericText className="mt-2 text-blue-100/70">Fast, transparent quotes in minutes. No hidden fees.</GenericText>
         </Container>
       </div>
 
@@ -64,22 +56,9 @@ export default function GetQuotePage() {
         <Card className="p-8 md:p-10">
           <Stepper step={step} />
 
-          {step === 1 && (
-            <Step1
-              value={insuranceType}
-              onChange={setInsuranceType}
-              onNext={() => setStep(2)}
-            />
-          )}
+          {step === 1 && <Step1 value={insuranceType} onChange={setInsuranceType} onNext={() => setStep(2)} />}
 
-          {step === 2 && (
-            <Step2
-              data={details}
-              onChange={update}
-              onNext={() => setStep(3)}
-              onBack={() => setStep(1)}
-            />
-          )}
+          {step === 2 && <Step2 data={details} onChange={update} onNext={() => setStep(3)} onBack={() => setStep(1)} />}
 
           {step === 3 && (
             <Step3

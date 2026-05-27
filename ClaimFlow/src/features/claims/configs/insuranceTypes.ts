@@ -1,10 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 
-import {
-  PackageIcon,
-  ShieldIcon,
-  TruckIcon,
-} from "lucide-react";
+import { PackageIcon, ShieldIcon, TruckIcon } from "lucide-react";
 
 export interface InsuranceTypeItem {
   id: string;

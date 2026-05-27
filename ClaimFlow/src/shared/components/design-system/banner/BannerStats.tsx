@@ -1,13 +1,10 @@
 import type { BannerStat } from "@/shared/types/banner.types";
 
-
 interface Props {
   items: BannerStat[];
 }
 
-export function BannerStats({
-  items,
-}: Props) {
+export function BannerStats({ items }: Props) {
   return (
     <div
       className="

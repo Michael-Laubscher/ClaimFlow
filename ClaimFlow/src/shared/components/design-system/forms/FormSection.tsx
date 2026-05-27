@@ -17,9 +17,7 @@ export function FormSection({ title, description, children }: Props) {
         <Stack gap="xs">
           <Typography variant="body-3xl">{title}</Typography>
 
-          {description && (
-            <Typography color="muted">{description}</Typography>
-          )}
+          {description && <Typography color="muted">{description}</Typography>}
         </Stack>
 
         {children}

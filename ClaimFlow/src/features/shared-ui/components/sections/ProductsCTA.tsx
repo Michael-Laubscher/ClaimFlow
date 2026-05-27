@@ -7,7 +7,7 @@ import { Typography } from "@/shared/components/design-system/typography/Typogra
 
 export function ProductsCTA() {
   return (
-    <Section >
+    <Section>
       <div
         className="
           rounded-[32px]
@@ -20,10 +20,7 @@ export function ProductsCTA() {
               Need help choosing a product?
             </Heading>
 
-            <Typography className="max-w-xl text-white/70">
-              Our specialists will help you find the right coverage for your
-              operations.
-            </Typography>
+            <Typography className="max-w-xl text-white/70">Our specialists will help you find the right coverage for your operations.</Typography>
 
             <Stack direction="row" gap="sm" wrap>
               <Button variant="primary">Talk to an Expert</Button>

@@ -11,12 +11,13 @@ interface Props {
   pathname: string;
 }
 
-export function MobileNavItem({ item, pathname: _pathname }: Props) {
+export function MobileNavItem({ item, pathname }: Props) {
   const [open, setOpen] = useState(false);
+  const isActive = pathname === item.to;
 
   if (!item.children) {
     return (
-      <NavLink to={item.to!} variant="pill" size="md">
+      <NavLink to={item.to!} variant={isActive ? "default" : "pill"} size="md">
         {item.label}
       </NavLink>
     );
@@ -31,12 +32,7 @@ export function MobileNavItem({ item, pathname: _pathname }: Props) {
     justify-center
   "
       >
-        <NavLink
-          to={item.to!}
-          variant="pill"
-          size="md"
-          className="rounded-r-none"
-        >
+        <NavLink to={item.to!} variant="pill" size="md" className="rounded-r-none">
           {item.label}
         </NavLink>
 
@@ -49,12 +45,7 @@ export function MobileNavItem({ item, pathname: _pathname }: Props) {
       py-3
     "
         >
-          <ChevronDownIcon
-            className={clsx(
-              "h-4 w-4 transition-transform",
-              open && "rotate-180",
-            )}
-          />
+          <ChevronDownIcon className={clsx("h-4 w-4 transition-transform", open && "rotate-180")} />
         </button>
       </div>
 
@@ -67,20 +58,12 @@ export function MobileNavItem({ item, pathname: _pathname }: Props) {
               onClick={() => setOpen(false)}
               className="flex flex-col w-full px-3 py-2 rounded-none border-b-2 border-black/40 last:border-b-0 hover:bg-[--color-slate-50] transition"
             >
-              <Typography
-                variant="label-md"
-                color="primary"
-                className="text-left block w-full"
-              >
+              <Typography variant="label-md" color="primary" className="text-left block w-full">
                 {child.label}
               </Typography>
 
               {child.desc && (
-                <Typography
-                  variant="body-sm"
-                  color="muted"
-                  className="text-left block w-full mt-1"
-                >
+                <Typography variant="body-sm" color="muted" className="text-left block w-full mt-1">
                   {child.desc}
                 </Typography>
               )}

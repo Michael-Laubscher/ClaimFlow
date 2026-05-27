@@ -14,34 +14,21 @@ export function WhyChooseSection() {
       <Container>
         {/* Header */}
         <Stack direction="col" gap="md" className="mb-12 text-center">
-          <Typography
-            variant="label-md"
-            className="inline-block max-w-fit px-6 py-2 bg-green-100 text-green-700 font-bold rounded-full"
-          >
+          <Typography variant="label-md" className="inline-block max-w-fit px-6 py-2 bg-green-100 text-green-700 font-bold rounded-full">
             Why Choose Us
           </Typography>
 
-          <Typography
-            variant="body-3xl"
-            className="mt-4 ml-0 text-start max-w-sm text-3xl md:text-4xl font-bold"
-          >
+          <Typography variant="body-3xl" className="mt-4 ml-0 text-start max-w-sm text-3xl md:text-4xl font-bold">
             Why Transporters Choose Askari
           </Typography>
         </Stack>
 
         {/* Features + Image */}
-        <Stack
-          direction="row"
-          gap="lg"
-          className="grid md:grid-cols-2 items-center gap-10"
-        >
+        <Stack direction="row" gap="lg" className="grid md:grid-cols-2 items-center gap-10">
           {/* Features List */}
           <Stack direction="col" gap="md">
             {whyFeatures.map((feature) => (
-              <Card
-                key={feature.id}
-                className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition"
-              >
+              <Card key={feature.id} className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition">
                 <div className="flex items-center justify-center w-10 h-10 bg-green-600 rounded-md flex-shrink-0">
                   <CheckIcon className="w-5 h-5 text-white" />
                 </div>
@@ -59,11 +46,7 @@ export function WhyChooseSection() {
 
           {/* Image */}
           <div className="flex justify-center">
-            <img
-              src="/why-choose-us.jpg"
-              alt="Why Choose Us"
-              className="rounded-xl max-w-full h-auto shadow-lg"
-            />
+            <img src="/why-choose-us.jpg" alt="Why Choose Us" className="rounded-xl max-w-full h-auto shadow-lg" />
           </div>
         </Stack>
       </Container>

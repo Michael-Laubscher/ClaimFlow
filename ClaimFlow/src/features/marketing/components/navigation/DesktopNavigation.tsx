@@ -7,21 +7,11 @@ interface Props {
   setOpenDropdown: (value: string | null) => void;
 }
 
-export function DesktopNavigation({
-  pathname,
-  openDropdown,
-  setOpenDropdown,
-}: Props) {
+export function DesktopNavigation({ pathname, openDropdown, setOpenDropdown }: Props) {
   return (
     <nav className="hidden items-center gap-1 lg:flex">
       {NAV_LINKS.map((item) => (
-        <DesktopNavItem
-          key={item.label}
-          item={item}
-          pathname={pathname}
-          openDropdown={openDropdown}
-          setOpenDropdown={setOpenDropdown}
-        />
+        <DesktopNavItem key={item.label} item={item} pathname={pathname} openDropdown={openDropdown} setOpenDropdown={setOpenDropdown} />
       ))}
     </nav>
   );

@@ -29,31 +29,19 @@ export function ArticleCard({ article }: Props) {
       {/* Content */}
       <div className="p-5">
         <Stack direction="row" justify="between" align="center" className="mb-3">
-          <Badge className="bg-white/10 text-xs">
-            {article.category}
-          </Badge>
+          <Badge className="bg-white/10 text-xs">{article.category}</Badge>
 
-          <span className="text-xs text-slate-400">
-            {article.readTime}
-          </span>
+          <span className="text-xs text-slate-400">{article.readTime}</span>
         </Stack>
 
-        <h3 className="text-base font-bold text-slate-900 leading-snug">
-          {article.title}
-        </h3>
+        <h3 className="text-base font-bold text-slate-900 leading-snug">{article.title}</h3>
 
-        <GenericText className="mt-2 text-sm text-slate-500">
-          {article.excerpt}
-        </GenericText>
+        <GenericText className="mt-2 text-sm text-slate-500">{article.excerpt}</GenericText>
 
         <Stack direction="row" justify="between" className="mt-5 border-t border-slate-100 pt-3">
           <span className="text-xs text-slate-400">{article.date}</span>
 
-          <Button
-            variant="outline"
-            size="sm"
-            iconRight={<span>→</span>}
-          >
+          <Button variant="outline" size="sm" iconRight={<span>→</span>}>
             Read more
           </Button>
         </Stack>

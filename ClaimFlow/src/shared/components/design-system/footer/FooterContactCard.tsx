@@ -1,10 +1,6 @@
 import type { FooterConfig } from "@/shared/types/footer.types";
 
-import {
-  MailIcon,
-  PhoneIcon,
-  PinIcon,
-} from "@/shared/components/design-system/svg/icons";
+import { MailIcon, PhoneIcon, PinIcon } from "@/shared/components/design-system/svg/icons";
 
 import { Card } from "@/shared/components/design-system/surface/Card";
 

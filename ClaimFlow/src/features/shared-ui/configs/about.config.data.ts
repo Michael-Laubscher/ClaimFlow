@@ -1,16 +1,6 @@
-import {
-  Shield,
-  Globe,
-  Users,
-  Clock3,
-} from "lucide-react";
+import { Shield, Globe, Users, Clock3 } from "lucide-react";
 
-import type {
-  CoreValue,
-  ImpactStat,
-  MissionVisionItem,
-  OurStory,
-} from "@/shared/types/about.types";
+import type { CoreValue, ImpactStat, MissionVisionItem, OurStory } from "@/shared/types/about.types";
 
 export const ourStory: OurStory = {
   paragraphs: [

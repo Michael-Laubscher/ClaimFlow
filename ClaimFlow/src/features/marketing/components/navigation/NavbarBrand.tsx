@@ -9,11 +9,7 @@ import { Typography } from "@/shared/components/design-system/typography/Typogra
 export function NavbarBrand() {
   return (
     <Link to="/" className="flex items-center gap-3 py-5">
-      <img
-        src={AskariLogo}
-        alt="Askari Insurance"
-        className="h-10 w-auto object-contain"
-      />
+      <img src={AskariLogo} alt="Askari Insurance" className="h-10 w-auto object-contain" />
 
       <Stack className="hidden leading-none sm:flex">
         <Typography variant="label-sm" color="muted">

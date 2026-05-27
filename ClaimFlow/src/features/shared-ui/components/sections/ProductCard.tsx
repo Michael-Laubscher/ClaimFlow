@@ -13,9 +13,7 @@ interface Props {
   product: Product;
 }
 
-export function ProductCard({
-  product,
-}: Props) {
+export function ProductCard({ product }: Props) {
   const Icon = product.icon;
 
   return (
@@ -34,11 +32,7 @@ export function ProductCard({
       >
         <div className="p-6">
           <Stack gap="lg">
-            <Stack
-              direction="row"
-              align="center"
-              justify="between"
-            >
+            <Stack direction="row" align="center" justify="between">
               <IconSurface>
                 <Icon className="h-5 w-5 text-[--color-orange]" />
               </IconSurface>
@@ -47,17 +41,11 @@ export function ProductCard({
             </Stack>
 
             <Stack gap="xs">
-              <Heading
-                as="h3"
-                size="lg"
-                className="text-[--color-slate-900]"
-              >
+              <Heading as="h3" size="lg" className="text-[--color-slate-900]">
                 {product.name}
               </Heading>
 
-              <Typography color="muted">
-                {product.tagline}
-              </Typography>
+              <Typography color="muted">{product.tagline}</Typography>
             </Stack>
 
             <div
@@ -71,7 +59,6 @@ export function ProductCard({
               "
             >
               Learn more
-
               <ArrowRight
                 className="
                   h-4

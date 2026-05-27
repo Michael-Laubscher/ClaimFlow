@@ -88,16 +88,7 @@ export type FAQSection = BaseSection & {
   items: FAQItem[];
 };
 
-export type PageSection =
-  | HeroSection
-  | TextSection
-  | CardSection
-  | CTASection
-  | StatsSection
-  | FeatureSection
-  | ImageSection
-  | TestimonialsSection
-  | FAQSection;
+export type PageSection = HeroSection | TextSection | CardSection | CTASection | StatsSection | FeatureSection | ImageSection | TestimonialsSection | FAQSection;
 
 export type PageConfig = {
   sections: PageSection[];

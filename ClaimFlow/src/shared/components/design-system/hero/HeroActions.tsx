@@ -6,26 +6,12 @@ import { Button } from "@/shared/components/design-system/buttons/Button";
 export function HeroActions() {
   return (
     <div className="mb-14 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-      <Button
-        asChild
-        variant="primary"
-        size="lg"
-        className="w-full sm:w-auto"
-        iconRight={<ArrowRightIcon size={20} />}
-      >
-        <Link to="/claims/get-quote">
-          Get Instant Quote
-        </Link>
+      <Button asChild variant="primary" size="lg" className="w-full sm:w-auto" iconRight={<ArrowRightIcon size={20} />}>
+        <Link to="/claims/get-quote">Get Instant Quote</Link>
       </Button>
 
-      <Button
-        variant="outline"
-        size="lg"
-        className="w-full sm:w-auto"
-      >
-        <Link to="/products">
-          View Products
-        </Link>
+      <Button variant="outline" size="lg" className="w-full sm:w-auto">
+        <Link to="/products">View Products</Link>
       </Button>
     </div>
   );
