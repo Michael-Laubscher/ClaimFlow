@@ -1,4 +1,5 @@
-import { Card } from "@/shared/components/design-system/surface/Card";
+
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { SectionHeader } from "@/shared/components/design-system/typography/SectionHeader";
 
 import type { CoreValue, CoreValueColor } from "@/shared/types/about.types";

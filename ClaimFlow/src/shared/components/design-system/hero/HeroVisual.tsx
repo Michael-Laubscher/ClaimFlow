@@ -1,8 +1,8 @@
 import { HERO_CONTENT } from "@/features/shared-ui/configs";
 
-import { FloatingCard } from "@/shared/components/design-system/surface/FloatingCard";
-import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
 import { ShieldCheckIcon } from "@/shared/components/design-system/svg";
+import { FloatingCard } from "../composite/card/FloatingCard";
+import { GlassCard } from "../composite/card/GlassCard";
 
 interface HeroVisualProps {
   loaded: boolean;

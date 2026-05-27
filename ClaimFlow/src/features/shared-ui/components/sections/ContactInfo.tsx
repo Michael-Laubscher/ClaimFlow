@@ -1,8 +1,9 @@
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
-import { IconSurface } from "@/shared/components/design-system/surface/IconSurface";
+
 import { CONTACT_INFO } from "../../configs/contact.config";
+import { IconSurface } from "@/shared/components/design-system/composite/card/IconSurface";
 
 export function ContactInfo() {
   return (

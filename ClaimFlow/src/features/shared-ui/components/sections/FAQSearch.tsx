@@ -1,4 +1,5 @@
-import { Input } from "@/shared/components/design-system/Input/Input";
+import { Input } from "@/shared/components/design-system/primitives/Input/Input";
+
 
 interface Props {
   value: string;

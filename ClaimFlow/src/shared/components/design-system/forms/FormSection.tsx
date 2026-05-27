@@ -1,6 +1,5 @@
-// shared/components/design-system/forms/FormSection.tsx
 
-import { GlassCard } from "../surface/GlassCard";
+import { GlassCard } from "../composite/card/GlassCard";
 import { Stack } from "../layout/Stack";
 import { Typography } from "../typography/Typography";
 

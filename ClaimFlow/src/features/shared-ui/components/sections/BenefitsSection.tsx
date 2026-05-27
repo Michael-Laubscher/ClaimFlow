@@ -1,8 +1,9 @@
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
+
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { Badge, Check, Container, Heading, Section } from "lucide-react";
 import { benefits } from "../../configs/partners.data";
+import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
 
 export function BenefitsSection() {
   return (

@@ -1,12 +1,3 @@
-import type { ReactNode } from "react";
-
-import { cn } from "@/shared/lib/cn";
-
-interface SectionProps {
-  children: ReactNode;
-  className?: string;
-}
-
-export function Section({ children, className }: SectionProps) {
-  return <section className={cn(className)}>{children}</section>;
+export function Section({ children, className }: { children: React.ReactNode; className?: string }) {
+  return <section className={className}>{children}</section>;
 }

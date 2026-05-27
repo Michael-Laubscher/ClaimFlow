@@ -1,7 +1,8 @@
+import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
+
 import { SectionHeader } from "@/shared/components/design-system/typography/SectionHeader";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { Building2 } from "lucide-react";

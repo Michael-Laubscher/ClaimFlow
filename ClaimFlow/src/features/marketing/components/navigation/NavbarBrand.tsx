@@ -11,10 +11,12 @@ export function NavbarBrand() {
     <Link to="/" className="flex items-center gap-3 py-5">
       <img src={AskariLogo} alt="Askari Insurance" className="h-10 w-auto object-contain" />
 
-      <Stack className="hidden leading-none sm:flex">
-        <Typography variant="label-sm" color="muted">
-          Protecting African Trade
-        </Typography>
+      <Stack>
+        <div className="hidden leading-none sm:flex">
+          <Typography variant="label-sm" color="muted">
+            Protecting African Trade
+          </Typography>
+        </div>
       </Stack>
     </Link>
   );

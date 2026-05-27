@@ -2,13 +2,14 @@ import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
-import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
+
 
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { SectionHeader } from "@/shared/components/design-system/typography/SectionHeader";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 
 import { process } from "../../configs/partners.data";
+import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
 
 export function ProcessSection() {
   return (

@@ -2,11 +2,9 @@ import type { FooterConfig } from "@/shared/types/footer.types";
 
 import { MailIcon, PhoneIcon, PinIcon } from "@/shared/components/design-system/svg/icons";
 
-import { Card } from "@/shared/components/design-system/surface/Card";
-
-import { IconSurface } from "@/shared/components/design-system/surface/IconSurface";
-
 import { FooterHeading } from "@/shared/components/design-system/typography/FooterHeading";
+import { Card } from "../composite/card/Card";
+import { IconSurface } from "../composite/card/IconSurface";
 
 const CONTACT_ICONS = {
   phone: PhoneIcon,

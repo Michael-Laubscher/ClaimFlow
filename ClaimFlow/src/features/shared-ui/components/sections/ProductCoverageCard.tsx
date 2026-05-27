@@ -1,5 +1,6 @@
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Card } from "@/shared/components/design-system/surface/Card";
+
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { Shield } from "lucide-react";
 

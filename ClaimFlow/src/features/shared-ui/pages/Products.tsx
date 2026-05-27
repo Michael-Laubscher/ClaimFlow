@@ -1,10 +1,11 @@
-import { PageBanner } from "@/shared/components/design-system/banner/banner";
+
 
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { ProductsCTA } from "../components/sections/ProductsCTA";
 import { ProductCard } from "../components/sections/ProductCard";
 import { products } from "../configs/products.config";
+import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 
 export default function ProductsPage() {
   return (

@@ -1,6 +1,6 @@
 import { HERO_CONTENT } from "@/features/shared-ui/configs";
 
-import { Badge } from "@/shared/components/design-system/feedback/Badge";
+import { Badge } from "@/shared/components/design-system/primitives/Badge";
 import { CheckIcon } from "@/shared/components/design-system/svg";
 
 export function HeroBadge() {

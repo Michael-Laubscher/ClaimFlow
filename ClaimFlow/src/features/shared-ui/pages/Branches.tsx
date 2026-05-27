@@ -1,8 +1,9 @@
-import { PageBanner } from "@/shared/components/design-system/banner/banner";
+
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { BranchCard } from "../components/sections/BranchCard";
 import { branches } from "../configs/branches.config";
+import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 
 export default function BranchesPage() {
   return (

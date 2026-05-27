@@ -1,10 +1,11 @@
-import { Pill } from "@/shared/components/design-system/feedback/Pill";
+import { Pill } from "@/shared/components/design-system/primitives/Pill";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
+
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import type { Branch } from "@/shared/types/branch.types";
 import { Clock3, MapPin, Phone } from "lucide-react";
+import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
 
 interface BranchCardProps {
   branch: Branch;

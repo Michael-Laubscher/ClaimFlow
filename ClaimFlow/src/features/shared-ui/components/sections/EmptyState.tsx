@@ -1,5 +1,6 @@
-import { Button } from "@/shared/components/design-system/buttons/Button";
 
+
+import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 import { SearchIcon } from "@/shared/components/design-system/svg/icons/SearchIcon";
 
 interface EmptyStateProps {

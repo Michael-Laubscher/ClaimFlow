@@ -1,4 +1,5 @@
-import { Card } from "@/shared/components/design-system/surface/Card";
+
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 
 type FeatureRowProps = {
@@ -8,7 +9,7 @@ type FeatureRowProps = {
 
 export function FeatureRow({ label, icon }: FeatureRowProps) {
   return (
-    <Card variant="default" padding="sm" className="flex items-center gap-4">
+    <Card  padding="sm" className="flex items-center gap-4">
       <div className="flex h-10 w-10 items-center justify-center rounded-md bg-surface-success text-white">{icon}</div>
 
       <Typography variant="body-sm" className="font-medium">

@@ -1,10 +1,10 @@
-import { PageBanner } from "@/shared/components/design-system/banner/banner";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { TermsSection } from "../components/sections/TermsSection";
 import { termsConfig } from "../configs/terms.config";
+import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 
 export default function TermsOfServicePage() {
   return (

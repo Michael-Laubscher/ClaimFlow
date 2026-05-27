@@ -1,7 +1,8 @@
 import { Link, type To } from "react-router-dom";
 import type { MouseEventHandler, ReactNode } from "react";
-import { buttonVariants } from "./button.variants";
+
 import { cn } from "@/shared/lib/cn";
+import { buttonVariants } from "../../tokens/button";
 
 interface ButtonLinkProps {
   to: To;

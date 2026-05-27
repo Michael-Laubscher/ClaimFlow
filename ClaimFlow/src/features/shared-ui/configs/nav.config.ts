@@ -1,6 +1,6 @@
-import type { NavItem } from "../../../shared/types/nav.types";
+import type { NavItem } from "@/shared/types/nav.types";
 
-export const PRODUCTS_ITEMS: NavItem["children"] = [
+export const PRODUCTS_ITEMS: NavItem[] = [
   {
     label: "Marine Cargo Insurance",
     to: "/products/cargo",
@@ -24,14 +24,34 @@ export const PRODUCTS_ITEMS: NavItem["children"] = [
 ];
 
 export const NAV_LINKS: NavItem[] = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
+  {
+    label: "Home",
+    to: "/",
+  },
+
+  {
+    label: "About",
+    to: "/about",
+  },
+
   {
     label: "Products",
     to: "/products",
     children: PRODUCTS_ITEMS,
   },
-  { label: "Partnerships", to: "/partnerships" },
-  { label: "News", to: "/news" },
-  { label: "Contact", to: "/contact" },
+
+  {
+    label: "Partnerships",
+    to: "/partnerships",
+  },
+
+  {
+    label: "News",
+    to: "/news",
+  },
+
+  {
+    label: "Contact",
+    to: "/contact",
+  },
 ];

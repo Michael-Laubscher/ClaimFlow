@@ -1,7 +1,5 @@
-import { Button } from "@/shared/components/design-system/buttons/Button";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
-import { IconSurface } from "@/shared/components/design-system/surface/IconSurface";
+
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { useProduct } from "@/shared/hooks/useProduct";
 import { ArrowLeft } from "lucide-react";
@@ -13,6 +11,9 @@ import { ProductFeatures } from "../components/sections/ProductFeatures";
 import { ProductsCTA } from "../components/sections/ProductsCTA";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Container } from "@/shared/components/design-system/layout/Container";
+import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
+import { IconSurface } from "@/shared/components/design-system/composite/card/IconSurface";
+import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();

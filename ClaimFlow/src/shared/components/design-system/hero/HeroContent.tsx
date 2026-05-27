@@ -1,6 +1,6 @@
 import { HERO_CONTENT } from "@/features/shared-ui/configs";
 
-import { Reveal } from "@/shared/components/design-system/motion/Reveal";
+import { Reveal } from "@/shared/components/design-system/feedback/Reveal";
 
 import { HeroActions } from "./HeroActions";
 import { HeroHeadline } from "./HeroHeadline";

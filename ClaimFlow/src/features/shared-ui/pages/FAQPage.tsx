@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Card } from "@/shared/components/design-system/surface/Card";
+
 import { Container } from "@/shared/components/design-system/layout/Container";
 
 import { Heading } from "@/shared/components/design-system/typography/Heading";
@@ -13,8 +13,10 @@ import { FAQList } from "../components/sections/FAQList";
 import { faqs } from "../configs/faq.config";
 
 import { filterFAQs, getTotalFAQs } from "@/shared/utilis/faq.utils";
-import { PageBanner } from "@/shared/components/design-system/banner/banner";
+
 import { banners } from "../configs/banners.config";
+import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 export default function FAQPage() {
   const [search, setSearch] = useState("");

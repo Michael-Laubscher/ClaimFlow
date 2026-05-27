@@ -1,5 +1,6 @@
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Card } from "@/shared/components/design-system/surface/Card";
+
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { Check } from "lucide-react";
@@ -22,7 +23,7 @@ export function ProductFeatures({ features }: Props) {
           Key Features
         </Heading>
 
-        <Stack gap="none">
+        <Stack>
           {features.map((feature) => (
             <div
               key={feature}

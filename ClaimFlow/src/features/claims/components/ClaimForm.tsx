@@ -12,9 +12,10 @@ import { useAppStore } from "../../../app/store/useAppStore";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
+
 import { Typography } from "@/shared/components/design-system/typography/Typography";
-import { Button } from "@/shared/components/design-system/buttons/Button";
+import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
+import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 
 export default function ClaimForm() {
   const methods = useClaimForm();
@@ -24,16 +25,17 @@ export default function ClaimForm() {
   return (
     <Section className="bg-[--color-slate-50] py-16">
       <Container>
-        <Stack gap="xl" className="max-w-4xl mx-auto">
-          {/* Header */}
-          <Stack gap="xs">
-            <Typography variant="body-3xl" className="text-[--color-slate-900]">
-              Submit a Claim
-            </Typography>
+        <Stack gap="xl">
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
+            <Stack gap="xs">
+              <Typography variant="body-3xl" className="text-[--color-slate-900]">
+                Submit a Claim
+              </Typography>
 
-            <Typography color="muted">Complete the form below to submit your insurance claim. We’ll review and respond as soon as possible.</Typography>
-          </Stack>
-
+              <Typography color="muted">Complete the form below to submit your insurance claim. We’ll review and respond as soon as possible.</Typography>
+            </Stack>
+          </div>
           {/* Error state */}
           {error && (
             <GlassCard className="p-4 border border-red-200 bg-red-50">

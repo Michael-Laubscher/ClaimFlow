@@ -1,13 +1,15 @@
-import { Card } from "@/shared/components/design-system/surface/Card";
+
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { IconSurface } from "@/shared/components/design-system/surface/IconSurface";
-import { Pill } from "@/shared/components/design-system/feedback/Pill";
+
+import { Pill } from "@/shared/components/design-system/primitives/Pill";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import type { Product } from "@/shared/types/product.types";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { IconSurface } from "@/shared/components/design-system/composite/card/IconSurface";
 
 interface Props {
   product: Product;

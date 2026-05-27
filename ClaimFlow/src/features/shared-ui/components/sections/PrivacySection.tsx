@@ -1,9 +1,9 @@
-import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { BulletList } from "./BulletList";
 
 import type { Privacy as PrivacySectionType } from "@/shared/types/privacy.types";
+import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
 
 interface Props {
   section: PrivacySectionType;

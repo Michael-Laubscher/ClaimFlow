@@ -1,12 +1,13 @@
-import { Button } from "@/shared/components/design-system/buttons/Button";
-import { Badge } from "@/shared/components/design-system/feedback/Badge";
+import { Badge } from "@/shared/components/design-system/primitives/Badge";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
+
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { GenericText } from "@/shared/components/design-system/typography/Text";
 import { ArrowRight } from "lucide-react";
+import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
+import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 
 interface PartnersCTASectionProps {
   badge?: string;
@@ -29,8 +30,8 @@ export function PartnersCTASection({ badge, title, description, primaryAction, s
 
       <Container className="relative z-10">
         <GlassCard className="border border-white/10 bg-white/10 p-10 backdrop-blur-xl md:p-16">
-          <Stack align="center" gap="lg" className="text-center">
-            {badge && <Badge className="bg-white/10 text-white">{badge}</Badge>}
+          <Stack align="center" gap="lg">
+            {badge && <Badge variant="default">{badge}</Badge>}
 
             <Heading size="xl" className="max-w-3xl text-white">
               {title}
@@ -38,8 +39,8 @@ export function PartnersCTASection({ badge, title, description, primaryAction, s
 
             {description && <GenericText className="max-w-2xl">{description}</GenericText>}
 
-            <Stack direction="row" gap="md" wrap justify="center" className="pt-4">
-              <Button asChild size="lg">
+            <Stack direction="row" gap="md">
+              <Button size="lg">
                 <a href={primaryAction.href}>
                   {primaryAction.label}
 
@@ -48,7 +49,7 @@ export function PartnersCTASection({ badge, title, description, primaryAction, s
               </Button>
 
               {secondaryAction && (
-                <Button asChild variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
+                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
                   <a href={secondaryAction.href}>{secondaryAction.label}</a>
                 </Button>
               )}

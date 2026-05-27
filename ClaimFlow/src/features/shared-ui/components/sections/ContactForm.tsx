@@ -1,10 +1,12 @@
 import { useState } from "react";
 
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Button } from "@/shared/components/design-system/buttons/Button";
+
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { GlassCard } from "@/shared/components/design-system/surface/GlassCard";
+
 import type { ContactFormState } from "@/shared/types/contact.types";
+import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
+import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 
 export function ContactForm() {
   const [form, setForm] = useState<ContactFormState>({

@@ -1,6 +1,7 @@
+import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { IconSurface } from "@/shared/components/design-system/composite/card/IconSurface";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Card } from "@/shared/components/design-system/surface/Card";
-import { IconSurface } from "@/shared/components/design-system/surface/IconSurface";
+
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { ArrowRight } from "lucide-react";

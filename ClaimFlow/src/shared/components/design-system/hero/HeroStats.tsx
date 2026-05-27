@@ -1,6 +1,6 @@
 import { HERO_STATS } from "@/features/shared-ui/configs";
 
-import { Stat } from "@/shared/components/design-system/feedback/Stat";
+import { Stat } from "@/shared/components/design-system/primitives/Stat";
 
 interface HeroStatsProps {
   loaded: boolean;

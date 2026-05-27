@@ -1,5 +1,5 @@
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Reveal } from "@/shared/components/design-system/motion/Reveal";
+import { Reveal } from "@/shared/components/design-system/feedback/Reveal";
 import { SectionHeader } from "@/shared/components/design-system/typography/SectionHeader";
 
 import { partnerTypes } from "../../configs/partners.data";

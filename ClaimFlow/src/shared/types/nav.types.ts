@@ -6,13 +6,21 @@ export interface NavChildItem {
 
 export interface NavItem {
   label: string;
-  to?: string;
-  children?: NavChildItem[];
+
+  to: string;
+
+  desc?: string;
+
+  children?: NavItem[];
 }
 
 export interface TopbarLink {
   label: string;
   to: string;
-  icon?: React.ComponentType<{ className?: string }>;
+
+  icon?: React.ComponentType<{
+    className?: string;
+  }>;
+
   external?: boolean;
 }
