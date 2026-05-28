@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
-
 import { cn } from "@/shared/lib/cn";
-import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
 import { navStyles } from "@/shared/components/design-system/tokens/nav";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 interface Props {
   children: ReactNode;
@@ -12,7 +11,7 @@ interface Props {
 
 export function NavDropdown({ children, layout = "desktop" }: Props) {
   return (
-    <GlassCard
+    <Card variant="glass"
       className={cn(
         navStyles.dropdown.base,
 
@@ -20,6 +19,6 @@ export function NavDropdown({ children, layout = "desktop" }: Props) {
       )}
     >
       {children}
-    </GlassCard>
+    </Card>
   );
 }

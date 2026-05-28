@@ -1,13 +1,11 @@
 import type { InsuranceType } from "@/features/claims/types/insuranceTypes";
 import type { CoverageLevel } from "@/features/claims/configs/coverageLevels";
-
 import { COVERAGE_LEVELS } from "@/features/claims/configs/coverageLevels";
-
-import { Button } from "@/shared/components/design-system/buttons/Button";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Card } from "@/shared/components/design-system/surface/Card";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { GenericText } from "@/shared/components/design-system/typography/Text";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 
 interface Step3Props {
   coverage: CoverageLevel | "";

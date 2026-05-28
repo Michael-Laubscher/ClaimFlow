@@ -1,19 +1,12 @@
 import { useState } from "react";
-
-
 import { Container } from "@/shared/components/design-system/layout/Container";
-
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { GenericText } from "@/shared/components/design-system/typography/Text";
-
 import { FAQSearch } from "../components/sections/FAQSearch";
 import { FAQCategoryPills } from "../components/sections/FAQCategoryPills";
 import { FAQList } from "../components/sections/FAQList";
-
 import { faqs } from "../configs/faq.config";
-
 import { filterFAQs, getTotalFAQs } from "@/shared/utilis/faq.utils";
-
 import { banners } from "../configs/banners.config";
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { Card } from "@/shared/components/design-system/composite/card/Card";

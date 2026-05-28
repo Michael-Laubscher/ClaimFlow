@@ -1,17 +1,16 @@
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-
 import { Badge } from "@/shared/components/design-system/primitives/Badge";
 import type { Article } from "@/shared/types/news.types";
-import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 import { CATEGORY_VARIANT } from "@/shared/types/newsCategories";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 
 export function NewsCard({ article }: { article: Article }) {
   return (
-    <GlassCard className="overflow-hidden">
+    <Card variant="glass" className="overflow-hidden">
       {/* Image placeholder */}
       <div className={`h-44 ${article.color} flex items-center justify-center`} />
 
@@ -44,6 +43,6 @@ export function NewsCard({ article }: { article: Article }) {
           </div>
         </Stack>
       </div>
-    </GlassCard>
+    </Card>
   );
 }

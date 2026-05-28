@@ -21,7 +21,7 @@ interface Props {
 
 export function ArticleCard({ article }: Props) {
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <Card interactive className="overflow-hidden">
       {/* Image */}
       <div className={`h-48 ${article.color} flex items-center justify-center`}>
         <div className="h-14 w-14 rounded-full bg-white/60" />

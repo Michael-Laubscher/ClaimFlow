@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -20,18 +19,7 @@ export function ProductCard({ product }: Props) {
 
   return (
     <Link to={`/products/${product.id}`}>
-      <Card
-        className="
-          group
-          h-full
-          border-[--color-slate-200]
-          bg-white
-          transition-all
-          duration-300
-          hover:-translate-y-1
-          hover:shadow-xl
-        "
-      >
+      <Card variant="solid" interactive className="group h-full">
         <div className="p-6">
           <Stack gap="lg">
             <Stack direction="row" align="center" justify="between">

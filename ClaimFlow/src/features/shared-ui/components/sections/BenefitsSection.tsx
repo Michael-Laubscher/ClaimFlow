@@ -3,7 +3,7 @@ import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { Badge, Check, Container, Heading, Section } from "lucide-react";
 import { benefits } from "../../configs/partners.data";
-import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 export function BenefitsSection() {
   return (
@@ -21,7 +21,7 @@ export function BenefitsSection() {
 
             <div className="grid gap-4 pt-4 sm:grid-cols-2">
               {benefits.map((benefit) => (
-                <GlassCard key={benefit} className="border border-slate-200 bg-white p-4">
+                <Card variant="glass" key={benefit} className="border border-slate-200 bg-white p-4">
                   <Stack direction="row" align="start" gap="sm">
                     <div className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100">
                       <Check className="h-4 w-4 text-emerald-600" />
@@ -29,15 +29,15 @@ export function BenefitsSection() {
 
                     <Typography className="text-sm leading-relaxed text-slate-600">{benefit}</Typography>
                   </Stack>
-                </GlassCard>
+                </Card>
               ))}
             </div>
           </Stack>
 
           <div className="relative">
-            <GlassCard className="overflow-hidden p-3 shadow-2xl">
+            <Card variant="glass" className="overflow-hidden p-3 shadow-2xl">
               <img src="/images/partners/logistics.jpg" alt="Logistics" className="h-[560px] w-full rounded-2xl object-cover" />
-            </GlassCard>
+            </Card>
           </div>
         </div>
       </Container>

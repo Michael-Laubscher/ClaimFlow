@@ -9,7 +9,7 @@ type FeatureRowProps = {
 
 export function FeatureRow({ label, icon }: FeatureRowProps) {
   return (
-    <Card  padding="sm" className="flex items-center gap-4">
+    <Card className="flex items-center gap-4 ps-4">
       <div className="flex h-10 w-10 items-center justify-center rounded-md bg-surface-success text-white">{icon}</div>
 
       <Typography variant="body-sm" className="font-medium">

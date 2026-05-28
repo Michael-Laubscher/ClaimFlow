@@ -1,12 +1,9 @@
 import { useState } from "react";
-
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-
 import type { ContactFormState } from "@/shared/types/contact.types";
-import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 export function ContactForm() {
   const [form, setForm] = useState<ContactFormState>({
@@ -30,7 +27,7 @@ export function ContactForm() {
   };
 
   return (
-    <GlassCard className="p-8">
+    <Card variant="glass" className="p-8">
       <Stack gap="lg">
         <Heading size="lg">Send Message</Heading>
 
@@ -46,6 +43,6 @@ export function ContactForm() {
           </Stack>
         </form>
       </Stack>
-    </GlassCard>
+    </Card>
   );
 }

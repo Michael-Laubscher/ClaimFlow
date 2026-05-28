@@ -5,7 +5,8 @@ import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import type { Branch } from "@/shared/types/branch.types";
 import { Clock3, MapPin, Phone } from "lucide-react";
-import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
+
 
 interface BranchCardProps {
   branch: Branch;
@@ -13,7 +14,7 @@ interface BranchCardProps {
 
 export function BranchCard({ branch }: BranchCardProps) {
   return (
-    <GlassCard
+    <Card variant="glass"
       className="
         h-full
         p-6
@@ -52,7 +53,7 @@ export function BranchCard({ branch }: BranchCardProps) {
           </InfoRow>
         </Stack>
       </Stack>
-    </GlassCard>
+    </Card>
   );
 }
 

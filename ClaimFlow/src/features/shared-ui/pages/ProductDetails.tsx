@@ -11,9 +11,9 @@ import { ProductFeatures } from "../components/sections/ProductFeatures";
 import { ProductsCTA } from "../components/sections/ProductsCTA";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Container } from "@/shared/components/design-system/layout/Container";
-import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
 import { IconSurface } from "@/shared/components/design-system/composite/card/IconSurface";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();
@@ -50,7 +50,7 @@ export default function ProductDetailsPage() {
               lg:grid-cols-2
             "
           >
-            <GlassCard className="p-8">
+            <Card variant="glass" className="p-8">
               <Stack gap="lg">
                 <IconSurface>
                   <Icon className="h-6 w-6 text-[--color-orange]" />
@@ -70,7 +70,7 @@ export default function ProductDetailsPage() {
                   Get a Quote
                 </Button>
               </Stack>
-            </GlassCard>
+            </Card>
 
             <ProductFeatures features={product.features} />
           </div>

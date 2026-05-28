@@ -1,6 +1,22 @@
-import { GlassCard } from "../composite/card/GlassCard";
+import { Card } from "../composite/card/Card";
 import { navStyles } from "../tokens/nav";
 
-export function NavDropdown({ children }: { children: React.ReactNode }) {
-  return <GlassCard className={navStyles.dropdown}>{children}</GlassCard>;
+import { cn } from "@/shared/lib/cn";
+
+export function NavDropdown({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <Card
+      variant="glass"
+      className={cn(
+        navStyles.dropdown.base,
+        navStyles.dropdown.desktop
+      )}
+    >
+      {children}
+    </Card>
+  );
 }

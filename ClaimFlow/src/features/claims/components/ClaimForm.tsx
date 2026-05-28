@@ -14,8 +14,9 @@ import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
 import { Typography } from "@/shared/components/design-system/typography/Typography";
-import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
+
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 export default function ClaimForm() {
   const methods = useClaimForm();
@@ -38,9 +39,9 @@ export default function ClaimForm() {
           </div>
           {/* Error state */}
           {error && (
-            <GlassCard className="p-4 border border-red-200 bg-red-50">
+            <Card variant="glass" className="p-4 border border-red-200 bg-red-50">
               <Typography className="text-red-600">{error}</Typography>
-            </GlassCard>
+            </Card>
           )}
 
           {/* Form */}
@@ -48,7 +49,7 @@ export default function ClaimForm() {
             <form onSubmit={methods.handleSubmit(submit)}>
               <Stack gap="lg">
                 {/* Sections */}
-                <GlassCard className="p-6">
+                <Card variant="glass" className="p-6">
                   <PolicySection />
 
                   <PersonalSection />
@@ -60,7 +61,7 @@ export default function ClaimForm() {
                   <Button type="submit" variant="primary" size="lg" disabled={loading}>
                     {loading ? "Submitting..." : "Submit Claim"}
                   </Button>
-                </GlassCard>
+                </Card>
               </Stack>
             </form>
           </FormProvider>

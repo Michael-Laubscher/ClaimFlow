@@ -1,18 +1,15 @@
 import { useState } from "react";
-
 import { Container } from "@/shared/components/design-system/layout/Container";
-import { Card } from "@/shared/components/design-system/surface/Card";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { GenericText } from "@/shared/components/design-system/typography/Text";
-
 import { Stepper } from "../components/sections/stepper/Stepper";
 import { Step1 } from "../components/sections/stepper/Step1SelectType";
 import { Step2 } from "../components/sections/stepper/Step2Details";
 import { Step3 } from "../components/sections/stepper/Step3Coverage";
-
 import type { QuoteDetails } from "@/features/claims/types/quote.types";
 import type { InsuranceType } from "@/features/claims/types/insuranceTypes";
 import type { CoverageLevel } from "@/features/claims/configs/coverageLevels";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 export default function GetQuotePage() {
   const [step, setStep] = useState(1);

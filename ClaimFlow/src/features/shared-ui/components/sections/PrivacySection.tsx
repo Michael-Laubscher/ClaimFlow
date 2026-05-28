@@ -1,9 +1,8 @@
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { BulletList } from "./BulletList";
-
 import type { Privacy as PrivacySectionType } from "@/shared/types/privacy.types";
-import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 interface Props {
   section: PrivacySectionType;
@@ -11,7 +10,7 @@ interface Props {
 
 export function PrivacySection({ section }: Props) {
   return (
-    <GlassCard className="p-6 sm:p-8">
+    <Card variant="glass" className="p-6 sm:p-8">
       <Heading as="h2" size="lg" className="text-[--color-text-primary]">
         {section.title}
       </Heading>
@@ -27,6 +26,6 @@ export function PrivacySection({ section }: Props) {
           <BulletList items={section.list} />
         </div>
       )}
-    </GlassCard>
+    </Card>
   );
 }

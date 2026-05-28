@@ -1,4 +1,5 @@
-import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
+
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
 import { Heading } from "@/shared/components/design-system/typography/Heading";
@@ -11,7 +12,7 @@ interface Props {
 
 export function TermsSection({ section }: Props) {
   return (
-    <GlassCard className="p-6 sm:p-8">
+    <Card variant="glass" className="p-6 sm:p-8">
       <Stack gap="sm">
         <Heading as="h2" size="lg" className="text-[--color-slate-900]">
           {section.title}
@@ -21,6 +22,6 @@ export function TermsSection({ section }: Props) {
           {section.content}
         </Typography>
       </Stack>
-    </GlassCard>
+    </Card>
   );
 }

@@ -1,4 +1,4 @@
-import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
@@ -29,7 +29,7 @@ export function PartnersTestimonialsSection({ badge = "Partner Success", title, 
 
           <div className="grid gap-6 lg:grid-cols-2">
             {items.map((item) => (
-              <GlassCard key={item.company + item.quote} className="border border-white/10 bg-white/10 p-8 backdrop-blur-xl">
+              <Card variant="glass" key={item.company + item.quote} className="border border-white/10 bg-white/10 p-8 backdrop-blur-xl">
                 <Stack gap="lg">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10">
                     <Building2 className="h-6 w-6 text-white/80" />
@@ -43,7 +43,7 @@ export function PartnersTestimonialsSection({ badge = "Partner Success", title, 
                     {item.role && <Typography className="text-sm text-blue-200/60">{item.role}</Typography>}
                   </div>
                 </Stack>
-              </GlassCard>
+              </Card>
             ))}
           </div>
         </Stack>

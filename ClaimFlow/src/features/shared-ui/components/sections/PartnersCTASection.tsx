@@ -2,12 +2,11 @@ import { Badge } from "@/shared/components/design-system/primitives/Badge";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { GenericText } from "@/shared/components/design-system/typography/Text";
 import { ArrowRight } from "lucide-react";
-import { GlassCard } from "@/shared/components/design-system/composite/card/GlassCard";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 interface PartnersCTASectionProps {
   badge?: string;
@@ -29,7 +28,7 @@ export function PartnersCTASection({ badge, title, description, primaryAction, s
       <div className="absolute inset-0 bg-gradient-to-br from-[--color-navy] to-[--color-teal]" />
 
       <Container className="relative z-10">
-        <GlassCard className="border border-white/10 bg-white/10 p-10 backdrop-blur-xl md:p-16">
+        <Card variant="glass" className="border border-white/10 bg-white/10 p-10 backdrop-blur-xl md:p-16">
           <Stack align="center" gap="lg">
             {badge && <Badge variant="default">{badge}</Badge>}
 
@@ -55,7 +54,7 @@ export function PartnersCTASection({ badge, title, description, primaryAction, s
               )}
             </Stack>
           </Stack>
-        </GlassCard>
+        </Card>
       </Container>
     </Section>
   );
