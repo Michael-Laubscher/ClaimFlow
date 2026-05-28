@@ -1,5 +1,5 @@
 import type { FooterSection } from "@/shared/types/footer.types";
-import { Pill } from "@/shared/components/design-system/feedback/Pill";
+import { Pill } from "@/shared/components/design-system/primitives/Pill";
 import { NavLink } from "@/shared/components/design-system/navigation/NavLink";
 import { FooterHeading } from "@/shared/components/design-system/typography/FooterHeading";
 

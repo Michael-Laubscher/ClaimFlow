@@ -1,27 +1,12 @@
-import type { ElementType, ReactNode } from "react";
-
-import { cn } from "@/shared/utilis/cn";
-
-interface HeadingProps {
-  children: ReactNode;
-  as?: ElementType;
-  className?: string;
-  size?: "hero" | "xl" | "lg";
-}
+import { cn } from "@/shared/lib/cn";
+import type { ElementType } from "react";
 
 const sizes = {
-  hero: "text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl xl:text-7xl",
-  xl: "text-3xl font-bold",
+  hero: "text-6xl font-extrabold",
+  xl: "text-4xl font-bold",
   lg: "text-2xl font-bold",
 };
 
-export function Heading({
-  children,
-  as: Component = "h2",
-  className,
-  size = "xl",
-}: HeadingProps) {
-  return (
-    <Component className={cn(sizes[size], className)}>{children}</Component>
-  );
+export function Heading({ as: Comp = "h2", size = "xl", className, children }: { as?: ElementType; size?: keyof typeof sizes; className?: string; children: React.ReactNode }) {
+  return <Comp className={cn(sizes[size], className)}>{children}</Comp>;
 }

@@ -1,22 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import AskariLogo from '@/assets/logos/AskariLogo.png';
+import AskariLogo from "@/assets/logos/AskariLogo.png";
 
-import type {
-  FooterConfig,
-} from '@/shared/types/footer.types';
+import type { FooterConfig } from "@/shared/types/footer.types";
 
-import { FooterText } from '@/shared/components/design-system/typography/FooterText';
+import { FooterText } from "@/shared/components/design-system/typography/FooterText";
 
 interface Props {
-  brand: FooterConfig['brand'];
+  brand: FooterConfig["brand"];
   trustBadges: string[];
 }
 
-export function FooterBrand({
-  brand,
-  trustBadges,
-}: Props) {
+export function FooterBrand({ brand, trustBadges }: Props) {
   return (
     <div>
       <Link
@@ -53,9 +48,7 @@ export function FooterBrand({
         </div>
       </Link>
 
-      <FooterText className="mt-6 max-w-sm">
-        {brand.description}
-      </FooterText>
+      <FooterText className="mt-6 max-w-sm">{brand.description}</FooterText>
 
       <div
         className="

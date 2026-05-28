@@ -13,9 +13,7 @@ import PrivacyPolicyPage from "@/features/shared-ui/pages/Privacy";
 // -----------------------------
 
 const FAQPage = lazyPage(() => import("@/features/shared-ui/pages/FAQPage"));
-const BranchesPage = lazyPage(
-  () => import("@/features/shared-ui/pages/Branches"),
-);
+const BranchesPage = lazyPage(() => import("@/features/shared-ui/pages/Branches"));
 
 // -----------------------------
 // Routes

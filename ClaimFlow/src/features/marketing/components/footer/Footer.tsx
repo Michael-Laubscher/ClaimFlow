@@ -7,8 +7,7 @@ import { FooterSocials } from "@/shared/components/design-system/footer/FooterSo
 import { FooterColumn } from "./FooterColumn";
 
 export function Footer() {
-  const { brand, cta, sections, socials, trustBadges, contact, legal } =
-    footerConfig;
+  const { brand, cta, sections, socials, trustBadges, contact, legal } = footerConfig;
 
   return (
     <footer

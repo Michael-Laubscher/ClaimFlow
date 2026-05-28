@@ -1,10 +1,7 @@
 import type { ReactNode } from "react";
-import {
-  NavLink as RouterNavLink,
-  type NavLinkProps as RouterNavLinkProps,
-} from "react-router-dom";
+import { NavLink as RouterNavLink, type NavLinkProps as RouterNavLinkProps } from "react-router-dom";
 
-import { cn } from "@/shared/utilis/cn";
+import { cn } from "@/shared/lib/cn";
 
 type Variant = "default" | "pill" | "ghost" | "underline";
 
@@ -18,8 +15,7 @@ interface NavLinkProps extends Omit<RouterNavLinkProps, "className"> {
   size?: Size;
 }
 
-const baseStyles =
-  "inline-flex items-center justify-center transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40";
+const baseStyles = "inline-flex items-center justify-center transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40";
 
 const variantStyles: Record<
   Variant,
@@ -78,13 +74,11 @@ export function NavLink({
 
           variantStyles[variant].base,
 
-          isActive
-            ? variantStyles[variant].active
-            : variantStyles[variant].inactive,
+          isActive ? variantStyles[variant].active : variantStyles[variant].inactive,
 
           sizeStyles[size],
 
-          className,
+          className
         )
       }
     >

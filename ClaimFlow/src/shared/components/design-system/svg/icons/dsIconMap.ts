@@ -1,10 +1,4 @@
-import {
-  SmileIcon,
-  LockIcon,
-  TargetIcon,
-  TrendingIcon,
-  EyeIcon,
-} from "@/shared/components/design-system/svg/icons";
+import { SmileIcon, LockIcon, TargetIcon, TrendingIcon, EyeIcon } from "@/shared/components/design-system/svg/icons";
 
 export const dsIconMap = {
   smile: SmileIcon,

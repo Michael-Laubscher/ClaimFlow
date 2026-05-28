@@ -7,7 +7,7 @@ html {
 }
 
 body {
-   @apply bg-surface text-text-primary font-sans antialiased;
+  @apply bg-surface text-text-primary font-sans antialiased;
 }
 
 * {
@@ -19,8 +19,25 @@ body {
 }
 
 .footer-bg {
-  background: linear-gradient(135deg, #233C7B 0%, #224C7C 7.14%, #205B7C 14.29%, #1E6A7C 21.43%, #1B797A 28.57%, #188879 35.71%, #149676 42.86%, #0EA572 50%, #0E916C 57.14%, #0D7E65 64.29%, #0D6C5F 71.43%, #0C5958 78.57%, #0C4850 85.71%, #0B3648 92.86%, #0A2540 100%);]
-  position: relative;
+  background: linear-gradient(
+    135deg,
+    #233c7b 0%,
+    #224c7c 7.14%,
+    #205b7c 14.29%,
+    #1e6a7c 21.43%,
+    #1b797a 28.57%,
+    #188879 35.71%,
+    #149676 42.86%,
+    #0ea572 50%,
+    #0e916c 57.14%,
+    #0d7e65 64.29%,
+    #0d6c5f 71.43%,
+    #0c5958 78.57%,
+    #0c4850 85.71%,
+    #0b3648 92.86%,
+    #0a2540 100%
+  );
+  ]position: relative;
   overflow: hidden;
 }
 

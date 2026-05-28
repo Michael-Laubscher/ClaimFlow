@@ -1,10 +1,8 @@
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
-import { IconSurface } from "@/shared/components/design-system/surface/IconSurface";
 import { CONTACT_INFO } from "../../configs/contact.config";
-
-
+import { IconSurface } from "@/shared/components/design-system/composite/card/IconSurface";
 
 export function ContactInfo() {
   return (
@@ -17,9 +15,7 @@ export function ContactInfo() {
             <IconSurface>{item.icon}</IconSurface>
 
             <Stack gap="xs">
-              <Typography className="font-semibold">
-                {item.title}
-              </Typography>
+              <Typography className="font-semibold">{item.title}</Typography>
 
               {item.lines.map((line) => (
                 <Typography key={line} className="text-[--color-slate-500]">
@@ -27,11 +23,7 @@ export function ContactInfo() {
                 </Typography>
               ))}
 
-              {item.highlight && (
-                <Typography className="text-[--color-orange] font-semibold">
-                  {item.highlight}
-                </Typography>
-              )}
+              {item.highlight && <Typography className="text-[--color-orange] font-semibold">{item.highlight}</Typography>}
             </Stack>
           </Stack>
         ))}

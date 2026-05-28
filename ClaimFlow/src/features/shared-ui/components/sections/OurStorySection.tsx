@@ -6,17 +6,13 @@ interface Props {
   paragraphs: string[];
 }
 
-export function OurStorySection({
-  paragraphs,
-}: Props) {
+export function OurStorySection({ paragraphs }: Props) {
   return (
     <Section className="py-24 bg-white">
       <Container>
         <div className="grid gap-16 lg:grid-cols-2">
           <div>
-            <SectionHeader
-              title="Our Story"
-            />
+            <SectionHeader title="Our Story" />
 
             <div className="mt-8 space-y-5">
               {paragraphs.map((paragraph) => (
@@ -64,8 +60,7 @@ export function OurStorySection({
                     to-[#e8723a]
                   "
                   style={{
-                    clipPath:
-                      'polygon(0 100%, 100% 38%, 100% 100%)',
+                    clipPath: "polygon(0 100%, 100% 38%, 100% 100%)",
                   }}
                 />
 

@@ -1,18 +1,15 @@
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Card } from "@/shared/components/design-system/surface/Card";
+
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { Check } from "lucide-react";
-
-
 
 interface Props {
   features: string[];
 }
 
-export function ProductFeatures({
-  features,
-}: Props) {
+export function ProductFeatures({ features }: Props) {
   return (
     <Card
       className="
@@ -22,15 +19,11 @@ export function ProductFeatures({
       "
     >
       <Stack gap="lg">
-        <Heading
-          as="h3"
-          size="lg"
-          className="text-[--color-slate-900]"
-        >
+        <Heading as="h3" size="lg" className="text-[--color-slate-900]">
           Key Features
         </Heading>
 
-        <Stack gap="none">
+        <Stack>
           {features.map((feature) => (
             <div
               key={feature}
@@ -56,9 +49,7 @@ export function ProductFeatures({
                 "
               />
 
-              <Typography>
-                {feature}
-              </Typography>
+              <Typography>{feature}</Typography>
             </div>
           ))}
         </Stack>

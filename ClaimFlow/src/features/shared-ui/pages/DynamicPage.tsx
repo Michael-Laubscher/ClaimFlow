@@ -14,9 +14,7 @@ type DynamicPageProps = {
 };
 
 export default function DynamicPage({ config }: DynamicPageProps) {
-  const sections: PageSection[] = Array.isArray(config?.sections)
-    ? config.sections
-    : [];
+  const sections: PageSection[] = Array.isArray(config?.sections) ? config.sections : [];
 
   return (
     <div>

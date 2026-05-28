@@ -5,8 +5,7 @@ const productsConfig: PageConfig = {
     {
       type: "hero",
       title: "Our Insurance Products",
-      subtitle:
-        "Flexible and reliable insurance solutions tailored to your needs.",
+      subtitle: "Flexible and reliable insurance solutions tailored to your needs.",
     },
     {
       type: "cards",
@@ -14,23 +13,19 @@ const productsConfig: PageConfig = {
       items: [
         {
           title: "Motor Insurance",
-          description:
-            "Comprehensive and third-party motor insurance solutions.",
+          description: "Comprehensive and third-party motor insurance solutions.",
         },
         {
           title: "Travel Insurance",
-          description:
-            "Coverage for medical emergencies, cancellations, and travel disruptions.",
+          description: "Coverage for medical emergencies, cancellations, and travel disruptions.",
         },
         {
           title: "Goods in Transit",
-          description:
-            "Protection for goods transported locally and internationally.",
+          description: "Protection for goods transported locally and internationally.",
         },
         {
           title: "Commercial Insurance",
-          description:
-            "Business protection including assets, liability, and operations.",
+          description: "Business protection including assets, liability, and operations.",
         },
       ],
     },

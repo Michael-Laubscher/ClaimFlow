@@ -38,14 +38,12 @@ export default function PartnersPage() {
         items={[
           {
             company: "East Africa Logistics Group",
-            quote:
-              "Askari helped us streamline insurance processes for cross-border operations.",
+            quote: "Askari helped us streamline insurance processes for cross-border operations.",
             role: "Operations Director",
           },
           {
             company: "Continental Freight Solutions",
-            quote:
-              "The onboarding experience and support were exceptional from day one.",
+            quote: "The onboarding experience and support were exceptional from day one.",
             role: "Regional Manager",
           },
         ]}

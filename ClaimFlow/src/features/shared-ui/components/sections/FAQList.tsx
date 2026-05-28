@@ -11,13 +11,9 @@ export function FAQList({ data }: Props) {
       {Object.entries(data).map(([category, items]) => (
         <section key={category}>
           <div className="mb-4 flex items-center gap-3">
-            <h2 className="text-lg font-bold text-white">
-              {category}
-            </h2>
+            <h2 className="text-lg font-bold text-white">{category}</h2>
             <div className="h-px flex-1 bg-white/10" />
-            <span className="text-xs text-white/50">
-              {items.length}
-            </span>
+            <span className="text-xs text-white/50">{items.length}</span>
           </div>
 
           <div className="space-y-3">

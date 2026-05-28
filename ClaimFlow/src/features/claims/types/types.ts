@@ -1,5 +1,1 @@
-export type InsuranceType =
-  | "cargo"
-  | "commercial_vehicle"
-  | "yellow_card"
-  | "liability";
+export type InsuranceType = "cargo" | "commercial_vehicle" | "yellow_card" | "liability";

@@ -1,5 +1,6 @@
-import { AccordionItem } from "@/shared/components/design-system/Accordion/Accordion";
 
+
+import { AccordionItem } from "@/shared/components/design-system/feedback/Accordion/Accordion";
 import type { FAQItem as Item } from "@/shared/types/faq.types";
 
 export function FAQItem({ q, a }: Item) {

@@ -1,4 +1,6 @@
-export const MOCK_CLAIM = {
+import type { ClaimResult } from "@/features/claims/types/claim.types";
+
+export const MOCK_CLAIM: ClaimResult = {
   id: "CLM-2026-12345",
   type: "Vehicle Accident",
   status: "Under Review",

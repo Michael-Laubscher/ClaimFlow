@@ -1,23 +1,9 @@
-import type { SVGProps } from 'react';
+import type { SVGProps } from "react";
 
-export function XIcon({
-  className,
-  ...props
-}: SVGProps<SVGSVGElement>) {
+export function XIcon({ className, ...props }: SVGProps<SVGSVGElement>) {
   return (
-   <svg
-    className="h-6 w-6"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-     {...props}
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M6 18L18 6M6 6l12 12"
-    />
-  </svg>
+    <svg className={`h-6 w-6 ${className ?? ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+    </svg>
   );
 }

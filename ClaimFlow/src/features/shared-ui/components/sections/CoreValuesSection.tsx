@@ -1,10 +1,8 @@
-import { Card } from "@/shared/components/design-system/surface/Card";
+
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { SectionHeader } from "@/shared/components/design-system/typography/SectionHeader";
 
-import type {
-  CoreValue,
-  CoreValueColor,
-} from "@/shared/types/about.types";
+import type { CoreValue, CoreValueColor } from "@/shared/types/about.types";
 
 interface Props {
   values: CoreValue[];
@@ -22,11 +20,7 @@ export function CoreValuesSection({ values }: Props) {
   return (
     <section className="bg-white py-24">
       <div className="container mx-auto px-4">
-        <SectionHeader
-          centered
-          badge="Core Values"
-          title="What Drives Us"
-        />
+        <SectionHeader centered badge="Core Values" title="What Drives Us" />
 
         <div
           className="
