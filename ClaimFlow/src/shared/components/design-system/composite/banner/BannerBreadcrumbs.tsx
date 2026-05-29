@@ -12,33 +12,37 @@ export function BannerBreadcrumbs({ items }: Props) {
       aria-label="Breadcrumb"
       className="
         mb-6
-        flex
-        flex-wrap
-        items-center
-        gap-2
-        text-sm
-        text-white/60
+        flex flex-wrap items-center gap-2
+        text-sm text-white/60
       "
     >
-      {items.map((crumb, index) => (
-        <div key={crumb.label} className="flex items-center gap-2">
-          {index > 0 && <span className="text-white/30">/</span>}
+      {items.map((item, index) => {
+        const isLast = index === items.length - 1;
 
-          {crumb.to ? (
-            <Link
-              to={crumb.to}
-              className="
-                transition-colors
-                hover:text-white
-              "
-            >
-              {crumb.label}
-            </Link>
-          ) : (
-            <span className="text-white">{crumb.label}</span>
-          )}
-        </div>
-      ))}
+        return (
+          <div
+            key={`${item.label}-${index}`}
+            className="flex items-center gap-2"
+          >
+            {index > 0 && (
+              <span className="text-white/30">/</span>
+            )}
+
+            {item.to && !isLast ? (
+              <Link
+                to={item.to}
+                className="transition-colors hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <span className="text-white">
+                {item.label}
+              </span>
+            )}
+          </div>
+        );
+      })}
     </nav>
   );
 }
