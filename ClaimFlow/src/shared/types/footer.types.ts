@@ -1,72 +1,58 @@
-export interface FooterLinkItem {
+export interface FooterLink {
   label: string;
   to: string;
-  badge?: string;
 }
 
-export interface FooterSection {
-  heading: string;
-  items: FooterLinkItem[];
-}
-
-export interface SocialLink {
+export interface FooterSocialLink {
   label: string;
   href: string;
   icon: "linkedin" | "twitter" | "facebook";
 }
 
-export interface ContactItem {
-  type: "phone" | "email" | "address";
+export interface FooterContactItem {
   label: string;
   value: string;
+  type: "phone" | "email" | "address";
   href?: string;
 }
 
-export interface FooterCTA {
+export interface FooterColumnItem {
+  label: string;
+  to: string;
+  badge?: string;
+}
+
+export interface FooterColumnSection {
+  heading: string;
+  items: FooterColumnItem[];
+}
+
+export interface FooterCTAConfig {
   heading: string;
   description: string;
-
-  primary: {
-    label: string;
-    to: string;
-  };
-
-  secondary: {
-    label: string;
-    to: string;
-  };
-}
-
-export interface FooterBrand {
-  name: string;
-
-  tagline: string;
-
-  description: string;
-}
-
-export interface FooterLegal {
-  copyright: string;
-  compliance: string;
-
-  links: {
-    label: string;
-    to: string;
-  }[];
+  primary: FooterLink;
+  secondary: FooterLink;
 }
 
 export interface FooterConfig {
-  brand: FooterBrand;
+  brand: {
+    tagline: string;
+    description: string;
+  };
 
-  cta: FooterCTA;
+  cta: FooterCTAConfig;
 
-  sections: FooterSection[];
+  sections: FooterColumnSection[];
 
-  socials: SocialLink[];
+  socials: FooterSocialLink[];
+
+  contact: FooterContactItem[];
 
   trustBadges: string[];
 
-  contact: ContactItem[];
-
-  legal: FooterLegal;
+  legal: {
+    copyright: string;
+    compliance?: string;
+    links: FooterLink[];
+  };
 }
