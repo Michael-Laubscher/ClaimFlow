@@ -1,7 +1,6 @@
 
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { GenericText } from "./Text";
-import { Badge } from "lucide-react";
 
 interface Props {
   badge?: string;
@@ -25,10 +24,23 @@ export function SectionHeader({
       }
     >
       {badge && (
-        <Badge className="mb-4 bg-blue-50 text-[#0c2578]">
-          {badge}
-        </Badge>
-      )}
+  <span
+    className="
+      mb-4
+      inline-flex
+      items-center
+      rounded-full
+      bg-slate-100
+      px-4
+      py-2
+      text-xs
+      font-medium
+      text-[#0c2578]
+    "
+  >
+    {badge}
+  </span>
+)}
 
       <Heading size="xl">
         {title}

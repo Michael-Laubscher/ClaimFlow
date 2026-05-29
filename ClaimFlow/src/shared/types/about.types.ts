@@ -1,4 +1,5 @@
-import type { LucideIcon } from "lucide-react";
+// import type { LucideIcon } from "lucide-react";
+import type { ComponentType } from "react";
 
 export type CoreValueColor =
   | "blue"
@@ -13,14 +14,17 @@ export interface OurStory {
 
 export interface MissionVisionItem {
   id: string;
-  icon: LucideIcon;
-  title: string;
+  icon: ComponentType<{
+        className?: string; size?: number 
+  }>;  title: string;
   desc: string;
 }
 
 export interface CoreValue {
   id: string;
-  icon: LucideIcon;
+  icon: ComponentType<{
+        className?: string; size?: number 
+  }>;
   iconColor: CoreValueColor;
   title: string;
   desc: string;

@@ -11,9 +11,9 @@ interface Props {
 }
 
 const iconStyles: Record<CoreValueColor, string> = {
-  blue: "from-[#3b6ef5] to-[#0c2578]",
-  green: "from-[#22c55e] to-[#16a34a]",
-  purple: "from-[#a855f7] to-[#7c3aed]",
+  blue: "from-[#277AFF] to-[#1863FD]",
+  green: "from-[#00B879] to-[#00A56E]",
+  purple: "from-[#AA41FF] to-[#9C1EFC]",
   orange: "from-[#f97316] to-[#ea580c]",
   teal: "from-[#14b8a6] to-[#0d9488]",
 };

@@ -30,20 +30,17 @@ export function MissionVisionSection({
               >
                 <div
                   className="
-                    mb-6
+                    -ml-3
+                    mb-4
                     flex
-                    h-14
+                    h-6
                     w-14
                     items-center
                     justify-center
-                    rounded-full
-                    border
-                    border-[#0c2578]/10
-                    bg-blue-50
-                    text-[#0c2578]
+                    text-[#233C7B]
                   "
                 >
-                  <Icon className="h-7 w-7" />
+                  <Icon className="h-9 w-9" />
                 </div>
 
                 <h3

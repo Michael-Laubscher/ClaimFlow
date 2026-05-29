@@ -1,6 +1,7 @@
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { SectionHeader } from "@/shared/components/design-system/typography/SectionHeader";
+import BrandImage from "@/shared/components/design-system/svg/images/BrandImage.svg";
 
 interface Props {
   paragraphs: string[];
@@ -40,7 +41,7 @@ export function OurStorySection({
                 rounded-3xl
                 border
                 border-slate-100
-                shadow-2xl
+                shadow-xl
               "
             >
               <div
@@ -59,9 +60,6 @@ export function OurStorySection({
                     right-0
                     h-2/5
                     w-full
-                    bg-gradient-to-r
-                    from-[#c9562a]
-                    to-[#e8723a]
                   "
                   style={{
                     clipPath:
@@ -83,20 +81,16 @@ function DriverIllustration() {
   return (
     <div
       className="
-        absolute
         inset-0
         flex
         items-center
         justify-center
       "
     >
-      <div
-        className="
-          h-48
-          w-48
-          rounded-full
-          bg-slate-300
-        "
+      <img
+        src={BrandImage}
+        alt="Driver Illustration"
+        className="h-full w-full object-contain"
       />
     </div>
   );
