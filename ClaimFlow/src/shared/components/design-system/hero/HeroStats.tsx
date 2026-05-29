@@ -1,6 +1,6 @@
-import { HERO_STATS } from '@/features/shared-ui/configs';
+import { HERO_STATS } from "@/features/shared-ui/configs";
 
-import { Stat } from '@/shared/components/design-system/feedback/Stat';
+import { Stat } from "@/shared/components/design-system/primitives/Stat";
 
 interface HeroStatsProps {
   loaded: boolean;
@@ -14,13 +14,11 @@ export function HeroStats({ loaded }: HeroStatsProps) {
           key={stat.label}
           className={`
             pre-animate
-            ${loaded ? `animate-stat ${stat.delay}` : ''}
+            ${loaded ? `animate-stat ${stat.delay}` : ""}
             flex items-center gap-6
           `}
         >
-          {i > 0 && (
-            <div className="hidden h-10 w-px bg-white/10 sm:block" />
-          )}
+          {i > 0 && <div className="hidden h-10 w-px bg-white/10 sm:block" />}
 
           <Stat value={stat.value} label={stat.label} />
         </div>

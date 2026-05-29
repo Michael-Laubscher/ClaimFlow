@@ -1,6 +1,7 @@
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
-import { Card } from "@/shared/components/design-system/surface/Card";
+
 
 import type { MissionVisionItem } from "@/shared/types/about.types";
 
@@ -8,9 +9,7 @@ interface Props {
   items: MissionVisionItem[];
 }
 
-export function MissionVisionSection({
-  items,
-}: Props) {
+export function MissionVisionSection({ items }: Props) {
   return (
     <Section className="bg-slate-50 py-20">
       <Container>

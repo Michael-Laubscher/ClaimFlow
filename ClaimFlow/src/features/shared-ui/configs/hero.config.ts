@@ -18,13 +18,7 @@ export const HERO_STATS: HeroStat[] = [
   },
 ];
 
-export const PARTNERS: Partner[] = [
-  { name: "Partner A" },
-  { name: "Partner B" },
-  { name: "Partner C" },
-  { name: "Partner D" },
-  { name: "Partner E" },
-];
+export const PARTNERS: Partner[] = [{ name: "Partner A" }, { name: "Partner B" }, { name: "Partner C" }, { name: "Partner D" }, { name: "Partner E" }];
 
 export const HERO_CONTENT = {
   badge: "Trusted by 10,000+ transporters across Africa",
@@ -37,8 +31,7 @@ export const HERO_CONTENT = {
     line4: "Time",
   },
 
-  description:
-    "Comprehensive insurance solutions for transporters, fleet operators, and cross-border businesses throughout Africa.",
+  description: "Comprehensive insurance solutions for transporters, fleet operators, and cross-border businesses throughout Africa.",
 
   claimsPaid: "R500M+",
   satisfactionRate: "98%",

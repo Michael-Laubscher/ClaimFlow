@@ -1,78 +1,70 @@
 // app/router/index.tsx
 
-import {
-  createBrowserRouter,
-} from 'react-router-dom';
+import { createBrowserRouter } from "react-router-dom";
 
-import PublicLayout from '@/features/marketing/components/MainLayout';
+import PublicLayout from "@/features/marketing/components/MainLayout";
 
-import ErrorPage from '@/features/marketing/components/ErrorPage';
+import ErrorPage from "@/features/marketing/components/ErrorPage";
 
-import {
-  lazyPage,
-  withSuspense,
-} from './route.utils';
+import { lazyPage, withSuspense } from "./route.utils";
 
-import { ROUTES } from './routes.constants';
+import { ROUTES } from "./routes.constants";
 
-import { marketingRoutes } from './routes/marketing.routes';
+import { marketingRoutes } from "./routes/marketing.routes";
 
-import { supportRoutes } from './routes/support.routes';
+import { supportRoutes } from "./routes/support.routes";
 
-import { claimsRoutes } from './routes/claims.routes';
+import { claimsRoutes } from "./routes/claims.routes";
 
 // -----------------------------
 // Lazy Pages
 // -----------------------------
 
-const HomePage = lazyPage(
-  () => import('@/features/shared-ui/pages/Home')
-);
+const HomePage = lazyPage(() => import("@/features/shared-ui/pages/Home"));
 
 // -----------------------------
 // Router
 // -----------------------------
 
-export const router =
-  createBrowserRouter([
-    {
-      path: ROUTES.HOME,
+export const router = createBrowserRouter([
+  {
+    path: ROUTES.HOME,
 
-      element: <PublicLayout />,
+    element: <PublicLayout />,
 
-      errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
 
-      children: [
-        // HOME
-        {
-          index: true,
+    children: [
+      // HOME
+      {
+        index: true,
 
-          element: withSuspense(<HomePage />),
+        element: withSuspense(<HomePage />),
 
-          handle: {
-            title: 'Home',
-          },
+        handle: {
+          title: "Home",
         },
+      },
 
-        // MARKETING
-        ...marketingRoutes,
+      // MARKETING
+      ...marketingRoutes,
 
-        // SUPPORT
-        ...supportRoutes,
+      // SUPPORT
+      ...supportRoutes,
 
-        // CLAIMS
-        {
-          path: ROUTES.CLAIMS,
+      // CLAIMS
+      {
+        path: ROUTES.CLAIMS,
 
-          children: claimsRoutes,
-        },
+        children: claimsRoutes,
+      },
 
-        // 404
-        {
-          path: '*',
+      // 404
+      {
+        path: "*",
 
-          element: <ErrorPage />,
-        },
-      ],
-    },
-  ]);
+        element: <ErrorPage />,
+      },
+    ],
+  },
+]);

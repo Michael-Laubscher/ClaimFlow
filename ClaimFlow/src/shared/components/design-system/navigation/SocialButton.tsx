@@ -1,16 +1,11 @@
-import type { AnchorHTMLAttributes, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 
-interface SocialButtonProps
-  extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface SocialButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
   label: string;
 }
 
-export function SocialButton({
-  children,
-  label,
-  ...props
-}: SocialButtonProps) {
+export function SocialButton({ children, label, ...props }: SocialButtonProps) {
   return (
     <a
       aria-label={label}

@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 import { Headphones } from "lucide-react";
 
 import type { FooterConfig } from "@/shared/types/footer.types";
-
-import { Button } from "@/shared/components/design-system/buttons/Button";
-
+import { Button } from "../primitives/buttons/Button";
 
 interface Props {
   cta: FooterConfig["cta"];
@@ -98,21 +96,11 @@ export function FooterCTA({ cta }: Props) {
             sm:justify-center
           "
         >
-          <Button
-            asChild
-            variant="primary"
-            size="lg"
-            className="w-full sm:w-auto"
-          >
+          <Button variant="primary" size="lg" className="w-full sm:w-auto">
             <Link to={cta.primary.to}>{cta.primary.label}</Link>
           </Button>
 
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="w-full sm:w-auto"
-          >
+          <Button variant="outline" size="lg" className="w-full sm:w-auto">
             <Link to={cta.secondary.to}>{cta.secondary.label}</Link>
           </Button>
         </div>

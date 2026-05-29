@@ -7,12 +7,7 @@ import { InnovateIcon } from "@/shared/components/design-system/svg/icons/Innova
 import { TargetIcon } from "@/shared/components/design-system/svg/icons/TargetIcon";
 import { EyeIcon } from "@/shared/components/design-system/svg/icons/EyeIcon";
 
-import type {
-  CoreValue,
-  ImpactStat,
-  MissionVisionItem,
-  OurStory,
-} from "@/shared/types/about.types";
+import type { CoreValue, ImpactStat, MissionVisionItem, OurStory } from "@/shared/types/about.types";
 
 export const ourStory: OurStory = {
   paragraphs: [

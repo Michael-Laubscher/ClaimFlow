@@ -1,9 +1,4 @@
-import {
-  ourStory,
-  missionVision,
-  coreValues,
-  impactStats,
-} from "./about.config.data";
+import { ourStory, missionVision, coreValues, impactStats } from "./about.config.data";
 
 export const aboutConfig = {
   hero: {

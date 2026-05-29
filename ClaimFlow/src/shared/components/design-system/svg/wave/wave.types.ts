@@ -1,9 +1,4 @@
-export type WaveVariant =
-  | "soft"
-  | "curve"
-  | "sharp"
-  | "layered"
-  | "minimal";
+export type WaveVariant = "soft" | "curve" | "sharp" | "layered" | "minimal";
 
 export interface WaveDividerProps {
   variant?: WaveVariant;

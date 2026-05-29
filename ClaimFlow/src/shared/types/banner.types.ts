@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 export interface BannerBreadcrumb {
   label: string;
@@ -28,9 +28,9 @@ export interface PageBannerProps {
 
   stats?: BannerStat[];
 
-  align?: 'left' | 'center';
+  align?: "left" | "center";
 
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
 
   overlay?: boolean;
   grid?: boolean;

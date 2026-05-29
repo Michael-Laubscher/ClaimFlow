@@ -6,9 +6,10 @@ import { PlaceholderIcon } from "@/shared/components/design-system/svg/icons/Pla
 
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Card } from "@/shared/components/design-system/surface/Card";
+
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { lucideIconMap } from "@/shared/components/design-system/svg";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 const themeClassMap: Record<string, string> = {
   primary: "bg-blue-600 text-white",
@@ -32,52 +33,35 @@ export function ProductsSection() {
           </Typography>
         </div>
 
-        <Stack
-          direction="row"
-          gap="lg"
-          className="grid md:grid-cols-2 xl:grid-cols-4 gap-8"
-        >
-          {homeProducts.map((product) => {
-            const iconKey = (
-              product.icon || ""
-            ).toLowerCase() as keyof typeof lucideIconMap;
-            const Icon = lucideIconMap[iconKey] || PlaceholderIcon;
+        <Stack direction="row" gap="lg">
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+            {homeProducts.map((product) => {
+              const iconKey = (product.icon || "").toLowerCase() as keyof typeof lucideIconMap;
+              const Icon = lucideIconMap[iconKey] || PlaceholderIcon;
 
-            return (
-              <Link key={product.id} to={product.to}>
-                <Card className="group flex flex-col p-6 rounded-2xl border border-black/10 transition hover:shadow-lg">
-                  <div
-                    className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl shadow-md ${
-                      themeClassMap[product.theme] || themeClassMap.primary
-                    }`}
-                  >
-                    <Icon className="h-7 w-7" />
-                  </div>
+              return (
+                <Link key={product.id} to={product.to}>
+                  <Card className="group flex flex-col p-6 rounded-2xl border border-black/10 transition hover:shadow-lg">
+                    <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl shadow-md ${themeClassMap[product.theme] || themeClassMap.primary}`}>
+                      <Icon className="h-7 w-7" />
+                    </div>
 
-                  <Typography
-                    variant="body-md"
-                    className="font-semibold text-lg group-hover:text-primary"
-                  >
-                    {product.name}
-                  </Typography>
+                    <Typography variant="body-md" className="font-semibold text-lg group-hover:text-primary">
+                      {product.name}
+                    </Typography>
 
-                  <Typography
-                    variant="body-sm"
-                    className="mt-2 text-muted-foreground flex-grow"
-                  >
-                    {product.shortDesc}
-                  </Typography>
+                    <Typography variant="body-sm" className="mt-2 text-muted-foreground flex-grow">
+                      {product.shortDesc}
+                    </Typography>
 
-                  <Typography
-                    variant="body-sm"
-                    className="mt-4 font-medium text-orange-600 group-hover:underline"
-                  >
-                    Learn More &rarr;
-                  </Typography>
-                </Card>
-              </Link>
-            );
-          })}
+                    <Typography variant="body-sm" className="mt-4 font-medium text-orange-600 group-hover:underline">
+                      Learn More &rarr;
+                    </Typography>
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
         </Stack>
       </Container>
     </section>

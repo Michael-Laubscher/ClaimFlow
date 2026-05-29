@@ -1,6 +1,5 @@
-// shared/components/design-system/forms/FormSection.tsx
 
-import { GlassCard } from "../surface/GlassCard";
+import { Card } from "../composite/card/Card";
 import { Stack } from "../layout/Stack";
 import { Typography } from "../typography/Typography";
 
@@ -12,18 +11,16 @@ interface Props {
 
 export function FormSection({ title, description, children }: Props) {
   return (
-    <GlassCard className="p-6">
+    <Card variant="glass" className="p-6">
       <Stack gap="md">
         <Stack gap="xs">
           <Typography variant="body-3xl">{title}</Typography>
 
-          {description && (
-            <Typography color="muted">{description}</Typography>
-          )}
+          {description && <Typography color="muted">{description}</Typography>}
         </Stack>
 
         {children}
       </Stack>
-    </GlassCard>
+    </Card>
   );
 }

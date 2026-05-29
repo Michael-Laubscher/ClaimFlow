@@ -1,14 +1,6 @@
 import type { ContactInfoItem } from "@/shared/types/contact.types";
 
-
-export const NAV_LINKS = [
-  "Home",
-  "About",
-  "Products",
-  "Partnerships",
-  "News",
-  "Contact",
-] as const;
+export const NAV_LINKS = ["Home", "About", "Products", "Partnerships", "News", "Contact"] as const;
 
 export const CONTACT_INFO: ContactInfoItem[] = [
   {
@@ -19,20 +11,12 @@ export const CONTACT_INFO: ContactInfoItem[] = [
   {
     icon: "📞",
     title: "Phone",
-    lines: [
-      "Main: +254 700 000 000",
-      "Claims Hotline: +254 700 000 001",
-      "WhatsApp: +254 700 000 002",
-    ],
+    lines: ["Main: +254 700 000 000", "Claims Hotline: +254 700 000 001", "WhatsApp: +254 700 000 002"],
   },
   {
     icon: "✉",
     title: "Email",
-    lines: [
-      "General: info@askariinsure.com",
-      "Claims: claims@askariinsure.com",
-      "Support: support@askariinsure.com",
-    ],
+    lines: ["General: info@askariinsure.com", "Claims: claims@askariinsure.com", "Support: support@askariinsure.com"],
   },
   {
     icon: "🕐",

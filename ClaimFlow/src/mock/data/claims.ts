@@ -1,1 +1,1 @@
-export const claimsDB: any[] = [];
+export const claimsDB: unknown[] = [];

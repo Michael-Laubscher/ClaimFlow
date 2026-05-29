@@ -1,12 +1,7 @@
 // import type { LucideIcon } from "lucide-react";
 import type { ComponentType } from "react";
 
-export type CoreValueColor =
-  | "blue"
-  | "green"
-  | "purple"
-  | "orange"
-  | "teal";
+export type CoreValueColor = "blue" | "green" | "purple" | "orange" | "teal";
 
 export interface OurStory {
   paragraphs: string[];

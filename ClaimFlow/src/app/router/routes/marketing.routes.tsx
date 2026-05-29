@@ -1,61 +1,36 @@
 // app/router/routes/marketing.routes.tsx
 
-import type { RouteObject } from 'react-router-dom';
+import type { RouteObject } from "react-router-dom";
 
-import {
-  lazyPage,
-  withSuspense,
-} from '../route.utils';
+import { lazyPage, withSuspense } from "../route.utils";
 
-import { ROUTES } from '../routes.constants';
+import { ROUTES } from "../routes.constants";
 
-import * as sharedUiConfigs from '@/features/shared-ui/configs';
+import * as sharedUiConfigs from "@/features/shared-ui/configs";
 
 // -----------------------------
 // Lazy Pages
 // -----------------------------
 
-const AboutPage = lazyPage(
-  () => import('@/features/shared-ui/pages/About')
-);
+const AboutPage = lazyPage(() => import("@/features/shared-ui/pages/About"));
 
-const ProductsPage = lazyPage(
-  () => import('@/features/shared-ui/pages/Products')
-);
+const ProductsPage = lazyPage(() => import("@/features/shared-ui/pages/Products"));
 
-const ProductDetailsPage = lazyPage(
-  () =>
-    import(
-      '@/features/shared-ui/pages/ProductDetails'
-    )
-);
+const ProductDetailsPage = lazyPage(() => import("@/features/shared-ui/pages/ProductDetails"));
 
-const PartnersPage = lazyPage(
-  () => import('@/features/shared-ui/pages/Partners')
-);
+const PartnersPage = lazyPage(() => import("@/features/shared-ui/pages/Partners"));
 
-const NewsPage = lazyPage(
-  () => import('@/features/shared-ui/pages/News')
-);
+const NewsPage = lazyPage(() => import("@/features/shared-ui/pages/News"));
 
-const ContactPage = lazyPage(
-  () => import('@/features/shared-ui/pages/Contact')
-);
+const ContactPage = lazyPage(() => import("@/features/shared-ui/pages/Contact"));
 
-const DynamicPage = lazyPage(
-  () =>
-    import('@/features/shared-ui/pages/DynamicPage')
-);
+const DynamicPage = lazyPage(() => import("@/features/shared-ui/pages/DynamicPage"));
 
 // -----------------------------
 // Config
 // -----------------------------
 
-const getInsuranceConfig =
-  (sharedUiConfigs as any).getInsuranceConfig ??
-  (sharedUiConfigs as any)
-    .getInsurancePageConfig ??
-  (sharedUiConfigs as any).insuranceConfig;
+const getInsuranceConfig = sharedUiConfigs.getInsuranceConfig;
 
 // -----------------------------
 // Routes
@@ -68,7 +43,7 @@ export const marketingRoutes: RouteObject[] = [
     element: withSuspense(<AboutPage />),
 
     handle: {
-      title: 'About Us',
+      title: "About Us",
     },
   },
 
@@ -78,19 +53,17 @@ export const marketingRoutes: RouteObject[] = [
     element: withSuspense(<ProductsPage />),
 
     handle: {
-      title: 'Products',
+      title: "Products",
     },
   },
 
   {
     path: ROUTES.PRODUCT_DETAILS,
 
-    element: withSuspense(
-      <ProductDetailsPage />
-    ),
+    element: withSuspense(<ProductDetailsPage />),
 
     handle: {
-      title: 'Product Details',
+      title: "Product Details",
     },
   },
 
@@ -100,7 +73,7 @@ export const marketingRoutes: RouteObject[] = [
     element: withSuspense(<PartnersPage />),
 
     handle: {
-      title: 'Partnerships',
+      title: "Partnerships",
     },
   },
 
@@ -110,7 +83,7 @@ export const marketingRoutes: RouteObject[] = [
     element: withSuspense(<NewsPage />),
 
     handle: {
-      title: 'News',
+      title: "News",
     },
   },
 
@@ -120,21 +93,17 @@ export const marketingRoutes: RouteObject[] = [
     element: withSuspense(<ContactPage />),
 
     handle: {
-      title: 'Contact',
+      title: "Contact",
     },
   },
 
   {
     path: ROUTES.GET_INSURANCE,
 
-    element: withSuspense(
-      <DynamicPage
-        config={getInsuranceConfig}
-      />
-    ),
+    element: withSuspense(<DynamicPage config={getInsuranceConfig} />),
 
     handle: {
-      title: 'Get Insurance',
+      title: "Get Insurance",
     },
   },
 ];

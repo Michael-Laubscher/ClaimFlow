@@ -8,9 +8,7 @@ import { lazyPage, withSuspense } from "../route.utils";
 
 const ClaimsPage = lazyPage(() => import("@/features/claims/pages/ClaimsPage"));
 
-const SuccessPage = lazyPage(
-  () => import("@/features/claims/pages/SuccessPage"),
-);
+const SuccessPage = lazyPage(() => import("@/features/claims/pages/SuccessPage"));
 
 const GetQuotePage = lazyPage(() => import("@/features/claims/pages/GetQuote"));
 

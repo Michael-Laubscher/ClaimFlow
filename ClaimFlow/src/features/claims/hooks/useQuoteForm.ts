@@ -6,28 +6,21 @@ import type { QuoteDetails } from "../types/quote.types";
 export function useQuoteForm() {
   const [step, setStep] = useState(1);
 
-  const [insuranceType, setInsuranceType] =
-    useState<InsuranceType | "">("");
+  const [insuranceType, setInsuranceType] = useState<InsuranceType | "">("");
 
-  const [details, setDetails] =
-    useState<QuoteDetails>({
-      business: "",
-      contact: "",
-      email: "",
-      phone: "",
-      country: "",
-    });
+  const [details, setDetails] = useState<QuoteDetails>({
+    business: "",
+    contact: "",
+    email: "",
+    phone: "",
+    country: "",
+  });
 
-  const [coverage, setCoverage] =
-    useState<CoverageLevel | "">("");
+  const [coverage, setCoverage] = useState<CoverageLevel | "">("");
 
-  const [submitted, setSubmitted] =
-    useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  const update = (
-    key: keyof QuoteDetails,
-    value: string
-  ) =>
+  const update = (key: keyof QuoteDetails, value: string) =>
     setDetails((d) => ({
       ...d,
       [key]: value,

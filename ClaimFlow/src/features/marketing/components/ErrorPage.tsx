@@ -1,12 +1,6 @@
 import { Link, isRouteErrorResponse, useRouteError } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  AlertTriangle,
-  Home,
-  RefreshCw,
-  ShieldAlert,
-  WifiOff,
-} from "lucide-react";
+import { AlertTriangle, Home, RefreshCw, ShieldAlert, WifiOff } from "lucide-react";
 import type { JSX } from "react";
 
 type ErrorConfig = {
@@ -23,8 +17,7 @@ function getErrorConfig(error: unknown): ErrorConfig {
         return {
           code: "404",
           title: "Page not found",
-          message:
-            "The page you’re trying to access may have been moved or no longer exists.",
+          message: "The page you’re trying to access may have been moved or no longer exists.",
           icon: <AlertTriangle className="h-10 w-10 text-red-600" />,
         };
 
@@ -40,8 +33,7 @@ function getErrorConfig(error: unknown): ErrorConfig {
         return {
           code: "500",
           title: "Server error",
-          message:
-            "The server encountered an unexpected issue while processing your request.",
+          message: "The server encountered an unexpected issue while processing your request.",
           icon: <AlertTriangle className="h-10 w-10 text-red-600" />,
         };
 
@@ -59,8 +51,7 @@ function getErrorConfig(error: unknown): ErrorConfig {
     return {
       code: "NET",
       title: "Connection lost",
-      message:
-        "Unable to reach the server. Please check your internet connection and try again.",
+      message: "Unable to reach the server. Please check your internet connection and try again.",
       icon: <WifiOff className="h-10 w-10 text-red-600" />,
     };
   }
@@ -128,17 +119,11 @@ export default function ErrorPage() {
 
         {/* status section */}
         <div className="mt-6 text-center sm:mt-8">
-          <h1 className="text-6xl font-black tracking-tight text-[#0F4FAF] sm:text-7xl lg:text-8xl">
-            {config.code}
-          </h1>
+          <h1 className="text-6xl font-black tracking-tight text-[#0F4FAF] sm:text-7xl lg:text-8xl">{config.code}</h1>
 
-          <h2 className="mt-3 text-2xl font-semibold text-[#10243E] sm:text-3xl">
-            {config.title}
-          </h2>
+          <h2 className="mt-3 text-2xl font-semibold text-[#10243E] sm:text-3xl">{config.title}</h2>
 
-          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[#6B7A90] sm:text-base">
-            {config.message}
-          </p>
+          <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-[#6B7A90] sm:text-base">{config.message}</p>
         </div>
 
         {/* divider */}
@@ -164,9 +149,7 @@ export default function ErrorPage() {
         </div>
 
         {/* footer */}
-        <p className="mt-8 text-center text-xs text-[#6B7A90] sm:text-sm">
-          If the issue continues, please contact the Askari support team.
-        </p>
+        <p className="mt-8 text-center text-xs text-[#6B7A90] sm:text-sm">If the issue continues, please contact the Askari support team.</p>
       </motion.div>
     </div>
   );

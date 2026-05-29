@@ -1,4 +1,4 @@
-import { Input } from "@/shared/components/design-system/Input/Input";
+import { Input } from "@/shared/components/design-system/primitives/Input/Input";
 
 
 interface Props {
@@ -9,11 +9,7 @@ interface Props {
 export function FAQSearch({ value, onChange }: Props) {
   return (
     <div className="max-w-xl mx-auto">
-      <Input
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder="Search FAQs…"
-      />
+      <Input value={value} onChange={(e) => onChange(e.target.value)} placeholder="Search FAQs…" />
     </div>
   );
 }

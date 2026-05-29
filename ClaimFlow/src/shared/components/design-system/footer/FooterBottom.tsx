@@ -1,16 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import type {
-  FooterConfig,
-} from '@/shared/types/footer.types';
+import type { FooterConfig } from "@/shared/types/footer.types";
 
 interface Props {
-  legal: FooterConfig['legal'];
+  legal: FooterConfig["legal"];
 }
 
-export function FooterBottom({
-  legal,
-}: Props) {
+export function FooterBottom({ legal }: Props) {
   return (
     <div
       className="

@@ -2,14 +2,11 @@ import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import type { ImpactStat } from "@/shared/types/about.types";
 
-
 interface Props {
   stats: ImpactStat[];
 }
 
-export function ImpactStatsSection({
-  stats,
-}: Props) {
+export function ImpactStatsSection({ stats }: Props) {
   return (
     <Section
       className="

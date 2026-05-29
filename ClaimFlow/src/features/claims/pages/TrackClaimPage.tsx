@@ -2,10 +2,11 @@ import { EmptyState } from "@/features/shared-ui/components/sections/EmptyState"
 import { ResultState } from "@/features/shared-ui/components/sections/ResultState";
 import { MOCK_CLAIM } from "@/mock/data/mockClaim";
 import { useState } from "react";
+import type { ClaimResult } from "../types/claim.types";
 
 export default function TrackClaimPage() {
   const [input, setInput] = useState("");
-  const [claim, setClaim] = useState<any>(null);
+  const [claim, setClaim] = useState<ClaimResult | null>(null);
   const [error, setError] = useState("");
 
   const handleTrack = () => {
@@ -20,34 +21,17 @@ export default function TrackClaimPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
-
-
       <main className="flex-1">
         {claim ? (
-          <ResultState
-            value={input}
-            onChange={setInput}
-            onTrack={handleTrack}
-            claim={claim}
-          />
+          <ResultState value={input} onChange={setInput} onTrack={handleTrack} claim={claim} />
         ) : (
           <>
-            <EmptyState
-              value={input}
-              onChange={setInput}
-              onTrack={handleTrack}
-            />
+            <EmptyState value={input} onChange={setInput} onTrack={handleTrack} />
 
-            {error && (
-              <p className="text-center text-sm text-red-500 -mt-10">
-                {error}
-              </p>
-            )}
+            {error && <p className="text-center text-sm text-red-500 -mt-10">{error}</p>}
           </>
         )}
       </main>
-
-      
     </div>
   );
 }

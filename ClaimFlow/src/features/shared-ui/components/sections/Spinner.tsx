@@ -3,10 +3,7 @@ type SpinnerProps = {
   label?: string;
 };
 
-export default function Spinner({
-  size = 64,
-  label = "Loading...",
-}: SpinnerProps) {
+export default function Spinner({ size = 64, label = "Loading..." }: SpinnerProps) {
   return (
     <div className="flex flex-col items-center justify-center py-12">
       <div

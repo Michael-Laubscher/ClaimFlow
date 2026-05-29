@@ -1,4 +1,4 @@
-import { cn } from '@/shared/utilis/cn';
+import { cn } from "@/shared/lib/cn";
 
 interface Props {
   items: string[];
@@ -7,12 +7,9 @@ interface Props {
 
 export function BulletList({ items, className }: Props) {
   return (
-    <ul className={cn('space-y-2 text-[--color-text-secondary]', className)}>
+    <ul className={cn("space-y-2 text-[--color-text-secondary]", className)}>
       {items.map((item) => (
-        <li
-          key={item}
-          className="flex items-start gap-3"
-        >
+        <li key={item} className="flex items-start gap-3">
           <span
             className="
               mt-1.5
