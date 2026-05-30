@@ -1,5 +1,3 @@
-
-
 import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 import { CheckIcon, PlaceholderIcon } from "@/shared/components/design-system/svg/icons";

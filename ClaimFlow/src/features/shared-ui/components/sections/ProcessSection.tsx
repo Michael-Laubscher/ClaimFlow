@@ -16,7 +16,7 @@ export function ProcessSection() {
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {process.map((item) => (
-              <Card variant="glass"  key={item.step} className="rounded-3xl border border-slate-200 bg-white p-8">
+              <Card variant="glass" key={item.step} className="rounded-3xl border border-slate-200 bg-white p-8">
                 <Stack gap="lg">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[--color-navy] text-lg font-bold text-white">{item.step}</div>
 

@@ -4,7 +4,6 @@ import { FormSection } from "@/shared/components/design-system/forms/FormSection
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { Input } from "@/shared/components/design-system/primitives/Input/Input";
 
-
 export default function PolicySection() {
   const {
     register,

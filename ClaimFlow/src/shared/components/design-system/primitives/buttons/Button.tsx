@@ -1,22 +1,38 @@
+import { forwardRef } from "react";
+import { Link } from "react-router-dom";
+
 import { cn } from "@/shared/lib/cn";
 import { buttonVariants } from "../../tokens/button";
-import type { ButtonHTMLAttributes, ReactNode } from "react";
-import type { VariantProps } from "class-variance-authority";
-import { radius } from "../../tokens/radius";
 
-type ButtonVariantProps = VariantProps<typeof buttonVariants>;
+import { isLinkButton } from "./Button.helpers";
+import type { ButtonProps } from "./Button.types";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, ButtonVariantProps {
-  iconLeft?: ReactNode;
-  iconRight?: ReactNode;
-}
+export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>((props, ref) => {
+  const { variant = "primary", size = "md", iconLeft, iconRight, className } = props;
 
-export function Button({ children, variant, size, iconLeft, iconRight, className, ...props }: ButtonProps) {
+  const styles = cn(buttonVariants({ variant, size }), "rounded-xl", className);
+
+  if (isLinkButton(props)) {
+    const { children, to } = props;
+
+    return (
+      <Link ref={ref as React.Ref<HTMLAnchorElement>} to={to} className={styles}>
+        {iconLeft}
+        {children}
+        {iconRight}
+      </Link>
+    );
+  }
+
+  const { children, ...rest } = props;
+
   return (
-    <button className={cn(buttonVariants({ variant, size }), radius.md, className)} {...props}>
+    <button ref={ref as React.Ref<HTMLButtonElement>} className={styles} {...rest}>
       {iconLeft}
       {children}
       {iconRight}
     </button>
   );
-}
+});
+
+Button.displayName = "Button";

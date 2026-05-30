@@ -1,6 +1,5 @@
 import { Input } from "@/shared/components/design-system/primitives/Input/Input";
 
-
 interface Props {
   value: string;
   onChange: (v: string) => void;

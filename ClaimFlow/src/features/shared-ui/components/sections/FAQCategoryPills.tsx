@@ -1,6 +1,5 @@
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 
-
 interface Props {
   categories: string[];
   active: string;

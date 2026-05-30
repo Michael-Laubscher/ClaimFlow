@@ -82,11 +82,7 @@ function DriverIllustration() {
         justify-center
       "
     >
-      <img
-        src={BrandImage}
-        alt="Driver Illustration"
-        className="h-full w-full object-contain"
-      />
+      <img src={BrandImage} alt="Driver Illustration" className="h-full w-full object-contain" />
     </div>
   );
 }

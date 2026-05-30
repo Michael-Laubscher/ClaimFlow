@@ -1,5 +1,3 @@
-
-
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { ProductsCTA } from "../components/sections/ProductsCTA";

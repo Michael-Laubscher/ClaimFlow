@@ -7,7 +7,6 @@ import { Button } from "@/shared/components/design-system/primitives/buttons/But
 import { CATEGORY_VARIANT } from "@/shared/types/newsCategories";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
 
-
 export function NewsCard({ article }: { article: Article }) {
   return (
     <Card variant="glass" className="overflow-hidden">

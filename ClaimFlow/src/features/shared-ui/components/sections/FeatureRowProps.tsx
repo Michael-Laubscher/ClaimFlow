@@ -1,4 +1,3 @@
-
 import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Typography } from "@/shared/components/design-system/typography/Typography";
 

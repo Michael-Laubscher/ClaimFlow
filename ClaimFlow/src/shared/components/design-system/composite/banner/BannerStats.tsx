@@ -19,13 +19,9 @@ export function BannerStats({ items }: Props) {
     >
       {items.map((stat) => (
         <div key={stat.label}>
-          <p className="text-3xl font-black text-white">
-            {stat.value}
-          </p>
+          <p className="text-3xl font-black text-white">{stat.value}</p>
 
-          <p className="mt-1 text-sm text-blue-100/60">
-            {stat.label}
-          </p>
+          <p className="mt-1 text-sm text-blue-100/60">{stat.label}</p>
         </div>
       ))}
     </div>

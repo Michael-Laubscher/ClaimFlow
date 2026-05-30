@@ -1,4 +1,3 @@
-
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
@@ -23,7 +22,7 @@ export function ProductsCTA() {
 
             <Typography className="max-w-xl text-white/70">Our specialists will help you find the right coverage for your operations.</Typography>
 
-            <Stack direction="row" gap="sm" >
+            <Stack direction="row" gap="sm">
               <Button variant="primary">Talk to an Expert</Button>
 
               <Button

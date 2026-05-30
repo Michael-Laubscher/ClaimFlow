@@ -6,20 +6,14 @@ interface Props {
   socials: FooterSocialLink[];
 }
 
-export function FooterSocials({
-  socials,
-}: Props) {
+export function FooterSocials({ socials }: Props) {
   return (
     <div className="flex gap-3">
       {socials.map((social) => {
         const Icon = SOCIAL_ICONS[social.icon];
 
         return (
-          <SocialButton
-            key={social.label}
-            href={social.href}
-            label={social.label}
-          >
+          <SocialButton key={social.label} href={social.href} label={social.label}>
             <Icon className="h-4 w-4" />
           </SocialButton>
         );

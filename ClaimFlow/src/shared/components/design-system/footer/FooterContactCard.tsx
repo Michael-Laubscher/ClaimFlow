@@ -6,22 +6,15 @@ interface Props {
   contact: FooterConfig["contact"];
 }
 
-export function FooterContactCard({
-  contact,
-}: Props) {
+export function FooterContactCard({ contact }: Props) {
   return (
     <div className="mt-14">
-      <FooterHeading>
-        Contact
-      </FooterHeading>
+      <FooterHeading>Contact</FooterHeading>
 
       <Card className="p-5">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {contact.map((item) => (
-            <FooterContactItem
-              key={item.label}
-              item={item}
-            />
+            <FooterContactItem key={item.label} item={item} />
           ))}
         </div>
       </Card>

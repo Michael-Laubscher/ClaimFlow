@@ -1,14 +1,5 @@
-import {
-  FacebookIcon,
-  LinkedInIcon,
-  TwitterIcon,
-  MailIcon,
-  PhoneIcon,
-  PinIcon,
-} from "@/shared/components/design-system/svg/icons";
+import { FacebookIcon, LinkedInIcon, TwitterIcon, MailIcon, PhoneIcon, PinIcon } from "@/shared/components/design-system/svg/icons";
 import type { FooterLink } from "../types/footer.types";
-
-
 
 export const SOCIAL_ICONS = {
   linkedin: LinkedInIcon,
@@ -22,10 +13,7 @@ export const CONTACT_ICONS = {
   address: PinIcon,
 };
 
-export const FOOTER_LINKS: Record<
-  string,
-  FooterLink[]
-> = {
+export const FOOTER_LINKS: Record<string, FooterLink[]> = {
   legal: [
     {
       label: "Privacy Policy",

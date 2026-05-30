@@ -1,6 +1,4 @@
-import {
-  Users,
-} from "lucide-react";
+import { Users } from "lucide-react";
 
 import { IntegrityIcon } from "@/shared/components/design-system/svg/icons/IntegrityIcon";
 import { InnovateIcon } from "@/shared/components/design-system/svg/icons/InnovateIcon";

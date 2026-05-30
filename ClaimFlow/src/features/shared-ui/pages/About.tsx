@@ -1,4 +1,3 @@
-
 import { CoreValuesSection } from "../components/sections/CoreValuesSection";
 import { ImpactStatsSection } from "../components/sections/ImpactStatsSection";
 import { MissionVisionSection } from "../components/sections/MissionVisionSection";

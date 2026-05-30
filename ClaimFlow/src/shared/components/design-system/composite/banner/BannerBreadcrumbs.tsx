@@ -20,25 +20,15 @@ export function BannerBreadcrumbs({ items }: Props) {
         const isLast = index === items.length - 1;
 
         return (
-          <div
-            key={`${item.label}-${index}`}
-            className="flex items-center gap-2"
-          >
-            {index > 0 && (
-              <span className="text-white/30">/</span>
-            )}
+          <div key={`${item.label}-${index}`} className="flex items-center gap-2">
+            {index > 0 && <span className="text-white/30">/</span>}
 
             {item.to && !isLast ? (
-              <Link
-                to={item.to}
-                className="transition-colors hover:text-white"
-              >
+              <Link to={item.to} className="transition-colors hover:text-white">
                 {item.label}
               </Link>
             ) : (
-              <span className="text-white">
-                {item.label}
-              </span>
+              <span className="text-white">{item.label}</span>
             )}
           </div>
         );

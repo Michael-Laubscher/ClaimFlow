@@ -10,16 +10,10 @@ interface Props {
 
 export function SectionHeader({ badge, title, description, centered }: Props) {
   return (
-    <div
-      className={
-        centered
-          ? "mx-auto max-w-3xl text-center flex flex-col items-center"
-          : "max-w-3xl"
-      }
-    >
+    <div className={centered ? "mx-auto max-w-3xl text-center flex flex-col items-center" : "max-w-3xl"}>
       {badge && (
-  <span
-    className="
+        <span
+          className="
       mb-4
       inline-flex
       items-center
@@ -31,10 +25,10 @@ export function SectionHeader({ badge, title, description, centered }: Props) {
       font-medium
       text-[#0c2578]
     "
-  >
-    {badge}
-  </span>
-)}
+        >
+          {badge}
+        </span>
+      )}
 
       <Heading size="xl">{title}</Heading>
 

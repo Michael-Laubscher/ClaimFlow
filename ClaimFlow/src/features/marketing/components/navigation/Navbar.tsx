@@ -5,12 +5,12 @@ import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { NavbarShell } from "@/shared/components/design-system/navigation/NavbarShell";
 
-import { Navigation } from "./Navigation";
 import { NavbarBrand } from "./NavbarBrand";
+import { Navigation } from "./Navigation";
 import { TopBar } from "./TopBar";
 
 import { NAV_LINKS } from "@/features/shared-ui/configs/nav.config";
-import { ButtonLink } from "@/shared/components/design-system/primitives/buttons/ButtonLink";
+import { Button } from "@/shared/components/design-system/primitives/buttons";
 
 export function Navbar() {
   const scrolled = useScrolled(24);
@@ -33,13 +33,13 @@ export function Navbar() {
 
             {/* CTA */}
             <div className="hidden lg:flex">
-              <ButtonLink to="/get-quote" variant="primary">
+              <Button to="/products" variant="primary" size="lg">
                 Get Quote
-              </ButtonLink>
+              </Button>
             </div>
 
             {/* MOBILE BUTTON */}
-            <button
+            <Button
               onClick={mobileMenu.toggle}
               className="
                 rounded-xl
@@ -50,7 +50,7 @@ export function Navbar() {
               "
             >
               {mobileMenu.open ? "✕" : "☰"}
-            </button>
+            </Button>
           </Stack>
         </Container>
 
@@ -67,9 +67,9 @@ export function Navbar() {
                 py-4
               "
             >
-              <ButtonLink to="/get-quote" variant="primary">
+              <Button to="/products" size="lg" variant="primary">
                 Get Quote
-              </ButtonLink>
+              </Button>
             </div>
           )}
         </div>

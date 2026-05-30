@@ -11,9 +11,7 @@ interface Props {
 export function FooterColumn({ section }: Props) {
   return (
     <div>
-      <FooterHeading>
-        {section.heading}
-      </FooterHeading>
+      <FooterHeading>{section.heading}</FooterHeading>
 
       <ul className="flex flex-col gap-3">
         {section.items.map((item) => (
@@ -32,15 +30,9 @@ export function FooterColumn({ section }: Props) {
                 hover:text-white/70
               "
             >
-              <span className="truncate">
-                {item.label}
-              </span>
+              <span className="truncate">{item.label}</span>
 
-              {item.badge && (
-                <Pill>
-                  {item.badge}
-                </Pill>
-              )}
+              {item.badge && <Pill>{item.badge}</Pill>}
             </NavLink>
           </li>
         ))}

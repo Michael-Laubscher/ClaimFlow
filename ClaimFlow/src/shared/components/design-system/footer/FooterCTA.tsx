@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Headphones } from "lucide-react";
 import { Button } from "../primitives/buttons/Button";
 import type { FooterCTAConfig } from "@/shared/types/footer.types";
@@ -18,29 +17,18 @@ export function FooterCTA({ cta }: Props) {
 
       <div className="mx-auto max-w-7xl px-5 py-14 text-center sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto mb-10 max-w-2xl">
-          <h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl lg:text-4xl">
-            {cta.heading}
-          </h2>
+          <h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl lg:text-4xl">{cta.heading}</h2>
 
-          <p className="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">
-            {cta.description}
-          </p>
+          <p className="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">{cta.description}</p>
         </div>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
-          <Button size="lg">
-            <Link to={cta.primary.to}>
-              {cta.primary.label}
-            </Link>
+          <Button size="lg" to={cta.primary.to}>
+            {cta.primary.label}
           </Button>
 
-          <Button
-            variant="outline"
-            size="lg"
-          >
-            <Link to={cta.secondary.to}>
-              {cta.secondary.label}
-            </Link>
+          <Button size="lg" variant="outline" to={cta.secondary.to}>
+            {cta.secondary.label}
           </Button>
         </div>
       </div>

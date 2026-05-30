@@ -3,14 +3,12 @@ import type { FooterConfig } from "@/shared/types/footer.types";
 export const footerConfig: FooterConfig = {
   brand: {
     tagline: "Protecting African Trade",
-    description:
-      "Comprehensive insurance solutions for transporters, fleet operators, and cross-border businesses across Africa.",
+    description: "Comprehensive insurance solutions for transporters, fleet operators, and cross-border businesses across Africa.",
   },
 
   cta: {
     heading: "Ready to Protect Your Business?",
-    description:
-      "Get a personalized insurance quote in minutes. Our experts are standing by to help you choose the right coverage.",
+    description: "Get a personalized insurance quote in minutes. Our experts are standing by to help you choose the right coverage.",
     primary: {
       label: "Get Your Quote Now",
       to: "claims/get-quote",
@@ -57,11 +55,7 @@ export const footerConfig: FooterConfig = {
     { label: "Facebook", href: "#", icon: "facebook" },
   ],
 
-  trustBadges: [
-    "24/7 Claims Support",
-    "Pan-African Coverage",
-    "Licensed Insurance Provider",
-  ],
+  trustBadges: ["24/7 Claims Support", "Pan-African Coverage", "Licensed Insurance Provider"],
 
   contact: [
     {

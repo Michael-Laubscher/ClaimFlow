@@ -7,14 +7,14 @@ import type { Branch } from "@/shared/types/branch.types";
 import { Clock3, MapPin, Phone } from "lucide-react";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
 
-
 interface BranchCardProps {
   branch: Branch;
 }
 
 export function BranchCard({ branch }: BranchCardProps) {
   return (
-    <Card variant="glass"
+    <Card
+      variant="glass"
       className="
         h-full
         p-6
