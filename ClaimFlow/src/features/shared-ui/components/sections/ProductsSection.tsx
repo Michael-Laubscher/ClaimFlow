@@ -2,14 +2,13 @@ import { Link } from "react-router-dom";
 
 import { homeProducts } from "@/shared/types/products";
 
-import { PlaceholderIcon } from "@/shared/components/design-system/svg/icons/PlaceholderIcon";
-
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
 import { Card } from "@/shared/components/design-system/composite/card/Card";
-import { lucideIconMap } from "@/shared/components/design-system/svg";
+
 import { Text } from "@/shared/components/design-system/typography/Text";
+import { iconMap } from "@/shared/components/design-system/svg/iconMap";
 
 const themeClassMap: Record<string, string> = {
   primary: "bg-blue-600 text-white",
@@ -36,8 +35,8 @@ export function ProductsSection() {
         <Stack direction="row" gap="lg">
           <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
             {homeProducts.map((product) => {
-              const iconKey = (product.icon || "").toLowerCase() as keyof typeof lucideIconMap;
-              const Icon = lucideIconMap[iconKey] || PlaceholderIcon;
+              const iconKey = (product.icon || "").toLowerCase() as keyof typeof iconMap;
+              const Icon = iconMap[iconKey] || iconMap.placeholder;
 
               return (
                 <Link key={product.id} to={product.to}>

@@ -5,8 +5,7 @@ import { HeroVisual } from "@/shared/components/design-system/hero/HeroVisual";
 
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
-
-import { WaveDivider } from "@/shared/components/design-system/svg";
+import { WaveDivider } from "@/shared/components/design-system/svg/wave";
 
 export function HeroSection() {
   const loaded = true;

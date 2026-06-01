@@ -1,8 +1,8 @@
 import type { SVGProps } from "react";
 
-export function PhoneIcon({ className, ...props }: SVGProps<SVGSVGElement>) {
+export function PhoneSvg(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg className={`h-3.5 w-3.5 ${className ?? ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

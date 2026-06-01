@@ -1,8 +1,8 @@
 import type { SVGProps } from "react";
 
-export function ClipboardIcon({ className, ...props }: SVGProps<SVGSVGElement>) {
+export function ClipboardSvg(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg className={`h-3.5 w-3.5 ${className ?? ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" {...props}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" {...props}>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

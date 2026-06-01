@@ -1,6 +1,5 @@
 import { Button } from "../primitives/buttons/Button";
-
-import { ArrowRightIcon } from "@/shared/components/design-system/svg";
+import { ArrowRightIcon } from "../svg/icons";
 
 export function HeroActions() {
   return (
