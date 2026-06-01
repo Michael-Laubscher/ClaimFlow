@@ -3,7 +3,7 @@ import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 
 export function ProductsCTA() {
   return (
@@ -20,7 +20,7 @@ export function ProductsCTA() {
               Need help choosing a product?
             </Heading>
 
-            <Typography className="max-w-xl text-white/70">Our specialists will help you find the right coverage for your operations.</Typography>
+            <Text className="max-w-xl text-white/70">Our specialists will help you find the right coverage for your operations.</Text>
 
             <Stack direction="row" gap="sm">
               <Button variant="primary">Talk to an Expert</Button>

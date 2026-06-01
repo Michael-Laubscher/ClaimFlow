@@ -1,7 +1,7 @@
 import { Badge } from "@/shared/components/design-system/primitives/Badge";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
-import { GenericText } from "@/shared/components/design-system/typography/Text";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
 
@@ -38,7 +38,9 @@ export function ArticleCard({ article }: Props) {
         </div>
         <h3 className="text-base font-bold text-slate-900 leading-snug">{article.title}</h3>
 
-        <GenericText className="mt-2 text-sm text-slate-500">{article.excerpt}</GenericText>
+        <Text variant="sm" color="muted" className="mt-2">
+          {article.excerpt}
+        </Text>
 
         <div className="mt-5 border-t border-slate-100 pt-3">
           <Stack direction="row" justify="between">

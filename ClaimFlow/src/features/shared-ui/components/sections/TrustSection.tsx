@@ -4,9 +4,9 @@ import { PlaceholderIcon } from "@/shared/components/design-system/svg/icons/Pla
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
-import { Typography } from "@/shared/components/design-system/typography/Typography";
-import trustPillars from "../../configs/trust.config";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { Text } from "@/shared/components/design-system/typography/Text";
+import trustPillars from "../../configs/trust.config";
 
 export function TrustSection() {
   return (
@@ -23,13 +23,13 @@ export function TrustSection() {
                     <Icon className="h-6 w-6 text-white" />
                   </div>
 
-                  <Typography variant="body-md" className="font-semibold">
+                  <Text variant="body" className="font-semibold">
                     {pillar.label}
-                  </Typography>
+                  </Text>
 
-                  <Typography variant="body-sm" className="mt-1 text-muted-foreground">
+                  <Text variant="sm" className="mt-1 text-muted-foreground">
                     {pillar.subtext}
-                  </Typography>
+                  </Text>
                 </Card>
               );
             })}

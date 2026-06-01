@@ -1,11 +1,11 @@
-import { Pill } from "@/shared/components/design-system/primitives/Pill";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
+import { Pill } from "@/shared/components/design-system/primitives/Pill";
 
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import type { Branch } from "@/shared/types/branch.types";
 import { Clock3, MapPin, Phone } from "lucide-react";
-import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 interface BranchCardProps {
   branch: Branch;
@@ -36,20 +36,22 @@ export function BranchCard({ branch }: BranchCardProps) {
         <Stack gap="md">
           <InfoRow icon={<MapPin size={18} />}>
             <div>
-              <Typography variant="body-sm">{branch.address}</Typography>
+              <Text variant="sm">{branch.address}</Text>
 
-              <Typography variant="body-sm" color="muted">
+              <Text variant="sm" color="muted">
                 {branch.city}
-              </Typography>
+              </Text>
             </div>
           </InfoRow>
 
           <InfoRow icon={<Phone size={18} />}>
-            <Typography variant="body-sm">{branch.phone}</Typography>
+            <Text variant="sm">{branch.phone}</Text>
           </InfoRow>
 
           <InfoRow icon={<Clock3 size={18} />}>
-            <Typography variant="body-sm">{branch.hours}</Typography>
+            <Text variant="sm" color="muted">
+              {branch.hours}
+            </Text>
           </InfoRow>
         </Stack>
       </Stack>

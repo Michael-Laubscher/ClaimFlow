@@ -1,8 +1,8 @@
-import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
-import { BulletList } from "./BulletList";
-import type { Privacy as PrivacySectionType } from "@/shared/types/privacy.types";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { Heading } from "@/shared/components/design-system/typography/Heading";
+import { Text } from "@/shared/components/design-system/typography/Text";
+import type { Privacy as PrivacySectionType } from "@/shared/types/privacy.types";
+import { BulletList } from "./BulletList";
 
 interface Props {
   section: PrivacySectionType;
@@ -16,9 +16,9 @@ export function PrivacySection({ section }: Props) {
       </Heading>
 
       {section.content && (
-        <Typography variant="body-md" color="muted" className="mt-3">
+        <Text variant="body" color="muted" className="mt-3">
           {section.content}
-        </Typography>
+        </Text>
       )}
 
       {section.list && (

@@ -6,9 +6,11 @@ import { RouterProvider } from "react-router-dom";
 
 import { router } from "@/app/router";
 
-import "@/shared/css/tokens.css";
-import "@/shared/css/globals.css";
 import "@/index.css";
+import "@/shared/css/globals.css";
+import "@/shared/css/tokens.css";
+// @ts-ignore: side-effect font import lacks type declarations
+import "@fontsource/inter";
 
 // -----------------------------
 // Root

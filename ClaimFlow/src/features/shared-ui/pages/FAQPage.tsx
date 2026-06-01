@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { Container } from "@/shared/components/design-system/layout/Container";
-import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { GenericText } from "@/shared/components/design-system/typography/Text";
-import { FAQSearch } from "../components/sections/FAQSearch";
-import { FAQCategoryPills } from "../components/sections/FAQCategoryPills";
-import { FAQList } from "../components/sections/FAQList";
-import { faqs } from "../configs/faq.config";
-import { filterFAQs, getTotalFAQs } from "@/shared/utilis/faq.utils";
-import { banners } from "../configs/banners.config";
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { Container } from "@/shared/components/design-system/layout/Container";
+import { Heading } from "@/shared/components/design-system/typography/Heading";
+import { Text } from "@/shared/components/design-system/typography/Text";
+import { filterFAQs, getTotalFAQs } from "@/shared/utilis/faq.utils";
+import { useState } from "react";
+import { FAQCategoryPills } from "../components/sections/FAQCategoryPills";
+import { FAQList } from "../components/sections/FAQList";
+import { FAQSearch } from "../components/sections/FAQSearch";
+import { banners } from "../configs/banners.config";
+import { faqs } from "../configs/faq.config";
 
 export default function FAQPage() {
   const [search, setSearch] = useState("");
@@ -44,7 +44,9 @@ export default function FAQPage() {
                 How can we help?
               </Heading>
 
-              <GenericText className="mt-2 text-white/60">Search our support center or browse by category.</GenericText>
+              <Text variant="sm" className="mt-2 text-white/60">
+                Search our support center or browse by category.
+              </Text>
             </div>
 
             {/* SEARCH */}
@@ -55,9 +57,9 @@ export default function FAQPage() {
 
             {/* RESULTS */}
             <div className="border-t border-white/10 pt-4">
-              <GenericText className="text-sm text-white/50">
+              <Text className="text-sm text-white/50">
                 {total} result{total !== 1 ? "s" : ""} found
-              </GenericText>
+              </Text>
             </div>
           </div>
         </Card>
@@ -72,7 +74,7 @@ export default function FAQPage() {
                 No FAQs found
               </Heading>
 
-              <GenericText className="mt-3 text-white/60">Try searching with different keywords or browse another category.</GenericText>
+              <Text className="mt-3 text-white/60">Try searching with different keywords or browse another category.</Text>
             </Card>
           ) : (
             <FAQList data={filtered} />
@@ -110,7 +112,7 @@ export default function FAQPage() {
                 Still need help?
               </Heading>
 
-              <GenericText className="mx-auto mt-4 max-w-xl text-white/70">Our support team can assist you with claims, cross-border insurance, policy questions, and fleet coverage.</GenericText>
+              <Text className="mx-auto mt-4 max-w-xl text-white/70">Our support team can assist you with claims, cross-border insurance, policy questions, and fleet coverage.</Text>
 
               <div className="mt-8 flex justify-center">
                 <button

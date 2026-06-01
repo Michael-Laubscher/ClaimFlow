@@ -1,7 +1,7 @@
 import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import { Shield } from "lucide-react";
 
 interface Props {
@@ -22,11 +22,11 @@ export function ProductCoverageCard({ label, description }: Props) {
         <Shield className="mt-1 h-5 w-5 text-[--color-orange]" />
 
         <Stack gap="xs">
-          <Typography variant="label-md" className="text-[--color-slate-900]">
+          <Text variant="body" className="text-[--color-slate-900]">
             {label}
-          </Typography>
+          </Text>
 
-          <Typography color="muted">{description}</Typography>
+          <Text color="muted">{description}</Text>
         </Stack>
       </Stack>
     </Card>

@@ -1,9 +1,9 @@
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import { Badge, Check, Container, Heading, Section } from "lucide-react";
 import { benefits } from "../../configs/partners.data";
-import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 export function BenefitsSection() {
   return (
@@ -15,9 +15,9 @@ export function BenefitsSection() {
 
             <Heading className="max-w-lg text-[--color-navy]">Everything You Need To Scale Your Insurance Offering</Heading>
 
-            <Typography className="max-w-xl leading-relaxed text-slate-500">
+            <Text variant="lead" color="muted" className="max-w-xl leading-relaxed">
               Gain access to tailored insurance products, dedicated support, digital onboarding tools, and a partnership ecosystem designed for modern African trade.
-            </Typography>
+            </Text>
 
             <div className="grid gap-4 pt-4 sm:grid-cols-2">
               {benefits.map((benefit) => (
@@ -27,7 +27,9 @@ export function BenefitsSection() {
                       <Check className="h-4 w-4 text-emerald-600" />
                     </div>
 
-                    <Typography className="text-sm leading-relaxed text-slate-600">{benefit}</Typography>
+                    <Text variant="sm" color="muted" className="leading-relaxed">
+                      {benefit}
+                    </Text>
                   </Stack>
                 </Card>
               ))}

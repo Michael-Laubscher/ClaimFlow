@@ -1,11 +1,11 @@
 import type { QuoteDetails } from "@/features/claims/types/quote.types";
 
-import { Button } from "@/shared/components/design-system/buttons/Button";
-import { InputField } from "@/shared/components/design-system/Input/InputField";
-import { SelectField } from "@/shared/components/design-system/Input/SelectField";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
+import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
+import { InputField } from "@/shared/components/design-system/primitives/Input/InputField";
+import { SelectField } from "@/shared/components/design-system/primitives/Input/SelectField";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { GenericText } from "@/shared/components/design-system/typography/Text";
+import { Text } from "@/shared/components/design-system/typography/Text";
 
 import { COUNTRIES } from "@/features/claims/configs/countries";
 
@@ -27,7 +27,7 @@ export function Step2({ data, onChange, onNext, onBack }: Step2Props) {
       <div>
         <Heading size="lg">Your Details</Heading>
 
-        <GenericText className="mt-1 text-slate-500">Tell us about your business</GenericText>
+        <Text className="mt-1 text-slate-500">Tell us about your business</Text>
       </div>
 
       {/* Form */}

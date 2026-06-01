@@ -5,7 +5,7 @@ import { Heading } from "@/shared/components/design-system/typography/Heading";
 
 import { Pill } from "@/shared/components/design-system/primitives/Pill";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import type { Product } from "@/shared/types/product.types";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { IconSurface } from "@/shared/components/design-system/composite/card/IconSurface";
@@ -35,7 +35,9 @@ export function ProductCard({ product }: Props) {
                 {product.name}
               </Heading>
 
-              <Typography color="muted">{product.tagline}</Typography>
+              <Text variant="body" color="muted">
+                {product.tagline}
+              </Text>
             </Stack>
 
             <div

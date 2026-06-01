@@ -6,7 +6,7 @@ import { IconSurface } from "@/shared/components/design-system/composite/card/Ic
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 
 interface PartnerCardProps {
   title: string;
@@ -27,7 +27,7 @@ export function PartnerCard({ title, description, icon: Icon }: PartnerCardProps
             {title}
           </Heading>
 
-          <Typography className="leading-relaxed text-slate-500">{description}</Typography>
+          <Text className="leading-relaxed text-slate-500">{description}</Text>
         </Stack>
 
         <button

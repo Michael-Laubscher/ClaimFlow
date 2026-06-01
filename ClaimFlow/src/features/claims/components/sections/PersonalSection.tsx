@@ -1,8 +1,8 @@
-import { useFormContext } from "react-hook-form";
 import { FormSection } from "@/shared/components/design-system/forms/FormSection";
+import { useFormContext } from "react-hook-form";
 
-import { Typography } from "@/shared/components/design-system/typography/Typography";
 import { Input } from "@/shared/components/design-system/primitives/Input/Input";
+import { Text } from "@/shared/components/design-system/typography/Text";
 
 export default function PersonalSection() {
   const {
@@ -13,10 +13,10 @@ export default function PersonalSection() {
   return (
     <FormSection title="Personal Details" description="Your contact information">
       <Input {...register("fullName")} placeholder="Full Name" />
-      {errors.fullName?.message && <Typography className="text-red-500 text-sm">{errors.fullName.message as string}</Typography>}
+      {errors.fullName?.message && <Text className="text-red-500 text-sm">{errors.fullName.message as string}</Text>}
 
       <Input {...register("email")} placeholder="Email" />
-      {errors.email?.message && <Typography className="text-red-500 text-sm">{errors.email.message as string}</Typography>}
+      {errors.email?.message && <Text className="text-red-500 text-sm">{errors.email.message as string}</Text>}
     </FormSection>
   );
 }

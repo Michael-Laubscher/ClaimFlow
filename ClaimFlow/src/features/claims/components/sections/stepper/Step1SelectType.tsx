@@ -2,10 +2,10 @@ import type { InsuranceType } from "@/features/claims/types/insuranceTypes";
 
 import { FALLBACK_INSURANCE_ICON, INSURANCE_TYPES } from "@/features/claims/types/insuranceTypes";
 
-import { Button } from "@/shared/components/design-system/buttons/Button";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
+import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { GenericText } from "@/shared/components/design-system/typography/Text";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import { cn } from "@/shared/lib/cn";
 
 interface Step1Props {
@@ -23,7 +23,7 @@ export function Step1({ value, onChange, onNext }: Step1Props) {
       <div>
         <Heading size="lg">Select Insurance Type</Heading>
 
-        <GenericText className="mt-1 text-slate-500">Choose the coverage that fits your business</GenericText>
+        <Text className="mt-1 text-slate-500">Choose the coverage that fits your business</Text>
       </div>
 
       {/* Grid */}

@@ -2,7 +2,7 @@ import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import { Check } from "lucide-react";
 
 interface Props {
@@ -49,7 +49,7 @@ export function ProductFeatures({ features }: Props) {
                 "
               />
 
-              <Typography>{feature}</Typography>
+              <Text>{feature}</Text>
             </div>
           ))}
         </Stack>

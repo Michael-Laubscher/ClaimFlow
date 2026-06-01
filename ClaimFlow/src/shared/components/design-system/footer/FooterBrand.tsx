@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import AskariLogo from "@/assets/logos/AskariLogo.png";
-import { FooterText } from "../typography/FooterText";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import type { FooterConfig } from "@/shared/types/footer.types";
+import { Link } from "react-router-dom";
 
 interface Props {
   brand: FooterConfig["brand"];
@@ -16,7 +16,7 @@ export function FooterBrand({ brand, trustBadges }: Props) {
         <span className="text-sm tracking-wide text-slate-100">{brand.tagline}</span>
       </Link>
 
-      <FooterText className="mt-6 max-w-sm">{brand.description}</FooterText>
+      <Text className="mt-6 max-w-sm">{brand.description}</Text>
 
       <div className="mt-7 flex flex-wrap gap-3">
         {trustBadges?.map((badge) => (

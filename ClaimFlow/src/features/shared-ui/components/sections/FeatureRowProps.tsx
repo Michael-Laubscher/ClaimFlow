@@ -1,5 +1,5 @@
 import { Card } from "@/shared/components/design-system/composite/card/Card";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 
 type FeatureRowProps = {
   label: string;
@@ -11,9 +11,9 @@ export function FeatureRow({ label, icon }: FeatureRowProps) {
     <Card className="flex items-center gap-4 ps-4">
       <div className="flex h-10 w-10 items-center justify-center rounded-md bg-surface-success text-white">{icon}</div>
 
-      <Typography variant="body-sm" className="font-medium">
+      <Text variant="sm" className="font-medium">
         {label}
-      </Typography>
+      </Text>
     </Card>
   );
 }

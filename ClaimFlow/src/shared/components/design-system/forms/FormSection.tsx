@@ -1,6 +1,6 @@
 import { Card } from "../composite/card/Card";
 import { Stack } from "../layout/Stack";
-import { Typography } from "../typography/Typography";
+import { Text } from "../typography/Text";
 
 interface Props {
   title: string;
@@ -13,9 +13,10 @@ export function FormSection({ title, description, children }: Props) {
     <Card variant="glass" className="p-6">
       <Stack gap="md">
         <Stack gap="xs">
-          <Typography variant="body-3xl">{title}</Typography>
-
-          {description && <Typography color="muted">{description}</Typography>}
+          <Text color="default" variant="title">
+            {title}
+          </Text>
+          {description && <Text color="muted">{description}</Text>}
         </Stack>
 
         {children}

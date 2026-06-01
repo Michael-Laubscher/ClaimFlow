@@ -1,4 +1,4 @@
-import { lazy, Suspense, type LazyExoticComponent, type ComponentType, type ReactNode } from "react";
+import { lazy, Suspense, type ComponentType, type LazyExoticComponent, type ReactNode } from "react";
 
 import Spinner from "@/features/shared-ui/components/sections/Spinner";
 

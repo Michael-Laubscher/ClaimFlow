@@ -1,6 +1,6 @@
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import { useProduct } from "@/shared/hooks/useProduct";
 import { ArrowLeft } from "lucide-react";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
@@ -61,7 +61,7 @@ export default function ProductDetailsPage() {
                     {product.name}
                   </Heading>
 
-                  <Typography color="muted">{product.tagline}</Typography>
+                  <Text color="muted">{product.tagline}</Text>
                 </Stack>
 
                 <ProductCoverageCard label={product.coverageLabel} description={product.coverageDesc} />

@@ -3,7 +3,7 @@ import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { GenericText } from "@/shared/components/design-system/typography/Text";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
@@ -36,7 +36,7 @@ export function PartnersCTASection({ badge, title, description, primaryAction, s
               {title}
             </Heading>
 
-            {description && <GenericText className="max-w-2xl">{description}</GenericText>}
+            {description && <Text className="max-w-2xl">{description}</Text>}
 
             <Stack direction="row" gap="md">
               <Button size="lg">

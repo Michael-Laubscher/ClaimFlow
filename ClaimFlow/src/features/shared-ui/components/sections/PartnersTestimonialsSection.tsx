@@ -4,7 +4,7 @@ import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
 import { SectionHeader } from "@/shared/components/design-system/typography/SectionHeader";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import { Building2 } from "lucide-react";
 
 export interface Testimonial {
@@ -35,12 +35,12 @@ export function PartnersTestimonialsSection({ badge = "Partner Success", title, 
                     <Building2 className="h-6 w-6 text-white/80" />
                   </div>
 
-                  <Typography className="leading-relaxed text-blue-100/80">“{item.quote}”</Typography>
+                  <Text className="leading-relaxed text-blue-100/80">“{item.quote}”</Text>
 
                   <div>
-                    <Typography className="font-semibold text-white">{item.company}</Typography>
+                    <Text className="font-semibold text-white">{item.company}</Text>
 
-                    {item.role && <Typography className="text-sm text-blue-200/60">{item.role}</Typography>}
+                    {item.role && <Text className="text-sm text-blue-200/60">{item.role}</Text>}
                   </div>
                 </Stack>
               </Card>
