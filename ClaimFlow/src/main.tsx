@@ -9,8 +9,6 @@ import { router } from "@/app/router";
 import "@/index.css";
 import "@/shared/css/globals.css";
 import "@/shared/css/tokens.css";
-// @ts-ignore: side-effect font import lacks type declarations
-import "@fontsource/inter";
 
 // -----------------------------
 // Root
