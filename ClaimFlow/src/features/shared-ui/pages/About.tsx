@@ -3,9 +3,9 @@ import { ImpactStatsSection } from "../components/sections/ImpactStatsSection";
 import { MissionVisionSection } from "../components/sections/MissionVisionSection";
 import { OurStorySection } from "../components/sections/OurStorySection";
 
-import { banners } from "../configs/banners.config";
-import { coreValues, impactStats, missionVision, ourStory } from "../configs/about.config.data";
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
+import { coreValues, impactStats, missionVision, ourStory } from "../configs/about.config.data";
+import { banners } from "../configs/banners.config";
 
 export default function AboutPage() {
   return (

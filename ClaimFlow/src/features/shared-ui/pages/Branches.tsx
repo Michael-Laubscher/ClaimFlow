@@ -1,8 +1,9 @@
+import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
-import { BranchCard } from "../components/sections/BranchCard";
+import { Clock3, MapPin, Phone } from "lucide-react";
+import { InfoCard } from "../components/cards/InfoCard";
 import { branches } from "../configs/branches.config";
-import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 
 export default function BranchesPage() {
   return (
@@ -16,20 +17,6 @@ export default function BranchesPage() {
           major transport and logistics hubs
           in Africa.
         "
-        stats={[
-          {
-            value: "6+",
-            label: "Regional Offices",
-          },
-          {
-            value: "5",
-            label: "Countries Served",
-          },
-          {
-            value: "24/7",
-            label: "Client Support",
-          },
-        ]}
       />
 
       <Section className="bg-[--color-slate-50] py-20">
@@ -44,7 +31,26 @@ export default function BranchesPage() {
             "
           >
             {branches.map((branch) => (
-              <BranchCard key={branch.name} branch={branch} />
+              <InfoCard
+                title={branch.name}
+                badge={branch.flagship ? "Flagship" : undefined}
+                className="h-full p-6"
+                items={[
+                  {
+                    icon: <MapPin size={18} className="text-[--color-orange]" />,
+                    label: branch.address,
+                    description: branch.city,
+                  },
+                  {
+                    icon: <Phone size={18} className="text-[--color-orange]" />,
+                    label: branch.phone,
+                  },
+                  {
+                    icon: <Clock3 size={18} className="text-[--color-orange]" />,
+                    label: branch.hours,
+                  },
+                ]}
+              />
             ))}
           </div>
         </Container>

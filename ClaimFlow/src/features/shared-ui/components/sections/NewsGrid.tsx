@@ -1,5 +1,6 @@
+import { CATEGORY_VARIANT } from "@/shared/types/newsCategories";
 import { ARTICLES } from "../../configs/news.config";
-import { NewsCard } from "./NewsCard";
+import { ContentCard } from "../cards/ContentCard";
 
 export function NewsGrid() {
   return (
@@ -13,7 +14,14 @@ export function NewsGrid() {
       "
     >
       {ARTICLES.map((article) => (
-        <NewsCard key={article.id} article={article} />
+        <ContentCard
+          key={article.id}
+          content={article}
+          cardVariant="glass"
+          badgeVariant={CATEGORY_VARIANT[article.category as keyof typeof CATEGORY_VARIANT] ?? "default"}
+          imageHeight="h-44"
+          ctaVariant="secondary"
+        />
       ))}
     </div>
   );

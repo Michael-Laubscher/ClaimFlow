@@ -1,10 +1,10 @@
-import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Reveal } from "@/shared/components/design-system/feedback/Reveal";
+import { Container } from "@/shared/components/design-system/layout/Container";
+import { Section } from "@/shared/components/design-system/layout/Section";
+import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { SectionHeader } from "@/shared/components/design-system/typography/SectionHeader";
 import { partnerTypes } from "../../configs/partners.data";
-import { PartnerCard } from "./PartnerCard";
-import { Section } from "@/shared/components/design-system/layout/Section";
-import { Container } from "@/shared/components/design-system/layout/Container";
+import { FeatureCard } from "../cards/FeatureCard";
 
 export function PartnerTypesSection() {
   return (
@@ -20,7 +20,7 @@ export function PartnerTypesSection() {
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {partnerTypes.map((partner, index) => (
               <Reveal key={partner.title} loaded delay={`delay-${index * 100}`}>
-                <PartnerCard {...partner} />
+                <FeatureCard title={partner.title} description={partner.description} icon={partner.icon} iconClassName="text-white" ctaLabel="Learn More" />
               </Reveal>
             ))}
           </div>

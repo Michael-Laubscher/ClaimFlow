@@ -1,15 +1,16 @@
+import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { BenefitsSection } from "../components/sections/BenefitsSection";
-import { HeroSection } from "../components/sections/HeroSection";
-import { PartnerTypesSection } from "../components/sections/PartnerTypesSection";
 import { LogoCloudSection } from "../components/sections/LogoCloudSection";
-import { ProcessSection } from "../components/sections/ProcessSection";
-import { PartnersTestimonialsSection } from "../components/sections/PartnersTestimonialsSection";
 import { PartnersCTASection } from "../components/sections/PartnersCTASection";
+import { PartnersTestimonialsSection } from "../components/sections/PartnersTestimonialsSection";
+import { PartnerTypesSection } from "../components/sections/PartnerTypesSection";
+import { ProcessSection } from "../components/sections/ProcessSection";
+import { banners } from "../configs/banners.config";
 
 export default function PartnersPage() {
   return (
     <>
-      <HeroSection />
+      <PageBanner {...banners.partner} />
 
       <LogoCloudSection />
 
