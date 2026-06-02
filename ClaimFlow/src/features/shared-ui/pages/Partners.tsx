@@ -1,18 +1,20 @@
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { BenefitsSection } from "../components/sections/BenefitsSection";
-import { LogoCloudSection } from "../components/sections/LogoCloudSection";
-import { PartnersCTASection } from "../components/sections/PartnersCTASection";
+import { CTASection } from "../components/sections/CTASection";
 import { PartnersTestimonialsSection } from "../components/sections/PartnersTestimonialsSection";
 import { PartnerTypesSection } from "../components/sections/PartnerTypesSection";
 import { ProcessSection } from "../components/sections/ProcessSection";
+import { SectionBlock } from "../components/sections/SectionBlock";
 import { banners } from "../configs/banners.config";
+
+const logos = ["TransGlobal", "CargoLink", "AfriMove", "FleetAxis", "TradeRoute"];
 
 export default function PartnersPage() {
   return (
     <>
       <PageBanner {...banners.partner} />
 
-      <LogoCloudSection />
+      <SectionBlock subtitle="Trusted Across African Trade Networks" layout="logos" items={logos} />
 
       <PartnerTypesSection />
 
@@ -20,18 +22,24 @@ export default function PartnersPage() {
 
       <ProcessSection />
 
-      <PartnersCTASection
+      <CTASection
         badge="Let’s Build Together"
         title="Ready To Partner With Askari Insure?"
-        description="Let’s discuss how we can work together to deliver scalable insurance solutions across African markets."
-        primaryAction={{
-          label: "Contact Partnership Team",
-          href: "/contact",
-        }}
-        secondaryAction={{
-          label: "Schedule Consultation",
-          href: "/consultation",
-        }}
+        subtitle="Let’s discuss how we can work together to deliver scalable insurance solutions across African markets."
+        actions={[
+          {
+            label: "Contact Partnership Team",
+            to: "/contact",
+            variant: "primary",
+          },
+          {
+            label: "Schedule Consultation",
+            to: "/consultation",
+            variant: "outline",
+          },
+        ]}
+        backgroundGradient="bg-gradient-to-br from-[--color-navy] to-[--color-teal]"
+        cardVariant="glass"
       />
 
       <PartnersTestimonialsSection
