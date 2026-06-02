@@ -1,13 +1,12 @@
 import { whyFeatures } from "@/shared/types/features";
-import { CheckIcon } from "@/shared/components/design-system/svg";
 
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
-import { Typography } from "@/shared/components/design-system/typography/Typography";
-import { Link } from "react-router-dom";
-import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
+import { Text } from "@/shared/components/design-system/typography/Text";
+import { Link } from "react-router-dom";
+import { InfoList } from "../lists/InfoList";
 
 export function WhyChooseSection() {
   return (
@@ -16,13 +15,13 @@ export function WhyChooseSection() {
         {/* Header */}
         <div className="mb-12 text-center">
           <Stack direction="col" gap="md">
-            <Typography variant="label-md" className="inline-block max-w-fit px-6 py-2 bg-green-100 text-green-700 font-bold rounded-full">
+            <Text variant="body" className="inline-block max-w-fit px-6 py-2 bg-green-100 text-green-700 font-bold rounded-full">
               Why Choose Us
-            </Typography>
+            </Text>
 
-            <Typography variant="body-3xl" className="mt-4 ml-0 text-start max-w-sm text-3xl md:text-4xl font-bold">
+            <Text variant="title" className="mt-4 ml-0 text-start max-w-sm text-3xl md:text-4xl font-bold">
               Why Transporters Choose Askari
-            </Typography>
+            </Text>
           </Stack>
         </div>
         {/* Features + Image */}
@@ -30,17 +29,13 @@ export function WhyChooseSection() {
           <Stack direction="row" gap="lg">
             {/* Features List */}
             <Stack direction="col" gap="md">
-              {whyFeatures.map((feature) => (
-                <Card key={feature.id} className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-                  <div className="flex items-center justify-center w-10 h-10 bg-green-600 rounded-md flex-shrink-0">
-                    <CheckIcon className="w-5 h-5 text-white" />
-                  </div>
-
-                  <Typography variant="body-sm" className="font-medium">
-                    {feature.label}
-                  </Typography>
-                </Card>
-              ))}
+              <InfoList
+                items={whyFeatures.map((feature) => ({
+                  id: feature.id,
+                  label: feature.label,
+                  type: "check",
+                }))}
+              />
 
               <Button className="mt-6 w-max px-6 py-3">
                 <Link to="about">Learn More About Us</Link>

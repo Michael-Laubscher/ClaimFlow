@@ -11,7 +11,8 @@ interface Props {
 
 export function NavDropdown({ children, layout = "desktop" }: Props) {
   return (
-    <Card variant="glass"
+    <Card
+      variant="glass"
       className={cn(
         navStyles.dropdown.base,
 

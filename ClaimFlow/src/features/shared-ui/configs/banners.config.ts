@@ -4,7 +4,8 @@ export const banners = {
 
     title: "Protecting Africa’s Logistics Future",
 
-    subtitle: "Modern transport insurance solutions for fleets, cargo operators, and logistics businesses.",
+    subtitle:
+      "Modern transport insurance solutions for fleets, cargo operators, and logistics businesses.",
 
     breadcrumbs: [
       {
@@ -25,21 +26,6 @@ export const banners = {
       label: "Contact Us",
       to: "/contact",
     },
-
-    stats: [
-      {
-        value: "10K+",
-        label: "Clients",
-      },
-      {
-        value: "15+",
-        label: "Countries",
-      },
-      {
-        value: "24/7",
-        label: "Support",
-      },
-    ],
   },
 
   faq: {
@@ -47,7 +33,8 @@ export const banners = {
 
     title: "Frequently Asked Questions",
 
-    subtitle: "Find answers about claims, Yellow Card insurance, fleet protection, payments, and transport coverage across Africa.",
+    subtitle:
+      "Find answers about claims, Yellow Card insurance, fleet protection, payments, and transport coverage across Africa.",
 
     breadcrumbs: [
       {
@@ -68,20 +55,34 @@ export const banners = {
       label: "Get Insurance",
       to: "/get-insurance",
     },
+  },
 
-    stats: [
+  partner: {
+    badge: "Partner With Askari",
+
+    title: "Grow Your Business With Trusted Logistics Insurance",
+
+    subtitle:
+      "Join our partner network and unlock tailored insurance solutions for logistics companies, brokers, and fleet operators across Africa.",
+
+    breadcrumbs: [
       {
-        value: "24/7",
-        label: "Claims Support",
+        label: "Home",
+        to: "/",
       },
       {
-        value: "15+",
-        label: "Countries Covered",
-      },
-      {
-        value: "< 24h",
-        label: "Average Response",
+        label: "Partners",
       },
     ],
+
+    primaryCta: {
+      label: "Become a Partner",
+      to: "/partners/apply",
+    },
+
+    secondaryCta: {
+      label: "Learn More",
+      to: "/partners",
+    },
   },
 };

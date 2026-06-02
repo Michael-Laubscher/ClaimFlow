@@ -1,8 +1,8 @@
-
-
 import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
-import { CheckIcon, PlaceholderIcon } from "@/shared/components/design-system/svg/icons";
+import { PlaceholderIcon } from "@/shared/components/design-system/svg/icons";
+import { CheckIcon } from "@/shared/components/design-system/svg/icons/lucide";
+
 import { AlertCircleIcon, ClockIcon, FileIcon } from "lucide-react";
 
 /* ─────────────────────────────────────────────

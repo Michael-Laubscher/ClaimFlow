@@ -1,66 +1,31 @@
-import { FooterCTA } from "@/shared/components/design-system/footer/FooterCTA";
-import { footerConfig } from "../../../shared-ui/configs/footer.config";
 import { FooterBottom } from "@/shared/components/design-system/footer/FooterBottom";
 import { FooterBrand } from "@/shared/components/design-system/footer/FooterBrand";
 import { FooterContactCard } from "@/shared/components/design-system/footer/FooterContactCard";
+import { FooterCTA } from "@/shared/components/design-system/footer/FooterCTA";
+import { FooterSections } from "@/shared/components/design-system/footer/FooterSections";
 import { FooterSocials } from "@/shared/components/design-system/footer/FooterSocials";
-import { FooterColumn } from "./FooterColumn";
+import { Container } from "@/shared/components/design-system/layout/Container";
+import type { FooterConfig } from "@/shared/types/footer.types";
 
-export function Footer() {
-  const { brand, cta, sections, socials, trustBadges, contact, legal } = footerConfig;
+interface Props {
+  config: FooterConfig;
+}
 
+export function Footer({ config }: Props) {
   return (
-    <footer
-      className="
-        overflow-x-hidden
-        bg-[--color-brand-primary-dark]
-        font-[--font-body]
-      "
-      aria-label="Site footer"
-    >
-      <FooterCTA cta={cta} />
+    <footer className="bg-[#071852] text-white">
+      <FooterCTA cta={config.cta} />
 
-      <div
-        className="
-          mx-auto
-          max-w-7xl
-          px-5
-          py-16
-          sm:px-6
-          lg:px-8
-        "
-      >
-        <div
-          className="
-            grid
-            grid-cols-1
-            gap-14
-            sm:grid-cols-2
-            xl:grid-cols-[1.8fr_1fr_1fr_1.2fr]
-          "
-        >
-          <FooterBrand brand={brand} trustBadges={trustBadges} />
-
-          {sections.map((section) => (
-            <FooterColumn key={section.heading} section={section} />
-          ))}
+      <Container className="py-16">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+          <FooterBrand brand={config.brand} trustBadges={config.trustBadges} />
+          <FooterSections sections={config.sections} />
         </div>
+        <FooterSocials socials={config.socials} />
+        <FooterContactCard contact={config.contact} />
 
-        <FooterContactCard contact={contact} />
-
-        <div
-          className="
-            mt-10
-            flex
-            justify-center
-            sm:justify-end
-          "
-        >
-          <FooterSocials socials={socials} />
-        </div>
-
-        <FooterBottom legal={legal} />
-      </div>
+        <FooterBottom legal={config.legal} />
+      </Container>
     </footer>
   );
 }

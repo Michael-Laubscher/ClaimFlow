@@ -2,14 +2,13 @@ import { Link } from "react-router-dom";
 
 import { homeProducts } from "@/shared/types/products";
 
-import { PlaceholderIcon } from "@/shared/components/design-system/svg/icons/PlaceholderIcon";
-
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
-import { Typography } from "@/shared/components/design-system/typography/Typography";
-import { lucideIconMap } from "@/shared/components/design-system/svg";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
+
+import { Text } from "@/shared/components/design-system/typography/Text";
+import { iconMap } from "@/shared/components/design-system/svg/iconMap";
 
 const themeClassMap: Record<string, string> = {
   primary: "bg-blue-600 text-white",
@@ -24,20 +23,20 @@ export function ProductsSection() {
       <Container>
         <div className="mb-12 text-center ">
           <div className="d-inline-block w-full">
-            <Typography variant="body-3xl" className="font-bold">
+            <Text variant="title" className="font-bold">
               Insurance Products
-            </Typography>
+            </Text>
           </div>
-          <Typography variant="body-sm" className="mt-2 text-muted-foreground">
+          <Text variant="sm" className="mt-2 text-muted-foreground">
             Flexible coverage solutions for businesses and individuals.
-          </Typography>
+          </Text>
         </div>
 
         <Stack direction="row" gap="lg">
           <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
             {homeProducts.map((product) => {
-              const iconKey = (product.icon || "").toLowerCase() as keyof typeof lucideIconMap;
-              const Icon = lucideIconMap[iconKey] || PlaceholderIcon;
+              const iconKey = (product.icon || "").toLowerCase() as keyof typeof iconMap;
+              const Icon = iconMap[iconKey] || iconMap.placeholder;
 
               return (
                 <Link key={product.id} to={product.to}>
@@ -46,17 +45,17 @@ export function ProductsSection() {
                       <Icon className="h-7 w-7" />
                     </div>
 
-                    <Typography variant="body-md" className="font-semibold text-lg group-hover:text-primary">
+                    <Text variant="body" className="font-semibold text-lg group-hover:text-primary">
                       {product.name}
-                    </Typography>
+                    </Text>
 
-                    <Typography variant="body-sm" className="mt-2 text-muted-foreground flex-grow">
+                    <Text variant="sm" className="mt-2 text-muted-foreground flex-grow">
                       {product.shortDesc}
-                    </Typography>
+                    </Text>
 
-                    <Typography variant="body-sm" className="mt-4 font-medium text-orange-600 group-hover:underline">
+                    <Text variant="sm" className="mt-4 font-medium text-orange-600 group-hover:underline">
                       Learn More &rarr;
-                    </Typography>
+                    </Text>
                   </Card>
                 </Link>
               );

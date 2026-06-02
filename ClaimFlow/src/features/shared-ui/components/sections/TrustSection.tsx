@@ -1,12 +1,10 @@
-import { lucideIconMap } from "@/shared/components/design-system/svg/icons";
-import { PlaceholderIcon } from "@/shared/components/design-system/svg/icons/PlaceholderIcon";
-
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
-import { Typography } from "@/shared/components/design-system/typography/Typography";
-import trustPillars from "../../configs/trust.config";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { iconMap } from "@/shared/components/design-system/svg/iconMap";
+import { Text } from "@/shared/components/design-system/typography/Text";
+import trustPillars from "../../configs/trust.config";
 
 export function TrustSection() {
   return (
@@ -15,7 +13,7 @@ export function TrustSection() {
         <Stack direction="row" justify="between" gap="lg">
           <div className="grid md:grid-cols-4 gap-8">
             {trustPillars.map((pillar) => {
-              const Icon = lucideIconMap[pillar.icon as keyof typeof lucideIconMap] || PlaceholderIcon;
+              const Icon = iconMap[pillar.icon as keyof typeof iconMap] || iconMap.placeholder;
 
               return (
                 <Card key={pillar.id} className="flex flex-col items-center text-center p-6 rounded-2xl border border-black/10 bg-white/5 shadow-sm">
@@ -23,13 +21,13 @@ export function TrustSection() {
                     <Icon className="h-6 w-6 text-white" />
                   </div>
 
-                  <Typography variant="body-md" className="font-semibold">
+                  <Text variant="body" className="font-semibold">
                     {pillar.label}
-                  </Typography>
+                  </Text>
 
-                  <Typography variant="body-sm" className="mt-1 text-muted-foreground">
+                  <Text variant="sm" className="mt-1 text-muted-foreground">
                     {pillar.subtext}
-                  </Typography>
+                  </Text>
                 </Card>
               );
             })}

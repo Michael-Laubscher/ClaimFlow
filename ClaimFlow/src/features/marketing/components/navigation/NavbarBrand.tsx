@@ -4,7 +4,7 @@ import AskariLogo from "@/assets/logos/AskariLogo.png";
 
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 
 export function NavbarBrand() {
   return (
@@ -13,9 +13,9 @@ export function NavbarBrand() {
 
       <Stack>
         <div className="hidden leading-none sm:flex">
-          <Typography variant="label-sm" color="muted">
+          <Text variant="sm" color="muted">
             Protecting African Trade
-          </Typography>
+          </Text>
         </div>
       </Stack>
     </Link>

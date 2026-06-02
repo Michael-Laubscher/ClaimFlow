@@ -1,16 +1,11 @@
+import type { ReactNode } from "react";
+
 import { cn } from "@/shared/lib/cn";
 import { radius } from "../tokens/radius";
 
-type BadgeVariant =
-  | "default"
-  | "success"
-  | "warning"
-  | "info"
-  | "product"
-  | "company";
+export type BadgeVariant = "default" | "success" | "warning" | "info" | "product" | "company";
 
-
-  const variants: Record<BadgeVariant, string> = {
+const variants: Record<BadgeVariant, string> = {
   default: "bg-white/10 text-white/80",
   success: "bg-green-500/10 text-green-300",
   warning: "bg-orange-500/10 text-orange-300",
@@ -19,8 +14,12 @@ type BadgeVariant =
   company: "bg-purple-500/10 text-purple-300",
 };
 
+interface BadgeProps {
+  children: ReactNode;
+  variant?: BadgeVariant;
+  className?: string;
+}
 
-
-export function Badge({ children, variant = "default" }: { children: React.ReactNode; variant?: BadgeVariant }) {
-  return <span className={cn("inline-flex items-center px-3 py-1 text-xs font-medium", radius.full, variants[variant])}>{children}</span>;
+export function Badge({ children, variant = "default", className }: BadgeProps) {
+  return <span className={cn("inline-flex items-center px-3 py-1 text-xs font-medium", radius.full, variants[variant], className)}>{children}</span>;
 }

@@ -1,10 +1,10 @@
+import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import { TermsSection } from "../components/sections/TermsSection";
 import { termsConfig } from "../configs/terms.config";
-import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 
 export default function TermsOfServicePage() {
   return (
@@ -17,9 +17,9 @@ export default function TermsOfServicePage() {
         <Container size="md">
           <Stack gap="lg">
             {/* LAST UPDATED */}
-            <Typography variant="label-md" color="muted">
+            <Text variant="body" color="muted">
               Last updated: May 12, 2026
-            </Typography>
+            </Text>
 
             {/* SECTIONS */}
             {termsConfig.map((section) => (

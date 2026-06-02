@@ -1,6 +1,6 @@
-import { lazy, Suspense, type LazyExoticComponent, type ComponentType, type ReactNode } from "react";
+import { lazy, Suspense, type ComponentType, type LazyExoticComponent, type ReactNode } from "react";
 
-import Spinner from "@/features/shared-ui/components/sections/Spinner";
+import Spinner from "@/shared/components/design-system/feedback/Spinner";
 
 export function lazyPage<T extends ComponentType<object>>(importer: () => Promise<{ default: T }>): LazyExoticComponent<T> {
   return lazy(importer);

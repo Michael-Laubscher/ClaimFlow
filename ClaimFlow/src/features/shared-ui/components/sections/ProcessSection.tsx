@@ -1,11 +1,11 @@
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { SectionHeader } from "@/shared/components/design-system/typography/SectionHeader";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import { process } from "../../configs/partners.data";
-import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 export function ProcessSection() {
   return (
@@ -16,7 +16,7 @@ export function ProcessSection() {
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {process.map((item) => (
-              <Card variant="glass"  key={item.step} className="rounded-3xl border border-slate-200 bg-white p-8">
+              <Card variant="glass" key={item.step} className="rounded-3xl border border-slate-200 bg-white p-8">
                 <Stack gap="lg">
                   <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[--color-navy] text-lg font-bold text-white">{item.step}</div>
 
@@ -25,7 +25,7 @@ export function ProcessSection() {
                       {item.title}
                     </Heading>
 
-                    <Typography className="leading-relaxed text-slate-500">{item.description}</Typography>
+                    <Text className="leading-relaxed text-slate-500">{item.description}</Text>
                   </Stack>
                 </Stack>
               </Card>

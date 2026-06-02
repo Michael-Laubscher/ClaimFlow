@@ -1,8 +1,8 @@
-import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
-import { BulletList } from "./BulletList";
-import type { Privacy as PrivacySectionType } from "@/shared/types/privacy.types";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { Heading } from "@/shared/components/design-system/typography/Heading";
+import { Text } from "@/shared/components/design-system/typography/Text";
+import type { Privacy as PrivacySectionType } from "@/shared/types/privacy.types";
+import { InfoList } from "../lists/InfoList";
 
 interface Props {
   section: PrivacySectionType;
@@ -16,14 +16,20 @@ export function PrivacySection({ section }: Props) {
       </Heading>
 
       {section.content && (
-        <Typography variant="body-md" color="muted" className="mt-3">
+        <Text variant="body" color="muted" className="mt-3">
           {section.content}
-        </Typography>
+        </Text>
       )}
 
-      {section.list && (
+      {section.list && section.list.length > 0 && (
         <div className="mt-4">
-          <BulletList items={section.list} />
+          <InfoList
+            items={section.list.map((item) => ({
+              id: item,
+              label: item,
+              type: "bullet",
+            }))}
+          />
         </div>
       )}
     </Card>

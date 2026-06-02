@@ -1,15 +1,15 @@
-import { useState } from "react";
+import type { CoverageLevel } from "@/features/claims/configs/coverageLevels";
+import type { InsuranceType } from "@/features/claims/types/insuranceTypes";
+import type { QuoteDetails } from "@/features/claims/types/quote.types";
+import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { GenericText } from "@/shared/components/design-system/typography/Text";
-import { Stepper } from "../components/sections/stepper/Stepper";
+import { Text } from "@/shared/components/design-system/typography/Text";
+import { useState } from "react";
 import { Step1 } from "../components/sections/stepper/Step1SelectType";
 import { Step2 } from "../components/sections/stepper/Step2Details";
 import { Step3 } from "../components/sections/stepper/Step3Coverage";
-import type { QuoteDetails } from "@/features/claims/types/quote.types";
-import type { InsuranceType } from "@/features/claims/types/insuranceTypes";
-import type { CoverageLevel } from "@/features/claims/configs/coverageLevels";
-import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { Stepper } from "../components/sections/stepper/Stepper";
 
 export default function GetQuotePage() {
   const [step, setStep] = useState(1);
@@ -44,7 +44,7 @@ export default function GetQuotePage() {
             Get Your Insurance Quote
           </Heading>
 
-          <GenericText className="mt-2 text-blue-100/70">Fast, transparent quotes in minutes. No hidden fees.</GenericText>
+          <Text className="mt-2 text-blue-100/70">Fast, transparent quotes in minutes. No hidden fees.</Text>
         </Container>
       </div>
 

@@ -1,72 +1,37 @@
 import type { PageBannerProps } from "@/shared/types/banner.types";
+
+import { cn } from "@/shared/lib/cn";
+import { HEADING_SIZES } from "@/shared/constants/banner.constants";
+
 import { Container } from "../../layout/Container";
-import { Button } from "../../primitives/buttons/Button";
 import { Heading } from "../../typography/Heading";
 
-export function PageBanner({
-  title,
-  subtitle,
-  badge,
-  breadcrumbs,
-  primaryCta,
-  secondaryCta,
-  stats,
+import { BannerBackground } from "./BannerBackground";
+import { BannerBreadcrumbs } from "./BannerBreadcrumbs";
+import { BannerActions } from "./BannerActions";
+import { BannerStats } from "./BannerStats";
 
-  size = "md",
-  overlay,
-  grid,
-  className,
-}: PageBannerProps) {
+import { bannerStyles } from "@/shared/styles/banner.styles";
+
+export function PageBanner(props: PageBannerProps) {
+  const { title, subtitle, badge, breadcrumbs = [], primaryCta, secondaryCta, stats = [], size = "md", overlay = true, grid = true, className } = props;
+
   return (
-    <section className={["bg-[#071852] text-white py-20", overlay && "relative", grid && "bg-grid", className].filter(Boolean).join(" ")}>
-      <Container>
-        {/* Breadcrumbs */}
-        {breadcrumbs?.length ? (
-          <nav className="mb-4 text-sm text-white/60">
-            {breadcrumbs.map((b, i) => (
-              <span key={i}>
-                {b.to ? (
-                  <a href={b.to} className="hover:text-white">
-                    {b.label}
-                  </a>
-                ) : (
-                  <span>{b.label}</span>
-                )}
-                {i < breadcrumbs.length - 1 && " / "}
-              </span>
-            ))}
-          </nav>
-        ) : null}
+    <section className={cn(bannerStyles.root, className)}>
+      <BannerBackground overlay={overlay} grid={grid} />
 
-        {/* Badge */}
-        {badge && <div className="mb-3">{badge}</div>}
+      <Container className="relative z-10">
+        <BannerBreadcrumbs items={breadcrumbs} />
 
-        {/* Heading */}
-        <Heading size={size === "sm" ? "lg" : size === "lg" ? "hero" : "xl"}>{title}</Heading>
+        {badge && <div className="mb-4">{badge}</div>}
 
-        {/* Subtitle */}
-        {subtitle && <p className="mt-4 text-white/70 max-w-2xl">{subtitle}</p>}
+        <Heading size={HEADING_SIZES[size]}>{title}</Heading>
 
-        {/* CTAs */}
-        {(primaryCta || secondaryCta) && (
-          <div className="mt-8 flex gap-3">
-            {primaryCta && <Button>{primaryCta.label}</Button>}
+        {subtitle && <p className={bannerStyles.subtitle}>{subtitle}</p>}
 
-            {secondaryCta && <Button variant="outline">{secondaryCta.label}</Button>}
-          </div>
-        )}
+        <BannerActions primary={primaryCta} secondary={secondaryCta} />
 
-        {/* Stats */}
-        {stats?.length ? (
-          <div className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
-            {stats.map((s, i) => (
-              <div key={i}>
-                <div className="text-2xl font-semibold">{s.value}</div>
-                <div className="text-white/60 text-sm">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        ) : null}
+        <BannerStats items={stats} />
       </Container>
     </section>
   );

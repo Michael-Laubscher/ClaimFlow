@@ -10,15 +10,18 @@ export interface OurStory {
 export interface MissionVisionItem {
   id: string;
   icon: ComponentType<{
-        className?: string; size?: number 
-  }>;  title: string;
+    className?: string;
+    size?: number;
+  }>;
+  title: string;
   desc: string;
 }
 
 export interface CoreValue {
   id: string;
   icon: ComponentType<{
-        className?: string; size?: number 
+    className?: string;
+    size?: number;
   }>;
   iconColor: CoreValueColor;
   title: string;
