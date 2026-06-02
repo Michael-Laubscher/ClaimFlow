@@ -1,13 +1,12 @@
-import { CheckIcon } from "@/shared/components/design-system/svg";
 import { whyFeatures } from "@/shared/types/features";
 
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
-import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 import { Text } from "@/shared/components/design-system/typography/Text";
 import { Link } from "react-router-dom";
+import { InfoList } from "../lists/InfoList";
 
 export function WhyChooseSection() {
   return (
@@ -30,17 +29,13 @@ export function WhyChooseSection() {
           <Stack direction="row" gap="lg">
             {/* Features List */}
             <Stack direction="col" gap="md">
-              {whyFeatures.map((feature) => (
-                <Card key={feature.id} className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-                  <div className="flex items-center justify-center w-10 h-10 bg-green-600 rounded-md flex-shrink-0">
-                    <CheckIcon className="w-5 h-5 text-white" />
-                  </div>
-
-                  <Text variant="sm" className="font-medium">
-                    {feature.label}
-                  </Text>
-                </Card>
-              ))}
+              <InfoList
+                items={whyFeatures.map((feature) => ({
+                  id: feature.id,
+                  label: feature.label,
+                  type: "check",
+                }))}
+              />
 
               <Button className="mt-6 w-max px-6 py-3">
                 <Link to="about">Learn More About Us</Link>

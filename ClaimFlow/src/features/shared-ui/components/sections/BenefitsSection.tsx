@@ -1,9 +1,12 @@
+import { Container } from "@/shared/components/design-system/layout/Container";
+import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-
-import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { Badge } from "@/shared/components/design-system/primitives/Badge";
+import logistics from "@/shared/components/design-system/svg/images/logistics.svg";
+import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Text } from "@/shared/components/design-system/typography/Text";
-import { Badge, Check, Container, Heading, Section } from "lucide-react";
 import { benefits } from "../../configs/partners.data";
+import { InfoList } from "../lists/InfoList";
 
 export function BenefitsSection() {
   return (
@@ -20,26 +23,25 @@ export function BenefitsSection() {
             </Text>
 
             <div className="grid gap-4 pt-4 sm:grid-cols-2">
-              {benefits.map((benefit) => (
-                <Card variant="glass" key={benefit} className="border border-slate-200 bg-white p-4">
-                  <Stack direction="row" align="start" gap="sm">
-                    <div className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100">
-                      <Check className="h-4 w-4 text-emerald-600" />
-                    </div>
-
-                    <Text variant="sm" color="muted" className="leading-relaxed">
-                      {benefit}
-                    </Text>
-                  </Stack>
-                </Card>
-              ))}
+              <div className="grid gap-4 pt-4 sm:grid-cols-2">
+                {benefits.map((benefit) => (
+                  <InfoList
+                    key={benefit}
+                    items={[
+                      {
+                        id: benefit,
+                        label: benefit,
+                        type: "check",
+                      },
+                    ]}
+                  />
+                ))}
+              </div>
             </div>
           </Stack>
 
           <div className="relative">
-            <Card variant="glass" className="overflow-hidden p-3 shadow-2xl">
-              <img src="/images/partners/logistics.jpg" alt="Logistics" className="h-[560px] w-full rounded-2xl object-cover" />
-            </Card>
+            <img src={logistics} alt="Logistics" className=" w-full rounded-2xl object-fit overflow-hidden" />
           </div>
         </div>
       </Container>

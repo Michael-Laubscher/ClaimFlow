@@ -12,7 +12,7 @@ import { Section } from "@/shared/components/design-system/layout/Section";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 import { Link, useParams } from "react-router-dom";
 import { InfoCard } from "../components/cards/InfoCard";
-import { CTASection } from "../components/sections/CTASection";
+import { ProductFeatures } from "../components/sections/ProductFeatures";
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();
@@ -80,28 +80,8 @@ export default function ProductDetailsPage() {
               </Stack>
             </Card>
 
-            <CTASection
-              title="Need help choosing a product?"
-              subtitle="Our specialists will help you find the right coverage for your operations."
-              actions={[
-                { label: "Talk to an Expert", to: "/contact", variant: "primary", size: "lg" },
-                { label: "Get a Quote", to: "/quote", variant: "outline", size: "lg" },
-              ]}
-              backgroundClass="footer-bg"
-              cardVariant="none"
-            />
+            <ProductFeatures features={product.features} />
           </div>
-
-          <CTASection
-            title="Need help choosing a product?"
-            subtitle="Our specialists will help you find the right coverage for your operations."
-            actions={[
-              { label: "Talk to an Expert", to: "/contact", variant: "primary", size: "lg" },
-              { label: "Get a Quote", to: "/quote", variant: "outline", size: "lg" },
-            ]}
-            backgroundClass="footer-bg"
-            cardVariant="none"
-          />
         </Stack>
       </Container>
     </Section>
