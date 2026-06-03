@@ -1,9 +1,11 @@
+import { motion } from "framer-motion";
+
 type SpinnerProps = {
   size?: number;
   label?: string;
 };
 
-export default function Spinner({ size = 64, label = "Loading..." }: SpinnerProps) {
+export default function Spinner({ size = 72, label = "Loading..." }: SpinnerProps) {
   return (
     <div className="flex flex-col items-center justify-center py-12">
       <div
@@ -13,54 +15,97 @@ export default function Spinner({ size = 64, label = "Loading..." }: SpinnerProp
           height: size,
         }}
       >
-        <div
-          className="absolute rounded-full blur-xl opacity-30 animate-pulse"
+        {/* Ambient glow */}
+        <motion.div
+          className="absolute rounded-full"
+          style={{
+            width: size * 1.4,
+            height: size * 1.4,
+            background: "radial-gradient(circle, rgba(35,60,123,0.28) 0%, transparent 70%)",
+          }}
+          animate={{
+            scale: [1, 1.15, 1],
+            opacity: [0.4, 0.7, 0.4],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Rotating gradient ring */}
+        <motion.div
+          className="absolute rounded-full"
           style={{
             width: size,
             height: size,
-            background: "#233C7B",
+            background: "conic-gradient(from 0deg, transparent, #233C7B, #5D7FEF, transparent)",
+            maskImage: "radial-gradient(circle, transparent 58%, black 60%)",
+            WebkitMaskImage: "radial-gradient(circle, transparent 58%, black 60%)",
+          }}
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "linear",
           }}
         />
 
-        <div
-          className="absolute rounded-full border-[3px] border-transparent"
+        {/* Glass center */}
+        <motion.div
+          className="rounded-full border border-white/10 backdrop-blur-xl"
           style={{
-            width: size,
-            height: size,
-            borderTopColor: "#233C7B",
-            borderRightColor: "#233C7B",
-            animation: "spin 1.2s linear infinite",
+            width: size * 0.62,
+            height: size * 0.62,
+            background: "rgba(255,255,255,0.04)",
+            boxShadow: "inset 0 1px 1px rgba(255,255,255,0.15), 0 8px 30px rgba(0,0,0,0.15)",
+          }}
+          animate={{
+            scale: [1, 1.04, 1],
+          }}
+          transition={{
+            duration: 2.4,
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         />
 
-        <div
-          className="absolute rounded-full border border-white/20"
+        {/* Core */}
+        <motion.div
+          className="absolute rounded-full"
           style={{
-            width: size * 0.72,
-            height: size * 0.72,
-            backdropFilter: "blur(4px)",
+            width: size * 0.14,
+            height: size * 0.14,
+            background: "linear-gradient(135deg, #5D7FEF 0%, #233C7B 100%)",
+            boxShadow: "0 0 24px rgba(93,127,239,0.6)",
           }}
-        />
-
-        <div
-          className="rounded-full animate-pulse shadow-lg"
-          style={{
-            width: size * 0.18,
-            height: size * 0.18,
-            background: "#233C7B",
-            boxShadow: "0 0 20px rgba(35, 60, 123, 0.45)",
+          animate={{
+            scale: [1, 1.25, 1],
+          }}
+          transition={{
+            duration: 1.8,
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         />
       </div>
 
-      <p
-        className="mt-5 text-sm tracking-[0.25em] uppercase font-medium"
+      <motion.p
+        className="mt-6 text-xs uppercase tracking-[0.35em]"
         style={{
           color: "#233C7B",
         }}
+        animate={{
+          opacity: [0.5, 1, 0.5],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+        }}
       >
         {label}
-      </p>
+      </motion.p>
     </div>
   );
 }

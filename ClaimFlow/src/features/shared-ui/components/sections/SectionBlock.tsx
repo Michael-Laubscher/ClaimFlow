@@ -27,11 +27,22 @@ interface SectionBlockProps<T = unknown> {
   columns?: string;
 }
 
-export function SectionBlock({ title, subtitle, description, layout = "grid", className = "", children, left, right, items = [], renderItem, columns = "grid gap-6" }: SectionBlockProps) {
+export function SectionBlock<T = unknown>({
+  title,
+  subtitle,
+  description,
+  layout = "grid",
+  className = "",
+  children,
+  left,
+  right,
+  items = [],
+  renderItem,
+  columns = "grid gap-6",
+}: SectionBlockProps<T>) {
   return (
     <Section className={className}>
       <Container>
-        {/* Header */}
         {(title || subtitle || description) && (
           <div className="mb-10 text-center">
             <Stack gap="sm">
@@ -39,32 +50,31 @@ export function SectionBlock({ title, subtitle, description, layout = "grid", cl
 
               {title && <Heading className="text-3xl font-bold text-slate-900">{title}</Heading>}
 
-              {description && <Text className="text-slate-600 max-w-2xl mx-auto">{description}</Text>}
+              {description && <Text className="mx-auto max-w-2xl text-slate-600">{description}</Text>}
             </Stack>
           </div>
         )}
 
-        {/* Layouts */}
         {layout === "split" && (
-          <div className="grid gap-10 lg:grid-cols-2 items-center">
+          <div className="grid items-center gap-10 lg:grid-cols-2">
             {left}
             {right}
           </div>
         )}
 
-        {layout === "grid" && <div className={`${columns}`}>{children}</div>}
+        {layout === "grid" && <div className={columns}>{children}</div>}
 
         {layout === "cards" && (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {items.map((item, i) => (
-              <div key={i}>{renderItem?.(item)}</div>
+            {items.map((item, index) => (
+              <div key={index}>{renderItem?.(item)}</div>
             ))}
           </div>
         )}
 
         {layout === "stats" && (
           <div className="grid gap-10 text-center sm:grid-cols-2 lg:grid-cols-4">
-            {items.map((item: any) => (
+            {(items as Array<{ label: string; value: string }>).map((item) => (
               <div key={item.label}>
                 <div className="text-5xl font-black text-white lg:text-6xl">{item.value}</div>
                 <div className="mt-3 text-sm uppercase tracking-[0.2em] text-white/60">{item.label}</div>
@@ -75,7 +85,7 @@ export function SectionBlock({ title, subtitle, description, layout = "grid", cl
 
         {layout === "logos" && (
           <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-5">
-            {items.map((logo: any) => (
+            {(items as string[]).map((logo) => (
               <Card key={logo} className="flex h-20 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50">
                 <Text className="font-semibold text-slate-500">{logo}</Text>
               </Card>

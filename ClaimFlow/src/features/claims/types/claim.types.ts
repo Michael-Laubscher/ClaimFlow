@@ -20,3 +20,17 @@ export interface ClaimResult {
   assignedTo: string;
   steps: Step[];
 }
+
+export interface ClaimRecord {
+  id: string;
+  type: string;
+  date: string;
+  amount: string;
+  status: "Under Review" | "Approved" | "Paid" | "Rejected";
+}
+
+export interface ClaimStat {
+  value: string;
+  label: string;
+  color?: string;
+}
