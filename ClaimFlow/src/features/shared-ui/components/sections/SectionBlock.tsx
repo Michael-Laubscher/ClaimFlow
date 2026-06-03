@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 
 type Layout = "grid" | "split" | "centered" | "cards" | "stats" | "logos";
 
-interface SectionBlockProps {
+interface SectionBlockProps<T = unknown> {
   title?: string;
   subtitle?: string;
   description?: string;
@@ -21,8 +21,8 @@ interface SectionBlockProps {
   left?: ReactNode;
   right?: ReactNode;
 
-  items?: any[];
-  renderItem?: (item: any) => ReactNode;
+  items?: T[];
+  renderItem?: (item: T) => ReactNode;
 
   columns?: string;
 }
@@ -82,9 +82,6 @@ export function SectionBlock({ title, subtitle, description, layout = "grid", cl
             ))}
           </div>
         )}
-
-        {/* fallback */}
-        {children}
       </Container>
     </Section>
   );
