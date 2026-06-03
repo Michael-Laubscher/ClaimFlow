@@ -29,7 +29,7 @@ const variants = {
   `, 
 
   solid: `
-    rounded-2xl
+    rounded-lg
     bg-slate-100
   `,
 };

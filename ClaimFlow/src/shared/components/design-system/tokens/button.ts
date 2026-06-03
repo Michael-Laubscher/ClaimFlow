@@ -4,7 +4,7 @@ export const buttonVariants = cva("inline-flex items-center justify-center gap-2
   variants: {
     variant: {
       primary: "bg-orange-500 text-white",
-      secondary: "bg-white/10 text-white",
+      secondary: "bg-white text-[#1E376F]",
       outline: "border border-white/20 text-white",
     },
     size: {

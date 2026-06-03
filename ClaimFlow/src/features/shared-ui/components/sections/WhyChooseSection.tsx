@@ -8,6 +8,8 @@ import { Typography } from "@/shared/components/design-system/typography/Typogra
 import { Link } from "react-router-dom";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
+import { ArrowRightIcon } from "@/shared/components/design-system/svg";
+import Trucks from "@/shared/components/design-system/svg/images/Trucks.svg";
 
 export function WhyChooseSection() {
   return (
@@ -27,12 +29,12 @@ export function WhyChooseSection() {
         </div>
         {/* Features + Image */}
         <div className="grid md:grid-cols-2 items-center gap-10">
-          <Stack direction="row" gap="lg">
+          {/* Left Column */}
             {/* Features List */}
             <Stack direction="col" gap="md">
               {whyFeatures.map((feature) => (
-                <Card key={feature.id} className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-                  <div className="flex items-center justify-center w-10 h-10 bg-green-600 rounded-md flex-shrink-0">
+                <Card key={feature.id} className="flex items-center gap-4 p-4 bg-white rounded-md shadow-sm hover:shadow-md transition">
+                  <div className="flex items-center justify-center w-9 h-9 rounded-md flex-shrink-0 bg-[#0EA572]">
                     <CheckIcon className="w-5 h-5 text-white" />
                   </div>
 
@@ -42,16 +44,38 @@ export function WhyChooseSection() {
                 </Card>
               ))}
 
-              <Button className="mt-6 w-max px-6 py-3">
+              <Button className="mt-6 w-max px-6 py-3 bg-[#233C7B] rounded-md transition-transform duration-200 hover:scale-105" iconRight={<ArrowRightIcon size={20} />} >
                 <Link to="about">Learn More About Us</Link>
               </Button>
             </Stack>
 
-            {/* Image */}
-            <div className="flex justify-center">
-              <img src="/why-choose-us.jpg" alt="Why Choose Us" className="rounded-xl max-w-full h-auto shadow-lg" />
+            {/* Right Column */}
+            <div className="relative flex justify-center">
+            {/* Background shadow */}
+              <div
+              className="
+                absolute
+                -top-0
+                -left-0
+                -right-0
+                bottom-12
+                rotate-[2deg]
+                rounded-3xl
+                bg-gradient-to-br
+                from-[#233C7B]/10
+                to-[#0EA572]/10
+              "
+              />
+              {/* Image */}
+              <img src={Trucks}
+              alt="Why Choose Us" 
+              className="
+              w-full
+              max-w-[608px]
+              h-auto
+              " 
+              />
             </div>
-          </Stack>
         </div>
       </Container>
     </section>

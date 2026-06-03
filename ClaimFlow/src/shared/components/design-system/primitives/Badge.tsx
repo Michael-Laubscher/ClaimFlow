@@ -21,6 +21,6 @@ type BadgeVariant =
 
 
 
-export function Badge({ children, variant = "default" }: { children: React.ReactNode; variant?: BadgeVariant }) {
-  return <span className={cn("inline-flex items-center px-3 py-1 text-xs font-medium", radius.full, variants[variant])}>{children}</span>;
+export function Badge({ children, variant = "default", className }: { children: React.ReactNode; variant?: BadgeVariant; className?: string }) {
+  return <span className={cn("inline-flex items-center px-3 py-1 text-xs font-medium", radius.full, variants[variant], className)}>{children} </span>;
 }

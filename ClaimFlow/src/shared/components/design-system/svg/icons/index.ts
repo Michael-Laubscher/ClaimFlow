@@ -28,6 +28,25 @@ export * from "./TwitterIcon";
 
 export * from "./PinIcon";
 
+export * from "./IntegrityIcon";
+
+export * from "./CargoIcon"
+
+export * from "./TargetIcon";
+
+export * from "./EyeIcon";
+
+export * from "./SmileIcon";
+
+export * from "./LockIcon";
+
+export * from "./TrendingIcon";
+
+export * from "./LiabilityIcon";
+
+export * from "./MapPinIcon";
+
+
 /* ──────────────────────────────────────────────────────────
    ABOUT PAGE ICONS
 ────────────────────────────────────────────────────────── */

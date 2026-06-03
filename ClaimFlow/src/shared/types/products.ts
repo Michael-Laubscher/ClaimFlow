@@ -11,7 +11,7 @@ export const homeProducts: ProductCard[] = [
   },
   {
     id: "yellow-card",
-    icon: "mapPin",
+    icon: "location",
     theme: "success",
     name: "Yellow Card",
     shortDesc: "COMESA cross-border motor insurance for regional travel",

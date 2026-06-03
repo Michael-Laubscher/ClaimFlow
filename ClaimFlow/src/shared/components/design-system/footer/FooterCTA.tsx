@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Headphones } from "lucide-react";
+import { ArrowRightIcon, Headphones } from "lucide-react";
 
 import type { FooterConfig } from "@/shared/types/footer.types";
 import { Button } from "../primitives/buttons/Button";
@@ -95,12 +95,12 @@ export function FooterCTA({ cta }: Props) {
             sm:flex-wrap
             sm:justify-center
           "
-        >
-          <Button variant="primary" size="lg" className="w-full sm:w-auto">
+        > 
+          <Button variant="secondary" size="lg" className="w-full sm:w-auto rounded-md transition-transform duration-300 hover:scale-105 hover:shadow-lg" iconRight={<ArrowRightIcon size={20} />}>
             <Link to={cta.primary.to}>{cta.primary.label}</Link>
           </Button>
 
-          <Button variant="outline" size="lg" className="w-full sm:w-auto">
+          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-md transition hover:bg-white/20">
             <Link to={cta.secondary.to}>{cta.secondary.label}</Link>
           </Button>
         </div>

@@ -2,6 +2,7 @@ import { HERO_CONTENT } from "@/features/shared-ui/configs";
 
 import { ShieldCheckIcon } from "@/shared/components/design-system/svg";
 import { Card } from "../composite/card/Card";
+import Container from "@/shared/components/design-system/svg/images/Container.svg";
 
 interface HeroVisualProps {
   loaded: boolean;
@@ -17,7 +18,7 @@ export function HeroVisual({ loaded }: HeroVisualProps) {
       `}
     >
       <div className="relative w-full max-w-md sm:max-w-lg">
-        <Card floating className="-right-1 -top-4 sm:right-4 sm:-top-6">
+        <Card floating className="-right-4 -top-4 sm:-right-2 sm:-top-6">
           <div className="claims-badge px-4 py-3 text-center text-white shadow-2xl sm:px-5">
             <div className="text-xl font-extrabold sm:text-2xl">{HERO_CONTENT.claimsPaid}</div>
 
@@ -25,11 +26,17 @@ export function HeroVisual({ loaded }: HeroVisualProps) {
           </div>
         </Card>
 
-        <div className="truck-card relative aspect-[4/3] w-full">
-          <div className="truck-img-placeholder h-full min-h-[260px] w-full sm:min-h-[320px] lg:min-h-[380px]">{/* Truck Image */}</div>
+        {
+        <div className="relative flex justify-center">
+          <img
+            src={Container}
+            alt="Truck Illustration"
+            className="w-full max-w-[500px] object-contain"
+          />
         </div>
+}
 
-        <Card floating className="-bottom-4 left-0 sm:-bottom-6 sm:-left-6">
+        <Card floating className="-bottom-4 -left-4 sm:-bottom-6 sm:-left-6">
           <Card variant="glass" className="flex min-w-[220px] items-center gap-3 px-4 py-3 sm:px-5 sm:py-4">
             <div
               className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full"
