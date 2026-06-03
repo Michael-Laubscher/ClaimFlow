@@ -1,76 +1,70 @@
-import type { CoverageLevel } from "@/features/claims/configs/coverageLevels";
-import type { InsuranceType } from "@/features/claims/types/insuranceTypes";
-import type { QuoteDetails } from "@/features/claims/types/quote.types";
+import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
+
 import { Container } from "@/shared/components/design-system/layout/Container";
-import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { Text } from "@/shared/components/design-system/typography/Text";
-import { useState } from "react";
+import { Section } from "@/shared/components/design-system/layout/Section";
+import { Stack } from "@/shared/components/design-system/layout/Stack";
+
+import { banners } from "@/features/shared-ui/configs/banners.config";
+
+import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
 import { Step1 } from "../components/sections/stepper/Step1SelectType";
 import { Step2 } from "../components/sections/stepper/Step2Details";
 import { Step3 } from "../components/sections/stepper/Step3Coverage";
-import { Stepper } from "../components/sections/stepper/Stepper";
+
+import { useQuoteForm } from "../hooks/useQuoteForm";
 
 export default function GetQuotePage() {
-  const [step, setStep] = useState(1);
+  const {
+    step,
+    nextStep,
+    previousStep,
 
-  const [insuranceType, setInsuranceType] = useState<InsuranceType | "">("");
+    insuranceType,
+    setInsuranceType,
 
-  const [details, setDetails] = useState<QuoteDetails>({
-    business: "",
-    contact: "",
-    email: "",
-    phone: "",
-    country: "",
-  });
+    details,
+    updateDetails,
 
-  const [coverage, setCoverage] = useState<CoverageLevel | "">("");
+    coverage,
+    setCoverage,
 
-  const [submitted, setSubmitted] = useState(false);
-
-  const update = (key: keyof QuoteDetails, value: string) => {
-    setDetails((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
-  };
+    submitted,
+    setSubmitted,
+  } = useQuoteForm();
 
   return (
-    <div className="min-h-screen bg-white font-sans">
-      {/* Hero */}
-      <div className="bg-[#1a2e5a] py-14">
-        <Container size="lg">
-          <Heading size="xl" className="text-white">
-            Get Your Insurance Quote
-          </Heading>
+    <>
+      <PageBanner {...banners.getQuote} />
 
-          <Text className="mt-2 text-blue-100/70">Fast, transparent quotes in minutes. No hidden fees.</Text>
+      <Section className="bg-slate-50 py-16">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <ClaimStepper current={step} />
+
+            <Card className="rounded-3xl p-8">
+              <Stack gap="lg">
+                {step === 1 && <Step1 value={insuranceType} onChange={setInsuranceType} onNext={nextStep} />}
+
+                {step === 2 && <Step2 data={details} onChange={updateDetails} onBack={previousStep} onNext={nextStep} />}
+
+                {step === 3 && (
+                  <Step3
+                    coverage={coverage}
+                    onChange={setCoverage}
+                    insuranceType={insuranceType}
+                    business={details.business}
+                    country={details.country}
+                    submitted={submitted}
+                    onBack={previousStep}
+                    onSubmit={() => setSubmitted(true)}
+                  />
+                )}
+              </Stack>
+            </Card>
+          </div>
         </Container>
-      </div>
-
-      {/* Form */}
-      <Container size="md" className="-mt-8">
-        <Card className="p-8 md:p-10">
-          <Stepper step={step} />
-
-          {step === 1 && <Step1 value={insuranceType} onChange={setInsuranceType} onNext={() => setStep(2)} />}
-
-          {step === 2 && <Step2 data={details} onChange={update} onNext={() => setStep(3)} onBack={() => setStep(1)} />}
-
-          {step === 3 && (
-            <Step3
-              coverage={coverage}
-              onChange={setCoverage}
-              insuranceType={insuranceType}
-              business={details.business}
-              country={details.country}
-              onBack={() => setStep(2)}
-              onSubmit={() => setSubmitted(true)}
-              submitted={submitted}
-            />
-          )}
-        </Card>
-      </Container>
-    </div>
+      </Section>
+    </>
   );
 }

@@ -9,10 +9,10 @@ interface InputFieldProps {
 
 export function InputField({ label, value, onChange }: InputFieldProps) {
   return (
-    <div>
-      <label className="text-xs font-semibold text-slate-600">{label}</label>
+    <div className="space-y-1.5">
+      <label className="text-xs font-medium tracking-wide text-slate-600">{label}</label>
 
-      <Input value={value} onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)} className="mt-1" />
+      <Input value={value} onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)} />
     </div>
   );
 }

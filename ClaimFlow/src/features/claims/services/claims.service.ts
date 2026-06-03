@@ -1,4 +1,12 @@
-import { apiClient } from "@/shared/services/api.client";
 export const submitClaim = async (data: unknown) => {
-  return apiClient.post("/claims", data);
+  console.log("Mock claim submitted:", data);
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({
+        success: true,
+        id: "CLM-" + Date.now(),
+      });
+    }, 1000);
+  });
 };

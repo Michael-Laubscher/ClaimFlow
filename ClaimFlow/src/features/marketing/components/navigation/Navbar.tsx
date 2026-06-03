@@ -33,7 +33,7 @@ export function Navbar() {
 
             {/* CTA */}
             <div className="hidden lg:flex">
-              <Button to="/products" variant="primary" size="lg">
+              <Button to="claims/get-quote" variant="primary" size="lg">
                 Get Quote
               </Button>
             </div>
