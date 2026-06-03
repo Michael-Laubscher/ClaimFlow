@@ -22,29 +22,29 @@ export default function FAQPage() {
   const total = getTotalFAQs(filtered);
 
   return (
-    <div className="bg-[--color-bg]">
+    <div>
       {/* HERO */}
       <PageBanner {...banners.faq} title="Frequently Asked Questions" subtitle="Find answers about claims, payments, Yellow Card insurance, and transport coverage across Africa." />
 
       {/* FLOATING FILTER PANEL */}
-      <Container size="lg" className="relative z-10 -mt-16 pb-16">
+      <Container size="lg" className="relative z-10  py-16">
         <Card
           className="
             border border-white/10
-            bg-white/[0.04]
             backdrop-blur-xl
             p-6
             shadow-2xl
+            bg-white
           "
         >
           <div className="space-y-6">
             {/* TITLE */}
             <div className="text-center">
-              <Heading size="lg" className="text-white">
+              <Heading size="lg" className="text-black/60">
                 How can we help?
               </Heading>
 
-              <Text variant="sm" className="mt-2 text-white/60">
+              <Text variant="sm" className="mt-2 text-black/60">
                 Search our support center or browse by category.
               </Text>
             </div>
@@ -57,7 +57,7 @@ export default function FAQPage() {
 
             {/* RESULTS */}
             <div className="border-t border-white/10 pt-4">
-              <Text className="text-sm text-white/50">
+              <Text className="text-sm text-black/60">
                 {total} result{total !== 1 ? "s" : ""} found
               </Text>
             </div>
@@ -70,69 +70,15 @@ export default function FAQPage() {
         <Container size="lg">
           {total === 0 ? (
             <Card className="p-12 text-center">
-              <Heading size="lg" className="text-white">
+              <Heading size="lg" className="text-black/60">
                 No FAQs found
               </Heading>
 
-              <Text className="mt-3 text-white/60">Try searching with different keywords or browse another category.</Text>
+              <Text className="mt-3 text-black/60">Try searching with different keywords or browse another category.</Text>
             </Card>
           ) : (
             <FAQList data={filtered} />
           )}
-        </Container>
-      </section>
-
-      {/* SUPPORT CTA */}
-      <section className="pb-24">
-        <Container size="md">
-          <Card
-            className="
-              relative overflow-hidden
-              border border-[--color-primary]/20
-              bg-gradient-to-br
-              from-[--color-primary]
-              to-[--color-primary-dark]
-              p-10
-              text-center
-            "
-          >
-            {/* Glow */}
-            <div
-              className="
-                absolute right-0 top-0
-                h-40 w-40
-                rounded-full
-                bg-white/10
-                blur-3xl
-              "
-            />
-
-            <div className="relative z-10">
-              <Heading size="xl" className="text-white">
-                Still need help?
-              </Heading>
-
-              <Text className="mx-auto mt-4 max-w-xl text-white/70">Our support team can assist you with claims, cross-border insurance, policy questions, and fleet coverage.</Text>
-
-              <div className="mt-8 flex justify-center">
-                <button
-                  className="
-                    rounded-xl
-                    bg-white
-                    px-6
-                    py-3
-                    text-sm
-                    font-semibold
-                    text-[--color-primary]
-                    transition-all
-                    hover:scale-[1.02]
-                  "
-                >
-                  Contact Support
-                </button>
-              </div>
-            </div>
-          </Card>
         </Container>
       </section>
     </div>
