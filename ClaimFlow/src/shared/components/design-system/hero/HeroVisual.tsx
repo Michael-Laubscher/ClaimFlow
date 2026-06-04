@@ -1,8 +1,8 @@
 import { HERO_CONTENT } from "@/features/shared-ui/configs";
 
-import { ShieldCheckIcon } from "@/shared/components/design-system/svg";
-import { Card } from "../composite/card/Card";
 import Container from "@/shared/components/design-system/svg/images/Container.svg";
+import { Card } from "../composite/card/Card";
+import { ShieldCheckIcon } from "../svg/icons";
 
 interface HeroVisualProps {
   loaded: boolean;

@@ -1,6 +1,5 @@
 import type { ChangeEvent } from "react";
-
-import { Input } from "@/shared/components/design-system/Input/Input";
+import { Input } from "./Input";
 
 interface InputFieldProps {
   label: string;

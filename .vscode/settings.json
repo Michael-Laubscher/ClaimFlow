@@ -1,5 +1,9 @@
 {
-    "cSpell.words": [
-        "claimflow"
-    ]
+  "cSpell.words": ["claimflow"],
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.formatOnSave": true
 }

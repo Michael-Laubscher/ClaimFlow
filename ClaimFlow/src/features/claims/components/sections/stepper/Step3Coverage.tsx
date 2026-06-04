@@ -1,11 +1,11 @@
-import type { InsuranceType } from "@/features/claims/types/insuranceTypes";
 import type { CoverageLevel } from "@/features/claims/configs/coverageLevels";
 import { COVERAGE_LEVELS } from "@/features/claims/configs/coverageLevels";
-import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { GenericText } from "@/shared/components/design-system/typography/Text";
+import type { InsuranceType } from "@/features/claims/types/insuranceTypes";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
+import { Heading } from "@/shared/components/design-system/typography/Heading";
+import { Text } from "@/shared/components/design-system/typography/Text";
 
 interface Step3Props {
   coverage: CoverageLevel | "";
@@ -30,7 +30,7 @@ export function Step3({ coverage, onChange, insuranceType, business, country, on
 
         <Heading size="lg">Quote Submitted</Heading>
 
-        <GenericText className="text-center text-slate-500">We’ll get back to you shortly.</GenericText>
+        <Text className="text-center text-slate-500">We’ll get back to you shortly.</Text>
       </Stack>
     );
   }

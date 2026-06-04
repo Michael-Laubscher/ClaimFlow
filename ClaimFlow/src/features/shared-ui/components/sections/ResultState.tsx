@@ -1,8 +1,9 @@
-
-
 import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
-import { CheckIcon, PlaceholderIcon } from "@/shared/components/design-system/svg/icons";
+import { ClaimSearch } from "@/shared/components/design-system/primitives/Input/Search";
+import { PlaceholderIcon } from "@/shared/components/design-system/svg/icons";
+import { CheckIcon } from "@/shared/components/design-system/svg/icons/lucide";
+
 import { AlertCircleIcon, ClockIcon, FileIcon } from "lucide-react";
 
 /* ─────────────────────────────────────────────
@@ -33,28 +34,18 @@ interface ResultStateProps {
 }
 
 /* ─────────────────────────────────────────────
-   Safe Icon Wrapper (CORE FIX)
-───────────────────────────────────────────── */
-
-function SafeIcon({ Icon, size = 16 }: { Icon?: React.ElementType; size?: number }) {
-  const Component = Icon ?? PlaceholderIcon;
-  return <Component size={size} />;
-}
-
-/* ─────────────────────────────────────────────
    Step Icon (safe + fallback protected)
 ───────────────────────────────────────────── */
 
 function StepIcon({ done }: { done: boolean }) {
-  const Icon = done ? CheckIcon : ClockIcon;
-  return Icon ? <Icon size={16} /> : <PlaceholderIcon />;
+  return done ? <CheckIcon size={16} /> : <ClockIcon size={16} />;
 }
 
-/* ─────────────────────────────────────────────
-   Step Item
-───────────────────────────────────────────── */
+interface TimelineStepProps extends Step {
+  isLast: boolean;
+}
 
-function StepItem({ label, date, done, isLast }: { label: string; date: string; done: boolean; isLast: boolean }) {
+function StepItem({ label, date, done, isLast }: TimelineStepProps) {
   return (
     <div className="flex gap-4">
       {/* Icon */}
@@ -89,13 +80,9 @@ export function ResultState({ value, onChange, onTrack, claim }: ResultStateProp
           <label className="mb-2 block text-sm font-semibold text-slate-700">Claim Number</label>
 
           <div className="flex">
-            <input
-              value={value}
-              onChange={(e) => onChange(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && onTrack()}
-              className="flex-1 rounded-l-md border px-4 py-2.5 text-sm"
-              placeholder="CLM-2026-XXXXX"
-            />
+            <div>
+              <ClaimSearch value={value} onChange={onChange} onTrack={onTrack} />
+            </div>
 
             <Button className="rounded-l-none" onClick={onTrack}>
               Track
@@ -114,7 +101,7 @@ export function ResultState({ value, onChange, onTrack, claim }: ResultStateProp
               </div>
 
               <div className="flex items-center gap-1 rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-600">
-                <SafeIcon Icon={AlertCircleIcon} size={14} />
+                <AlertCircleIcon size={14} />
                 {claim.status}
               </div>
             </div>
@@ -150,7 +137,7 @@ export function ResultState({ value, onChange, onTrack, claim }: ResultStateProp
           <div className="border-t border-slate-100 p-5">
             <div className="grid grid-cols-2 gap-3">
               <button className="flex items-center gap-2 rounded-lg border p-3 text-left hover:bg-slate-50">
-                <SafeIcon Icon={FileIcon} size={16} />
+                <FileIcon size={16} />
                 <div>
                   <p className="text-sm font-medium">Upload Documents</p>
                   <p className="text-xs text-slate-400">Add files</p>
@@ -158,7 +145,7 @@ export function ResultState({ value, onChange, onTrack, claim }: ResultStateProp
               </button>
 
               <button className="flex items-center gap-2 rounded-lg border p-3 text-left hover:bg-slate-50">
-                <SafeIcon Icon={PlaceholderIcon} size={16} />
+                <PlaceholderIcon size={16} />
                 <div>
                   <p className="text-sm font-medium">Contact Adjuster</p>
                   <p className="text-xs text-slate-400">Send message</p>

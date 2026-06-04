@@ -1,11 +1,9 @@
-
-
-import { Section } from "@/shared/components/design-system/layout/Section";
-import { Container } from "@/shared/components/design-system/layout/Container";
-import { ProductsCTA } from "../components/sections/ProductsCTA";
-import { ProductCard } from "../components/sections/ProductCard";
-import { products } from "../configs/products.config";
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
+import { Container } from "@/shared/components/design-system/layout/Container";
+import { Section } from "@/shared/components/design-system/layout/Section";
+import { FeatureCard } from "../components/cards/FeatureCard";
+import { CTASection } from "../components/sections/CTASection";
+import { products } from "../configs/products.config";
 
 export default function ProductsPage() {
   return (
@@ -29,7 +27,7 @@ export default function ProductsPage() {
             "
           >
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <FeatureCard key={product.id} title={product.name} description={product.tagline} icon={product.icon} badge="Insurance" to={`/products/${product.id}`} />
             ))}
           </div>
         </Container>
@@ -37,7 +35,16 @@ export default function ProductsPage() {
 
       <Section className="pb-20">
         <Container>
-          <ProductsCTA />
+          <CTASection
+            title="Need help choosing a product?"
+            subtitle="Our specialists will help you find the right coverage for your operations."
+            actions={[
+              { label: "Talk to an Expert", to: "/contact", variant: "primary", size: "lg" },
+              { label: "Get a Quote", to: "/quote", variant: "outline", size: "lg" },
+            ]}
+            backgroundClass="footer-bg"
+            cardVariant="none"
+          />
         </Container>
       </Section>
     </>

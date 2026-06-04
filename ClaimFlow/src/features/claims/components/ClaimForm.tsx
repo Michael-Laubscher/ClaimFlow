@@ -1,22 +1,22 @@
 import { FormProvider } from "react-hook-form";
 import { useClaimForm } from "../hooks/useClaimForm";
 
-import PolicySection from "./sections/PolicySection";
-import PersonalSection from "./sections/PersonalSection";
-import IncidentSection from "./sections/IncidentSection";
 import AttachmentsSection from "./sections/AttachmentSection";
+import IncidentSection from "./sections/IncidentSection";
+import PersonalSection from "./sections/PersonalSection";
+import PolicySection from "./sections/PolicySection";
 
-import { useSubmitClaim } from "../hooks/useSubmitClaim";
 import { useAppStore } from "../../../app/store/useAppStore";
+import { useSubmitClaim } from "../hooks/useSubmitClaim";
 
-import { Section } from "@/shared/components/design-system/layout/Section";
 import { Container } from "@/shared/components/design-system/layout/Container";
+import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 
-import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 
 export default function ClaimForm() {
   const methods = useClaimForm();
@@ -30,17 +30,17 @@ export default function ClaimForm() {
           <div className="max-w-4xl mx-auto">
             {/* Header */}
             <Stack gap="xs">
-              <Typography variant="body-3xl" className="text-[--color-slate-900]">
+              <Text variant="lead" className="text-[--color-slate-900]">
                 Submit a Claim
-              </Typography>
+              </Text>
 
-              <Typography color="muted">Complete the form below to submit your insurance claim. We’ll review and respond as soon as possible.</Typography>
+              <Text color="muted">Complete the form below to submit your insurance claim. We’ll review and respond as soon as possible.</Text>
             </Stack>
           </div>
           {/* Error state */}
           {error && (
             <Card variant="glass" className="p-4 border border-red-200 bg-red-50">
-              <Typography className="text-red-600">{error}</Typography>
+              <Text className="text-red-600">{error}</Text>
             </Card>
           )}
 

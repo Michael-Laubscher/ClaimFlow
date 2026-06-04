@@ -1,12 +1,8 @@
-import {
-  Users,
-} from "lucide-react";
+import { Users } from "lucide-react";
 
-import { IntegrityIcon } from "@/shared/components/design-system/svg/icons/IntegrityIcon";
-import { InnovateIcon } from "@/shared/components/design-system/svg/icons/InnovateIcon";
-import { TargetIcon } from "@/shared/components/design-system/svg/icons/TargetIcon";
-import { EyeIcon } from "@/shared/components/design-system/svg/icons/EyeIcon";
+import { EyeIcon, InnovateIcon, IntegrityIcon } from "@/shared/components/design-system/svg/icons/lucide";
 
+import { TargetIcon } from "@/shared/components/design-system/svg/icons/lucide";
 import type { CoreValue, ImpactStat, MissionVisionItem, OurStory } from "@/shared/types/about.types";
 
 export const ourStory: OurStory = {

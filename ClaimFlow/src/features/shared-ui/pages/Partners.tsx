@@ -1,37 +1,25 @@
+import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { BenefitsSection } from "../components/sections/BenefitsSection";
-import { HeroSection } from "../components/sections/HeroSection";
-import { PartnerTypesSection } from "../components/sections/PartnerTypesSection";
-import { LogoCloudSection } from "../components/sections/LogoCloudSection";
-import { ProcessSection } from "../components/sections/ProcessSection";
 import { PartnersTestimonialsSection } from "../components/sections/PartnersTestimonialsSection";
-import { PartnersCTASection } from "../components/sections/PartnersCTASection";
+import { PartnerTypesSection } from "../components/sections/PartnerTypesSection";
+import { ProcessSection } from "../components/sections/ProcessSection";
+import { SectionBlock } from "../components/sections/SectionBlock";
+import { banners } from "../configs/banners.config";
+
+const logos = ["TransGlobal", "CargoLink", "AfriMove", "FleetAxis", "TradeRoute"];
 
 export default function PartnersPage() {
   return (
     <>
-      <HeroSection />
+      <PageBanner {...banners.partner} />
 
-      <LogoCloudSection />
+      <SectionBlock subtitle="Trusted Across African Trade Networks" layout="logos" items={logos} />
 
       <PartnerTypesSection />
 
       <BenefitsSection />
 
       <ProcessSection />
-
-      <PartnersCTASection
-        badge="Let’s Build Together"
-        title="Ready To Partner With Askari Insure?"
-        description="Let’s discuss how we can work together to deliver scalable insurance solutions across African markets."
-        primaryAction={{
-          label: "Contact Partnership Team",
-          href: "/contact",
-        }}
-        secondaryAction={{
-          label: "Schedule Consultation",
-          href: "/consultation",
-        }}
-      />
 
       <PartnersTestimonialsSection
         title="What Our Partners Say"

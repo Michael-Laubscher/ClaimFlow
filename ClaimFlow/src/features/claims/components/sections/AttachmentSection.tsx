@@ -1,6 +1,6 @@
-import { useController, useFormContext } from "react-hook-form";
 import { FormSection } from "@/shared/components/design-system/forms/FormSection";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
+import { useController, useFormContext } from "react-hook-form";
 
 type Attachment = {
   id: string;
@@ -58,7 +58,7 @@ export default function AttachmentsSection() {
         ))}
       </ul>
 
-      {errors.attachments?.message && <Typography className="text-red-500 text-sm">{errors.attachments.message as string}</Typography>}
+      {errors.attachments?.message && <Text className="text-red-500 text-sm">{errors.attachments.message as string}</Text>}
     </FormSection>
   );
 }

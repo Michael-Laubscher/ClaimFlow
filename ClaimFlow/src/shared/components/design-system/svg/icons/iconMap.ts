@@ -1,9 +1,7 @@
-import { PlaceholderIcon } from "./PlaceholderIcon";
-import { CheckIcon } from "./CheckIcon";
-import { ArrowRightIcon } from "./ArrowRightIcon";
 
-import { ClockIcon, GlobeIcon, ShieldIcon, UsersIcon, TruckIcon } from "lucide-react";
-import { LiabilityIcon } from "./LiabilityIcon";
+import { ClockIcon, GlobeIcon, ShieldIcon, TruckIcon, UsersIcon } from "lucide-react";
+import { ArrowRightIcon, PlaceholderIcon } from ".";
+import { CheckIcon, LiabilityIcon } from "./lucide";
 import { MapPinIcon } from "./MapPinIcon";
 
 export const lucideIconMap = {

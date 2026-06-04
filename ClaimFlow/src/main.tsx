@@ -6,9 +6,9 @@ import { RouterProvider } from "react-router-dom";
 
 import { router } from "@/app/router";
 
-import "@/shared/css/tokens.css";
-import "@/shared/css/globals.css";
 import "@/index.css";
+import "@/shared/css/globals.css";
+import "@/shared/css/tokens.css";
 
 // -----------------------------
 // Root

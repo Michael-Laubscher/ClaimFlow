@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
 import { clsx } from "clsx";
+import type { ReactNode } from "react";
 
 interface CardProps {
   children: ReactNode;
@@ -26,7 +26,7 @@ const variants = {
     bg-white/90
     backdrop-blur-xl
     shadow-[--shadow-float]
-  `, 
+  `,
 
   solid: `
     rounded-lg
@@ -34,21 +34,6 @@ const variants = {
   `,
 };
 
-export function Card({
-  children,
-  className,
-  variant = "default",
-  floating = false,
-}: CardProps) {
-  return (
-    <div
-      className={clsx(
-        variants[variant],
-        floating && "absolute z-20",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
+export function Card({ children, className, variant = "default", floating = false }: CardProps) {
+  return <div className={clsx(variants[variant], floating && "absolute z-20", className)}>{children}</div>;
 }

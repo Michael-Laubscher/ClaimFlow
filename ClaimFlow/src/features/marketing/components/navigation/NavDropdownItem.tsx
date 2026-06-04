@@ -1,6 +1,6 @@
 import { NavLink } from "@/shared/components/design-system/navigation/NavLink";
 import { navStyles } from "@/shared/components/design-system/tokens/nav";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 
 interface Props {
   to: string;
@@ -14,14 +14,14 @@ interface Props {
 export function NavDropdownItem({ to, label, desc, onClick }: Props) {
   return (
     <NavLink to={to} onClick={onClick} className={navStyles.item}>
-      <Typography variant="label-md" color="primary">
+      <Text variant="lead" color="default">
         {label}
-      </Typography>
+      </Text>
 
       {desc && (
-        <Typography variant="body-sm" color="muted">
+        <Text variant="sm" color="muted">
           {desc}
-        </Typography>
+        </Text>
       )}
     </NavLink>
   );

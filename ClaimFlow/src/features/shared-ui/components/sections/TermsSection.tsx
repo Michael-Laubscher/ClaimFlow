@@ -3,7 +3,7 @@ import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-import { Typography } from "@/shared/components/design-system/typography/Typography";
+import { Text } from "@/shared/components/design-system/typography/Text";
 import type { Terms } from "@/shared/types/terms.types";
 
 interface Props {
@@ -18,9 +18,9 @@ export function TermsSection({ section }: Props) {
           {section.title}
         </Heading>
 
-        <Typography variant="body-md" color="muted">
+        <Text variant="body" color="muted">
           {section.content}
-        </Typography>
+        </Text>
       </Stack>
     </Card>
   );

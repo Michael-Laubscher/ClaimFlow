@@ -1,48 +1,41 @@
-// src/shared/components/design-system/icons/index.ts
+import { ArrowRightSvg } from "./custom/ArrowRightIcon";
+import { ChevronDownSvg } from "./custom/ChevronDownIcon";
+import { ClipboardSvg } from "./custom/ClipboardIcon";
+import { FacebookSvg } from "./custom/FacebookIcon";
+import { LinkedInSvg } from "./custom/LinkedInIcon";
+import { MailSvg } from "./custom/MailIcon";
+import { MenuSvg } from "./custom/MenuIcon";
+import { PhoneSvg } from "./custom/PhoneIcon";
+import { PinSvg } from "./custom/PinIcon";
+import { PlaceholderSvg } from "./custom/PlaceholderIcon";
+import { ShieldCheckSvg } from "./custom/ShieldCheckIcon";
+import { TwitterSvg } from "./custom/TwitterIcon";
+import { XSvg } from "./custom/XIcon";
+import { createSvgIcon } from "./factories/createSvgIcon";
 
-export * from "./PlaceholderIcon";
+export const ArrowRightIcon = createSvgIcon(ArrowRightSvg, 24);
 
-export * from "./CheckIcon";
+export const ChevronDownIcon = createSvgIcon(ChevronDownSvg);
 
-export * from "./ArrowRightIcon";
+export const ClipboardIcon = createSvgIcon(ClipboardSvg);
 
-export * from "./ShieldCheckIcon";
+export const FacebookIcon = createSvgIcon(FacebookSvg);
 
-export * from "./ChevronDownIcon";
+export const LinkedInIcon = createSvgIcon(LinkedInSvg);
 
-export * from "./ClipboardIcon";
+export const MailIcon = createSvgIcon(MailSvg);
 
-export * from "./MailIcon";
+export const MenuIcon = createSvgIcon(MenuSvg);
 
-export * from "./MenuIcon";
+export const PhoneIcon = createSvgIcon(PhoneSvg);
 
-export * from "./PhoneIcon";
+export const PinIcon = createSvgIcon(PinSvg);
 
-export * from "./XIcon";
+export const PlaceholderIcon = createSvgIcon(PlaceholderSvg);
 
-export * from "./FacebookIcon";
+export const ShieldCheckIcon = createSvgIcon(ShieldCheckSvg);
 
-export * from "./LinkedInIcon";
-
-export * from "./TwitterIcon";
-
-export * from "./PinIcon";
-
-export * from "./IntegrityIcon";
-
-export * from "./CargoIcon"
-
-export * from "./TargetIcon";
-
-export * from "./EyeIcon";
-
-export * from "./SmileIcon";
-
-export * from "./LockIcon";
-
-export * from "./TrendingIcon";
-
-export * from "./LiabilityIcon";
+export const TwitterIcon = createSvgIcon(TwitterSvg);
 
 export * from "./MapPinIcon";
 
@@ -50,19 +43,11 @@ export * from "./MapPinIcon";
 /* ──────────────────────────────────────────────────────────
    ABOUT PAGE ICONS
 ────────────────────────────────────────────────────────── */
-export * from "./TargetIcon";
 
-export * from "./EyeIcon";
-
-export * from "./SmileIcon";
-
-export * from "./LockIcon";
-
-export * from "./TrendingIcon";
 
 /* ──────────────────────────────────────────────────────────
    TYPES + HELPERS
 ────────────────────────────────────────────────────────── */
-export * from "./icon.types";
 
 export * from "./iconMap";
+export const XIcon = createSvgIcon(XSvg);
