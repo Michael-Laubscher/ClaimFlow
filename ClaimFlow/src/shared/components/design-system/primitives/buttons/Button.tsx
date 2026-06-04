@@ -34,3 +34,5 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
     </button>
   );
 });
+Button.displayName = "Button";
+ 

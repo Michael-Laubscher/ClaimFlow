@@ -41,6 +41,7 @@ export function FooterCTA({ cta }: Props) {
 
           <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-md transition hover:bg-white/20">
             <Link to={cta.secondary.to}>{cta.secondary.label}</Link>
+          </Button>
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
           <Button size="lg" to={cta.primary.to}>
             {cta.primary.label}
@@ -50,6 +51,7 @@ export function FooterCTA({ cta }: Props) {
             {cta.secondary.label}
           </Button>
         </div>
+      </div>
       </div>
     </section>
   );
