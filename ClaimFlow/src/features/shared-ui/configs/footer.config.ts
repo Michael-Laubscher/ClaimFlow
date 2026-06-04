@@ -32,7 +32,7 @@ export const footerConfig: FooterConfig = {
     {
       heading: "Support",
       items: [
-        { label: "File a Claim", to: "/claims/new" },
+        { label: "File a Claim", to: "/claims/" },
         { label: "Track a Claim", to: "/claims/track" },
         { label: "Our Branches", to: "/branches" },
         { label: "FAQ", to: "/faq" },

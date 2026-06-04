@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import type { CoverageLevel } from "../configs/coverageLevels";
 import type { InsuranceType } from "../types/insuranceTypes";
 import type { QuoteDetails } from "../types/quote.types";
@@ -20,28 +21,56 @@ export function useQuoteForm() {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const update = (key: keyof QuoteDetails, value: string) =>
-    setDetails((d) => ({
-      ...d,
+  const updateDetails = (key: keyof QuoteDetails, value: string) => {
+    setDetails((prev) => ({
+      ...prev,
       [key]: value,
     }));
+  };
+
+  const nextStep = () => {
+    setStep((prev) => Math.min(prev + 1, 3));
+  };
+
+  const previousStep = () => {
+    setStep((prev) => Math.max(prev - 1, 1));
+  };
+
+  const reset = () => {
+    setStep(1);
+
+    setInsuranceType("");
+
+    setDetails({
+      business: "",
+      contact: "",
+      email: "",
+      phone: "",
+      country: "",
+    });
+
+    setCoverage("");
+
+    setSubmitted(false);
+  };
 
   return {
     step,
-    setStep,
+
+    nextStep,
+    previousStep,
+    reset,
 
     insuranceType,
     setInsuranceType,
 
     details,
-    setDetails,
+    updateDetails,
 
     coverage,
     setCoverage,
 
     submitted,
     setSubmitted,
-
-    update,
   };
 }

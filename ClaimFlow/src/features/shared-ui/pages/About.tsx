@@ -19,6 +19,7 @@ export default function AboutPage() {
       <PageBanner {...banners.about} />
 
       <SectionBlock
+        className="pt-20"
         layout="split"
         left={
           <div>
