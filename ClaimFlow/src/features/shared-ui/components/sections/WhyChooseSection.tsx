@@ -39,7 +39,7 @@ export function WhyChooseSection() {
                 }))}
               />
 
-              <Button className="mt-6 w-max px-6 py-3 bg-[#233C7B] rounded-md transition-transform duration-200 hover:scale-105" iconRight={<ArrowRightIcon size={20} />} >
+              <Button className="mt-6 w-max px-6 py-3 bg-[#233C7B] rounded-md transition-transform duration-200 hover:scale-105 hover:bg-[#233C7B]" iconRight={<ArrowRightIcon size={20} />} >
                 <Link to="about">Learn More About Us</Link>
               </Button>
             </Stack>

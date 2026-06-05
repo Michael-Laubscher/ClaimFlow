@@ -1,9 +1,10 @@
-import { Award, Building2, CircleCheckBig, Clock, Eye, FileCheck, FileText, Globe, Lock, Package, Search, Shield, Target, TrendingUp, Upload, Users } from "lucide-react";
+import { Award, Building2, CircleCheckBig, Clock, Eye, FileCheck, FileText, Globe, Lock, MapPin, Package, Search, Shield, Target, TrendingUp, Truck, Upload, Users } from "lucide-react";
 import { wrapLucide } from "./wrapLucide";
 
 export const EyeIcon = wrapLucide(Eye);
 export const LockIcon = wrapLucide(Lock);
 export const TargetIcon = wrapLucide(Target);
+export const PinIcon = wrapLucide(MapPin);
 export const TrendingIcon = wrapLucide(TrendingUp);
 export const UsersIcon = wrapLucide(Users);
 export const ClockIcon = wrapLucide(Clock);
@@ -19,3 +20,4 @@ export const BuildingIcon = wrapLucide(Building2);
 export const InnovateIcon = wrapLucide(TrendingUp);
 export const IntegrityIcon = wrapLucide(Award);
 export const LiabilityIcon = wrapLucide(FileCheck);
+export const TruckIcon = wrapLucide(Truck);

@@ -27,7 +27,7 @@ export const homeProducts: ProductCard[] = [
   },
   {
     id: "liability",
-    icon: "document",
+    icon: "liability",
     theme: "warning",
     name: "Liability",
     shortDesc: "Third-party liability protection for peace of mind",

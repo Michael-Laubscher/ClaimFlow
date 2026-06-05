@@ -35,22 +35,13 @@ export function FooterCTA({ cta }: Props) {
             sm:justify-center
           "
         > 
-          <Button variant="secondary" size="lg" className="w-full sm:w-auto rounded-md transition-transform duration-300 hover:scale-105 hover:shadow-lg" iconRight={<ArrowRightIcon size={20} />}>
+          <Button size="lg" className="w-full sm:w-auto rounded-md transition-transform duration-300 bg-white text-[#071852] hover:scale-105 hover:shadow-lg hover:bg-white hover:text-[#071852]" iconRight={<ArrowRightIcon size={20} />}>
             <Link to={cta.primary.to}>{cta.primary.label}</Link>
           </Button>
 
           <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-md transition hover:bg-white/20">
             <Link to={cta.secondary.to}>{cta.secondary.label}</Link>
           </Button>
-        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
-          <Button size="lg" to={cta.primary.to}>
-            {cta.primary.label}
-          </Button>
-
-          <Button size="lg" variant="outline" to={cta.secondary.to}>
-            {cta.secondary.label}
-          </Button>
-        </div>
       </div>
       </div>
     </section>

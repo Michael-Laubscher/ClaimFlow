@@ -8,7 +8,7 @@ export function HeroActions() {
         Get Instant Quote
       </Button>
 
-      <Button variant="outline" to="/products" size="lg" className="w-full sm:w-auto rounded-md bg-white text-[#0A2540] font-bold transition-transform duration-300 hover:scale-110">
+      <Button variant="outline" to="/products" size="lg" className="w-full sm:w-auto rounded-md bg-white text-[#0A2540] font-bold transition-transform duration-300 hover:scale-110 hover:bg-[#F8FAFC]" >
         View Products
       </Button>
     </div>

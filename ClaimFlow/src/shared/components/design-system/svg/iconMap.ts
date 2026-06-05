@@ -1,5 +1,5 @@
-import { CheckIcon, ClockIcon, GlobeIcon, ShieldIcon, UsersIcon } from "@/shared/components/design-system/svg/icons/lucide/index";
-import { ArrowRightIcon, PlaceholderIcon } from "./icons";
+import { CheckIcon, ClockIcon, GlobeIcon, LiabilityIcon, ShieldIcon, TruckIcon, UsersIcon } from "@/shared/components/design-system/svg/icons/lucide/index";
+import { ArrowRightIcon, MapPinIcon, PlaceholderIcon } from "./icons";
 
 export const iconMap = {
   placeholder: PlaceholderIcon,
@@ -9,4 +9,7 @@ export const iconMap = {
   clock: ClockIcon,
   globe: GlobeIcon,
   users: UsersIcon,
+  truck: TruckIcon,
+  liability: LiabilityIcon,
+  location: MapPinIcon,
 } as const;
