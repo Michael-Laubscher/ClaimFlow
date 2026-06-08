@@ -1,28 +1,29 @@
 # Askari Frontend
 
-A modern React application currently undergoing a structured refactor to improve maintainability, scalability, developer experience, and long-term performance.
+A modern React application focused on streamlining claims management workflows through a clean, scalable, and maintainable user experience.
 
 ## Overview
 
-This project is being transformed from a traditional component-based React application into a feature-driven, enterprise-grade architecture.
+Askari Frontend is being developed with a strong emphasis on modular architecture, reusable components, and long-term maintainability.
 
-The goal is to create a codebase that is:
+The project follows modern React development practices and is structured to support future growth without introducing unnecessary complexity.
 
-* Clean and easy to navigate
-* Modular and scalable
-* Consistent across features
-* Easy to onboard new developers into
-* Performance focused
-* Built around reusable UI patterns
-* Maintainable as the application grows
+Key goals include:
+
+* Clean and predictable architecture
+* Reusable UI components
+* Feature-based organization
+* Strong TypeScript support
+* Scalable state management
+* Centralized API handling
+* Improved developer experience
+* Performance-focused design
 
 ---
 
-## Current Refactor Goals
+## Architecture Vision
 
-### Architecture
-
-Move from a flat component structure to a feature-based architecture:
+The application is being organized around feature ownership and separation of concerns.
 
 ```text
 src/
@@ -38,52 +39,9 @@ src/
 └── styles/
 ```
 
-### Component Cleanup
+### Feature-Based Development
 
-Current refactoring focuses on:
-
-* Breaking large components into smaller modules
-* Separating UI from business logic
-* Extracting reusable components
-* Reducing duplication
-* Improving readability
-
-### Shared UI System
-
-A reusable design system is being introduced:
-
-```text
-components/ui/
-├── button/
-├── card/
-├── input/
-├── modal/
-├── table/
-├── badge/
-└── loader/
-```
-
-Benefits:
-
-* Consistent styling
-* Faster development
-* Reduced code duplication
-* Easier maintenance
-
-### Feature-Based Structure
-
-Each business domain owns its own:
-
-```text
-features/
-├── auth/
-├── dashboard/
-├── claims/
-├── policies/
-└── billing/
-```
-
-Each feature contains:
+Each feature owns its:
 
 ```text
 feature/
@@ -96,11 +54,18 @@ feature/
 └── utils/
 ```
 
+This structure improves:
+
+* Scalability
+* Maintainability
+* Team collaboration
+* Feature isolation
+
 ---
 
-## Technology Stack
+## Tech Stack
 
-### Core
+### Frontend
 
 * React
 * TypeScript
@@ -116,12 +81,12 @@ feature/
 * Zustand
 * Axios
 
-### Forms
+### Forms & Validation
 
 * React Hook Form
 * Zod
 
-### UI & Utilities
+### UI & Animation
 
 * Framer Motion
 * Lucide Icons
@@ -130,74 +95,33 @@ feature/
 
 ---
 
-## Refactoring Roadmap
+## Core Principles
 
-### Phase 1 – Foundation
+### Reusable Components
 
-* [ ] Create new folder structure
-* [ ] Configure ESLint
-* [ ] Configure Prettier
-* [ ] Enable strict TypeScript rules
-* [ ] Remove dead code
-* [ ] Remove unused dependencies
+Shared UI elements live in a centralized design system:
 
-### Phase 2 – Shared System
-
-* [ ] Extract Navbar
-* [ ] Extract Sidebar
-* [ ] Extract Footer
-* [ ] Build reusable UI library
-* [ ] Standardize spacing and typography
-
-### Phase 3 – Features
-
-* [ ] Move features into dedicated modules
-* [ ] Create feature-specific hooks
-* [ ] Create feature-specific services
-* [ ] Improve type safety
-
-### Phase 4 – Data Layer
-
-* [ ] Centralize API communication
-* [ ] Integrate React Query
-* [ ] Remove duplicate requests
-* [ ] Improve caching strategy
-
-### Phase 5 – Forms
-
-* [ ] Modularize large forms
-* [ ] Add schema validation
-* [ ] Improve form reusability
-
-### Phase 6 – Performance
-
-* [ ] Route splitting
-* [ ] Lazy loading
-* [ ] React.memo optimization
-* [ ] Virtualized tables
-* [ ] Reduce unnecessary re-renders
-
----
-
-## Development Principles
-
-### Components
-
-* One responsibility per component
-* Reusable where possible
-* Keep components small and focused
-
-### API Layer
-
-Avoid API calls inside components.
-
-Instead:
-
-```typescript
-services/claims.service.ts
+```text
+components/ui/
+├── button/
+├── card/
+├── input/
+├── modal/
+├── table/
+├── badge/
+└── loader/
 ```
 
-Example:
+This ensures:
+
+* Consistent styling
+* Faster development
+* Reduced duplication
+* Easier maintenance
+
+### Service Layer
+
+API communication is separated from UI components.
 
 ```typescript
 export const getClaims = async () => {
@@ -205,9 +129,13 @@ export const getClaims = async () => {
 };
 ```
 
-### Hooks
+Components consume data through hooks rather than making direct requests.
 
-Shared logic should be extracted into custom hooks:
+### Custom Hooks
+
+Business logic is extracted into reusable hooks.
+
+Examples:
 
 ```typescript
 useClaims()
@@ -219,88 +147,79 @@ usePagination()
 
 ### State Management
 
-Use the right tool for the right state:
+Different tools are used for different responsibilities:
 
-| State Type      | Tool            |
+| Purpose         | Tool            |
 | --------------- | --------------- |
-| Server Data     | React Query     |
+| Server State    | React Query     |
 | Global UI State | Zustand         |
 | Forms           | React Hook Form |
 
 ---
 
-## Code Standards
+## Development Standards
 
-### Naming
+### Naming Conventions
 
-Components:
+Components
 
 ```text
 ClaimsTable.tsx
 ```
 
-Hooks:
+Hooks
 
 ```text
 useClaims.ts
 ```
 
-Files:
+Services
 
 ```text
 claims.service.ts
 ```
 
-Constants:
+Constants
 
 ```text
 CLAIM_STATUS
 ```
 
-### Guidelines
+### Project Rules
 
-* No duplicated business logic
-* No duplicated styling
-* No direct API calls in UI components
-* No oversized components
-* Shared UI first
-* Feature ownership of logic
-
----
-
-## Future Improvements
-
-Planned improvements include:
-
-* Storybook integration
-* Automated testing
-* CI/CD improvements
-* Design system documentation
-* Accessibility audits
-* Performance monitoring
-* End-to-end testing
+* Keep components focused and small
+* Avoid duplicated logic
+* Avoid duplicated styling
+* Reuse shared components whenever possible
+* Keep API calls out of UI components
+* Place business logic in hooks and services
+* Maintain strong TypeScript typing
 
 ---
 
-## Contributing
+## Performance Strategy
 
-When contributing:
+The project is designed with performance in mind through:
 
-1. Follow the established architecture.
-2. Reuse existing UI components where possible.
-3. Keep components focused and modular.
-4. Place business logic inside hooks/services.
-5. Avoid introducing duplicated patterns.
+* Route-based code splitting
+* Lazy loading
+* React.memo
+* useMemo
+* useCallback
+* Optimized rendering patterns
+* Modular feature loading
 
 ---
 
-## Project Vision
+## Long-Term Vision
 
-The long-term vision is to evolve this application into a highly maintainable, enterprise-grade React platform with:
+ClaimFlow aims to evolve into a scalable enterprise-grade frontend architecture that provides:
 
-* Feature-driven architecture
-* Strong type safety
-* Reusable design system
-* Scalable state management
 * Predictable development patterns
-* Excellent developer experience
+* Strong type safety
+* Consistent user experience
+* Reusable design systems
+* Maintainable business logic
+* High-performance user interfaces
+
+The focus is on creating software that is easy to understand, easy to extend, and easy to maintain as requirements grow.
