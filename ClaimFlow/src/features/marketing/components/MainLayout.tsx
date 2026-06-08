@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom";
-import { Navbar } from "./navigation/Navbar";
-import { Footer } from "./footer/Footer";
 import { footerConfig } from "@/features/shared-ui/configs/footer.config";
+import { Outlet } from "react-router-dom";
+import { Footer } from "./footer/Footer";
+import { Navbar } from "./navigation/Navbar";
 
 export default function PublicLayout() {
   return (

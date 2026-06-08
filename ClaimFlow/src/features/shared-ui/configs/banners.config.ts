@@ -1,10 +1,8 @@
 export const banners = {
   about: {
-    badge: "About Askari",
+    title: "About Askari Insure",
 
-    title: "Protecting Africa’s Logistics Future",
-
-    subtitle: "Modern transport insurance solutions for fleets, cargo operators, and logistics businesses.",
+    subtitle: "Leading insurance provider for African transport and logistics, protecting cross-border trade since 2010.",
 
     breadcrumbs: [
       {
@@ -16,15 +14,15 @@ export const banners = {
       },
     ],
 
-    primaryCta: {
-      label: "Get Started",
-      to: "/claims/get-quote",
-    },
+    // primaryCta: {
+    //   label: "Get Started",
+    //   to: "/claims/get-quote",
+    // },
 
-    secondaryCta: {
-      label: "Contact Us",
-      to: "/contact",
-    },
+    // secondaryCta: {
+    //   label: "Contact Us",
+    //   to: "/contact",
+    // },
   },
 
   faq: {

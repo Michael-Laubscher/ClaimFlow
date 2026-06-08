@@ -6,15 +6,19 @@ import { FooterSections } from "@/shared/components/design-system/footer/FooterS
 import { FooterSocials } from "@/shared/components/design-system/footer/FooterSocials";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import type { FooterConfig } from "@/shared/types/footer.types";
+import { useMatches } from "react-router-dom";
 
 interface Props {
   config: FooterConfig;
 }
 
 export function Footer({ config }: Props) {
+  const matches = useMatches();
+
+  const hideFooterCTA = matches.some((match) => (match.handle as { hideFooterCTA?: boolean })?.hideFooterCTA);
   return (
     <footer className="bg-[#071852] text-white">
-      <FooterCTA cta={config.cta} />
+      {!hideFooterCTA && ( <FooterCTA cta={config.cta} /> )}
 
       <Container className="py-16">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">

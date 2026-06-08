@@ -29,6 +29,7 @@ export interface CoreValue {
 }
 
 export interface ImpactStat {
+  // title?: string;
   value: string;
   label: string;
 }

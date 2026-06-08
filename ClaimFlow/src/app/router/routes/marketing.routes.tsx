@@ -34,6 +34,7 @@ export const marketingRoutes: RouteObject[] = [
 
     handle: {
       title: "About Us",
+      hideFooterCTA: true,
     },
   },
 

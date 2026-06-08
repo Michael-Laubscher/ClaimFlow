@@ -4,14 +4,15 @@ import BrandImage from "@/shared/components/design-system/svg/images/BrandImage.
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import type { CoreValue, CoreValueColor, ImpactStat } from "@/shared/types/about.types";
 import { SectionBlock } from "../components/sections/SectionBlock";
-import { coreValues, ourStory } from "../configs/about.config.data";
+import { coreValues, missionVision, ourStory } from "../configs/about.config.data";
 import { banners } from "../configs/banners.config";
 
 export default function AboutPage() {
   const stats: ImpactStat[] = [
-    { value: "100+", label: "Projects Completed" },
-    { value: "50+", label: "Happy Clients" },
-    { value: "10", label: "Years of Experience" },
+    { value: "100+", label: "Active Policies" },
+    { value: "50+", label: "Countries" },
+    { value: "$500M+", label: "Claims Paid" },
+    { value: "98%", label: "Client Satisfaction" },
   ];
 
   return (
@@ -19,7 +20,7 @@ export default function AboutPage() {
       <PageBanner {...banners.about} />
 
       <SectionBlock
-        className="pt-20"
+        className="pt-20 bg-white pb-20"
         layout="split"
         left={
           <div>
@@ -34,22 +35,25 @@ export default function AboutPage() {
         right={<img src={BrandImage} className="rounded-3xl shadow-xl" />}
       />
 
-      <SectionBlock
-        className="bg-slate-50 py-20"
-        layout="cards"
-        items={coreValues}
-        renderItem={(item) => {
-          const Icon = item.icon;
+        <SectionBlock
+          className="bg-slate-50 py-20"
+          layout="grid"
+          columns="grid gap-6 md:grid-cols-2">
+          {missionVision.map((item) => {
+            const Icon = item.icon;
 
-          return (
-            <Card className="rounded-3xl border-slate-200 bg-white p-10">
-              <Icon className="h-9 w-9 text-[#233C7B]" />
-              <h3 className="mt-4 text-2xl font-bold">{item.title}</h3>
-              <p className="mt-4 text-slate-600">{item.desc}</p>
-            </Card>
-          );
-        }}
-      />
+            return (
+              <Card
+                key={item.title}
+                variant="glass"
+                className="rounded-xl border-slate-200 bg-white p-10">
+                <Icon className="h-9 w-9 text-[#233C7B]" />
+                <h3 className="mt-4 text-2xl font-bold">{item.title}</h3>
+                <p className="mt-4 text-slate-600">{item.desc}</p>
+              </Card>
+            );
+          })}
+        </SectionBlock>
 
       <SectionBlock
         subtitle="Core Values"
@@ -69,8 +73,8 @@ export default function AboutPage() {
           };
 
           return (
-            <Card className="text-center p-10 rounded-3xl border-black/10 hover:-translate-y-1 transition-all duration-300">
-              <div className={`mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br text-white ${iconStyles[value.iconColor]}`}>
+            <Card variant="glass" className="group text-center p-10 rounded-3xl border-black/10 transition hover:bg-[#F8FAFC] hover:shadow-lg transition-transform duration-300 hover:scale-105">
+              <div className={`mx-auto flex h-16 w-16 items-center justify-center rounded-md bg-gradient-to-br text-white transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110 shadow-md ${iconStyles[value.iconColor]}`}>
                 <Icon className="h-8 w-8" />
               </div>
 
@@ -81,7 +85,10 @@ export default function AboutPage() {
         }}
       />
 
-      <SectionBlock className="bg-gradient-to-br from-[#071852] to-[#c9562a] py-24" layout="stats" items={stats} />
+      <SectionBlock
+      title="Our Impact"
+      titleClassName="text-white"
+      className="bg-gradient-to-br from-[#0A2540] via-[#233C7B] to-[#E65731] py-24" layout="stats" items={stats} />
     </>
   );
 }

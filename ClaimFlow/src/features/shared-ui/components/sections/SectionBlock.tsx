@@ -9,6 +9,8 @@ import type { ReactNode } from "react";
 type Layout = "grid" | "split" | "centered" | "cards" | "stats" | "logos";
 
 interface SectionBlockProps<T = unknown> {
+  titleClassName?: string;
+
   title?: string;
   subtitle?: string;
   description?: string;
@@ -28,6 +30,7 @@ interface SectionBlockProps<T = unknown> {
 }
 
 export function SectionBlock<T = unknown>({
+  titleClassName = "text-slate-900",
   title,
   subtitle,
   description,
@@ -48,7 +51,7 @@ export function SectionBlock<T = unknown>({
             <Stack gap="sm">
               {subtitle && <Text className="text-sm uppercase tracking-[0.2em] text-slate-400">{subtitle}</Text>}
 
-              {title && <Heading className="text-3xl font-bold text-slate-900">{title}</Heading>}
+              {title && <Heading className={`text-3xl font-bold ${titleClassName}`}>{title}</Heading>}
 
               {description && <Text className="mx-auto max-w-2xl text-slate-600">{description}</Text>}
             </Stack>
@@ -80,6 +83,7 @@ export function SectionBlock<T = unknown>({
                 <div className="mt-3 text-sm uppercase tracking-[0.2em] text-white/60">{item.label}</div>
               </div>
             ))}
+            
           </div>
         )}
 

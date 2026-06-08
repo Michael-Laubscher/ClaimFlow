@@ -36,21 +36,21 @@ export const coreValues: CoreValue[] = [
     icon: Users,
     iconColor: "blue",
     title: "Customer First",
-    desc: "Every decision is guided by what is best for our clients.",
+    desc: "Every decision we make is guided by what's best for our clients and their businesses.",
   },
   {
     id: "integrity",
     icon: IntegrityIcon,
     iconColor: "green",
     title: "Integrity",
-    desc: "We operate with honesty, transparency, and accountability.",
+    desc: "We operate with transparency, honesty, and accountability in everything we do.",
   },
   {
     id: "innovation",
     icon: InnovateIcon,
     iconColor: "purple",
     title: "Innovation",
-    desc: "We continuously improve to meet the needs of African trade.",
+    desc: "We continuously improve our services to meet the evolving needs of African trade.",
   },
 ];
 
