@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { AlertTriangle, CheckCircle2, Info, X, XCircle } from "lucide-react";
+import { AlertTriangle, CheckCircle2, Info, X, XCircle, type LucideIcon } from "lucide-react";
 
 import { Button } from "../../primitives/buttons/Button";
 import type { ToastItem, ToastVariant } from "./Toast.types";
@@ -12,7 +12,7 @@ interface Props {
 const variantStyles: Record<
   ToastVariant,
   {
-    icon: any;
+    icon: LucideIcon;
     iconColor: string;
     iconBg: string;
     glow: string;

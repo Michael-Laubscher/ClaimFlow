@@ -32,6 +32,7 @@ export default function BranchesPage() {
           >
             {branches.map((branch) => (
               <InfoCard
+                key={branch.id}
                 title={branch.name}
                 badge={branch.flagship ? "Flagship" : undefined}
                 className="h-full p-6"

@@ -1,33 +1,23 @@
-import { createContext, useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
-import type { ToastItem, ToastVariant } from "./Toast.types";
-
+import { ToastContext } from "./ToastContext";
 import { ToastViewport } from "./ToastViewport";
 
-export interface ToastContextValue {
-  show: (toast: Omit<ToastItem, "id">) => void;
-
-  success: (toast: Omit<ToastItem, "id" | "variant">) => void;
-
-  error: (toast: Omit<ToastItem, "id" | "variant">) => void;
-
-  warning: (toast: Omit<ToastItem, "id" | "variant">) => void;
-
-  info: (toast: Omit<ToastItem, "id" | "variant">) => void;
-}
-
-export const ToastContext = createContext<ToastContextValue | null>(null);
+import type { ToastItem, ToastVariant } from "./Toast.types";
 
 function createToast(toast: Omit<ToastItem, "id">, variant?: ToastVariant): ToastItem {
   return {
     ...toast,
     variant: variant ?? toast.variant ?? "info",
-
     id: crypto.randomUUID(),
   };
 }
 
-export function ToastProvider({ children }: { children: React.ReactNode }) {
+interface ToastProviderProps {
+  children: React.ReactNode;
+}
+
+export function ToastProvider({ children }: ToastProviderProps) {
   const [toasts, setToasts] = useState<ToastItem[]>([]);
 
   const removeToast = useCallback((id: string) => {
@@ -42,32 +32,58 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
 
       const duration = toast.duration ?? 5000;
 
-      setTimeout(() => {
+      window.setTimeout(() => {
         removeToast(item.id);
       }, duration);
     },
     [removeToast]
   );
 
-  const createVariant = (variant: ToastVariant) => (toast: Omit<ToastItem, "id" | "variant">) =>
-    show({
-      ...toast,
-      variant,
-    });
+  const success = useCallback(
+    (toast: Omit<ToastItem, "id" | "variant">) =>
+      show({
+        ...toast,
+        variant: "success",
+      }),
+    [show]
+  );
+
+  const error = useCallback(
+    (toast: Omit<ToastItem, "id" | "variant">) =>
+      show({
+        ...toast,
+        variant: "error",
+      }),
+    [show]
+  );
+
+  const warning = useCallback(
+    (toast: Omit<ToastItem, "id" | "variant">) =>
+      show({
+        ...toast,
+        variant: "warning",
+      }),
+    [show]
+  );
+
+  const info = useCallback(
+    (toast: Omit<ToastItem, "id" | "variant">) =>
+      show({
+        ...toast,
+        variant: "info",
+      }),
+    [show]
+  );
 
   const value = useMemo(
     () => ({
       show,
-
-      success: createVariant("success"),
-
-      error: createVariant("error"),
-
-      warning: createVariant("warning"),
-
-      info: createVariant("info"),
+      success,
+      error,
+      warning,
+      info,
     }),
-    [show]
+    [show, success, error, warning, info]
   );
 
   return (

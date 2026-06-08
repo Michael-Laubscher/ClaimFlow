@@ -1,4 +1,4 @@
-import type { ToastContextValue } from "@/shared/components/design-system/feedback/Toast/ToastProvider";
+import type { ToastContextValue } from "@/shared/components/design-system/feedback/Toast/ToastContext";
 
 export const quoteNotifications = {
   stepSaved: (toast: ToastContextValue) =>
