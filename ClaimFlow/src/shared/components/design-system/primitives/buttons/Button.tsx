@@ -8,15 +8,27 @@ import { isLinkButton } from "./Button.helpers";
 import type { ButtonProps, LinkButtonProps, NativeButtonProps } from "./Button.types";
 
 export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>((props, ref) => {
-  const { variant = "primary", size = "md", iconLeft, iconRight, className, children, ...rest } = props;
+  const { variant = "primary", size = "md", iconLeft, iconRight, className, children, loading, disabled, ...rest } = props;
 
+  const isLoading = loading ?? false;
   const styles = cn(buttonVariants({ variant, size }), "rounded-xl", className);
 
   if (isLinkButton(props)) {
     const { to, ...linkRest } = rest as LinkButtonProps;
 
     return (
-      <Link ref={ref as React.Ref<HTMLAnchorElement>} to={to} className={styles} {...linkRest}>
+      <Link
+        ref={ref as React.Ref<HTMLAnchorElement>}
+        to={to}
+        className={styles}
+        aria-disabled={isLoading || disabled}
+        onClick={(e) => {
+          if (isLoading || disabled) {
+            e.preventDefault();
+          }
+        }}
+        {...linkRest}
+      >
         {iconLeft}
         {children}
         {iconRight}
@@ -27,12 +39,17 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonPr
   const buttonRest = rest as NativeButtonProps;
 
   return (
-    <button ref={ref as React.Ref<HTMLButtonElement>} className={styles} {...buttonRest}>
-      {iconLeft}
-      {children}
-      {iconRight}
+    <button ref={ref as React.Ref<HTMLButtonElement>} className={styles} disabled={isLoading || disabled} {...buttonRest}>
+      {isLoading ? (
+        <span className="animate-pulse">Loading...</span>
+      ) : (
+        <>
+          {iconLeft}
+          {children}
+          {iconRight}
+        </>
+      )}
     </button>
   );
 });
 Button.displayName = "Button";
- 

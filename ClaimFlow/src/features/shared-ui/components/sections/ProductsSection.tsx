@@ -41,8 +41,10 @@ export function ProductsSection() {
 
               return (
                 <Link key={product.id} to={product.to}>
-                  <Card variant="glass" className="group flex flex-col p-6 rounded-2xl border border-black/10 transition hover:bg-[#F8FAFC] hover:shadow-lg transition-transform duration-300 hover:scale-105">
-                    <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110 shadow-md ${themeClassMap[product.theme] || themeClassMap.primary}`}>
+                  <Card variant="glass" className="group flex flex-col p-6 rounded-2xl border border-black/10 hover:bg-[#F8FAFC] hover:shadow-lg transition-transform duration-300 hover:scale-105">
+                    <div
+                      className={`mb-4 flex h-14 w-14 items-center justify-center rounded-md transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110 shadow-md ${themeClassMap[product.theme] || themeClassMap.primary}`}
+                    >
                       <Icon className="h-7 w-7" />
                     </div>
 
@@ -55,11 +57,10 @@ export function ProductsSection() {
                     </Text>
 
                     <Text variant="sm" className="mt-4 font-medium text-[#E65731]">
-                      <div
-                      className="flex items-center gap-2 text-sm text-[--color-orange]">
+                      <span className="flex items-center gap-2 text-sm text-[--color-orange]">
                         Learn more
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2"/>
-                      </div>
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
+                      </span>
                     </Text>
                   </Card>
                 </Link>

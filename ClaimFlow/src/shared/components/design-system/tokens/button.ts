@@ -5,11 +5,17 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-orange-500 text-white hover:bg-orange-600",
+        primary: "bg-[var(--color-primary)] text-white hover:opacity-90",
 
-        secondary: "border border-orange-500 text-orange-500 hover:bg-orange-500/20",
+        secondary: "border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)]/10",
 
-        outline: "border border-white/20 text-white hover:bg-white/10",
+        outline: "border border-[var(--color-border)] text-[var(--color-text-primary)] hover:bg-white/5",
+
+        ghost: "text-[var(--color-text-primary)] hover:bg-white/5",
+
+        danger: "bg-[var(--color-danger)] text-white hover:opacity-90",
+
+        link: "text-[var(--color-primary)] underline-offset-4 hover:underline p-0 h-auto",
       },
 
       size: {

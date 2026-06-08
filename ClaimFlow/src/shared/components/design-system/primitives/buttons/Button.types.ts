@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 import type { To } from "react-router-dom";
 
-export type ButtonVariant = "primary" | "secondary" | "outline";
+export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "danger" | "link";
 
 export type ButtonSize = "sm" | "md" | "lg";
 
@@ -14,6 +14,8 @@ export interface ButtonBaseProps {
 
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
+  loading?: boolean;
+  disabled?: boolean;
 
   className?: string;
 }
