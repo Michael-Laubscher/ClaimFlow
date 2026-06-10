@@ -9,21 +9,21 @@ import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Text } from "@/shared/components/design-system/typography/Text";
 import type { FeatureCardProps } from "./FeatureCardProps";
 
-export function FeatureCard({ title, description, icon: Icon, to, badge, ctaLabel = "Learn more", iconClassName = "text-[--color-orange]" }: FeatureCardProps) {
+export function FeatureCard({ title, description, icon: Icon, to, badge, ctaLabel = "Learn more", iconClassName = "text-[#233C7B]" }: FeatureCardProps) {
   const content = (
-    <Card variant="solid" interactive className="group h-full">
+    <Card variant="solid" interactive className="group h-full bg-white border-2 border-[#0A25401A]">
       <div className="p-6">
         <Stack gap="lg">
           <Stack direction="row" align="center" justify="between">
             <IconSurface>
-              <Icon className={`h-5 w-5 ${iconClassName}`} />
+              <Icon className={`h-6 w-6 bg-[#233C7B1A] ${iconClassName}`} />
             </IconSurface>
 
             {badge && <Pill>{badge}</Pill>}
           </Stack>
 
           <Stack gap="xs">
-            <Heading as="h3" size="lg">
+            <Heading as="h3" size="lg" className="text-[#0A2540]">
               {title}
             </Heading>
 
@@ -37,7 +37,7 @@ export function FeatureCard({ title, description, icon: Icon, to, badge, ctaLabe
               gap-2
               text-sm
               font-semibold
-              text-[--color-orange]
+              text-[#233C7B]
             "
           >
             {ctaLabel}

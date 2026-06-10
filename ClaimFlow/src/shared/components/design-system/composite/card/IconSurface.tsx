@@ -9,13 +9,10 @@ export function IconSurface({ children }: IconSurfaceProps) {
     <div
       className="
         flex
-        h-10
-        w-10
-        shrink-0
-        items-center
+        h-16 
+        w-16 
+        items-center 
         justify-center
-        rounded-xl
-        bg-white/10
       "
     >
       {children}

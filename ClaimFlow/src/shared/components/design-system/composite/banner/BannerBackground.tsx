@@ -13,7 +13,7 @@ export function BannerBackground({ overlay = true, grid = true }: BannerBackgrou
       <div
         className="
           absolute inset-0
-          bg-[linear-gradient(135deg,#071852_0%,#0c2578_45%,#1a4fd6_100%)]
+          bg-gradient-to-br from-[#0A2540] to-[#233C7B]
         "
       />
 

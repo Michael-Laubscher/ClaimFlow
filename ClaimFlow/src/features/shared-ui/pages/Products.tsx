@@ -11,12 +11,11 @@ export default function ProductsPage() {
       <PageBanner
         title="Insurance Products"
         subtitle="
-          Comprehensive insurance solutions for
-          transport and logistics businesses.
+          Comprehensive coverage solutions designed specifically for African transport and logistics operations.
         "
       />
 
-      <Section className="bg-[--color-slate-50] py-16">
+      <Section className="bg-white py-16">
         <Container>
           <div
             className="
@@ -33,11 +32,11 @@ export default function ProductsPage() {
         </Container>
       </Section>
 
-      <Section className="pb-20">
+      <Section className="pb-20 bg-gradient-to-br from-[#233C7B] to-[#0EA572]">
         <Container>
           <CTASection
-            title="Need help choosing a product?"
-            subtitle="Our specialists will help you find the right coverage for your operations."
+            title="Not sure which product is right for you?"
+            subtitle="Our insurance experts can help you choose the perfect coverage for your business needs."
             actions={[
               { label: "Talk to an Expert", to: "/contact", variant: "primary", size: "lg" },
               { label: "Get a Quote", to: "/quote", variant: "outline", size: "lg" },
