@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import { claimSchema, type ClaimFormData } from "../validation/claim.schema";
+import { claimSchema, type ClaimFormData } from "../schemas/claim.schema";
 
 interface UseClaimFormOptions {
   defaultValues?: Partial<ClaimFormData>;

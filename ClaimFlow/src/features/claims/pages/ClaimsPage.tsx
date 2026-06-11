@@ -1,4 +1,3 @@
-import { FormProvider } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
@@ -10,16 +9,28 @@ import { Stack } from "@/shared/components/design-system/layout/Stack";
 
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 
-import PersonalSection from "../components/sections/PersonalSection";
-import PolicySection from "../components/sections/PolicySection";
+import { Form } from "@/shared/components/forms/components/Form";
 
 import { banners } from "@/features/shared-ui/configs/banners.config";
+
+import PersonalSection from "../components/sections/PersonalSection";
+import PolicySection from "../components/sections/PolicySection";
 import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
-import { useClaimForm } from "../hooks/useClaimForm";
+
+import { useClaimStep1Form } from "../hooks/useClaimStep1Form";
+
+import type { ClaimStep1Data } from "../schemas/claim-step1.schema";
 
 export default function ClaimPage() {
-  const methods = useClaimForm();
   const navigate = useNavigate();
+
+  const methods = useClaimStep1Form();
+
+  const handleSubmit = (data: ClaimStep1Data) => {
+    navigate("/claims/incident", {
+      state: data,
+    });
+  };
 
   return (
     <>
@@ -27,30 +38,22 @@ export default function ClaimPage() {
 
       <Section className="bg-slate-50 py-16">
         <Container>
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto max-w-4xl">
             <ClaimStepper current={1} />
 
-            <FormProvider {...methods}>
-              <Card className="p-8 rounded-3xl">
+            <Form methods={methods} onSubmit={handleSubmit}>
+              <Card className="rounded-3xl p-8">
                 <Stack gap="lg">
                   <PolicySection />
 
                   <PersonalSection />
 
-                  <Button
-                    size="lg"
-                    variant="primary"
-                    onClick={() =>
-                      navigate("/claims/incident", {
-                        state: methods.getValues(),
-                      })
-                    }
-                  >
+                  <Button type="submit" size="lg" variant="primary">
                     Continue
                   </Button>
                 </Stack>
               </Card>
-            </FormProvider>
+            </Form>
           </div>
         </Container>
       </Section>

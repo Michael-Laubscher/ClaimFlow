@@ -4,7 +4,7 @@ import { FormSection } from "@/shared/components/design-system/forms/FormSection
 import { Input } from "@/shared/components/design-system/primitives/Input/Input";
 
 import { FormError } from "@/shared/components/forms/components/FormError";
-import type { ClaimFormData } from "../../validation/claim.schema";
+import type { ClaimFormData } from "../../schemas/claim.schema";
 
 export default function PolicySection() {
   const {
