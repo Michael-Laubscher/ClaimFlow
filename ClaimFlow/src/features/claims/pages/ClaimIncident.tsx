@@ -46,7 +46,7 @@ export default function ClaimIncidentPage() {
                     <Button
                       variant="primary"
                       onClick={() =>
-                        navigate("/claims/new/documents", {
+                        navigate("/claims/documents", {
                           state: methods.getValues(),
                         })
                       }
