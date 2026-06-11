@@ -1,22 +1,30 @@
-import { FormSection } from "@/shared/components/design-system/forms/FormSection";
 import { useFormContext } from "react-hook-form";
 
+import { FormSection } from "@/shared/components/design-system/forms/FormSection";
 import { Input } from "@/shared/components/design-system/primitives/Input/Input";
-import { Text } from "@/shared/components/design-system/typography/Text";
+
+import { FormError } from "@/shared/components/forms/components/FormError";
+import type { ClaimFormData } from "../../validation/claim.schema";
 
 export default function PersonalSection() {
   const {
     register,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext<ClaimFormData>();
 
   return (
     <FormSection title="Personal Details" description="Your contact information">
-      <Input {...register("fullName")} placeholder="Full Name" />
-      {errors.fullName?.message && <Text className="text-red-500 text-sm">{errors.fullName.message as string}</Text>}
+      <div>
+        <Input {...register("fullName")} placeholder="Full Name" error={!!errors.fullName} />
 
-      <Input {...register("email")} placeholder="Email" />
-      {errors.email?.message && <Text className="text-red-500 text-sm">{errors.email.message as string}</Text>}
+        <FormError message={errors.fullName?.message} />
+      </div>
+
+      <div>
+        <Input {...register("email")} type="email" placeholder="Email Address" error={!!errors.email} />
+
+        <FormError message={errors.email?.message} />
+      </div>
     </FormSection>
   );
 }

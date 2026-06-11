@@ -103,11 +103,6 @@ export const banners = {
       label: "File New Claim",
       to: "/claims/new",
     },
-
-    secondaryCta: {
-      label: "Track Claim",
-      to: "/claims/track",
-    },
   },
 
   newClaim: {
@@ -142,38 +137,6 @@ export const banners = {
     },
   },
 
-  trackClaim: {
-    badge: "Claim Tracking",
-
-    title: "Track Your Claim Status",
-
-    subtitle: "Check the progress of your submitted claim and view updates from our claims team.",
-
-    breadcrumbs: [
-      {
-        label: "Home",
-        to: "/",
-      },
-      {
-        label: "Claims",
-        to: "/claims",
-      },
-      {
-        label: "Track Claim",
-      },
-    ],
-
-    primaryCta: {
-      label: "Submit New Claim",
-      to: "/claims/new",
-    },
-
-    secondaryCta: {
-      label: "Contact Support",
-      to: "/contact",
-    },
-  },
-
   claimSuccess: {
     badge: "Claim Submitted",
 
@@ -194,12 +157,6 @@ export const banners = {
         label: "Success",
       },
     ],
-
-    primaryCta: {
-      label: "Track Claim",
-      to: "/claims/track",
-    },
-
     secondaryCta: {
       label: "Return to Claims",
       to: "/claims",

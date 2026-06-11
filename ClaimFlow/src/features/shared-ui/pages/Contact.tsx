@@ -6,7 +6,7 @@ import { Section } from "@/shared/components/design-system/layout/Section";
 
 import { banners } from "@/features/shared-ui/configs/banners.config";
 
-import { ContactForm } from "../components/sections/ContactForm";
+import ContactForm from "../components/sections/ContactForm";
 import { ContactInfo } from "../components/sections/ContactInfo";
 
 export default function ContactPage() {
@@ -15,7 +15,6 @@ export default function ContactPage() {
       <PageBanner {...banners.contact} />
 
       <Section className="relative overflow-hidden bg-slate-50 py-20 lg:py-24">
-        {/* Decorative Background */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -left-32 top-0 h-[28rem] w-[28rem] rounded-full bg-primary/5 blur-3xl" />
 
@@ -26,7 +25,6 @@ export default function ContactPage() {
 
         <Container>
           <div className="relative mx-auto max-w-7xl">
-            {/* Intro */}
             <div className="mx-auto mb-14 max-w-3xl text-center">
               <span className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-4 py-2 text-sm font-medium text-primary">Contact Askari Insurance</span>
 
@@ -37,16 +35,13 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* Content */}
             <div className="grid gap-8 lg:grid-cols-[420px_1fr]">
-              {/* Contact Details */}
               <Card className="relative overflow-hidden rounded-3xl border border-slate-200/60 bg-white p-8 shadow-xl shadow-slate-200/40">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-blue-500 to-cyan-500" />
 
                 <ContactInfo />
               </Card>
 
-              {/* Contact Form */}
               <Card className="relative overflow-hidden rounded-3xl border border-slate-200/60 bg-white p-8 md:p-10 shadow-xl shadow-slate-200/40">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-blue-500 to-cyan-500" />
 

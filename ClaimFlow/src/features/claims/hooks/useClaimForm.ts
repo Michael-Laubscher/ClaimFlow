@@ -11,6 +11,9 @@ export const useClaimForm = (options?: UseClaimFormOptions) => {
   return useForm<ClaimFormData>({
     resolver: zodResolver(claimSchema),
 
+    mode: "onBlur",
+    reValidateMode: "onChange",
+
     defaultValues: {
       claimType: "vehicle",
       ...options?.defaultValues,

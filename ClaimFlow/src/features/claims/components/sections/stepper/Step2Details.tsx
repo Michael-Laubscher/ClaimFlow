@@ -23,30 +23,26 @@ export function Step2({ data, onChange, onNext, onBack }: Step2Props) {
 
   return (
     <Stack gap="lg">
-      {/* Header */}
       <div>
         <Heading size="lg">Your Details</Heading>
 
         <Text className="mt-1 text-slate-500">Tell us about your business</Text>
       </div>
 
-      {/* Form */}
       <Stack gap="md">
-        <InputField label="Business Name" value={data.business} onChange={(v) => onChange("business", v)} />
+        <InputField label="Business Name" value={data.business ?? ""} onChange={(v) => onChange("business", v)} />
 
-        <InputField label="Contact Person" value={data.contact} onChange={(v) => onChange("contact", v)} />
+        <InputField label="Contact Person" value={data.business ?? ""} onChange={(v) => onChange("contact", v)} />
 
         <div className="grid grid-cols-2 gap-4">
-          <InputField label="Email" value={data.email} onChange={(v) => onChange("email", v)} />
+          <InputField label="Email" value={data.business ?? ""} onChange={(v) => onChange("email", v)} />
 
-          <InputField label="Phone" value={data.phone} onChange={(v) => onChange("phone", v)} />
+          <InputField label="Phone" value={data.business ?? ""} onChange={(v) => onChange("phone", v)} />
         </div>
 
-        {/* FIXED: Country is now a SELECT (correct design-system usage) */}
-        <SelectField label="Country" value={data.country} options={COUNTRIES} onChange={(v) => onChange("country", v)} />
+        <SelectField label="Country" value={data.business ?? ""} options={COUNTRIES} onChange={(v) => onChange("country", v)} />
       </Stack>
 
-      {/* Actions */}
       <div className="flex gap-3">
         <Button variant="outline" onClick={onBack}>
           Back

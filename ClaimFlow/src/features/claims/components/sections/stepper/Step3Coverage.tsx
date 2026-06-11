@@ -1,3 +1,4 @@
+import type { Country } from "@/features/claims/configs/countries";
 import type { CoverageLevel } from "@/features/claims/configs/coverageLevels";
 import { COVERAGE_LEVELS } from "@/features/claims/configs/coverageLevels";
 import type { InsuranceType } from "@/features/claims/types/insuranceTypes";
@@ -13,8 +14,8 @@ interface Step3Props {
   onChange: (value: CoverageLevel) => void;
 
   insuranceType: InsuranceType | "";
-  business: string;
-  country: string;
+  business: string | null;
+  country: Country | null;
 
   onBack: () => void;
   onSubmit: () => void;
