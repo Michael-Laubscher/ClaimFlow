@@ -1,9 +1,9 @@
 import { useAppStore } from "@/app/store/useAppStore";
 import { useNavigate } from "react-router-dom";
+import type { ClaimFormData } from "../schemas/claim.schema";
 import { submitClaim } from "../services/claims.service";
 import type { Attachment } from "../types/Attachment.types";
 import { generateClaimZip } from "../utils/zip.util";
-import type { ClaimFormData } from "../validation/claim.schema";
 
 export function useSubmitClaim(reset: () => void) {
   const navigate = useNavigate();
