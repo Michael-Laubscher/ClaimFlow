@@ -15,16 +15,6 @@ export const banners = {
         label: "About",
       },
     ],
-
-    primaryCta: {
-      label: "Get Started",
-      to: "/claims/get-quote",
-    },
-
-    secondaryCta: {
-      label: "Contact Us",
-      to: "/contact",
-    },
   },
 
   faq: {
@@ -101,7 +91,7 @@ export const banners = {
 
     primaryCta: {
       label: "File New Claim",
-      to: "/claims/new",
+      to: "/claims",
     },
   },
 
@@ -125,16 +115,6 @@ export const banners = {
         label: "New Claim",
       },
     ],
-
-    primaryCta: {
-      label: "Track Existing Claim",
-      to: "/claims/track",
-    },
-
-    secondaryCta: {
-      label: "Contact Support",
-      to: "/contact",
-    },
   },
 
   claimSuccess: {

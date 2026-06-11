@@ -17,7 +17,7 @@ import { banners } from "@/features/shared-ui/configs/banners.config";
 import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
 import { useClaimForm } from "../hooks/useClaimForm";
 
-export default function NewClaimPage() {
+export default function ClaimPage() {
   const methods = useClaimForm();
   const navigate = useNavigate();
 
