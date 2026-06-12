@@ -2,7 +2,6 @@ import type { RouteObject } from "react-router-dom";
 
 import ClaimDocumentsPage from "@/features/claims/pages/ClaimDocuments";
 import ClaimIncidentPage from "@/features/claims/pages/ClaimIncident";
-import NewClaimPage from "@/features/claims/pages/NewClaim";
 import { lazyPage, withSuspense } from "../route.utils";
 
 // -----------------------------
@@ -15,8 +14,6 @@ const SuccessPage = lazyPage(() => import("@/features/claims/pages/SuccessPage")
 
 const GetQuotePage = lazyPage(() => import("@/features/claims/pages/GetQuote"));
 
-const TrackClaimPage = lazyPage(() => import("@/features/claims/pages/TrackClaimPage"));
-
 // -----------------------------
 // Routes
 // -----------------------------
@@ -28,28 +25,18 @@ export const claimsRoutes: RouteObject[] = [
   },
 
   {
-    path: "new",
-    element: withSuspense(<NewClaimPage />),
-  },
-
-  {
-    path: "new/incident",
+    path: "incident",
     element: withSuspense(<ClaimIncidentPage />),
   },
 
   {
-    path: "new/documents",
+    path: "documents",
     element: withSuspense(<ClaimDocumentsPage />),
   },
 
   {
     path: "success",
     element: withSuspense(<SuccessPage />),
-  },
-
-  {
-    path: "track",
-    element: withSuspense(<TrackClaimPage />),
   },
 
   {

@@ -1,5 +1,3 @@
-// app/router/routes.constants.ts
-
 export const ROUTES = {
   HOME: "/",
 

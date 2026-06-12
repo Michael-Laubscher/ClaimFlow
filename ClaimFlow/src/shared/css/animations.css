@@ -201,3 +201,23 @@
 .pre-animate {
   opacity: 0;
 }
+
+@keyframes softFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.form-error {
+  animation: softFade 200ms ease-out;
+  color: rgb(239 68 68);
+  font-size: 0.75rem;
+  margin-top: 4px;
+}

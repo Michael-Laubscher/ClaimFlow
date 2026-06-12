@@ -1,23 +1,21 @@
-import type { InputHTMLAttributes } from "react";
-import { forwardRef } from "react";
-
 import { cn } from "@/shared/lib/cn";
+import { forwardRef, type TextareaHTMLAttributes } from "react";
 import { radius } from "../../tokens/radius";
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: boolean;
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(({ className, error, ...props }, ref) => {
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, error, ...props }, ref) => {
   return (
-    <input
+    <textarea
       ref={ref}
       {...props}
       className={cn(
         "w-full px-4 py-3 text-sm",
         "text-slate-900 placeholder:text-slate-400",
         "bg-white/80 backdrop-blur-sm",
-        "border shadow-sm",
+        "border shadow-sm resize-none",
         "transition-all duration-200",
         radius.lg,
 
@@ -31,4 +29,4 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({ className, erro
   );
 });
 
-Input.displayName = "Input";
+Textarea.displayName = "Textarea";

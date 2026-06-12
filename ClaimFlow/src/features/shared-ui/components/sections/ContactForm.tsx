@@ -1,48 +1,93 @@
-import { useState } from "react";
-import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Heading } from "@/shared/components/design-system/typography/Heading";
-import type { ContactFormState } from "@/shared/types/contact.types";
-import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
-import { Card } from "@/shared/components/design-system/composite/card/Card";
+import { FormSection } from "@/shared/components/design-system/forms/FormSection";
+import { Input } from "@/shared/components/design-system/primitives/Input/Input";
+import { Form } from "@/shared/components/forms/components/Form";
+import { FormError } from "@/shared/components/forms/components/FormError";
+import { FormSubmitButton } from "@/shared/components/forms/components/FormSubmitButton";
+import { useContactForm } from "@/shared/components/forms/hooks/useClaimForm";
 
-export function ContactForm() {
-  const [form, setForm] = useState<ContactFormState>({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
+import type { ContactFormValues } from "@/shared/components/forms/schemas/contact.schema";
+import { marketingFormService } from "@/shared/components/forms/services/marketingForm.service";
+import { useToast } from "@/shared/hooks/use-toast";
 
-  const [sent, setSent] = useState(false);
+export default function ContactForm() {
+  const methods = useContactForm();
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
-  };
+  const { success, error } = useToast();
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
+  const {
+    register,
+    formState: { errors },
+  } = methods;
+
+  const onSubmit = async (data: ContactFormValues) => {
+    try {
+      const result = await marketingFormService.submitContactForm(data);
+
+      success({
+        title: "Message Sent",
+        description: result.message,
+      });
+
+      methods.reset();
+    } catch {
+      error({
+        title: "Submission Failed",
+        description: "Unable to send your message right now.",
+      });
+    }
   };
 
   return (
-    <Card variant="glass" className="p-8">
-      <Stack gap="lg">
-        <Heading size="lg">Send Message</Heading>
+    <Form methods={methods} onSubmit={onSubmit}>
+      <FormSection title="Contact Us" description="Send us a message and we'll get back to you.">
+        <div>
+          <Input {...register("name")} placeholder="Your Name" error={!!errors.name} />
 
-        <form onSubmit={onSubmit}>
-          <Stack gap="md">
-            <input name="name" value={form.name} onChange={onChange} />
-            <input name="email" value={form.email} onChange={onChange} />
-            <textarea name="message" value={form.message} onChange={onChange} />
+          <FormError message={errors.name?.message} />
+        </div>
 
-            <Button variant={sent ? "secondary" : "primary"} type="submit">
-              {sent ? "Sent ✓" : "Send Message"}
-            </Button>
-          </Stack>
-        </form>
-      </Stack>
-    </Card>
+        <div>
+          <Input {...register("email")} type="email" placeholder="Email Address" error={!!errors.email} />
+
+          <FormError message={errors.email?.message} />
+        </div>
+
+        <div>
+          <Input {...register("phone")} placeholder="Phone Number" error={!!errors.phone} />
+
+          <FormError message={errors.phone?.message} />
+        </div>
+
+        <div>
+          <Input {...register("subject")} placeholder="Subject" error={!!errors.subject} />
+
+          <FormError message={errors.subject?.message} />
+        </div>
+
+        <div>
+          <textarea
+            {...register("message")}
+            rows={5}
+            placeholder="Your Message"
+            className="
+              w-full
+              rounded-xl
+              border
+              border-slate-200
+              px-4
+              py-3
+              text-sm
+              focus:outline-none
+              focus:ring-2
+              focus:ring-orange-400/40
+            "
+          />
+
+          <FormError message={errors.message?.message} />
+        </div>
+
+        <FormSubmitButton>Send Message</FormSubmitButton>
+      </FormSection>
+    </Form>
   );
 }

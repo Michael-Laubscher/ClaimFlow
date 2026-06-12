@@ -1,90 +1,60 @@
+import { useNavigate } from "react-router-dom";
+
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
+
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
+
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
-import { Text } from "@/shared/components/design-system/typography/Text";
-import { useNavigate } from "react-router-dom";
 
-const CLAIMS = [
-  {
-    number: "CLM-2026-12345",
-    type: "Vehicle Accident",
-    amount: "R120,000",
-    status: "Under Review",
-    date: "08 May 2026",
-  },
-];
+import { Form } from "@/shared/components/forms/components/Form";
 
-export default function ClaimsPage() {
+import { banners } from "@/features/shared-ui/configs/banners.config";
+
+import PersonalSection from "../components/sections/PersonalSection";
+import PolicySection from "../components/sections/PolicySection";
+import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
+
+import { useClaimStep1Form } from "../hooks/useClaimStep1Form";
+
+import type { ClaimStep1Data } from "../schemas/claim-step1.schema";
+
+export default function ClaimPage() {
   const navigate = useNavigate();
+
+  const methods = useClaimStep1Form();
+
+  const handleSubmit = (data: ClaimStep1Data) => {
+    navigate("/claims/incident", {
+      state: data,
+    });
+  };
 
   return (
     <>
-      <PageBanner title="Claims Centre" subtitle="Manage and track all your insurance claims" />
+      <PageBanner {...banners.newClaim} />
 
-      <Section className="bg-slate-50 py-20">
+      <Section className="bg-slate-50 py-16">
         <Container>
-          <Stack gap="xl">
-            {/* Stats */}
-            <div className="grid gap-6 md:grid-cols-4">
-              <Card className="p-6 text-center">
-                <h3 className="text-3xl font-bold text-[#0f2044]">5</h3>
-                <Text color="muted">Total Claims</Text>
+          <div className="mx-auto max-w-4xl">
+            <ClaimStepper current={1} />
+
+            <Form methods={methods} onSubmit={handleSubmit}>
+              <Card className="rounded-3xl p-8">
+                <Stack gap="lg">
+                  <PolicySection />
+
+                  <PersonalSection />
+
+                  <Button type="submit" size="lg" variant="primary">
+                    Continue
+                  </Button>
+                </Stack>
               </Card>
-
-              <Card className="p-6 text-center">
-                <h3 className="text-3xl font-bold text-orange-500">1</h3>
-                <Text color="muted">In Progress</Text>
-              </Card>
-
-              <Card className="p-6 text-center">
-                <h3 className="text-3xl font-bold text-green-600">3</h3>
-                <Text color="muted">Settled</Text>
-              </Card>
-
-              <Card className="p-6 text-center">
-                <h3 className="text-3xl font-bold text-[#0f2044]">R475,000</h3>
-                <Text color="muted">Total Paid</Text>
-              </Card>
-            </div>
-
-            {/* Claims Table */}
-            <Card className="overflow-hidden">
-              <div className="flex items-center justify-between p-6 border-b">
-                <Text variant="title">Claims History</Text>
-
-                <Button variant="primary" onClick={() => navigate("/claims/new")}>
-                  File New Claim
-                </Button>
-              </div>
-
-              <table className="w-full">
-                <thead className="bg-slate-50">
-                  <tr>
-                    <th className="p-4 text-left">Claim No.</th>
-                    <th className="p-4 text-left">Type</th>
-                    <th className="p-4 text-left">Date</th>
-                    <th className="p-4 text-left">Amount</th>
-                    <th className="p-4 text-left">Status</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {CLAIMS.map((claim) => (
-                    <tr key={claim.number} className="border-t">
-                      <td className="p-4">{claim.number}</td>
-                      <td className="p-4">{claim.type}</td>
-                      <td className="p-4">{claim.date}</td>
-                      <td className="p-4">{claim.amount}</td>
-                      <td className="p-4">{claim.status}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </Card>
-          </Stack>
+            </Form>
+          </div>
         </Container>
       </Section>
     </>

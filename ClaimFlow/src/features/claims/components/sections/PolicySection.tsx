@@ -1,20 +1,22 @@
 import { useFormContext } from "react-hook-form";
-import { FormSection } from "@/shared/components/design-system/forms/FormSection";
 
-import { Text } from "@/shared/components/design-system/typography/Text";
+import { FormSection } from "@/shared/components/design-system/forms/FormSection";
 import { Input } from "@/shared/components/design-system/primitives/Input/Input";
+
+import { FormError } from "@/shared/components/forms/components/FormError";
+import type { ClaimFormData } from "../../schemas/claim.schema";
 
 export default function PolicySection() {
   const {
     register,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext<ClaimFormData>();
 
   return (
     <FormSection title="Policy Details" description="Enter your policy information">
-      <Input {...register("policyNumber")} placeholder="Policy Number" />
+      <Input {...register("policyNumber")} placeholder="Policy Number" error={!!errors.policyNumber} />
 
-      {errors.policyNumber?.message && <Text className="text-red-500 text-sm">{errors.policyNumber.message as string}</Text>}
+      <FormError message={errors.policyNumber?.message} />
     </FormSection>
   );
 }
