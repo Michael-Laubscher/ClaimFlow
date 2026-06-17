@@ -26,12 +26,71 @@ interface Step3Props {
 export function Step3({ coverage, onChange, insuranceType, business, country, onBack, onSubmit, submitted }: Step3Props) {
   if (submitted) {
     return (
-      <Stack align="center" gap="md">
-        <div className="text-4xl text-green-600">✓</div>
+      <Stack align="center" gap="lg" className="py-10">
+        <div className="relative flex items-center justify-center">
+          <div className="absolute h-24 w-24 rounded-full bg-green-500/10 blur-2xl" />
 
-        <Heading size="lg">Quote Submitted</Heading>
+          <div
+            className="
+            relative
+            flex
+            h-16
+            w-16
+            items-center
+            justify-center
+            rounded-2xl
+            border
+            border-green-500/20
+            bg-green-500/10
+            text-green-500
+            shadow-[0_10px_40px_rgba(34,197,94,0.15)]
+          "
+          >
+            <span className="text-2xl font-bold">✓</span>
+          </div>
+        </div>
 
-        <Text className="text-center text-slate-500">We’ll get back to you shortly.</Text>
+        <Stack align="center" gap="xs">
+          <Heading size="lg" className="text-center text-slate-900">
+            Quote Submitted
+          </Heading>
+
+          <Text className="text-center text-slate-500 max-w-md">Your request has been securely submitted. Our underwriting team will review your details and prepare your personalized quote.</Text>
+        </Stack>
+
+        <div
+          className="
+          inline-flex
+          items-center
+          gap-2
+          rounded-full
+          border
+          border-green-500/20
+          bg-green-500/10
+          px-4
+          py-1.5
+          text-xs
+          font-medium
+          text-green-700
+        "
+        >
+          <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+          Submission successful
+        </div>
+
+        <Card variant="glass" className="mt-2 w-full max-w-md p-5 text-center">
+          <Text variant="sm" color="muted">
+            Typical response time: <span className="text-slate-800 font-medium">within 24–48 hours</span>
+          </Text>
+
+          <Text variant="sm" color="muted" className="mt-2">
+            You’ll receive your quote via email once it’s ready.
+          </Text>
+        </Card>
+
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Button to="/">Back to Dashboard</Button>
+        </div>
       </Stack>
     );
   }
