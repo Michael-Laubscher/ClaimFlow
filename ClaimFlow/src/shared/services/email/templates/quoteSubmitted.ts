@@ -6,7 +6,11 @@ type QuoteTemplateProps = {
   coverage: string;
 };
 
-export function quoteSubmittedTemplate({ business, insuranceType, coverage }: QuoteTemplateProps) {
+export function quoteSubmittedTemplate({ business, insuranceType, coverage }: QuoteTemplateProps): {
+  subject: string;
+  html: string;
+  text?: string;
+} {
   return {
     subject: "Quote Request Received",
     html: `

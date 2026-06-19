@@ -1,6 +1,10 @@
 import { theme } from "../types/theme";
 
-export function claimEmailTemplate(data: { name: string; claimNumber: string }) {
+export function claimReceivedTemplate(data: { name: string; claimNumber: string; text?: string }): {
+  subject: string;
+  html: string;
+  text?: string;
+} {
   return {
     subject: "Claim Received",
     html: `

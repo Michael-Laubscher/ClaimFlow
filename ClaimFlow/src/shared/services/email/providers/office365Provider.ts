@@ -1,12 +1,14 @@
+import type { Client } from "@microsoft/microsoft-graph-client";
 import type { SendEmailInput } from "../types/types";
 import type { IEmailProvider } from "./IEmailProvider";
 
 export class Office365Provider implements IEmailProvider {
-  constructor(private client: any) {}
-  senderEmail = import.meta.env.VITE_EMAIL_SENDER;
+  constructor(private client: Client) {}
 
-  async sendEmail(input: SendEmailInput): Promise<void> {
-    await this.client.api(`/users/${this.senderEmail}/sendMail`).post({
+  senderEmail = process.env.EMAIL_SENDER;
+
+  async sendEmail(input: SendEmailInput) {
+    const res = await this.client.api(`/users/${this.senderEmail}/sendMail`).post({
       message: {
         subject: input.subject,
         body: {
@@ -16,5 +18,9 @@ export class Office365Provider implements IEmailProvider {
         toRecipients: [{ emailAddress: { address: input.to } }],
       },
     });
+
+    return {
+      messageId: res.id ?? "unknown",
+    };
   }
 }

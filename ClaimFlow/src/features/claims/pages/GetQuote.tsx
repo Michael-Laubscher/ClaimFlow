@@ -7,39 +7,34 @@ import { Stack } from "@/shared/components/design-system/layout/Stack";
 
 import { banners } from "@/features/shared-ui/configs/banners.config";
 
-import { quoteSubmittedTemplate } from "@/shared/services/email/templates/quoteSubmitted";
 import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
 import { Step1 } from "../components/sections/stepper/Step1SelectType";
 import { Step2 } from "../components/sections/stepper/Step2Details";
 import { Step3 } from "../components/sections/stepper/Step3Coverage";
 
 import { useToast } from "@/shared/components/design-system/feedback/Toast";
-import { emailService } from "@/shared/services/email/services/email.service";
+import { MockEmailProvider } from "@/shared/services/email/providers/MockEmailProvider";
+import { EmailService } from "@/shared/services/email/services/emailService";
 import { quoteNotifications } from "../components/sections/QuoteProvider/quoteNotifications";
 import { useQuoteForm } from "../hooks/useQuoteForm";
 
 export default function GetQuotePage() {
+  const emailService = new EmailService(new MockEmailProvider());
+
   const toast = useToast();
 
   const handleSubmit = async () => {
     try {
-      const template = quoteSubmittedTemplate({
+      await emailService.sendQuoteSubmitted({
+        email: details.email ?? "",
         business: details.business ?? "",
         insuranceType,
         coverage,
       });
 
-      await emailService.send({
-        to: details.email ?? "",
-        subject: template.subject,
-        html: template.html,
-      });
-
-      // 🔔 UI notification
       quoteNotifications.submitted(toast);
-
       setSubmitted(true);
-    } catch (err) {
+    } catch {
       quoteNotifications.failed(toast);
     }
   };

@@ -1,5 +1,6 @@
 import { useAppStore } from "@/app/store/useAppStore";
 import { useNavigate } from "react-router-dom";
+
 import type { ClaimFormData } from "../schemas/claim.schema";
 import { submitClaim } from "../services/claims.service";
 import type { Attachment } from "../types/Attachment.types";
@@ -9,7 +10,7 @@ export function useSubmitClaim(reset: () => void) {
   const navigate = useNavigate();
   const { setLoading, setError } = useAppStore();
 
-  const extractFiles = (attachments: Attachment[] = []) => attachments.map((a) => a.file);
+  const extractFiles = (attachments: Attachment[] = []) => attachments.map((attachment) => attachment.file);
 
   const submit = async (data: ClaimFormData) => {
     try {
@@ -18,17 +19,17 @@ export function useSubmitClaim(reset: () => void) {
 
       const files = extractFiles(data.attachments);
 
-      const zipBlob = await generateClaimZip(data, files);
+      const zip = await generateClaimZip(data, files);
 
       await submitClaim({
         ...data,
-        zip: zipBlob,
+        zip,
       });
 
       reset();
       navigate("/claims/success");
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
       setError("Failed to submit claim. Please try again.");
     } finally {
       setLoading(false);
