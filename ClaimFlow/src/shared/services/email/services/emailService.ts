@@ -8,7 +8,8 @@ import { quoteSubmittedTemplate } from "../templates/quoteSubmitted";
 
 import type { SendEmailInput } from "../types/types";
 
-const SUPPORT_EMAIL = process.env.SUPPORT_EMAIL ?? "support@company.com";
+const SUPPORT_EMAIL =
+  import.meta.env.VITE_SUPPORT_EMAIL ?? "support@company.com";
 
 export class EmailService {
   constructor(private provider: IEmailProvider) {}
