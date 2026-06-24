@@ -1,4 +1,5 @@
 import { theme } from "../types/theme";
+import { escapeHtml } from "../utils/escapeHtml";
 
 export function claimReceivedTemplate(data: { name: string; claimNumber: string; text?: string }): {
   subject: string;
@@ -149,12 +150,12 @@ export function claimReceivedTemplate(data: { name: string; claimNumber: string;
             <div class="content">
 
               <p class="muted">
-                Hi ${data.name}, your claim is now being reviewed by our team. We’ll notify you of any updates.
+                Hi ${escapeHtml(data.name)}${data.name}, your claim is now being reviewed by our team. We’ll notify you of any updates.
               </p>
 
               <div class="card">
                 <div class="label">Claim Number</div>
-                <div class="value">${data.claimNumber}</div>
+                <div class="value">${escapeHtml(data.claimNumber)}${data.claimNumber}</div>
               </div>
 
               <div class="btn-wrap">
@@ -185,6 +186,10 @@ export function claimReceivedTemplate(data: { name: string; claimNumber: string;
   </div>
 </body>
 </html>
+    `,
+
+    text: `
+${escapeHtml(data.text)}${data.text}
     `,
   };
 }

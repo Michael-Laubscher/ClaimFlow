@@ -1,4 +1,5 @@
 import { theme } from "../types/theme";
+import { escapeHtml } from "../utils/escapeHtml";
 
 type QuoteReadyTemplateProps = {
   name: string;
@@ -148,7 +149,7 @@ export function quoteReadyTemplate(data: QuoteReadyTemplateProps): {
 <div class="content">
 
 <p class="muted">
-Hi ${data.name}, your quote has been prepared and is ready for you to review.
+Hi ${escapeHtml(data.name)}${data.name}, your quote has been prepared and is ready for you to review.
 </p>
 
 
@@ -159,7 +160,7 @@ Quote Number
 </div>
 
 <div class="value">
-${data.quoteNumber}
+${escapeHtml(data.quoteNumber)}${data.quoteNumber}
 </div>
 
 
@@ -220,9 +221,9 @@ Need help? Contact support anytime.<br/>
     text: `
 Your Quote Is Ready
 
-Hi ${data.name},
+Hi ${escapeHtml(data.name)}${data.name},
 
-Your quote (${data.quoteNumber}) is ready to review.
+Your quote (${escapeHtml(data.quoteNumber)}${data.quoteNumber}) is ready to review.
 
 ${data.amount ? `Coverage: ${data.amount}` : ""}
 

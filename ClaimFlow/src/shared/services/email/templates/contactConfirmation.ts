@@ -1,4 +1,5 @@
 import { theme } from "../types/theme";
+import { escapeHtml } from "../utils/escapeHtml";
 
 type ContactTemplateProps = {
   name: string;
@@ -104,7 +105,7 @@ export function contactTemplate(data: ContactTemplateProps) {
 
   <div class="content">
 
-    <p>Hi ${data.name},</p>
+    <p>Hi ${escapeHtml(data.name)}${data.name},</p>
 
     <p>
       We've successfully received your message and a member of our team
@@ -113,19 +114,19 @@ export function contactTemplate(data: ContactTemplateProps) {
 
     <div class="box">
       <div class="label">Name</div>
-      <div>${data.name}</div>
+      <div>${escapeHtml(data.name)}${data.name}</div>
 
       <div class="label" style="margin-top:12px;">
         Email
       </div>
-      <div>${data.email}</div>
+      <div>${escapeHtml(data.email)}${data.email}</div>
     </div>
 
     <div style="margin-top:20px;">
       <div class="label">Your Message</div>
 
       <div class="message">
-${data.message}
+${escapeHtml(data.message)}${data.message}
       </div>
     </div>
 
@@ -144,15 +145,15 @@ ${data.message}
     text: `
 Message Received
 
-Hi ${data.name},
+Hi ${escapeHtml(data.name)}${data.name},
 
 We've received your message and will respond shortly.
 
 Email:
-${data.email}
+${escapeHtml(data.email)}${data.email}
 
 Message:
-${data.message}
+${escapeHtml(data.message)}${data.message}
 
 © ${year} Your Company
     `,

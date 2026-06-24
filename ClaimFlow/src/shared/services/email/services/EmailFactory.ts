@@ -1,12 +1,13 @@
-import { graphClient } from "../../graphClient";
-import type { IEmailProvider } from "../providers/IEmailProvider";
 import { MockEmailProvider } from "../providers/MockEmailProvider";
-import { Office365Provider } from "../providers/office365Provider";
+import { NodemailerProvider } from "../providers/NodemailerProvider";
 
-export function createEmailProvider(): IEmailProvider {
+export function createEmailProvider() {
+
+  console.log("EMAIL_PROVIDER =", process.env.EMAIL_PROVIDER);
+
   switch (process.env.EMAIL_PROVIDER) {
-    case "office365":
-      return new Office365Provider(graphClient);
+    case "smtp":
+      return new NodemailerProvider();
 
     case "mock":
       return new MockEmailProvider();
@@ -15,3 +16,4 @@ export function createEmailProvider(): IEmailProvider {
       throw new Error("Provider not configured");
   }
 }
+
