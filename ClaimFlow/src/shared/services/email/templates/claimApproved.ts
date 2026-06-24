@@ -1,4 +1,5 @@
 import { theme } from "../types/theme";
+import { escapeHtml } from "../utils/escapeHtml";
 
 type ClaimApprovedTemplateProps = {
   name: string;
@@ -109,7 +110,7 @@ export function claimApprovedTemplate(data: ClaimApprovedTemplateProps) {
 
     <div class="content">
 
-      <p>Hi ${data.name},</p>
+      <p>Hi ${escapeHtml(data.name)}${data.name},</p>
 
       <p>
         We’re pleased to inform you that your claim has been reviewed and approved.
@@ -117,7 +118,7 @@ export function claimApprovedTemplate(data: ClaimApprovedTemplateProps) {
 
       <div class="box">
         <div class="label">Claim Number</div>
-        <div class="value">${data.claimNumber}</div>
+        <div class="value">${escapeHtml(data.claimNumber)}${data.claimNumber}</div>
       </div>
 
       <div style="text-align:center;">
@@ -144,9 +145,9 @@ export function claimApprovedTemplate(data: ClaimApprovedTemplateProps) {
     text: `
 Claim Approved
 
-Hi ${data.name},
+Hi ${escapeHtml(data.name)}${data.name},
 
-Your claim (${data.claimNumber}) has been approved.
+Your claim (${escapeHtml(data.claimNumber)}${data.claimNumber}) has been approved.
 
 Please contact support if you have any questions.
 

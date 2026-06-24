@@ -7,9 +7,10 @@ import { otpTemplate } from "../templates/otpTemplate";
 import { quoteSubmittedTemplate } from "../templates/quoteSubmitted";
 
 import type { SendEmailInput } from "../types/types";
+import { prepareHtml } from "../utils/prepareHtml";
+import { validateEmail } from "../utils/validateEmail";
 
-const SUPPORT_EMAIL =
-  import.meta.env.VITE_SUPPORT_EMAIL ?? "support@company.com";
+const SUPPORT_EMAIL = import.meta.env.VITE_SUPPORT_EMAIL ?? "support@company.com";
 
 export class EmailService {
   constructor(private provider: IEmailProvider) {}
@@ -18,7 +19,13 @@ export class EmailService {
   // Base sender (single gateway)
   // -----------------------------
   private async send(input: SendEmailInput) {
-    return this.provider.sendEmail(input);
+    validateEmail(input.to);
+    const html = prepareHtml(input.html);
+
+    return this.provider.sendEmail({
+      ...input,
+      html,
+    });
   }
 
   private buildEmail(to: string, template: { subject: string; html: string; text?: string }): SendEmailInput {

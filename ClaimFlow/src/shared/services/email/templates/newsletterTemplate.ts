@@ -1,4 +1,5 @@
 import { theme } from "../types/theme";
+import { escapeHtml } from "../utils/escapeHtml";
 
 type NewsletterTopic = {
   title: string;
@@ -12,6 +13,7 @@ type NewsletterTemplateProps = {
   intro: string;
   newsPageUrl: string;
   topics: NewsletterTopic[];
+  unsubscribeToken: string;
 };
 
 export function newsletterTemplate(data: NewsletterTemplateProps): {
@@ -111,7 +113,7 @@ ${data.title}
 
 <p class="text">
 
-${data.name ? `Hi ${data.name},<br/><br/>` : ""}
+${escapeHtml(data.name)}${data.name ? `Hi ${escapeHtml(data.name)}${data.name},<br/><br/>` : ""}
 
 ${data.intro}
 
@@ -194,6 +196,14 @@ You received this email because you subscribed to our updates.
 © ${new Date().getFullYear()} Your Company
 
 </div>
+<br/>
+
+<div>
+
+<a href="https://domain.com/unsubscribe?token=xyz">
+  Unsubscribe
+</a>
+</div>
 
 
 </div>
@@ -214,7 +224,7 @@ You received this email because you subscribed to our updates.
     text: `
 ${data.title}
 
-${data.name ? `Hi ${data.name},` : ""}
+${escapeHtml(data.name)}${data.name ? `Hi ${escapeHtml(data.name)}${data.name},` : ""}
 
 ${data.intro}
 
