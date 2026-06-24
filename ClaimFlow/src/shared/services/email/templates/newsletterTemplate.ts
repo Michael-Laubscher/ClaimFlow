@@ -13,7 +13,7 @@ type NewsletterTemplateProps = {
   intro: string;
   newsPageUrl: string;
   topics: NewsletterTopic[];
-  unsubscribeToken: string;
+  unsubscribeToken?: string;
 };
 
 export function newsletterTemplate(data: NewsletterTemplateProps): {
@@ -200,7 +200,7 @@ You received this email because you subscribed to our updates.
 
 <div>
 
-<a href="https://domain.com/unsubscribe?token=xyz">
+<a href="https://domain.com/" + ${data.unsubscribeToken}">
   Unsubscribe
 </a>
 </div>
