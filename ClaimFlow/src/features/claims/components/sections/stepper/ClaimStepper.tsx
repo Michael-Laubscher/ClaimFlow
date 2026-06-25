@@ -2,33 +2,61 @@ interface ClaimStepperProps {
   current: number;
 }
 
-export function ClaimStepper({ current }: ClaimStepperProps) {
-  const steps = ["Policy Info", "Incident Details", "Documents"];
+const STEPS = [
+  "Policy",
+  "Incident",
+  "Driver",
+  "Vehicle",
+  "3rd Party",
+  "Evidence",
+  "Assessment",
+  "Declaration",
+];
 
+export function ClaimStepper({ current }: ClaimStepperProps) {
   return (
-    <div className="flex items-center justify-center mb-12">
-      {steps.map((step, index) => {
+    <div className="mb-12 flex items-center justify-center overflow-x-auto">
+      {STEPS.map((step, index) => {
         const number = index + 1;
-        const active = number <= current;
+
+        const active = current === number;
+
+        const complete = current > number;
 
         return (
           <div key={step} className="flex items-center">
             <div className="flex flex-col items-center">
               <div
                 className={`
-                  flex h-10 w-10 items-center justify-center
-                  rounded-full text-sm font-semibold
-                  transition-all
-                  ${active ? "bg-[#0f2044] text-white" : "border border-slate-300 bg-white text-slate-400"}
+                  flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold
+                  ${
+                    complete
+                      ? "bg-orange-500 text-white"
+                      : active
+                      ? "bg-slate-900 text-white"
+                      : "border border-slate-300 bg-white text-slate-400"
+                  }
                 `}
               >
-                {number}
+                {complete ? "✓" : number}
               </div>
 
-              <span className={`mt-2 text-xs font-medium ${active ? "text-[#0f2044]" : "text-slate-400"}`}>{step}</span>
+              <span
+                className={`mt-2 text-xs ${
+                  active ? "font-medium text-slate-900" : "text-slate-400"
+                }`}
+              >
+                {step}
+              </span>
             </div>
 
-            {index < steps.length - 1 && <div className={`mx-4 mb-5 h-[2px] w-24 ${number < current ? "bg-[#0f2044]" : "bg-slate-200"}`} />}
+            {index < STEPS.length - 1 && (
+              <div
+                className={`mx-3 mb-5 h-[2px] w-6 ${
+                  complete ? "bg-orange-500" : "bg-slate-200"
+                }`}
+              />
+            )}
           </div>
         );
       })}

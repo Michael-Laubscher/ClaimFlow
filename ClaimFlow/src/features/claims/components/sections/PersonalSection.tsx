@@ -15,15 +15,20 @@ export default function PersonalSection() {
   return (
     <FormSection title="Personal Details" description="Your contact information">
       <div>
-        <Input {...register("fullName")} placeholder="Full Name" error={!!errors.fullName} />
+        <Input {...register("claimant.fullName")} placeholder="Full Name" error={!!errors.claimant?.fullName} />
 
-        <FormError message={errors.fullName?.message} />
+        <FormError message={errors.claimant?.fullName?.message} />
       </div>
 
       <div>
-        <Input {...register("email")} type="email" placeholder="Email Address" error={!!errors.email} />
+        <Input {...register("claimant.email")} type="email" placeholder="Email Address" error={!!errors.claimant?.email} />
 
-        <FormError message={errors.email?.message} />
+        <FormError message={errors.claimant?.email?.message} />
+      </div>
+      <div>
+        <Input {...register("claimant.contactNumber")} placeholder="Contact Number" error={!!errors.claimant?.contactNumber} />
+
+        <FormError message={errors.claimant?.contactNumber?.message} />
       </div>
     </FormSection>
   );

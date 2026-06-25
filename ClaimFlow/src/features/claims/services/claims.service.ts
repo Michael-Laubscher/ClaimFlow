@@ -8,14 +8,11 @@ export type SubmitClaimInput = ClaimFormData & {
 export const submitClaim = async (data: SubmitClaimInput) => {
   const claimId = `CLM-${Date.now()}`;
 
-  // TODO:
-  // Upload zip to storage, attach it to an email,
-  // or persist it with the claim record.
   const claimZip = data.zip;
 
   await emailService.sendClaimReceived({
-    email: data.email,
-    name: data.fullName,
+    email: data.step1.email,
+    name: data.step1.fullName,
     claimNumber: claimId,
   });
 

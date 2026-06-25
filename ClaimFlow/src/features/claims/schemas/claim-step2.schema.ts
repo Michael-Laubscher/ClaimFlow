@@ -1,15 +1,36 @@
 import { z } from "zod";
 
 export const claimStep2Schema = z.object({
-  incidentDate: z.string().min(1, "Incident date is required"),
+  incidentDate: z.string().min(1),
 
-  claimType: z.enum(["vehicle", "property", "other"], {
-    errorMap: () => ({
-      message: "Please select a claim type",
-    }),
-  }),
+  incidentTime: z.string().min(1),
 
-  description: z.string().min(10, "Description must be at least 10 characters"),
+  country: z.string().min(1),
+
+  city: z.string().min(1),
+
+  exactLocation: z.string().min(1),
+
+  claimType: z.enum([
+    "collision",
+    "theft",
+    "fire",
+    "vandalism",
+    "other",
+    "vehicle"
+  ]),
+
+  
+
+  description: z.string().min(20),
+
+  anyoneInjured: z.boolean(),
+
+  emergencyServicesCalled: z.boolean(),
+
+  policeReportNumber: z.string().optional(),
+
+  vehicleDrivable: z.boolean(),
 });
 
 export type ClaimStep2Data = z.infer<typeof claimStep2Schema>;
