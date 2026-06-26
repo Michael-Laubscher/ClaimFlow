@@ -89,7 +89,7 @@ export function Step3({ coverage, onChange, insuranceType, business, country, on
         </Card>
 
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Button to="/">Back to Dashboard</Button>
+          <Button to="/">Return Home</Button>
         </div>
       </Stack>
     );
