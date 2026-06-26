@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 interface InfoListItem {
   id: string | number;
   label: string;
-  type?: "bullet" | "check"; // default "bullet"
+  type?: "bullet" | "check";
 }
 
 interface InfoListProps {
@@ -14,24 +14,78 @@ interface InfoListProps {
 
 export function InfoList({ items, className }: InfoListProps) {
   return (
-    <ul className={cn("space-y-2 text-[--color-text-secondary]", className)}>
+    <ul
+      className={cn(
+        `
+        space-y-3
+        text-sm
+        text-slate-600
+        `,
+        className
+      )}
+    >
       {items.map((item) => (
-        <li key={item.id} className="flex items-start gap-3">
+        <li
+          key={item.id}
+          className="
+            group
+            flex
+            items-start
+            gap-3
+            rounded-xl
+            transition
+            hover:bg-white
+            hover:px-2
+            hover:py-1.5
+          "
+        >
           {item.type === "check" ? (
-            <Check className="mt-0.5 h-5 w-5 shrink-0 text-[--color-orange]" />
+            <span
+              className="
+                mt-0.5
+                flex
+                h-5
+                w-5
+                shrink-0
+                items-center
+                justify-center
+                rounded-full
+                bg-green-50
+              "
+            >
+              <Check
+                className="
+                  h-3.5
+                  w-3.5
+                  text-green-600
+                "
+              />
+            </span>
           ) : (
             <span
               className="
-                mt-1.5
+                mt-2
                 h-1.5
                 w-1.5
-                flex-shrink-0
+                shrink-0
                 rounded-full
-                bg-[--color-brand-primary]
+                bg-gradient-to-r
+                from-green-500
+                to-blue-500
               "
             />
           )}
-          <span>{item.label}</span>
+
+          <span
+            className="
+              leading-relaxed
+              text-slate-600
+              transition
+              group-hover:text-slate-900
+            "
+          >
+            {item.label}
+          </span>
         </li>
       ))}
     </ul>

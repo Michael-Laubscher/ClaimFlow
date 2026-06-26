@@ -12,4 +12,7 @@ export interface ModalProps {
   children: ReactNode;
 
   disableCloseOnOverlayClick?: boolean;
+
+  image?: string;
+  footer?: string;
 }

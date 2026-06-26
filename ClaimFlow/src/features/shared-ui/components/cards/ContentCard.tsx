@@ -23,17 +23,47 @@ interface ContentCardProps {
   ctaLabel?: string;
   ctaVariant?: React.ComponentProps<typeof Button>["variant"];
   interactive?: boolean;
+  onClick?: () => void;
 }
 
-export function ContentCard({ content, cardVariant, badgeVariant = "default", imageHeight = "h-44", ctaLabel = "Read more", ctaVariant = "secondary", interactive = true }: ContentCardProps) {
+export function ContentCard({ content, cardVariant, badgeVariant = "default", imageHeight = "h-44", ctaLabel = "Read more", ctaVariant = "secondary", interactive = true, onClick }: ContentCardProps) {
   return (
-    <Card variant={cardVariant} interactive={interactive} className="overflow-hidden">
-      {/* Image */}
-      <div className={`${imageHeight} ${content.color} flex items-center justify-center`}>
-        <div className="h-14 w-14 rounded-full bg-white/60" />
+    <Card
+      variant={cardVariant}
+      interactive={interactive}
+      onClick={onClick}
+      className="
+    group
+    overflow-hidden
+    transition-all
+    duration-300
+    hover:-translate-y-1
+    hover:shadow-xl
+    hover:shadow-slate-200/50
+  "
+    >
+      <div
+        className={`
+${imageHeight}
+${content.color}
+flex
+items-center
+justify-center
+transition
+group-hover:scale-[1.02]
+`}
+      >
+        <div
+          className="
+h-14
+w-14
+rounded-full
+bg-white/60
+backdrop-blur
+"
+        />
       </div>
 
-      {/* Content */}
       <div className="p-6">
         <Stack direction="row" justify="between" align="center">
           <Badge variant={badgeVariant}>{content.category}</Badge>
@@ -51,7 +81,14 @@ export function ContentCard({ content, cardVariant, badgeVariant = "default", im
           </Text>
         </div>
 
-        <div className="mt-6 border-t border-[--color-slate-100] pt-4">
+        <div
+          className="
+mt-6
+border-t
+border-slate-100
+pt-4
+"
+        >
           <Stack direction="row" justify="between" align="center">
             <Text variant="sm" color="muted">
               {content.date}

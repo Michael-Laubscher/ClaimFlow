@@ -1,19 +1,19 @@
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
+
 import { BenefitsSection } from "../components/sections/BenefitsSection";
 import { PartnersTestimonialsSection } from "../components/sections/PartnersTestimonialsSection";
 import { PartnerTypesSection } from "../components/sections/PartnerTypesSection";
 import { ProcessSection } from "../components/sections/ProcessSection";
-import { SectionBlock } from "../components/sections/SectionBlock";
-import { banners } from "../configs/banners.config";
+import { TrustedNetworkSection } from "../components/sections/TrustedNetworkSection";
 
-const logos = ["TransGlobal", "CargoLink", "AfriMove", "FleetAxis", "TradeRoute"];
+import { banners } from "../configs/banners.config";
 
 export default function PartnersPage() {
   return (
-    <>
+    <main className="overflow-hidden">
       <PageBanner {...banners.partner} />
 
-      <SectionBlock subtitle="Trusted Across African Trade Networks" layout="logos" items={logos} />
+      <TrustedNetworkSection />
 
       <PartnerTypesSection />
 
@@ -22,20 +22,20 @@ export default function PartnersPage() {
       <ProcessSection />
 
       <PartnersTestimonialsSection
-        title="What Our Partners Say"
+        title="Trusted By Industry Leaders"
         items={[
           {
             company: "East Africa Logistics Group",
-            quote: "Askari helped us streamline insurance processes for cross-border operations.",
+            quote: "Askari transformed how we manage insurance across multiple borders. Their technology and support have improved our operations significantly.",
             role: "Operations Director",
           },
           {
             company: "Continental Freight Solutions",
-            quote: "The onboarding experience and support were exceptional from day one.",
+            quote: "The onboarding process was seamless. Askari understands logistics challenges and provides practical solutions.",
             role: "Regional Manager",
           },
         ]}
       />
-    </>
+    </main>
   );
 }
