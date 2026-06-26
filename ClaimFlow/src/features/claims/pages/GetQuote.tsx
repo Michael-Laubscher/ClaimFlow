@@ -6,8 +6,6 @@ import { Section } from "@/shared/components/design-system/layout/Section";
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 
 import { banners } from "@/features/shared-ui/configs/banners.config";
-
-import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
 import { Step1 } from "../components/sections/stepper/Step1SelectType";
 import { Step2 } from "../components/sections/stepper/Step2Details";
 import { Step3 } from "../components/sections/stepper/Step3Coverage";
@@ -17,6 +15,7 @@ import { MockEmailProvider } from "@/shared/services/email/providers/MockEmailPr
 import { EmailService } from "@/shared/services/email/services/emailService";
 import { quoteNotifications } from "../components/sections/QuoteProvider/quoteNotifications";
 import { useQuoteForm } from "../hooks/useQuoteForm";
+import { Stepper } from "../components/sections/stepper/Stepper";
 
 export default function GetQuotePage() {
   const emailService = new EmailService(new MockEmailProvider());
@@ -64,7 +63,7 @@ export default function GetQuotePage() {
       <Section className="bg-slate-50 py-16">
         <Container>
           <div className="mx-auto max-w-4xl">
-            <ClaimStepper current={step} />
+            <Stepper step={step} />
 
             <Card className="rounded-3xl p-8">
               <Stack gap="lg">
