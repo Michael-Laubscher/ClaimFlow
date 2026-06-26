@@ -8,7 +8,7 @@ interface HeroStatsProps {
 
 export function HeroStats({ loaded }: HeroStatsProps) {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-8 lg:justify-start">
+    <div className="flex flex-wrap items-center justify-center mt-10 gap-8 lg:justify-start">
       {HERO_STATS.map((stat, i) => (
         <div
           key={stat.label}

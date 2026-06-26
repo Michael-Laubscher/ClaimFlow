@@ -1,87 +1,196 @@
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
+
 import BrandImage from "@/shared/components/design-system/svg/images/BrandImage.svg";
+
 import { Heading } from "@/shared/components/design-system/typography/Heading";
-import type { CoreValue, CoreValueColor, ImpactStat } from "@/shared/types/about.types";
+import { Text } from "@/shared/components/design-system/typography/Text";
+
+import type { CoreValue, CoreValueColor } from "@/shared/types/about.types";
+
 import { SectionBlock } from "../components/sections/SectionBlock";
+
 import { coreValues, ourStory } from "../configs/about.config.data";
+
 import { banners } from "../configs/banners.config";
+import { CustomerStoriesSection } from "../components/sections/CustomerStoriesSection";
 
 export default function AboutPage() {
-  const stats: ImpactStat[] = [
-    { value: "100+", label: "Projects Completed" },
-    { value: "50+", label: "Happy Clients" },
-    { value: "10", label: "Years of Experience" },
-  ];
-
   return (
     <>
       <PageBanner {...banners.about} />
 
       <SectionBlock
-        className="pt-20"
+        className="
+bg-white
+py-28
+"
         layout="split"
         left={
           <div>
-            <Heading>Our Story</Heading>
-            {ourStory.paragraphs.map((p) => (
-              <p key={p} className="mt-5 text-slate-600">
-                {p}
-              </p>
-            ))}
+            <span
+              className="
+inline-flex
+rounded-full
+bg-orange-100
+px-4
+py-2
+text-xs
+font-semibold
+uppercase
+tracking-wider
+text-orange-600
+"
+            >
+              Our Story
+            </span>
+
+            <Heading
+              className="
+mt-6
+text-5xl
+font-black
+tracking-tight
+"
+            >
+              Building trust across African trade
+            </Heading>
+
+            <div className="mt-8 space-y-5">
+              {ourStory.paragraphs.map((p) => (
+                <Text
+                  key={p}
+                  color="muted"
+                  className="
+leading-relaxed
+"
+                >
+                  {p}
+                </Text>
+              ))}
+            </div>
           </div>
         }
-        right={<img src={BrandImage} className="rounded-3xl shadow-xl" />}
+        right={
+          <div
+            className="
+relative
+"
+          >
+            <div
+              className="
+absolute
+inset-0
+rounded-[3rem]
+bg-blue-500/10
+blur-3xl
+"
+            />
+
+            <img
+              src={BrandImage}
+              alt="Askari brand"
+              className="
+relative
+rounded-[3rem]
+shadow-2xl
+"
+            />
+          </div>
+        }
       />
 
-      <SectionBlock
-        className="bg-slate-50 py-20"
-        layout="cards"
-        items={coreValues}
-        renderItem={(item) => {
-          const Icon = item.icon;
-
-          return (
-            <Card className="rounded-3xl border-slate-200 bg-white p-10">
-              <Icon className="h-9 w-9 text-[#233C7B]" />
-              <h3 className="mt-4 text-2xl font-bold">{item.title}</h3>
-              <p className="mt-4 text-slate-600">{item.desc}</p>
-            </Card>
-          );
-        }}
-      />
+      {/* VALUES */}
 
       <SectionBlock
-        subtitle="Core Values"
+        subtitle="Our Values"
         title="What Drives Us"
+        description="
+The principles that guide every partnership,
+product and decision we make.
+"
+        className="
+bg-slate-50
+py-28
+"
         layout="cards"
         items={coreValues}
-        className="bg-white py-24"
         renderItem={(value: CoreValue) => {
           const Icon = value.icon;
 
-          const iconStyles: Record<CoreValueColor, string> = {
-            blue: "from-[#277AFF] to-[#1863FD]",
-            green: "from-[#00B879] to-[#00A56E]",
-            purple: "from-[#AA41FF] to-[#9C1EFC]",
-            orange: "from-[#f97316] to-[#ea580c]",
-            teal: "from-[#14b8a6] to-[#0d9488]",
+          const colors: Record<CoreValueColor, string> = {
+            blue: "from-blue-500 to-blue-700",
+
+            green: "from-emerald-500 to-emerald-700",
+
+            purple: "from-purple-500 to-purple-700",
+
+            orange: "from-orange-500 to-orange-700",
+
+            teal: "from-teal-500 to-teal-700",
           };
 
           return (
-            <Card className="text-center p-10 rounded-3xl border-black/10 hover:-translate-y-1 transition-all duration-300">
-              <div className={`mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br text-white ${iconStyles[value.iconColor]}`}>
-                <Icon className="h-8 w-8" />
+            <Card
+              className="
+group
+rounded-[2rem]
+border-slate-200
+bg-white
+p-8
+transition-all
+duration-300
+hover:-translate-y-2
+hover:shadow-2xl
+"
+            >
+              <div
+                className={`
+flex
+h-16
+w-16
+items-center
+justify-center
+rounded-2xl
+bg-gradient-to-br
+${colors[value.iconColor]}
+text-white
+shadow-lg
+`}
+              >
+                <Icon
+                  className="
+h-8
+w-8
+"
+                />
               </div>
 
-              <h3 className="mt-6 text-xl font-bold text-slate-900">{value.title}</h3>
-              <p className="mt-3 text-slate-500">{value.desc}</p>
+              <h3
+                className="
+mt-6
+text-xl
+font-bold
+text-slate-900
+"
+              >
+                {value.title}
+              </h3>
+
+              <p
+                className="
+mt-3
+leading-relaxed
+text-slate-500
+"
+              >
+                {value.desc}
+              </p>
             </Card>
           );
         }}
       />
-
-      <SectionBlock className="bg-gradient-to-br from-[#071852] to-[#c9562a] py-24" layout="stats" items={stats} />
+      <CustomerStoriesSection />
     </>
   );
 }

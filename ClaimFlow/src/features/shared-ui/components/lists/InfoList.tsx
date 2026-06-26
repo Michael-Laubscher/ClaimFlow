@@ -1,25 +1,24 @@
 import { cn } from "@/shared/lib/cn";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 
 interface InfoListItem {
   id: string | number;
   label: string;
-  type?: "bullet" | "check";
+  type?: "bullet" | "check" | "arrow";
 }
 
 interface InfoListProps {
   items: InfoListItem[];
   className?: string;
+  variant?: "default" | "card";
 }
 
-export function InfoList({ items, className }: InfoListProps) {
+export function InfoList({ items, className, variant = "default" }: InfoListProps) {
   return (
     <ul
       className={cn(
         `
-        space-y-3
-        text-sm
-        text-slate-600
+        space-y-4
         `,
         className
       )}
@@ -27,61 +26,82 @@ export function InfoList({ items, className }: InfoListProps) {
       {items.map((item) => (
         <li
           key={item.id}
-          className="
+          className={cn(
+            `
             group
             flex
             items-start
-            gap-3
-            rounded-xl
-            transition
-            hover:bg-white
-            hover:px-2
-            hover:py-1.5
-          "
+            gap-4
+            rounded-2xl
+            transition-all
+            duration-300
+            `,
+            variant === "card" &&
+              `
+              border
+              border-slate-200
+              bg-white
+              p-4
+              shadow-sm
+              hover:-translate-y-0.5
+              hover:shadow-md
+              `
+          )}
         >
-          {item.type === "check" ? (
-            <span
-              className="
-                mt-0.5
-                flex
-                h-5
-                w-5
-                shrink-0
-                items-center
-                justify-center
-                rounded-full
-                bg-green-50
-              "
-            >
+          <span
+            className="
+            flex
+            h-7
+            w-7
+            shrink-0
+            items-center
+            justify-center
+            rounded-full
+            bg-orange-100
+            "
+          >
+            {item.type === "check" && (
               <Check
                 className="
-                  h-3.5
-                  w-3.5
-                  text-green-600
+                h-4
+                w-4
+                text-orange-600
                 "
               />
-            </span>
-          ) : (
-            <span
-              className="
-                mt-2
-                h-1.5
-                w-1.5
-                shrink-0
+            )}
+
+            {item.type === "arrow" && (
+              <ArrowRight
+                className="
+                h-4
+                w-4
+                text-orange-600
+                "
+              />
+            )}
+
+            {!item.type || item.type === "bullet" ? (
+              <span
+                className="
+                h-2
+                w-2
                 rounded-full
                 bg-gradient-to-r
-                from-green-500
-                to-blue-500
-              "
-            />
-          )}
+                from-orange-500
+                to-blue-600
+                "
+              />
+            ) : null}
+          </span>
 
           <span
             className="
-              leading-relaxed
-              text-slate-600
-              transition
-              group-hover:text-slate-900
+            pt-1
+            text-sm
+            leading-relaxed
+            text-slate-600
+            transition-colors
+            group-hover:text-slate-900
             "
           >
             {item.label}
