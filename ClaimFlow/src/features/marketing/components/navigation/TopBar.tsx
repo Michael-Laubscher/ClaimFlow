@@ -1,22 +1,71 @@
 import { Link } from "react-router-dom";
 
-import { ClipboardIcon } from "@/shared/components/design-system/svg/icons";
-
 import { Container } from "@/shared/components/design-system/layout/Container";
 
-import { Stack } from "@/shared/components/design-system/layout/Stack";
+import { ClipboardIcon } from "@/shared/components/design-system/svg/icons";
 
 export function TopBar() {
   return (
-    <div className="bg-gradient-to-r from-blue-900 to-blue-950 py-3 text-white/80">
+    <div
+      className="
+bg-gradient-to-r
+from-blue-950
+via-blue-900
+to-slate-900
+text-white
+"
+    >
       <Container>
-        <Stack direction="row" align="center" justify="between">
-          <Link to="/claims/" className="flex items-center gap-2 text-xs transition-colors hover:text-white">
-            <ClipboardIcon className="h-3.5 w-3.5" />
+        <div
+          className="
+flex
+items-center
+justify-between
+py-2.5
+text-xs
+"
+        >
+          <div
+            className="
+hidden
+items-center
+gap-2
+text-white/80
+sm:flex
+"
+          >
+            <span
+              className="
+h-2
+w-2
+rounded-full
+bg-green-400
+"
+            />
+            Claims support available 24/7
+          </div>
 
-            <span>File a Claim</span>
+          <Link
+            to="/claims"
+            className="
+flex
+items-center
+gap-2
+font-medium
+text-white
+transition
+hover:text-blue-200
+"
+          >
+            <ClipboardIcon
+              className="
+h-4
+w-4
+"
+            />
+            File a Claim
           </Link>
-        </Stack>
+        </div>
       </Container>
     </div>
   );
