@@ -22,7 +22,7 @@ interface Props {
 
 export function Step1({ value, onChange, onNext }: Props) {
   return (
-    <Stack gap="lg">
+    <Stack gap="lg" className="justify-end">
       <div>
         <Heading
           size="xl"
@@ -124,12 +124,7 @@ text-sm
         size="lg"
         disabled={!value}
         onClick={onNext}
-        className="
-h-14
-w-full
-rounded-2xl
-text-base
-font-semibold
+        className=" ml-auto inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 focus:outline-none disabled:pointer-events-none disabled:opacity-50 bg-[var(--color-primary)] text-white hover:opacity-90 h-12 px-6 text-base rounded-xl min-w-[180px]
 "
       >
         Continue →
