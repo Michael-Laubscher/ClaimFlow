@@ -1,26 +1,64 @@
 import { HERO_STATS } from "@/features/shared-ui/configs";
 
-import { Stat } from "@/shared/components/design-system/primitives/Stat";
-
-interface HeroStatsProps {
-  loaded: boolean;
-}
-
-export function HeroStats({ loaded }: HeroStatsProps) {
+export function HeroStats() {
   return (
-    <div className="flex flex-wrap items-center justify-center mt-10 gap-8 lg:justify-start">
-      {HERO_STATS.map((stat, i) => (
+    <div
+      className="
+        mt-12
+        grid
+        grid-cols-2
+        gap-4
+        sm:flex
+        sm:flex-wrap
+      "
+    >
+      {HERO_STATS.map((stat) => (
         <div
           key={stat.label}
-          className={`
-            pre-animate
-            ${loaded ? `animate-stat ${stat.delay}` : ""}
-            flex items-center gap-6
-          `}
-        >
-          {i > 0 && <div className="hidden h-10 w-px bg-white/10 sm:block" />}
+          className="
+            group
 
-          <Stat value={stat.value} label={stat.label} />
+            rounded-2xl
+
+            border
+            border-white/10
+
+            bg-white/5
+
+            px-5
+            py-4
+
+            backdrop-blur-xl
+
+            transition-all
+            duration-300
+
+            hover:-translate-y-1
+            hover:border-white/20
+            hover:bg-white/10
+
+            "
+        >
+          <p
+            className="
+              text-2xl
+              font-bold
+              tracking-tight
+              text-white
+            "
+          >
+            {stat.value}
+          </p>
+
+          <p
+            className="
+              mt-1
+              text-xs
+              text-blue-100/60
+            "
+          >
+            {stat.label}
+          </p>
         </div>
       ))}
     </div>

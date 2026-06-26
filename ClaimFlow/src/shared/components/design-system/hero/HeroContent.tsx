@@ -7,30 +7,54 @@ import { HeroHeadline } from "./HeroHeadline";
 import { HeroStats } from "./HeroStats";
 import { HeroBadge } from "./Herobadge";
 
-interface HeroContentProps {
+interface Props {
   loaded: boolean;
 }
 
-export function HeroContent({ loaded }: HeroContentProps) {
+export function HeroContent({ loaded }: Props) {
   return (
-    <div className="flex-1 text-center text-white lg:text-left">
-      <Reveal loaded={loaded} animation="animate-up" delay="delay-1">
+    <div
+      className="
+max-w-2xl
+
+text-center
+
+lg:text-left
+
+"
+    >
+      <Reveal loaded={loaded} animation="animate-up">
         <HeroBadge />
       </Reveal>
 
-      <Reveal loaded={loaded} animation="animate-left" delay="delay-2">
+      <Reveal loaded={loaded} animation="animate-left">
         <HeroHeadline />
       </Reveal>
 
-      <Reveal loaded={loaded} animation="animate-up" delay="delay-3">
-        <p className="mx-auto mb-10 max-w-xl text-base leading-relaxed text-blue-100/80 sm:text-lg lg:mx-0">{HERO_CONTENT.description}</p>
+      <Reveal loaded={loaded} animation="animate-up">
+        <p
+          className="
+mt-6
+
+max-w-xl
+
+text-lg
+
+leading-8
+
+text-blue-100/80
+
+"
+        >
+          {HERO_CONTENT.description}
+        </p>
       </Reveal>
 
-      <Reveal loaded={loaded} animation="animate-up" delay="delay-4">
+      <Reveal loaded={loaded} animation="animate-up">
         <HeroActions />
       </Reveal>
 
-      <HeroStats loaded={loaded} />
+      <HeroStats />
     </div>
   );
 }
