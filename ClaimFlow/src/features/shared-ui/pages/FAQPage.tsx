@@ -225,31 +225,6 @@ export default function FAQPage() {
               <FAQList data={filtered} />
             )}
           </div>
-
-          {/* SUPPORT CTA */}
-
-          <Card
-            className="
-              mt-12
-              rounded-3xl
-              bg-slate-900
-              p-8
-              text-white
-            "
-          >
-            <div
-              className="
-                flex
-                flex-col
-                gap-4
-                md:flex-row
-                md:items-center
-                md:justify-between
-              "
-            >
-              
-            </div>
-          </Card>
         </Container>
       </section>
     </>
