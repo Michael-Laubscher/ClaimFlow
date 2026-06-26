@@ -1,8 +1,12 @@
-import { FormSection } from "@/shared/components/design-system/forms/FormSection";
-import { Text } from "@/shared/components/design-system/typography/Text";
+import { useRef, useEffect } from "react";
 import { useController, useFormContext } from "react-hook-form";
+
 import { FileText, UploadCloud, X } from "lucide-react";
-import { useRef } from "react";
+
+import { FormSection } from "@/shared/components/design-system/forms/FormSection";
+import { FormError } from "@/shared/components/forms/components/FormError";
+
+import type { ClaimEvidenceData } from "../../schemas/claim-evidence.schema";
 
 type Attachment = {
   id: string;
@@ -14,7 +18,7 @@ export default function AttachmentsSection() {
   const {
     control,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext<ClaimEvidenceData>();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -22,40 +26,59 @@ export default function AttachmentsSection() {
     field: { value = [], onChange },
   } = useController({
     name: "attachments",
+
     control,
+
     defaultValue: [],
   });
 
   const attachments: Attachment[] = value;
 
+  useEffect(() => {
+    return () => {
+      attachments.forEach((attachment) => {
+        if (attachment.previewUrl) {
+          URL.revokeObjectURL(attachment.previewUrl);
+        }
+      });
+    };
+  }, []);
+
   const handleFiles = (files: FileList | null) => {
     if (!files) return;
 
-    const mapped = Array.from(files).map((file) => ({
+    const mapped: Attachment[] = Array.from(files).map((file) => ({
       file,
+
       id: crypto.randomUUID(),
-      previewUrl: file.type.startsWith("image/")
-        ? URL.createObjectURL(file)
-        : undefined,
+
+      previewUrl: file.type.startsWith("image/") ? URL.createObjectURL(file) : undefined,
     }));
 
     onChange([...attachments, ...mapped]);
   };
 
   const remove = (id: string) => {
-    onChange(
-      attachments.filter((attachment) => attachment.id !== id)
-    );
+    const removed = attachments.find((item) => item.id === id);
+
+    if (removed?.previewUrl) {
+      URL.revokeObjectURL(removed.previewUrl);
+    }
+
+    onChange(attachments.filter((attachment) => attachment.id !== id));
   };
 
   return (
     <FormSection
       title="Supporting Documents"
-      description="Upload images, receipts, invoices or PDF evidence related to your claim."
+      description="
+        Upload images, receipts, invoices or PDF evidence
+        related to your claim.
+      "
     >
       <div className="space-y-6">
+        {/* Upload */}
 
-        {/* Upload Area */}
         <button
           type="button"
           onClick={() => inputRef.current?.click()}
@@ -98,13 +121,9 @@ export default function AttachmentsSection() {
             <UploadCloud className="h-8 w-8 text-green-600" />
           </div>
 
-          <p className="text-base font-semibold text-slate-800">
-            Click to upload documents
-          </p>
+          <p className="text-base font-semibold text-slate-800">Click to upload documents</p>
 
-          <p className="mt-2 text-sm text-slate-500">
-            PNG, JPG or PDF files up to 10MB
-          </p>
+          <p className="mt-2 text-sm text-slate-500">PNG, JPG or PDF files up to 10MB</p>
 
           <input
             ref={inputRef}
@@ -112,144 +131,89 @@ export default function AttachmentsSection() {
             type="file"
             multiple
             accept="image/*,.pdf"
-            onChange={(e) => {
-              handleFiles(e.target.files);
-              e.target.value = "";
+            onChange={(event) => {
+              handleFiles(event.target.files);
+
+              event.target.value = "";
             }}
           />
         </button>
 
+        {/* Files */}
 
-        {/* Uploaded Files */}
         {attachments.length > 0 && (
           <div className="space-y-3">
-
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-semibold text-slate-700">
-                Uploaded Files
-              </h3>
+              <h3 className="text-sm font-semibold text-slate-700">Uploaded Files</h3>
 
-              <span
-                className="
-                  rounded-full
-                  bg-slate-100
-                  px-3
-                  py-1
-                  text-xs
-                  font-medium
-                  text-slate-600
-                "
-              >
+              <span className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600">
                 {attachments.length} file
                 {attachments.length > 1 && "s"}
               </span>
             </div>
 
+            {attachments.map(({ id, file, previewUrl }) => (
+              <div
+                key={id}
+                className="
+                  flex
+                  items-center
+                  justify-between
+                  rounded-2xl
+                  border
+                  border-slate-200
+                  bg-white
+                  p-4
+                  shadow-sm
+                "
+              >
+                <div className="flex items-center gap-4">
+                  {previewUrl ? (
+                    <img
+                      src={previewUrl}
+                      className="
+                        h-14
+                        w-14
+                        rounded-xl
+                        object-cover
+                      "
+                    />
+                  ) : (
+                    <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-slate-100">
+                      <FileText className="h-6 w-6 text-slate-500" />
+                    </div>
+                  )}
 
-            <div className="grid gap-3">
-              {attachments.map(({ file, id, previewUrl }) => (
-                <div
-                  key={id}
+                  <div>
+                    <p className="max-w-xs truncate text-sm font-medium text-slate-800">{file.name}</p>
+
+                    <p className="text-xs text-slate-500">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => remove(id)}
                   className="
                     flex
+                    h-9
+                    w-9
                     items-center
-                    justify-between
-                    rounded-2xl
-                    border
-                    border-slate-200
-                    bg-white
-                    p-4
-                    shadow-sm
-                    transition
-                    hover:shadow-md
+                    justify-center
+                    rounded-full
+                    text-slate-400
+                    hover:bg-red-50
+                    hover:text-red-600
                   "
                 >
-
-                  <div className="flex items-center gap-4">
-
-                    {previewUrl ? (
-                      <img
-                        src={previewUrl}
-                        className="
-                          h-14
-                          w-14
-                          rounded-xl
-                          object-cover
-                          ring-1
-                          ring-slate-200
-                        "
-                      />
-                    ) : (
-                      <div
-                        className="
-                          flex
-                          h-14
-                          w-14
-                          items-center
-                          justify-center
-                          rounded-xl
-                          bg-slate-100
-                        "
-                      >
-                        <FileText className="h-6 w-6 text-slate-500" />
-                      </div>
-                    )}
-
-
-                    <div>
-                      <p
-                        className="
-                          max-w-xs
-                          truncate
-                          text-sm
-                          font-medium
-                          text-slate-800
-                        "
-                      >
-                        {file.name}
-                      </p>
-
-                      <p className="mt-1 text-xs text-slate-500">
-                        {(file.size / 1024 / 1024).toFixed(2)} MB
-                      </p>
-                    </div>
-
-                  </div>
-
-
-                  <button
-                    type="button"
-                    onClick={() => remove(id)}
-                    className="
-                      flex
-                      h-9
-                      w-9
-                      items-center
-                      justify-center
-                      rounded-full
-                      text-slate-400
-                      transition
-                      hover:bg-red-50
-                      hover:text-red-600
-                    "
-                  >
-                    <X className="h-5 w-5" />
-                  </button>
-
-                </div>
-              ))}
-            </div>
-
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+            ))}
           </div>
         )}
 
-
-        {errors.attachments?.message && (
-          <Text className="text-sm text-red-500">
-            {errors.attachments.message as string}
-          </Text>
-        )}
-
+        {errors.attachments?.message && <FormError message={String(errors.attachments.message)} />}
       </div>
     </FormSection>
   );

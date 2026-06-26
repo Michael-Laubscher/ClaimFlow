@@ -10,6 +10,9 @@ export function useContactForm() {
       subject: "",
       message: "",
     },
-    mode: "onBlur",
+
+    mode: "onTouched",
+
+    reValidateMode: "onChange",
   });
 }

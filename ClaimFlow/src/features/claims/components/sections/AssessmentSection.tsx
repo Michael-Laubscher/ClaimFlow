@@ -1,21 +1,23 @@
-import { useFormContext } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 
 import { FormSection } from "@/shared/components/design-system/forms/FormSection";
+
 import { Input } from "@/shared/components/design-system/primitives/Input/Input";
+import { Textarea } from "@/shared/components/design-system/primitives/Input/Textarea";
+import { SelectField } from "@/shared/components/design-system/primitives/Input/SelectField";
+import { FormField } from "@/shared/components/design-system/primitives/Input/FormField";
 
 import type { ClaimAssessmentData } from "../../schemas/claim-assessment.schema";
-import { SelectField } from "@/shared/components/design-system/primitives/Input/SelectField";
 
 const damageLevels = ["low", "medium", "high", "critical"] as const;
 
 export function AssessmentSection() {
   const {
     register,
-    watch,
-    formState: { errors },
-  } = useFormContext<ClaimAssessmentData>();
+    control,
 
-  const damageSeverity = watch("damageSeverity") ?? "";
+    formState: { errors, dirtyFields },
+  } = useFormContext<ClaimAssessmentData>();
 
   return (
     <FormSection title="Assessment" description="Capture the evaluation details and estimated impact of this claim.">
@@ -23,92 +25,94 @@ export function AssessmentSection() {
         {/* Assessor */}
 
         <section className="space-y-6">
-          <div>
-            <h3 className="text-base font-semibold text-slate-900">Assessment Information</h3>
-
-            <p className="mt-1 text-sm text-slate-500">Details of the person completing the assessment.</p>
-          </div>
+          <SectionHeader title="Assessment Information" description="Details of the person completing the assessment." />
 
           <div className="grid gap-6 md:grid-cols-2">
-            <Input placeholder="Assessor name" {...register("assessorName")} error={!!errors.assessorName} />
+            <FormField label="Assessor Name" error={errors.assessorName?.message}>
+              <Input placeholder="Assessor name" {...register("assessorName")} error={!!errors.assessorName} success={!!dirtyFields.assessorName && !errors.assessorName} />
+            </FormField>
 
-            <Input placeholder="Assessor email" type="email" {...register("assessorEmail")} error={!!errors.assessorEmail} />
+            <FormField label="Assessor Email" error={errors.assessorEmail?.message}>
+              <Input type="email" placeholder="Assessor email" {...register("assessorEmail")} error={!!errors.assessorEmail} success={!!dirtyFields.assessorEmail && !errors.assessorEmail} />
+            </FormField>
           </div>
 
-          <Input type="date" {...register("assessmentDate")} error={!!errors.assessmentDate} />
+          <FormField label="Assessment Date" error={errors.assessmentDate?.message}>
+            <Input type="date" {...register("assessmentDate")} error={!!errors.assessmentDate} success={!!dirtyFields.assessmentDate && !errors.assessmentDate} />
+          </FormField>
         </section>
 
-        <div className="border-t border-slate-200" />
+        <Divider />
 
         {/* Damage */}
 
         <section className="space-y-6">
-          <div>
-            <h3 className="text-base font-semibold text-slate-900">Damage Evaluation</h3>
-
-            <p className="mt-1 text-sm text-slate-500">Estimate the severity and financial impact.</p>
-          </div>
+          <SectionHeader title="Damage Evaluation" description="Estimate the severity and financial impact." />
 
           <div className="grid gap-6 md:grid-cols-2">
-            <Input placeholder="Estimated loss" {...register("estimatedLoss")} error={!!errors.estimatedLoss} />
+            <FormField label="Estimated Loss" error={errors.estimatedLoss?.message}>
+              <Input placeholder="Estimated loss" {...register("estimatedLoss")} error={!!errors.estimatedLoss} success={!!dirtyFields.estimatedLoss && !errors.estimatedLoss} />
+            </FormField>
 
-            <SelectField
-              label="Damage Severity"
-              value={damageSeverity}
-              options={damageLevels}
-              onChange={(value) => {
-                register("damageSeverity").onChange({
-                  target: {
-                    name: "damageSeverity",
-                    value,
-                  },
-                });
-              }}
-              error={errors.damageSeverity?.message}
+            <Controller
+              name="damageSeverity"
+              control={control}
+              render={({ field }) => (
+                <FormField label="Damage Severity" error={errors.damageSeverity?.message}>
+                  <SelectField value={field.value ?? ""} options={damageLevels} placeholder="Select severity" onChange={field.onChange} />
+                </FormField>
+              )}
             />
           </div>
         </section>
 
-        <div className="border-t border-slate-200" />
+        <Divider />
 
         {/* Notes */}
 
         <section className="space-y-5">
-          <div>
-            <h3 className="text-base font-semibold text-slate-900">Assessment Notes</h3>
-          </div>
+          <SectionHeader title="Assessment Notes" description="Add any additional evaluation details." />
 
-          <textarea
-            {...register("assessmentNotes")}
-            rows={5}
-            placeholder="Add assessment notes..."
-            className="
-              w-full
-              rounded-xl
-              border
-              border-slate-200
-              px-4
-              py-3
-              text-sm
-              outline-none
-              focus:border-orange-400
-              focus:ring-4
-              focus:ring-orange-400/10
-            "
-          />
+          <FormField label="Notes" error={errors.assessmentNotes?.message}>
+            <Textarea
+              rows={5}
+              placeholder="Add assessment notes..."
+              {...register("assessmentNotes")}
+              error={!!errors.assessmentNotes}
+              success={!!dirtyFields.assessmentNotes && !errors.assessmentNotes}
+            />
+          </FormField>
         </section>
 
         {/* Reinspection */}
 
-        <label className="flex items-center gap-3 text-sm text-slate-700">
+        <label
+          className="
+            flex
+            cursor-pointer
+            items-center
+            gap-3
+            rounded-xl
+            border
+            border-slate-200
+            bg-white
+            px-4
+            py-3
+            text-sm
+            text-slate-700
+            hover:border-orange-300
+            hover:bg-orange-50/40
+          "
+        >
           <input
             type="checkbox"
             {...register("requiresReinspection")}
             className="
-              h-4
-              w-4
+              h-5
+              w-5
               rounded
               border-slate-300
+              text-orange-500
             "
           />
           Requires reinspection
@@ -116,4 +120,26 @@ export function AssessmentSection() {
       </div>
     </FormSection>
   );
+}
+
+function SectionHeader({
+  title,
+
+  description,
+}: {
+  title: string;
+
+  description: string;
+}) {
+  return (
+    <div>
+      <h3 className="text-base font-semibold text-slate-900">{title}</h3>
+
+      <p className="mt-1 text-sm text-slate-500">{description}</p>
+    </div>
+  );
+}
+
+function Divider() {
+  return <div className="border-t border-slate-200" />;
 }

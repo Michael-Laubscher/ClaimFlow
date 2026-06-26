@@ -220,7 +220,7 @@ export default function SuccessPage() {
                 rounded-3xl
                 border
                 border-slate-200
-                bg-slate-900
+                bg-white
                 p-8
                 text-white
               "
@@ -230,6 +230,7 @@ export default function SuccessPage() {
                   flex
                   flex-col
                   gap-6
+                  
                   md:flex-row
                   md:items-center
                   md:justify-between

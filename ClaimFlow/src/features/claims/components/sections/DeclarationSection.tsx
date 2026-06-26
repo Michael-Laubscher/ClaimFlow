@@ -1,15 +1,18 @@
 import { useFormContext } from "react-hook-form";
 
 import { FormSection } from "@/shared/components/design-system/forms/FormSection";
+
 import { Input } from "@/shared/components/design-system/primitives/Input/Input";
-import { Text } from "@/shared/components/design-system/typography/Text";
+import { Textarea } from "@/shared/components/design-system/primitives/Input/Textarea";
+import { FormField } from "@/shared/components/design-system/primitives/Input/FormField";
 
 import type { ClaimDeclarationData } from "../../schemas/claim-declaration.schema";
 
 export function DeclarationSection() {
   const {
     register,
-    formState: { errors },
+
+    formState: { errors, dirtyFields },
   } = useFormContext<ClaimDeclarationData>();
 
   return (
@@ -32,14 +35,7 @@ export function DeclarationSection() {
             p-6
           "
         >
-          <h3
-            className="
-              font-semibold
-              text-slate-900
-            "
-          >
-            Declaration
-          </h3>
+          <h3 className="font-semibold text-slate-900">Declaration</h3>
 
           <p
             className="
@@ -63,9 +59,9 @@ export function DeclarationSection() {
             <p className="mt-1 text-sm text-slate-500">Enter your full name as confirmation.</p>
           </div>
 
-          <Input placeholder="Full name" {...register("signedBy")} error={!!errors.signedBy} />
-
-          {errors.signedBy?.message && <Text className="text-sm text-red-500">{String(errors.signedBy.message)}</Text>}
+          <FormField label="Full Name" error={errors.signedBy?.message}>
+            <Input placeholder="Full name" {...register("signedBy")} error={!!errors.signedBy} success={!!dirtyFields.signedBy && !errors.signedBy} />
+          </FormField>
         </section>
 
         {/* Acceptance */}
@@ -96,39 +92,30 @@ export function DeclarationSection() {
                 w-5
                 rounded
                 border-slate-300
+                text-orange-500
+                focus:ring-2
+                focus:ring-orange-400/30
               "
             />
 
             <span className="text-sm text-slate-700">I confirm that the information supplied is correct and I agree to proceed with this claim submission.</span>
           </label>
 
-          {errors.accepted?.message && <Text className="mt-3 text-sm text-red-500">{String(errors.accepted.message)}</Text>}
+          {errors.accepted?.message && <p className="mt-3 text-sm text-red-500">{String(errors.accepted.message)}</p>}
         </section>
 
         {/* Comments */}
 
         <section className="space-y-3">
-          <h3 className="text-base font-semibold text-slate-900">Additional Comments</h3>
-
-          <textarea
-            {...register("additionalComments")}
-            rows={5}
-            placeholder="Anything else you would like us to know?"
-            className="
-              w-full
-              rounded-xl
-              border
-              border-slate-200
-              px-4
-              py-3
-              text-sm
-              outline-none
-              transition
-              focus:border-orange-400
-              focus:ring-4
-              focus:ring-orange-400/10
-            "
-          />
+          <FormField label="Additional Comments" error={errors.additionalComments?.message}>
+            <Textarea
+              rows={5}
+              placeholder="Anything else you would like us to know?"
+              {...register("additionalComments")}
+              error={!!errors.additionalComments}
+              success={!!dirtyFields.additionalComments && !errors.additionalComments}
+            />
+          </FormField>
         </section>
       </div>
     </FormSection>

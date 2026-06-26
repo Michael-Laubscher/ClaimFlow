@@ -1,11 +1,17 @@
+import { MessageSquare, Phone, User, Mail } from "lucide-react";
+
 import { FormSection } from "@/shared/components/design-system/forms/FormSection";
 import { Input } from "@/shared/components/design-system/primitives/Input/Input";
+import { Textarea } from "@/shared/components/design-system/primitives/Input/Textarea";
+import { FormField } from "@/shared/components/design-system/primitives/Input/FormField";
+
 import { Form } from "@/shared/components/forms/components/Form";
-import { FormError } from "@/shared/components/forms/components/FormError";
 import { FormSubmitButton } from "@/shared/components/forms/components/FormSubmitButton";
+
 import { useContactForm } from "@/shared/components/forms/hooks/useClaimForm";
 
 import type { ContactFormValues } from "@/shared/components/forms/schemas/contact.schema";
+
 import { marketingFormService } from "@/shared/components/forms/services/marketingForm.service";
 import { useToast } from "@/shared/hooks/use-toast";
 
@@ -16,7 +22,7 @@ export default function ContactForm() {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, dirtyFields },
   } = methods;
 
   const onSubmit = async (data: ContactFormValues) => {
@@ -39,52 +45,34 @@ export default function ContactForm() {
 
   return (
     <Form methods={methods} onSubmit={onSubmit}>
-      <FormSection title="Contact Us" description="Send us a message and we'll get back to you.">
-        <div>
-          <Input {...register("name")} placeholder="Your Name" error={!!errors.name} />
+      <FormSection title="Contact Us" description="Send us a message and our team will get back to you.">
+        <FormField label="Full Name" error={errors.name?.message}>
+          <Input placeholder="John Smith" icon={<User className="h-4 w-4" />} {...register("name")} error={!!errors.name} success={!!dirtyFields.name && !errors.name} />
+        </FormField>
 
-          <FormError message={errors.name?.message} />
-        </div>
+        <FormField label="Email Address" error={errors.email?.message} helperText="We'll never share your email.">
+          <Input type="email" placeholder="name@example.com" icon={<Mail className="h-4 w-4" />} {...register("email")} error={!!errors.email} success={!!dirtyFields.email && !errors.email} />
+        </FormField>
 
-        <div>
-          <Input {...register("email")} type="email" placeholder="Email Address" error={!!errors.email} />
+        <FormField label="Phone Number" error={errors.phone?.message}>
+          <Input placeholder="+27 00 000 0000" icon={<Phone className="h-4 w-4" />} {...register("phone")} error={!!errors.phone} success={!!dirtyFields.phone && !errors.phone} />
+        </FormField>
 
-          <FormError message={errors.email?.message} />
-        </div>
+        <FormField label="Subject" error={errors.subject?.message}>
+          <Input placeholder="How can we help?" icon={<MessageSquare className="h-4 w-4" />} {...register("subject")} error={!!errors.subject} success={!!dirtyFields.subject && !errors.subject} />
+        </FormField>
 
-        <div>
-          <Input {...register("phone")} placeholder="Phone Number" error={!!errors.phone} />
-
-          <FormError message={errors.phone?.message} />
-        </div>
-
-        <div>
-          <Input {...register("subject")} placeholder="Subject" error={!!errors.subject} />
-
-          <FormError message={errors.subject?.message} />
-        </div>
-
-        <div>
-          <textarea
-            {...register("message")}
+        <FormField label="Message" error={errors.message?.message}>
+          <Textarea
             rows={5}
-            placeholder="Your Message"
-            className="
-              w-full
-              rounded-xl
-              border
-              border-slate-200
-              px-4
-              py-3
-              text-sm
-              focus:outline-none
-              focus:ring-2
-              focus:ring-orange-400/40
-            "
+            placeholder="
+Tell us how we can help...
+"
+            {...register("message")}
+            error={!!errors.message}
+            success={!!dirtyFields.message && !errors.message}
           />
-
-          <FormError message={errors.message?.message} />
-        </div>
+        </FormField>
 
         <FormSubmitButton>Send Message</FormSubmitButton>
       </FormSection>

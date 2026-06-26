@@ -17,6 +17,7 @@ import { useClaimAttachmentsForm } from "../hooks/useClaimAttachmentsForm";
 import { useClaimWizard } from "../hooks/useClaimWizard";
 
 import type { ClaimAttachmentsData } from "../hooks/useClaimAttachmentsForm";
+import { ArrowLeft } from "lucide-react";
 
 export default function ClaimDocumentsPage() {
   const navigate = useNavigate();
@@ -93,6 +94,15 @@ export default function ClaimDocumentsPage() {
                   "
                 >
                   <Button type="button" variant="secondary" onClick={() => navigate(-1)}>
+                    <ArrowLeft
+                      className="
+      h-4
+      w-4
+      transition-transform
+      duration-300
+      group-hover:-translate-x-1
+    "
+                    />
                     Back
                   </Button>
 
