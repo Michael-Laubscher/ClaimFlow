@@ -29,6 +29,8 @@ export const claimStep2Schema = z.object({
   emergencyServicesCalled: z.boolean(),
 
   policeReportNumber: z.string().optional(),
+  
+  vehicleRegistration:z.string().optional(),
 
   vehicleDrivable: z.boolean(),
 });

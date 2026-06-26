@@ -1,67 +1,205 @@
+import { useFormContext } from "react-hook-form";
+
 import { FormSection } from "@/shared/components/design-system/forms/FormSection";
 import { Input } from "@/shared/components/design-system/primitives/Input/Input";
 import { Text } from "@/shared/components/design-system/typography/Text";
+import type { ClaimThirdPartyData } from "../../schemas/claim-thirdparty.schema";
 
-import { useFormContext } from "react-hook-form";
+
+
 
 export function ThirdPartySection() {
+
   const {
     register,
     watch,
-    formState: { errors },
-  } = useFormContext();
+    formState: {
+      errors,
+    },
+  } = useFormContext<ClaimThirdPartyData>();
+
 
   const hasThirdParty = watch("hasThirdParty");
 
+
+
   return (
+
     <FormSection
       title="Third Party Information"
-      description="Other parties involved"
+      description="Tell us if another person, vehicle, or property was involved."
     >
-      
-      <label className="flex items-center gap-2 mb-4">
-        <input type="checkbox" {...register("hasThirdParty")} />
-        Third party involved
-      </label>
 
-      {errors.hasThirdParty?.message && (
-        <Text className="text-sm text-red-500">
-          {String(errors.hasThirdParty.message)}
-        </Text>
-      )}
+      <div className="space-y-8">
 
-      
-      {hasThirdParty && (
-        <>
-          <Input placeholder="Third Party Name" {...register("thirdPartyName")} />
-          {errors.thirdPartyName?.message && (
-            <Text className="text-sm text-red-500">
-              {String(errors.thirdPartyName.message)}
+
+        {/* Toggle */}
+
+        <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+
+
+          <label
+            className="
+              flex
+              cursor-pointer
+              items-start
+              gap-4
+            "
+          >
+
+            <input
+              type="checkbox"
+              {...register("hasThirdParty")}
+              className="
+                mt-1
+                h-5
+                w-5
+                rounded
+                border-slate-300
+                text-orange-500
+              "
+            />
+
+
+            <div>
+
+              <p className="font-medium text-slate-900">
+                Another party was involved
+              </p>
+
+
+              <p className="mt-1 text-sm text-slate-500">
+                Select this if another driver, person, vehicle, or property was involved.
+              </p>
+
+            </div>
+
+
+          </label>
+
+
+
+          {errors.hasThirdParty?.message && (
+
+            <Text className="mt-3 text-sm text-red-500">
+              {String(errors.hasThirdParty.message)}
             </Text>
+
           )}
 
-          <Input placeholder="Phone Number" {...register("thirdPartyPhone")} />
-          {errors.thirdPartyPhone?.message && (
-            <Text className="text-sm text-red-500">
-              {String(errors.thirdPartyPhone.message)}
-            </Text>
-          )}
 
-          <Input placeholder="Insurance Provider" {...register("thirdPartyInsurance")} />
-          {errors.thirdPartyInsurance?.message && (
-            <Text className="text-sm text-red-500">
-              {String(errors.thirdPartyInsurance.message)}
-            </Text>
-          )}
+        </section>
 
-          <Input placeholder="Vehicle Registration" {...register("thirdPartyVehicle")} />
-          {errors.thirdPartyVehicle?.message && (
-            <Text className="text-sm text-red-500">
-              {String(errors.thirdPartyVehicle.message)}
-            </Text>
-          )}
-        </>
-      )}
+
+
+
+        {hasThirdParty && (
+
+          <section className="space-y-6">
+
+
+            <div>
+
+              <h3 className="text-base font-semibold text-slate-900">
+                Third Party Details
+              </h3>
+
+
+              <p className="mt-1 text-sm text-slate-500">
+                Provide the details of the other party involved.
+              </p>
+
+            </div>
+
+
+
+            <div className="grid gap-6 md:grid-cols-2">
+
+
+              <div>
+
+                <Input
+                  placeholder="Full name"
+                  {...register("thirdPartyName")}
+                  error={!!errors.thirdPartyName}
+                />
+
+
+                {errors.thirdPartyName?.message && (
+
+                  <Text className="text-sm text-red-500">
+                    {String(errors.thirdPartyName.message)}
+                  </Text>
+
+                )}
+
+              </div>
+
+
+
+
+              <div>
+
+                <Input
+                  placeholder="Phone number"
+                  {...register("thirdPartyPhone")}
+                  error={!!errors.thirdPartyPhone}
+                />
+
+
+                {errors.thirdPartyPhone?.message && (
+
+                  <Text className="text-sm text-red-500">
+                    {String(errors.thirdPartyPhone.message)}
+                  </Text>
+
+                )}
+
+              </div>
+
+
+            </div>
+
+
+
+
+            <div className="grid gap-6 md:grid-cols-2">
+
+
+              <div>
+
+                <Input
+                  placeholder="Insurance provider"
+                  {...register("thirdPartyInsurance")}
+                />
+
+              </div>
+
+
+
+              <div>
+
+                <Input
+                  placeholder="Vehicle registration"
+                  {...register("thirdPartyVehicle")}
+                />
+
+              </div>
+
+
+            </div>
+
+
+          </section>
+
+        )}
+
+
+
+      </div>
+
+
     </FormSection>
+
   );
 }

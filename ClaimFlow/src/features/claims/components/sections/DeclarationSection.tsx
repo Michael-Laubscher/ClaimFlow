@@ -1,59 +1,136 @@
-import { FormSection } from "@/shared/components/design-system/forms/FormSection";
-import { Text } from "@/shared/components/design-system/typography/Text";
 import { useFormContext } from "react-hook-form";
+
+import { FormSection } from "@/shared/components/design-system/forms/FormSection";
+import { Input } from "@/shared/components/design-system/primitives/Input/Input";
+import { Text } from "@/shared/components/design-system/typography/Text";
+
+import type { ClaimDeclarationData } from "../../schemas/claim-declaration.schema";
 
 export function DeclarationSection() {
   const {
     register,
     formState: { errors },
-  } = useFormContext();
-
-  const { formState } = useFormContext();
-
-  console.log("FORM ERRORS:", formState.errors);
+  } = useFormContext<ClaimDeclarationData>();
 
   return (
     <FormSection
-      title="Declaration"
-      description="Confirm the information provided"
+      title="Declaration & Confirmation"
+      description="
+        Please review your information and confirm that everything
+        provided in this claim is accurate.
+      "
     >
-      <Text>
-        I declare that the information supplied in this claim
-        is true and correct to the best of my knowledge.
-      </Text>
+      <div className="space-y-8">
+        {/* Declaration notice */}
 
-      
-      <input
-        type="text"
-        {...register("signedBy")}
-        placeholder="Signed by (full name)"
-        className="mt-4 w-full rounded-xl border px-4 py-3"
-      />
+        <div
+          className="
+            rounded-2xl
+            border
+            border-blue-100
+            bg-blue-50
+            p-6
+          "
+        >
+          <h3
+            className="
+              font-semibold
+              text-slate-900
+            "
+          >
+            Declaration
+          </h3>
 
-      {errors.signedBy && (
-        <p className="text-sm text-red-600">
-          {errors.signedBy.message as string}
-        </p>
-      )}
+          <p
+            className="
+              mt-3
+              text-sm
+              leading-6
+              text-slate-600
+            "
+          >
+            I declare that the information provided in this claim is true, complete, and accurate to the best of my knowledge. I understand that providing false information may affect the outcome of
+            this claim.
+          </p>
+        </div>
 
-      {/* ACCEPTED */}
-      <label className="flex items-center gap-3 mt-4">
-        <input type="checkbox" {...register("accepted")} />
-        <span>I accept and confirm this declaration</span>
-      </label>
+        {/* Signature */}
 
-      {errors.accepted && (
-        <p className="text-sm text-red-600">
-          {errors.accepted.message as string}
-        </p>
-      )}
+        <section className="space-y-4">
+          <div>
+            <h3 className="text-base font-semibold text-slate-900">Digital Signature</h3>
 
-      
-      <textarea
-        {...register("additionalComments")}
-        placeholder="Additional comments (optional)"
-        className="mt-4 w-full rounded-xl border px-4 py-3"
-      />
+            <p className="mt-1 text-sm text-slate-500">Enter your full name as confirmation.</p>
+          </div>
+
+          <Input placeholder="Full name" {...register("signedBy")} error={!!errors.signedBy} />
+
+          {errors.signedBy?.message && <Text className="text-sm text-red-500">{String(errors.signedBy.message)}</Text>}
+        </section>
+
+        {/* Acceptance */}
+
+        <section
+          className="
+            rounded-2xl
+            border
+            border-slate-200
+            bg-slate-50
+            p-5
+          "
+        >
+          <label
+            className="
+              flex
+              cursor-pointer
+              items-start
+              gap-4
+            "
+          >
+            <input
+              type="checkbox"
+              {...register("accepted")}
+              className="
+                mt-1
+                h-5
+                w-5
+                rounded
+                border-slate-300
+              "
+            />
+
+            <span className="text-sm text-slate-700">I confirm that the information supplied is correct and I agree to proceed with this claim submission.</span>
+          </label>
+
+          {errors.accepted?.message && <Text className="mt-3 text-sm text-red-500">{String(errors.accepted.message)}</Text>}
+        </section>
+
+        {/* Comments */}
+
+        <section className="space-y-3">
+          <h3 className="text-base font-semibold text-slate-900">Additional Comments</h3>
+
+          <textarea
+            {...register("additionalComments")}
+            rows={5}
+            placeholder="Anything else you would like us to know?"
+            className="
+              w-full
+              rounded-xl
+              border
+              border-slate-200
+              px-4
+              py-3
+              text-sm
+              outline-none
+              transition
+              focus:border-orange-400
+              focus:ring-4
+              focus:ring-orange-400/10
+            "
+          />
+        </section>
+      </div>
     </FormSection>
   );
 }

@@ -9,9 +9,9 @@ export const claimVehicleSchema = z.object({
 
   year: z.string().min(4, "Year is required"),
 
-  damageDescription: z
-    .string()
-    .min(10, "Damage description must be at least 10 characters"),
+  damageDescription: z.string().min(10, "Damage description must be at least 10 characters"),
+
+  vehicleDrivable: z.string().min(2, "Is the vehicle drivable"),
 });
 
 export type ClaimVehicleData = z.infer<typeof claimVehicleSchema>;
