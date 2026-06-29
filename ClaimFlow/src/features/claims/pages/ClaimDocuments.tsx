@@ -1,110 +1,123 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
-
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
-import { Stack } from "@/shared/components/design-system/layout/Stack";
-
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
-
 import { Form } from "@/shared/components/forms/components/Form";
 
 import { banners } from "@/features/shared-ui/configs/banners.config";
 
 import AttachmentsSection from "../components/sections/AttachmentSection";
+import ClaimReviewSection from "../components/sections/ClaimReviewSection";
 import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
 
-import { useClaimStep3Form } from "../hooks/useClaimStep3Form";
-import { useSubmitClaim } from "../hooks/useSubmitClaim";
+import { useClaimAttachmentsForm } from "../hooks/useClaimAttachmentsForm";
+import { useClaimWizard } from "../hooks/useClaimWizard";
 
-import { useAppStore } from "../../../app/store/useAppStore";
-
-import { claimSchema } from "../schemas/claim.schema";
-
-import type { ClaimStep3Data } from "../schemas/claim-step3.schema";
-import type { ClaimFormData } from "../schemas/claim.schema";
+import type { ClaimAttachmentsData } from "../hooks/useClaimAttachmentsForm";
+import { ArrowLeft } from "lucide-react";
 
 export default function ClaimDocumentsPage() {
   const navigate = useNavigate();
-  const location = useLocation();
 
-  const previousData = (location.state as Partial<ClaimFormData>) ?? {};
+  const { claimData, setStep } = useClaimWizard();
 
-  const methods = useClaimStep3Form({
-    defaultValues: {
-      attachments: [],
-    },
+  const methods = useClaimAttachmentsForm({
+    attachments: claimData?.evidence?.attachments ?? [],
   });
 
-  const { loading, error } = useAppStore();
-
-  const { submit } = useSubmitClaim(() => {
-    methods.reset();
+  const handleSubmit = (data: ClaimAttachmentsData) => {
+    setStep("evidence", {
+      attachments: data.attachments,
+    });
 
     navigate("/claims/success");
-  });
-
-  const handleSubmit = async (step3Data: ClaimStep3Data) => {
-    const completeClaim = {
-      ...previousData,
-      ...step3Data,
-    };
-
-    const result = claimSchema.safeParse(completeClaim);
-
-    if (!result.success) {
-      console.error(result.error.flatten());
-
-      return;
-    }
-
-    await submit(result.data);
   };
 
   return (
     <>
       <PageBanner {...banners.newClaim} />
 
-      <Section className="bg-slate-50 py-16">
+      <Section
+        className="
+        bg-gradient-to-b
+        from-slate-50
+        via-white
+        to-slate-100
+        py-16
+      "
+      >
         <Container>
-          <div className="mx-auto max-w-4xl">
-            <ClaimStepper current={3} />
-
-            {error && (
-              <Card className="mb-6 border border-red-200 bg-red-50 p-4">
-                <p className="text-sm text-red-600">{error}</p>
-              </Card>
-            )}
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-10">
+              <ClaimStepper current={8} />
+            </div>
 
             <Form methods={methods} onSubmit={handleSubmit}>
-              <Card className="rounded-3xl p-8">
-                <Stack gap="lg">
+              <Card
+                className="
+                  overflow-hidden
+                  rounded-3xl
+                  border
+                  border-slate-200
+                  bg-white
+                  shadow-xl
+                  shadow-slate-200/40
+                "
+              >
+                <div className="space-y-12 p-8 md:p-10 lg:p-12">
+                  {/* REVIEW */}
+
+                  <ClaimReviewSection claimData={claimData} />
+
+                  <div className="border-t border-slate-200" />
+
+                  {/* DOCUMENTS */}
+
                   <AttachmentsSection />
+                </div>
 
-                  <Card variant="glass" className="border border-slate-200 p-6">
-                    <h3 className="mb-4 font-semibold text-slate-900">Required Documents</h3>
+                <footer
+                  className="
+                    flex
+                    flex-col
+                    gap-6
+                    border-t
+                    border-slate-200
+                    bg-slate-50
+                    px-8
+                    py-6
+                    md:flex-row
+                    md:justify-between
+                  "
+                >
+                  <Button type="button" variant="secondary" onClick={() => navigate(-1)}>
+                    <ArrowLeft
+                      className="
+      h-4
+      w-4
+      transition-transform
+      duration-300
+      group-hover:-translate-x-1
+    "
+                    />
+                    Back
+                  </Button>
 
-                    <ul className="space-y-3 text-sm text-slate-600">
-                      <li>• Photos of damage</li>
-                      <li>• Police report (if applicable)</li>
-                      <li>• Repair quotations or invoices</li>
-                      <li>• Delivery notes / waybills</li>
-                      <li>• Supporting evidence</li>
-                    </ul>
-                  </Card>
-
-                  <div className="flex justify-between">
-                    <Button type="button" variant="secondary" onClick={() => navigate(-1)}>
-                      Back
-                    </Button>
-
-                    <Button type="submit" variant="primary" size="lg" disabled={loading}>
-                      {loading ? "Submitting..." : "Submit Claim"}
-                    </Button>
-                  </div>
-                </Stack>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="
+                      min-w-[220px]
+                      bg-green-600
+                      hover:bg-green-700
+                    "
+                  >
+                    Submit Claim
+                  </Button>
+                </footer>
               </Card>
             </Form>
           </div>

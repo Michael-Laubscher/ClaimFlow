@@ -1,14 +1,62 @@
+import { ArrowRight } from "lucide-react";
+
 import { Button } from "../primitives/buttons/Button";
-import { ArrowRightIcon } from "../svg/icons";
 
 export function HeroActions() {
   return (
-    <div className="mb-14 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-      <Button variant="primary" to="/claims/get-quote" size="lg" className="w-full sm:w-auto bg-[#E65731] rounded-md font-bold transition-transform duration-300 hover:scale-110" iconRight={<ArrowRightIcon size={20} />}>
+    <div
+      className="
+mt-10
+
+flex
+
+flex-col
+
+gap-4
+
+sm:flex-row
+
+"
+    >
+      <Button
+        to="/claims/get-quote"
+        size="lg"
+        className="
+rounded-full
+
+px-8
+
+shadow-xl
+
+shadow-orange-500/20
+
+hover:-translate-y-1
+
+"
+        iconRight={<ArrowRight />}
+      >
         Get Instant Quote
       </Button>
 
-      <Button variant="outline" to="/products" size="lg" className="w-full sm:w-auto rounded-md bg-white text-[#0A2540] font-bold transition-transform duration-300 hover:scale-110">
+      <Button
+        to="/products"
+        variant="outline"
+        size="lg"
+        className="
+rounded-full
+
+border-white/30
+
+bg-white/10
+
+text-white
+
+backdrop-blur-md
+
+hover:bg-white/20
+
+"
+      >
         View Products
       </Button>
     </div>

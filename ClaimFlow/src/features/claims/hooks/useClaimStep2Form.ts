@@ -5,8 +5,16 @@ export function useClaimStep2Form(defaultValues?: Partial<ClaimStep2Data>) {
   return useZodForm(claimStep2Schema, {
     defaultValues: {
       incidentDate: "",
-      claimType: "vehicle",
+      incidentTime: "",
+      country: "",
+      city: "",
+      exactLocation: "",
+      claimType: "collision",
       description: "",
+      anyoneInjured: false,
+      emergencyServicesCalled: false,
+      vehicleDrivable: false,
+      policeReportNumber: "",
       ...defaultValues,
     },
   });

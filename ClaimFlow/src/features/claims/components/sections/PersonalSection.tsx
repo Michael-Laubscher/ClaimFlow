@@ -2,8 +2,8 @@ import { useFormContext } from "react-hook-form";
 
 import { FormSection } from "@/shared/components/design-system/forms/FormSection";
 import { Input } from "@/shared/components/design-system/primitives/Input/Input";
-
 import { FormError } from "@/shared/components/forms/components/FormError";
+
 import type { ClaimFormData } from "../../schemas/claim.schema";
 
 export default function PersonalSection() {
@@ -13,17 +13,49 @@ export default function PersonalSection() {
   } = useFormContext<ClaimFormData>();
 
   return (
-    <FormSection title="Personal Details" description="Your contact information">
-      <div>
-        <Input {...register("fullName")} placeholder="Full Name" error={!!errors.fullName} />
+    <FormSection
+      title="Claimant Information"
+      description="Provide the contact details of the person submitting this claim."
+    >
+      <div className="grid gap-6 md:grid-cols-2">
 
-        <FormError message={errors.fullName?.message} />
-      </div>
+        <div className="space-y-2 md:col-span-2">
+          <Input
+            {...register("claimant.fullName")}
+            placeholder="Full name"
+            error={!!errors.claimant?.fullName}
+          />
 
-      <div>
-        <Input {...register("email")} type="email" placeholder="Email Address" error={!!errors.email} />
+          <FormError
+            message={errors.claimant?.fullName?.message}
+          />
+        </div>
 
-        <FormError message={errors.email?.message} />
+        <div className="space-y-2">
+          <Input
+            {...register("claimant.email")}
+            type="email"
+            placeholder="Email address"
+            error={!!errors.claimant?.email}
+          />
+
+          <FormError
+            message={errors.claimant?.email?.message}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <Input
+            {...register("claimant.contactNumber")}
+            placeholder="Contact number"
+            error={!!errors.claimant?.contactNumber}
+          />
+
+          <FormError
+            message={errors.claimant?.contactNumber?.message}
+          />
+        </div>
+
       </div>
     </FormSection>
   );

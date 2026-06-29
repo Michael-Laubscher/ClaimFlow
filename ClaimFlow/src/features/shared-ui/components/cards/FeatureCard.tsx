@@ -3,58 +3,136 @@ import { Link } from "react-router-dom";
 
 import { Card } from "@/shared/components/design-system/composite/card/Card";
 import { IconSurface } from "@/shared/components/design-system/composite/card/IconSurface";
+
 import { Stack } from "@/shared/components/design-system/layout/Stack";
-import { Pill } from "@/shared/components/design-system/primitives/Pill";
+
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Text } from "@/shared/components/design-system/typography/Text";
+
 import type { FeatureCardProps } from "./FeatureCardProps";
 
-export function FeatureCard({ title, description, icon: Icon, to, badge, ctaLabel = "Learn more", iconClassName = "text-[--color-orange]" }: FeatureCardProps) {
+
+export function FeatureCard({
+  title,
+  description,
+  icon: Icon,
+  to,
+  ctaLabel = "Learn more",
+}: FeatureCardProps) {
+
+
   const content = (
-    <Card variant="solid" interactive className="group h-full">
-      <div className="p-6">
-        <Stack gap="lg">
-          <Stack direction="row" align="center" justify="between">
-            <IconSurface>
-              <Icon className={`h-5 w-5 ${iconClassName}`} />
-            </IconSurface>
 
-            {badge && <Pill>{badge}</Pill>}
-          </Stack>
+    <Card
+      variant="solid"
+      className="
+        group
+        relative
+        h-full
+        overflow-hidden
+        rounded-3xl
+        border
+        border-slate-200
+        bg-white
+        p-8
+        transition-all
+        duration-300
+        hover:-translate-y-2
+        hover:shadow-2xl
+      "
+    >
 
-          <Stack gap="xs">
-            <Heading as="h3" size="lg">
-              {title}
-            </Heading>
+      <div
+        className="
+          absolute
+          right-0
+          top-0
+          h-32
+          w-32
+          rounded-full
+          bg-orange-500/10
+          blur-3xl
+        "
+      />
 
-            <Text color="muted">{description}</Text>
-          </Stack>
 
-          <div
+      <Stack gap="lg">
+
+
+        <IconSurface>
+
+          <Icon
             className="
-              inline-flex
-              items-center
-              gap-2
-              text-sm
-              font-semibold
-              text-[--color-orange]
+              h-6
+              w-6
+              text-orange-500
             "
-          >
-            {ctaLabel}
+          />
 
-            <ArrowRight
-              className="
-                h-4
-                w-4
-                transition-transform
-                group-hover:translate-x-1
-              "
-            />
-          </div>
+        </IconSurface>
+
+
+
+        <Stack gap="sm">
+
+          <Heading
+            as="h3"
+            size="lg"
+          >
+            {title}
+          </Heading>
+
+
+          <Text color="muted">
+            {description}
+          </Text>
+
         </Stack>
-      </div>
+
+
+
+        <div
+          className="
+            flex
+            items-center
+            gap-2
+            font-semibold
+            text-orange-500
+          "
+        >
+
+          {ctaLabel}
+
+
+          <ArrowRight
+            className="
+              h-4
+              w-4
+              transition-transform
+              group-hover:translate-x-2
+            "
+          />
+
+
+        </div>
+
+
+      </Stack>
+
+
     </Card>
+
   );
 
-  return to ? <Link to={to}>{content}</Link> : content;
+
+  return to ? (
+    <Link
+      to={to}
+      className="block h-full"
+    >
+      {content}
+    </Link>
+  ) : (
+    content
+  );
 }

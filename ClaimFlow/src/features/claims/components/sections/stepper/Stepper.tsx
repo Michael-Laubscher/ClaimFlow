@@ -4,39 +4,98 @@ interface StepperProps {
   step: number;
 }
 
-const STEPS = ["Insurance Type", "Your Details", "Coverage"];
+const STEPS = [
+  {
+    title: "Insurance",
+    description: "Choose policy",
+  },
+
+  {
+    title: "Business",
+    description: "Your details",
+  },
+
+  {
+    title: "Coverage",
+    description: "Review",
+  },
+];
 
 export function Stepper({ step }: StepperProps) {
   return (
-    <div className="flex items-center justify-between mb-10">
-      {STEPS.map((label, index) => {
-        const current = index + 1;
-        const isActive = step === current;
-        const isDone = step > current;
+    <div className="mb-8">
+      <div className="flex items-center">
+        {STEPS.map((item, index) => {
+          const current = index + 1;
 
-        return (
-          <div key={label} className="flex flex-1 items-center">
-            {/* Circle */}
-            <div className="flex flex-col items-center">
+          const active = step === current;
+
+          const done = step > current;
+
+          return (
+            <div key={item.title} className="contents">
               <div
-                className={cn(
-                  "flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold transition",
-                  isDone && "bg-slate-900 text-white",
-                  isActive && "ring-4 ring-slate-900/20 bg-slate-900 text-white",
-                  !isActive && !isDone && "border border-slate-300 text-slate-400"
-                )}
+                className="
+flex
+flex-1
+flex-col
+items-center
+"
               >
-                {isDone ? "✓" : current}
+                <div
+                  className={cn(
+                    "h-12 w-12 rounded-full flex items-center justify-center font-semibold transition-all duration-500",
+
+                    done && "bg-slate-900 text-white shadow-lg",
+
+                    active && "scale-110 bg-slate-900 text-white ring-8 ring-slate-900/10",
+
+                    !done && !active && "border bg-white text-slate-400"
+                  )}
+                >
+                  {done ? "✓" : current}
+                </div>
+
+                <div className="mt-4 text-center">
+                  <p
+                    className={cn(
+                      "text-sm font-semibold",
+
+                      active ? "text-slate-900" : "text-slate-400"
+                    )}
+                  >
+                    {item.title}
+                  </p>
+
+                  <p
+                    className="
+mt-1
+hidden
+text-xs
+text-slate-400
+sm:block
+"
+                  >
+                    {item.description}
+                  </p>
+                </div>
               </div>
 
-              <span className={cn("mt-2 text-xs", isActive ? "text-slate-900 font-semibold" : "text-slate-400")}>{label}</span>
-            </div>
+              {index < STEPS.length - 1 && (
+                <div className="flex-1 px-4">
+                  <div
+                    className={cn(
+                      "h-[3px] rounded-full transition-all duration-700",
 
-            {/* Connector line */}
-            {index < STEPS.length - 1 && <div className={cn("mx-3 h-[2px] flex-1 transition", step > current ? "bg-slate-900" : "bg-slate-200")} />}
-          </div>
-        );
-      })}
+                      done ? "bg-slate-900" : "bg-slate-200"
+                    )}
+                  ></div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

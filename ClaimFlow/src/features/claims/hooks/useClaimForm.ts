@@ -15,7 +15,9 @@ export const useClaimForm = (options?: UseClaimFormOptions) => {
     reValidateMode: "onChange",
 
     defaultValues: {
-      claimType: "vehicle",
+      step1: {
+        claimType: "collision",
+      },
       ...options?.defaultValues,
     },
   });

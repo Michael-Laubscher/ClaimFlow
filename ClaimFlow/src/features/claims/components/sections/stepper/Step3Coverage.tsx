@@ -7,6 +7,7 @@ import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Text } from "@/shared/components/design-system/typography/Text";
+import { ArrowLeft } from "lucide-react";
 
 interface Step3Props {
   coverage: CoverageLevel | "";
@@ -89,7 +90,7 @@ export function Step3({ coverage, onChange, insuranceType, business, country, on
         </Card>
 
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Button to="/">Back to Dashboard</Button>
+          <Button to="/">Return Home</Button>
         </div>
       </Stack>
     );
@@ -133,12 +134,45 @@ export function Step3({ coverage, onChange, insuranceType, business, country, on
       </Card>
 
       {/* Actions */}
-      <div className="flex gap-3">
-        <Button variant="outline" onClick={onBack}>
+      <div className="flex gap-3 justify-end">
+        <Button
+          variant="outline"
+          onClick={onBack}
+          className="
+    group
+    inline-flex
+    items-center
+    gap-2
+    rounded-xl
+    border-slate-200
+    bg-white
+    px-5
+    text-slate-600
+    transition-all
+    duration-300
+    hover:border-slate-300
+    hover:bg-slate-50
+    hover:text-slate-900
+    hover:-translate-x-0.5
+  "
+        >
+          <ArrowLeft
+            className="
+      h-4
+      w-4
+      transition-transform
+      duration-300
+      group-hover:-translate-x-1
+    "
+          />
           Back
         </Button>
 
-        <Button disabled={!coverage} onClick={onSubmit} className="flex-1">
+        <Button
+          disabled={!coverage}
+          onClick={onSubmit}
+          className="inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 focus:outline-none disabled:pointer-events-none disabled:opacity-50 bg-[var(--color-primary)] text-white hover:opacity-90 h-12 px-6 text-base rounded-xl min-w-[180px]"
+        >
           Get Quote
         </Button>
       </div>

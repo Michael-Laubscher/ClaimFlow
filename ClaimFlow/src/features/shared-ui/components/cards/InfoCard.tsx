@@ -10,26 +10,53 @@ export interface InfoCardItem {
   description?: React.ReactNode;
 }
 
-interface InfoCardProps {
+interface Props {
   title?: string;
+
   badge?: string;
 
   icon?: React.ReactNode;
+
   label?: React.ReactNode;
+
   description?: React.ReactNode;
 
   items?: InfoCardItem[];
 
   variant?: React.ComponentProps<typeof Card>["variant"];
+
   className?: string;
 }
 
-export function InfoCard({ title, badge, icon, label, description, items, variant = "glass", className }: InfoCardProps) {
+export function InfoCard({
+  title,
+  badge,
+
+  icon,
+  label,
+  description,
+
+  items,
+
+  variant = "glass",
+
+  className,
+}: Props) {
   return (
-    <Card variant={variant} className={className}>
+    <Card
+      variant={variant}
+      className={`
+relative
+overflow-hidden
+rounded-3xl
+${className}
+`}
+    >
       <Stack gap="lg">
+        {/* Header */}
+
         {(title || badge) && (
-          <Stack direction="row" justify="between" align="center">
+          <div className="flex items-center justify-between">
             {title && (
               <Heading as="h3" size="lg">
                 {title}
@@ -37,33 +64,67 @@ export function InfoCard({ title, badge, icon, label, description, items, varian
             )}
 
             {badge && <Pill>{badge}</Pill>}
-          </Stack>
+          </div>
         )}
 
-        {(icon || label) && (
-          <Stack direction="row" gap="md" align="start">
-            {icon}
+        {/* Single item mode */}
 
-            <Stack gap="xs">
-              {label && (
-                <Text variant="body" className="font-medium">
-                  {label}
+        {(label || icon) && (
+          <div className="flex items-start gap-4">
+            {icon && (
+              <div
+                className="
+flex
+h-10
+w-10
+items-center
+justify-center
+rounded-2xl
+bg-orange-500/10
+"
+              >
+                {icon}
+              </div>
+            )}
+
+            <div>
+              <Text variant="body" className="font-medium">
+                {label}
+              </Text>
+
+              {description && (
+                <Text variant="sm" color="muted" className="mt-1">
+                  {description}
                 </Text>
               )}
-
-              {description && <Text color="muted">{description}</Text>}
-            </Stack>
-          </Stack>
+            </div>
+          </div>
         )}
 
+        {/* Multiple items mode */}
+
         {items && (
-          <Stack gap="md">
+          <div className="space-y-5">
             {items.map((item, index) => (
-              <div key={index} className="flex items-start gap-3">
-                {item.icon}
+              <div key={index} className="flex items-start gap-4">
+                <div
+                  className="
+flex
+h-10
+w-10
+items-center
+justify-center
+rounded-2xl
+bg-orange-500/10
+"
+                >
+                  {item.icon}
+                </div>
 
                 <div>
-                  {typeof item.label === "string" ? <Text variant="sm">{item.label}</Text> : item.label}
+                  <Text variant="sm" className="font-medium">
+                    {item.label}
+                  </Text>
 
                   {item.description && (
                     <Text variant="sm" color="muted">
@@ -73,7 +134,7 @@ export function InfoCard({ title, badge, icon, label, description, items, varian
                 </div>
               </div>
             ))}
-          </Stack>
+          </div>
         )}
       </Stack>
     </Card>

@@ -1,17 +1,18 @@
 import { cn } from "@/shared/lib/cn";
 
 interface SelectFieldProps<T extends string> {
+  label?: string;
   value: T;
   options: readonly T[];
   onChange: (value: T) => void;
   error?: string;
-  label: string;
+  placeholder?: string;
 }
 
-export function SelectField<T extends string>({ label, value, options, onChange, error }: SelectFieldProps<T>) {
+export function SelectField<T extends string>({ label, value, options, onChange, error, placeholder = "Select option" }: SelectFieldProps<T>) {
   return (
     <div className="space-y-1.5">
-      <label className="text-xs font-medium text-slate-600">{label}</label>
+      {label && <label className="text-sm font-medium text-slate-700">{label}</label>}
 
       <select
         value={value}
@@ -22,12 +23,11 @@ export function SelectField<T extends string>({ label, value, options, onChange,
           "border shadow-sm transition-all duration-200",
           "focus:outline-none focus:ring-2 focus:ring-orange-400/40",
           "hover:border-slate-300 hover:shadow-md",
-          "border-slate-200",
-          "rounded-xl",
+          "border-slate-200 rounded-xl",
           error && "border-red-300 focus:ring-red-400/20"
         )}
       >
-        <option value="">Select {label}</option>
+        <option value="">{placeholder}</option>
 
         {options.map((opt) => (
           <option key={opt} value={opt}>
@@ -35,8 +35,6 @@ export function SelectField<T extends string>({ label, value, options, onChange,
           </option>
         ))}
       </select>
-
-      {error && <p className="text-xs text-red-500 animate-in fade-in slide-in-from-top-1">{error}</p>}
     </div>
   );
 }
