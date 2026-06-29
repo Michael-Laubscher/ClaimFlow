@@ -4,7 +4,18 @@ import { Card } from "@/shared/components/design-system/composite/card/Card";
 
 import { Building2, Quote } from "lucide-react";
 
-export function PartnersTestimonialsSection({ title, items }: any) {
+interface Testimonial {
+  company: string;
+  role: string;
+  quote: string;
+}
+
+interface Props {
+  title: string;
+  items: Testimonial[];
+}
+
+export function PartnersTestimonialsSection({ title, items }: Props) {
   return (
     <Section
       className="
@@ -93,7 +104,7 @@ export function PartnersTestimonialsSection({ title, items }: any) {
             lg:grid-cols-2
             "
           >
-            {items.map((item: any) => (
+            {items.map((item) => (
               <Card
                 key={item.company}
                 className="
@@ -153,7 +164,17 @@ export function PartnersTestimonialsSection({ title, items }: any) {
                   text-slate-700
                   "
                 >
-                  "{item.quote}"
+                  <p
+                    className="
+  relative
+  mt-8
+  text-xl
+  leading-relaxed
+  text-slate-700
+  "
+                  >
+                    &ldquo;{item.quote}&rdquo;
+                  </p>
                 </p>
 
                 <div

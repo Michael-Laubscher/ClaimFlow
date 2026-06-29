@@ -11,8 +11,8 @@ export const submitClaim = async (data: SubmitClaimInput) => {
   const claimZip = data.zip;
 
   await emailService.sendClaimReceived({
-    email: data.step1.email,
-    name: data.step1.fullName,
+    email: data.step1.claimant.email,
+    name: data.step1.claimant.fullName,
     claimNumber: claimId,
   });
 

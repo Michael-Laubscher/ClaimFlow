@@ -42,7 +42,7 @@ export default function AttachmentsSection() {
         }
       });
     };
-  }, []);
+  }, [attachments]);
 
   const handleFiles = (files: FileList | null) => {
     if (!files) return;
@@ -171,6 +171,7 @@ export default function AttachmentsSection() {
                   {previewUrl ? (
                     <img
                       src={previewUrl}
+                      alt={file.name}
                       className="
                         h-14
                         w-14

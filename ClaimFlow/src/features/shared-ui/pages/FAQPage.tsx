@@ -178,7 +178,7 @@ export default function FAQPage() {
 
                 {search && (
                   <Text variant="sm" className="text-green-600">
-                    Searching: "{search}"
+                    Searching: &ldquo;{search}&rdquo;
                   </Text>
                 )}
               </div>

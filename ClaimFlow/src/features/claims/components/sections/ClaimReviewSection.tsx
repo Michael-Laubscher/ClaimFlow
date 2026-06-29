@@ -1,7 +1,20 @@
 import { FormSection } from "@/shared/components/design-system/forms/FormSection";
 
+interface ClaimReviewData {
+  step1?: {
+    policyNumber?: string;
+    claimType?: string;
+  };
+  step2?: {
+    city?: string;
+  };
+  vehicle?: {
+    registrationNumber?: string;
+  };
+}
+
 interface Props {
-  claimData: any;
+  claimData: ClaimReviewData;
 }
 
 export default function ClaimReviewSection({ claimData }: Props) {

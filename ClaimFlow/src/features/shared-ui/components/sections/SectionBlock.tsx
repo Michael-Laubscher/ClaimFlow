@@ -7,6 +7,10 @@ import type { ReactNode } from "react";
 
 type Layout = "grid" | "split" | "centered" | "cards" | "stats" | "logos";
 
+interface StatItem {
+  label: string;
+  value: React.ReactNode;
+}
 interface SectionBlockProps<T = unknown> {
   title?: string;
   subtitle?: string;
@@ -105,38 +109,12 @@ lg:grid-cols-3
         )}
 
         {layout === "stats" && (
-          <div
-            className="
-grid
-gap-12
-text-center
-sm:grid-cols-3
-"
-          >
-            {(items as any[]).map((item) => (
+          <div className="grid gap-12 text-center sm:grid-cols-3">
+            {(items as StatItem[]).map((item) => (
               <div key={item.label}>
-                <div
-                  className="
-text-5xl
-font-black
-tracking-tight
-text-white
-"
-                >
-                  {item.value}
-                </div>
+                <div className="text-5xl font-black tracking-tight text-white">{item.value}</div>
 
-                <div
-                  className="
-mt-3
-text-xs
-uppercase
-tracking-[0.3em]
-text-white/60
-"
-                >
-                  {item.label}
-                </div>
+                <div className="mt-3 text-xs uppercase tracking-[0.3em] text-white/60">{item.label}</div>
               </div>
             ))}
           </div>

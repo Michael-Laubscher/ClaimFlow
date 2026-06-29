@@ -110,7 +110,7 @@ export function CustomerStoriesSection() {
                     ))}
                   </div>
 
-                  <Text className="leading-relaxed text-slate-600">"{item.quote}"</Text>
+                  <Text className="leading-relaxed text-slate-600">&ldquo;{item.quote}&rdquo;</Text>
 
                   <div className="border-t border-slate-100 pt-5">
                     <p className="font-semibold text-slate-900">{item.name}</p>
