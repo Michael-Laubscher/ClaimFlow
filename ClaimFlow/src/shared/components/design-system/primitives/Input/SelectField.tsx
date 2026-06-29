@@ -1,21 +1,33 @@
-interface SelectFieldProps {
-  label: string;
-  value: string;
-  options: readonly string[];
-  onChange: (value: string) => void;
+import { cn } from "@/shared/lib/cn";
+
+interface SelectFieldProps<T extends string> {
+  label?: string;
+  value: T;
+  options: readonly T[];
+  onChange: (value: T) => void;
+  error?: string;
+  placeholder?: string;
 }
 
-export function SelectField({ label, value, options, onChange }: SelectFieldProps) {
+export function SelectField<T extends string>({ label, value, options, onChange, error, placeholder = "Select option" }: SelectFieldProps<T>) {
   return (
     <div className="space-y-1.5">
-      <label className="text-xs font-medium tracking-wide text-slate-600">{label}</label>
+      {label && <label className="text-sm font-medium text-slate-700">{label}</label>}
 
       <select
         value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-xl border border-slate-200 bg-white/80 px-4 py-3 text-sm text-slate-900 shadow-sm transition duration-200 hover:border-slate-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-orange-400/40"
+        onChange={(e) => onChange(e.target.value as T)}
+        className={cn(
+          "w-full px-4 py-3 text-sm",
+          "text-slate-900 bg-white/80 backdrop-blur-sm",
+          "border shadow-sm transition-all duration-200",
+          "focus:outline-none focus:ring-2 focus:ring-orange-400/40",
+          "hover:border-slate-300 hover:shadow-md",
+          "border-slate-200 rounded-xl",
+          error && "border-red-300 focus:ring-red-400/20"
+        )}
       >
-        <option value="">Select {label}</option>
+        <option value="">{placeholder}</option>
 
         {options.map((opt) => (
           <option key={opt} value={opt}>

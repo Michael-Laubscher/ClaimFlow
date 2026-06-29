@@ -1,26 +1,31 @@
-import { Card } from "../composite/card/Card";
-import { Stack } from "../layout/Stack";
+import { cn } from "@/shared/lib/cn";
 import { Text } from "../typography/Text";
 
 interface Props {
   title: string;
   description?: string;
   children: React.ReactNode;
+  className?: string;
 }
 
-export function FormSection({ title, description, children }: Props) {
+export function FormSection({ title, description, children, className }: Props) {
   return (
-    <Card variant="glass" className="p-6">
-      <Stack gap="md">
-        <Stack gap="xs">
-          <Text color="default" variant="title">
-            {title}
-          </Text>
-          {description && <Text color="muted">{description}</Text>}
-        </Stack>
+    <section className={cn("space-y-8 py-2 first:pt-0 last:pb-0", className)}>
+      <header className="space-y-2">
+        <Text variant="title" color="default" className="text-2xl font-semibold tracking-tight">
+          {title}
+        </Text>
 
-        {children}
-      </Stack>
-    </Card>
+        {description && (
+          <Text color="muted" className="max-w-2xl text-base leading-7">
+            {description}
+          </Text>
+        )}
+      </header>
+
+      <div className="h-px bg-slate-200" />
+
+      <div className="space-y-10">{children}</div>
+    </section>
   );
 }

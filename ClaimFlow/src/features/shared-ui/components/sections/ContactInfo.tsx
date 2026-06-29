@@ -2,36 +2,62 @@ import { IconSurface } from "@/shared/components/design-system/composite/card/Ic
 import { Stack } from "@/shared/components/design-system/layout/Stack";
 import { Heading } from "@/shared/components/design-system/typography/Heading";
 import { Text } from "@/shared/components/design-system/typography/Text";
+
 import { CONTACT_INFO } from "../../configs/contact.config";
 
 export function ContactInfo() {
   return (
     <Stack gap="lg">
-      <Heading size="lg">Get in Touch</Heading>
+      <div>
+        <Heading size="lg">Contact Details</Heading>
+
+        <Text variant="sm" className="mt-2 text-slate-500">
+          Reach our team through any of the channels below.
+        </Text>
+      </div>
 
       <Stack gap="lg">
         {CONTACT_INFO.map((item) => (
-          <Stack key={item.title} direction="row" gap="md">
+          <div
+            key={item.title}
+            className="
+              flex
+              gap-4
+              rounded-2xl
+              transition
+              hover:bg-slate-50
+              p-2
+            "
+          >
             <IconSurface>{item.icon}</IconSurface>
 
-            <Stack gap="xs">
-              <Text variant="sm" className="font-semibold">
+            <div>
+              <Text variant="sm" className="font-semibold text-slate-800">
                 {item.title}
               </Text>
 
-              {item.lines.map((line) => (
-                <Text key={line} variant="sm" className="text-[--color-slate-500]">
-                  {line}
-                </Text>
-              ))}
+              <div className="mt-1 space-y-1">
+                {item.lines.map((line) => (
+                  <Text key={line} variant="sm" className="text-slate-500">
+                    {line}
+                  </Text>
+                ))}
+              </div>
 
               {item.highlight && (
-                <Text variant="sm" className="text-[--color-orange] font-semibold">
+                <Text
+                  variant="sm"
+                  className="
+                    mt-2
+                    font-semibold
+                    text-green-600
+                  "
+                >
                   {item.highlight}
                 </Text>
               )}
-            </Stack>
-          </Stack>
+            </div>
+          </div>
         ))}
       </Stack>
     </Stack>

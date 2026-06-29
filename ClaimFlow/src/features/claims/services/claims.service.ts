@@ -1,12 +1,24 @@
-export const submitClaim = async (data: unknown) => {
-  console.log("Mock claim submitted:", data);
+import { emailService } from "@/shared/services/email";
+import type { ClaimFormData } from "../schemas/claim.schema";
 
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        success: true,
-        id: "CLM-" + Date.now(),
-      });
-    }, 1000);
+export type SubmitClaimInput = ClaimFormData & {
+  zip: Blob;
+};
+
+export const submitClaim = async (data: SubmitClaimInput) => {
+  const claimId = `CLM-${Date.now()}`;
+
+  const claimZip = data.zip;
+
+  await emailService.sendClaimReceived({
+    email: data.step1.claimant.email,
+    name: data.step1.claimant.fullName,
+    claimNumber: claimId,
   });
+
+  return {
+    success: true,
+    id: claimId,
+    zip: claimZip,
+  };
 };

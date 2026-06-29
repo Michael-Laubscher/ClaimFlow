@@ -1,5 +1,6 @@
-import type { ReactNode } from "react";
 import { NavLink as RouterNavLink, type NavLinkProps as RouterNavLinkProps } from "react-router-dom";
+
+import type { ReactNode } from "react";
 
 import { cn } from "@/shared/lib/cn";
 
@@ -7,76 +8,132 @@ type Variant = "default" | "pill" | "ghost" | "underline";
 
 type Size = "sm" | "md" | "lg";
 
-interface NavLinkProps extends Omit<RouterNavLinkProps, "className"> {
+interface Props extends Omit<RouterNavLinkProps, "className"> {
   children: ReactNode;
+
   className?: string;
 
   variant?: Variant;
+
   size?: Size;
 }
 
-const baseStyles = "inline-flex items-center justify-center transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40";
+const base = `
+inline-flex
+items-center
+justify-center
 
-const variantStyles: Record<
-  Variant,
-  {
-    base: string;
-    active: string;
-    inactive: string;
-  }
-> = {
+transition-all
+duration-200
+
+focus:outline-none
+
+focus-visible:ring-2
+focus-visible:ring-blue-500/40
+`;
+
+const variants = {
   default: {
     base: "rounded-lg",
-    active: "text-white",
-    inactive: "text-black hover:text-black/80",
+
+    active: "text-slate-900",
+
+    inactive: "text-slate-600 hover:text-slate-900",
   },
 
   pill: {
-    base: "rounded-xl px-4 py-2 font-medium",
-    active: "bg-white text-slate-900 shadow-sm",
-    inactive: "text-black hover:bg-white/10 hover:text-black/80",
+    base: `
+rounded-xl
+px-4
+py-2
+
+font-medium
+`,
+
+    active: `
+bg-slate-900
+text-white
+shadow-md
+shadow-slate-900/20
+`,
+
+    inactive: `
+text-slate-600
+
+hover:bg-slate-100
+hover:text-slate-900
+
+`,
   },
 
   ghost: {
-    base: "rounded-lg px-3 py-2",
-    active: "bg-white/10 text-white",
-    inactive: "text-black hover:bg-white/5 hover:text-black/80",
+    base: `
+rounded-xl
+px-3
+py-2
+`,
+
+    active: `
+bg-slate-100
+text-slate-900
+`,
+
+    inactive: `
+text-slate-600
+hover:bg-slate-50
+`,
   },
 
   underline: {
-    base: "border-b-2 border-transparent pb-1",
-    active: "border-white text-white",
-    inactive: "text-black hover:text-black/80",
+    base: `
+border-b-2
+border-transparent
+pb-1
+`,
+
+    active: `
+border-slate-900
+text-slate-900
+`,
+
+    inactive: `
+text-slate-600
+hover:text-slate-900
+`,
   },
 };
 
-const sizeStyles: Record<Size, string> = {
+const sizes = {
   sm: "text-sm",
+
   md: "text-sm",
+
   lg: "text-base",
 };
 
 export function NavLink({
   children,
+
   className,
 
   variant = "default",
+
   size = "md",
 
   ...props
-}: NavLinkProps) {
+}: Props) {
   return (
     <RouterNavLink
       {...props}
       className={({ isActive }) =>
         cn(
-          baseStyles,
+          base,
 
-          variantStyles[variant].base,
+          variants[variant].base,
 
-          isActive ? variantStyles[variant].active : variantStyles[variant].inactive,
+          isActive ? variants[variant].active : variants[variant].inactive,
 
-          sizeStyles[size],
+          sizes[size],
 
           className
         )

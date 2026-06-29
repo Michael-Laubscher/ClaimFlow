@@ -2,15 +2,14 @@ import type { Country } from "../configs/countries";
 import type { CoverageLevel } from "../configs/coverageLevels";
 
 export interface QuoteDetails {
-  business: string;
-  contact: string;
-  email: string;
-  phone: string;
-  country: Country | "";
-}
+  insuranceType: "cargo" | "commercial_vehicle" | "other" | null;
 
-export interface QuoteFormState {
-  insuranceType: string;
-  details: QuoteDetails;
-  coverage: CoverageLevel | "";
+  business: string | null;
+  contact: string | null;
+  email: string | null;
+  phone: string | null;
+
+  country: Country | null;
+
+  coverage: CoverageLevel | null;
 }

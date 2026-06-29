@@ -13,16 +13,6 @@ export const banners = {
         label: "About",
       },
     ],
-
-    // primaryCta: {
-    //   label: "Get Started",
-    //   to: "/claims/get-quote",
-    // },
-
-    // secondaryCta: {
-    //   label: "Contact Us",
-    //   to: "/contact",
-    // },
   },
 
   faq: {
@@ -99,12 +89,7 @@ export const banners = {
 
     primaryCta: {
       label: "File New Claim",
-      to: "/claims/new",
-    },
-
-    secondaryCta: {
-      label: "Track Claim",
-      to: "/claims/track",
+      to: "/claims",
     },
   },
 
@@ -128,48 +113,6 @@ export const banners = {
         label: "New Claim",
       },
     ],
-
-    primaryCta: {
-      label: "Track Existing Claim",
-      to: "/claims/track",
-    },
-
-    secondaryCta: {
-      label: "Contact Support",
-      to: "/contact",
-    },
-  },
-
-  trackClaim: {
-    badge: "Claim Tracking",
-
-    title: "Track Your Claim Status",
-
-    subtitle: "Check the progress of your submitted claim and view updates from our claims team.",
-
-    breadcrumbs: [
-      {
-        label: "Home",
-        to: "/",
-      },
-      {
-        label: "Claims",
-        to: "/claims",
-      },
-      {
-        label: "Track Claim",
-      },
-    ],
-
-    primaryCta: {
-      label: "Submit New Claim",
-      to: "/claims/new",
-    },
-
-    secondaryCta: {
-      label: "Contact Support",
-      to: "/contact",
-    },
   },
 
   claimSuccess: {
@@ -192,12 +135,6 @@ export const banners = {
         label: "Success",
       },
     ],
-
-    primaryCta: {
-      label: "Track Claim",
-      to: "/claims/track",
-    },
-
     secondaryCta: {
       label: "Return to Claims",
       to: "/claims",

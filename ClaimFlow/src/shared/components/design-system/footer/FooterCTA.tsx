@@ -1,7 +1,7 @@
-import { ArrowRightIcon, Headphones } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight, Headphones } from "lucide-react";
 
 import type { FooterCTAConfig } from "@/shared/types/footer.types";
+
 import { Button } from "../primitives/buttons/Button";
 
 interface Props {
@@ -10,39 +10,245 @@ interface Props {
 
 export function FooterCTA({ cta }: Props) {
   return (
-    <section className="border-b border-white/10 footer-bg">
-      <div className="relative mx-auto mt-10 flex justify-center">
-        <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/10">
-          <Headphones className="h-7 w-7 text-white" />
-        </div>
-      </div>
+    <section
+      className="
+relative
+overflow-hidden
 
-      <div className="mx-auto max-w-7xl px-5 py-14 text-center sm:px-6 sm:py-16 lg:px-8">
-        <div className="mx-auto mb-10 max-w-2xl">
-          <h2 className="text-2xl font-semibold leading-tight text-white sm:text-3xl lg:text-4xl">{cta.heading}</h2>
+border-b
+border-white/10
 
-          <p className="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">{cta.description}</p>
-        </div>
+footer-bg
+
+"
+    >
+      {/* Background effects */}
+
+      <div
+        className="
+absolute
+
+left-1/2
+top-0
+
+h-96
+w-96
+
+-translate-x-1/2
+
+rounded-full
+
+bg-blue-500/20
+
+blur-[120px]
+
+"
+      />
+
+      <div
+        className="
+absolute
+
+right-0
+bottom-0
+
+h-72
+w-72
+
+rounded-full
+
+bg-orange-500/10
+
+blur-[100px]
+
+"
+      />
+
+      <div
+        className="
+relative
+
+mx-auto
+
+max-w-7xl
+
+px-5
+
+py-20
+
+text-center
+
+sm:px-6
+
+lg:px-8
+
+"
+      >
+        {/* Icon */}
 
         <div
           className="
-            flex
-            w-full
-            flex-col
-            gap-3
-            sm:flex-row
-            sm:flex-wrap
-            sm:justify-center
-          "
-        > 
-          <Button size="lg" className="w-full sm:w-auto rounded-md transition-transform duration-300 bg-white text-[#071852] hover:scale-105 hover:shadow-lg hover:bg-white hover:text-[#071852]" iconRight={<ArrowRightIcon size={20} />}>
-            <Link to={cta.primary.to}>{cta.primary.label}</Link>
+mx-auto
+
+mb-8
+
+flex
+
+h-16
+w-16
+
+items-center
+justify-center
+
+rounded-3xl
+
+border
+
+border-white/10
+
+bg-white/10
+
+shadow-xl
+
+backdrop-blur-xl
+
+"
+        >
+          <Headphones
+            className="
+h-8
+w-8
+
+text-white
+
+"
+          />
+        </div>
+
+        {/* Content */}
+
+        <div
+          className="
+mx-auto
+
+max-w-3xl
+
+"
+        >
+          <h2
+            className="
+text-3xl
+
+font-bold
+
+tracking-tight
+
+text-white
+
+sm:text-4xl
+
+lg:text-5xl
+
+"
+          >
+            {cta.heading}
+          </h2>
+
+          <p
+            className="
+mx-auto
+
+mt-5
+
+max-w-2xl
+
+text-base
+
+leading-7
+
+text-slate-300
+
+sm:text-lg
+
+"
+          >
+            {cta.description}
+          </p>
+        </div>
+
+        {/* Actions */}
+
+        <div
+          className="
+mt-10
+
+flex
+
+flex-col
+
+justify-center
+
+gap-4
+
+sm:flex-row
+
+"
+        >
+          <Button
+            size="lg"
+            to={cta.primary.to}
+            className="
+group
+
+rounded-full
+
+px-8
+
+shadow-xl
+
+shadow-blue-950/30
+
+"
+            iconRight={
+              <ArrowRight
+                className="
+transition-transform
+
+duration-300
+
+group-hover:translate-x-1
+
+"
+              />
+            }
+          >
+            {cta.primary.label}
           </Button>
 
-          <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-md transition hover:bg-white/20">
-            <Link to={cta.secondary.to}>{cta.secondary.label}</Link>
+          <Button
+            size="lg"
+            variant="outline"
+            to={cta.secondary.to}
+            className="
+rounded-full
+
+border-white/20
+
+bg-white/5
+
+px-8
+
+text-white
+
+backdrop-blur-md
+
+hover:bg-white/10
+
+"
+          >
+            {cta.secondary.label}
           </Button>
-      </div>
+        </div>
       </div>
     </section>
   );

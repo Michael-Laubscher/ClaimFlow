@@ -18,6 +18,7 @@ export function FooterContactItem({ item }: Props) {
         flex
         min-w-0
         items-start
+        
         gap-3
         text-white
         transition-colors

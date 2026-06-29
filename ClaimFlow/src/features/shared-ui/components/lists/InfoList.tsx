@@ -1,37 +1,111 @@
 import { cn } from "@/shared/lib/cn";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 
 interface InfoListItem {
   id: string | number;
   label: string;
-  type?: "bullet" | "check"; // default "bullet"
+  type?: "bullet" | "check" | "arrow";
 }
 
 interface InfoListProps {
   items: InfoListItem[];
   className?: string;
+  variant?: "default" | "card";
 }
 
-export function InfoList({ items, className }: InfoListProps) {
+export function InfoList({ items, className, variant = "default" }: InfoListProps) {
   return (
-    <ul className={cn("space-y-2 text-[--color-text-secondary]", className)}>
+    <ul
+      className={cn(
+        `
+        space-y-4
+        `,
+        className
+      )}
+    >
       {items.map((item) => (
-        <li key={item.id} className="flex items-start gap-3">
-          {item.type === "check" ? (
-            <Check className="mt-0.5 h-5 w-5 shrink-0 text-[--color-orange]" />
-          ) : (
-            <span
-              className="
-                mt-1.5
-                h-1.5
-                w-1.5
-                flex-shrink-0
-                rounded-full
-                bg-[--color-brand-primary]
-              "
-            />
+        <li
+          key={item.id}
+          className={cn(
+            `
+            group
+            flex
+            items-start
+            gap-4
+            rounded-2xl
+            transition-all
+            duration-300
+            `,
+            variant === "card" &&
+              `
+              border
+              border-slate-200
+              bg-white
+              p-4
+              shadow-sm
+              hover:-translate-y-0.5
+              hover:shadow-md
+              `
           )}
-          <span>{item.label}</span>
+        >
+          <span
+            className="
+            flex
+            h-7
+            w-7
+            shrink-0
+            items-center
+            justify-center
+            rounded-full
+            bg-orange-100
+            "
+          >
+            {item.type === "check" && (
+              <Check
+                className="
+                h-4
+                w-4
+                text-orange-600
+                "
+              />
+            )}
+
+            {item.type === "arrow" && (
+              <ArrowRight
+                className="
+                h-4
+                w-4
+                text-orange-600
+                "
+              />
+            )}
+
+            {!item.type || item.type === "bullet" ? (
+              <span
+                className="
+                h-2
+                w-2
+                rounded-full
+                bg-gradient-to-r
+                from-orange-500
+                to-blue-600
+                "
+              />
+            ) : null}
+          </span>
+
+          <span
+            className="
+            pt-1
+            text-sm
+            leading-relaxed
+            text-slate-600
+            transition-colors
+            group-hover:text-slate-900
+            "
+          >
+            {item.label}
+          </span>
         </li>
       ))}
     </ul>

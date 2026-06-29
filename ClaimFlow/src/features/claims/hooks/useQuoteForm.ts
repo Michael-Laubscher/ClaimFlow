@@ -10,11 +10,15 @@ export function useQuoteForm() {
   const [insuranceType, setInsuranceType] = useState<InsuranceType | "">("");
 
   const [details, setDetails] = useState<QuoteDetails>({
-    business: "",
-    contact: "",
-    email: "",
-    phone: "",
-    country: "",
+    insuranceType: null,
+
+    business: null,
+    contact: null,
+    email: null,
+    phone: null,
+
+    country: null,
+    coverage: null,
   });
 
   const [coverage, setCoverage] = useState<CoverageLevel | "">("");
@@ -24,7 +28,7 @@ export function useQuoteForm() {
   const updateDetails = (key: keyof QuoteDetails, value: string) => {
     setDetails((prev) => ({
       ...prev,
-      [key]: value,
+      [key]: value === "" ? null : value,
     }));
   };
 
@@ -42,11 +46,13 @@ export function useQuoteForm() {
     setInsuranceType("");
 
     setDetails({
-      business: "",
-      contact: "",
-      email: "",
-      phone: "",
-      country: "",
+      business: null,
+      contact: null,
+      email: null,
+      phone: null,
+      country: null,
+      coverage: null,
+      insuranceType: null,
     });
 
     setCoverage("");
