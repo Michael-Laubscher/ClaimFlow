@@ -1,5 +1,5 @@
 import type { Product } from "@/shared/types/product.types";
-import { FileText, Globe, Package, Truck } from "lucide-react";
+import { FileText, MapPin, Package, Truck } from "lucide-react";
 
 export const products: Product[] = [
   {
@@ -24,7 +24,7 @@ export const products: Product[] = [
     id: "yellow-card",
     name: "Yellow Card Insurance",
     tagline: "COMESA cross-border motor insurance.",
-    icon: Globe,
+    icon: MapPin,
     coverageLabel: "Coverage Range",
     coverageDesc: "Required for travel across COMESA regions.",
     features: ["Valid across 19 COMESA countries", "Third-party liability", "Instant digital certificates", "Accepted at all COMESA borders"],
