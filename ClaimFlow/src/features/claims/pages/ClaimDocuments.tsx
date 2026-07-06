@@ -9,7 +9,7 @@ import { Form } from "@/shared/components/forms/components/Form";
 
 import { banners } from "@/features/shared-ui/configs/banners.config";
 
-import AttachmentsSection from "../components/sections/AttachmentSection";
+
 import ClaimReviewSection from "../components/sections/ClaimReviewSection";
 import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
 
@@ -18,6 +18,7 @@ import { useClaimWizard } from "../hooks/useClaimWizard";
 
 import type { ClaimAttachmentsData } from "../hooks/useClaimAttachmentsForm";
 import { ArrowLeft } from "lucide-react";
+import { AttachmentsSection } from "../components/sections/AttachmentSection";
 
 export default function ClaimDocumentsPage() {
   const navigate = useNavigate();

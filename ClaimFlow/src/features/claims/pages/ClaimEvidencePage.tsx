@@ -7,7 +7,7 @@ import { Button } from "@/shared/components/design-system/primitives/buttons/But
 
 import { Form } from "@/shared/components/forms/components/Form";
 
-import { EvidenceSection } from "../components/sections/EvidenceSection";
+
 import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
 
 import { useClaimWizard } from "../hooks/useClaimWizard";
@@ -15,6 +15,7 @@ import { useClaimEvidenceForm } from "../hooks/useClaimEvidenceForm";
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { banners } from "@/features/shared-ui/configs/banners.config";
 import type { ClaimEvidenceData } from "../schemas/claim-evidence.schema";
+import { EvidenceSection } from "../components/sections/EvidenceSection";
 
 export default function ClaimEvidencePage() {
   const navigate = useNavigate();
