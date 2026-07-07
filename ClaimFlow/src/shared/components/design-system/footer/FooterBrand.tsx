@@ -13,10 +13,10 @@ export function FooterBrand({ brand, trustBadges }: Props) {
     <div>
       <Link to="/" className="flex items-center gap-4">
         <img src={AskariLogo} alt="Askari Insurance" className="h-10 w-auto object-contain brightness-0 invert" />
-        <span className="text-sm tracking-wide text-slate-100">{brand.tagline}</span>
+        <span className="text-sm tracking-wide text-slate-100 pt-1 d-block">{brand.tagline}</span>
       </Link>
 
-      <Text className="mt-6 max-w-sm">{brand.description}</Text>
+      <Text className="mt-6 max-w-sm text-white">{brand.description}</Text>
 
       <div className="mt-7 flex flex-wrap gap-3">
         {trustBadges?.map((badge) => (

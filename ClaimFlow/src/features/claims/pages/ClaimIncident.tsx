@@ -16,6 +16,7 @@ import { useClaimWizard } from "../hooks/useClaimWizard";
 import type { ClaimStep2Data } from "../schemas/claim-step2.schema";
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { banners } from "@/features/shared-ui/configs/banners.config";
+import { useClaimStore } from "../utils/ClaimStore";
 
 export default function ClaimIncidentPage() {
   const navigate = useNavigate();
@@ -23,9 +24,12 @@ export default function ClaimIncidentPage() {
   const methods = useClaimStep2Form();
 
   const { setStep } = useClaimWizard();
+  const { completeStep } = useClaimStore();
 
   const submit = (data: ClaimStep2Data) => {
     setStep("step2", data);
+
+    completeStep("incident");
 
     navigate("/claims/driver");
   };

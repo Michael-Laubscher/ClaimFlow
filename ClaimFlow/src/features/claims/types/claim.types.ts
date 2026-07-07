@@ -34,3 +34,18 @@ export interface ClaimStat {
   label: string;
   color?: string;
 }
+
+
+export const CLAIM_STEPS = [
+  "incident",
+  "driver",
+  "vehicle",
+  "third-party",
+  "evidence",
+  "assessment",
+  "declaration",
+  "documents",
+  "success",
+] as const;
+
+export type ClaimStep = typeof CLAIM_STEPS[number];
