@@ -174,7 +174,14 @@ export default function ProductDetailsPage() {
                   description={product.coverageDesc}
                 />
 
-                <Button variant="primary" size="lg">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="
+                  w-full
+                  sm:w-fit
+                  "
+                >
                   Get a Quote
                 </Button>
               </Stack>
