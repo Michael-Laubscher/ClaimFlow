@@ -174,14 +174,7 @@ export default function ProductDetailsPage() {
                   description={product.coverageDesc}
                 />
 
-                <Button  to="/claims/get-quote"
-                  variant="primary"
-                  size="lg"
-                  className="
-                  w-full
-                  sm:w-fit
-                  "
-                >
+                <Button variant="primary" size="lg">
                   Get a Quote
                 </Button>
               </Stack>

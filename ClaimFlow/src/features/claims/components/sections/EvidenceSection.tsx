@@ -7,8 +7,6 @@ import { Textarea } from "@/shared/components/design-system/primitives/Input/Tex
 import { FormField } from "@/shared/components/design-system/primitives/Input/FormField";
 
 import type { ClaimEvidenceData } from "../../schemas/claim-evidence.schema";
-import { AttachmentsSection } from "./AttachmentSection";
-
 
 export function EvidenceSection() {
   const {
@@ -28,8 +26,46 @@ export function EvidenceSection() {
     <FormSection title="Evidence & Supporting Information" description="Provide any information that can help us assess your claim.">
       <div className="space-y-10">
         {/* Attachments */}
+
         <section className="space-y-5">
-          <AttachmentsSection />
+          <SectionHeader title="Supporting Documents" description="Add photos, reports, or documents related to the claim." />
+
+          <div
+            className="
+              rounded-2xl
+              border-2
+              border-dashed
+              border-slate-200
+              bg-slate-50
+              p-8
+              text-center
+              transition
+              hover:border-orange-300
+            "
+          >
+            <p className="text-sm text-slate-600">Upload evidence files</p>
+
+            <p className="mt-1 text-xs text-slate-400">Photos, documents, repair estimates</p>
+
+            <button
+              type="button"
+              className="
+                mt-5
+                rounded-xl
+                border
+                border-slate-300
+                bg-white
+                px-5
+                py-2
+                text-sm
+                font-medium
+                text-slate-700
+                hover:bg-slate-50
+              "
+            >
+              Add files
+            </button>
+          </div>
         </section>
 
         <Divider />
