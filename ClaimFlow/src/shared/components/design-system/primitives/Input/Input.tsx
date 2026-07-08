@@ -33,49 +33,49 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({ className, erro
           {...props}
           className={cn(
             `
-          w-full
-          px-10
-          py-3.5
-          pr-11
-          text-sm
-          text-slate-900
-          placeholder:text-slate-400
+  w-full
+  py-3.5
+  text-sm
+  text-slate-900
+  placeholder:text-slate-400
 
-          bg-white
-          border
-          shadow-sm
+  bg-white
+  border
+  shadow-sm
 
-          transition-all
-          duration-200
+  transition-all
+  duration-200
 
-          focus:outline-none
-          focus:ring-4
-          `,
+  focus:outline-none
+  focus:ring-4
+  `,
+            icon ? "pl-10" : "pl-4",
+            error || success ? "pr-11" : "pr-4",
 
             radius.lg,
 
             error &&
               `
-          border-red-300
-          focus:border-red-400
-          focus:ring-red-400/10
-          `,
+    border-red-300
+    focus:border-red-400
+    focus:ring-red-400/10
+    `,
 
             success &&
               `
-          border-emerald-400
-          focus:border-emerald-500
-          focus:ring-emerald-400/10
-          `,
+    border-emerald-400
+    focus:border-emerald-500
+    focus:ring-emerald-400/10
+    `,
 
             !error &&
               !success &&
               `
-          border-slate-200
-          hover:border-slate-300
-          focus:border-orange-400
-          focus:ring-orange-400/10
-          `,
+    border-slate-200
+    hover:border-slate-300
+    focus:border-orange-400
+    focus:ring-orange-400/10
+    `,
 
             className
           )}

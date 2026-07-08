@@ -7,7 +7,6 @@ import { Button } from "@/shared/components/design-system/primitives/buttons/But
 
 import { Form } from "@/shared/components/forms/components/Form";
 
-
 import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
 
 import { useClaimWizard } from "../hooks/useClaimWizard";
@@ -16,15 +15,19 @@ import { PageBanner } from "@/shared/components/design-system/composite/banner/b
 import { banners } from "@/features/shared-ui/configs/banners.config";
 import type { ClaimEvidenceData } from "../schemas/claim-evidence.schema";
 import { EvidenceSection } from "../components/sections/EvidenceSection";
+import { useClaimStore } from "../utils/ClaimStore";
+
 
 export default function ClaimEvidencePage() {
   const navigate = useNavigate();
 
   const { claimData, setStep } = useClaimWizard();
 
+  const { completeStep } = useClaimStore();
+
   const methods = useClaimEvidenceForm({
     defaultValues: {
-      witnesses: claimData.evidence?.witnesses ?? [],
+      witnesses: claimData.evidence?.witnesses?.length ? claimData.evidence.witnesses : [{ name: "", phone: "" }],
 
       evidenceNotes: claimData.evidence?.evidenceNotes ?? "",
 
@@ -33,15 +36,12 @@ export default function ClaimEvidencePage() {
   });
 
   const submit = (data: ClaimEvidenceData) => {
+    setStep("evidence", data);
 
-  setStep(
-    "evidence",
-    data,
-  );
+    completeStep("evidence");
 
-  navigate("/claims/assessment");
-
-};
+    navigate("/claims/assessment");
+  };
 
   return (
     <Section className="bg-gradient-to-b from-slate-50 via-white to-slate-100 pb-16">

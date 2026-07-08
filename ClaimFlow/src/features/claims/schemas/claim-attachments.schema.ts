@@ -30,6 +30,5 @@ const attachmentSchema = z.object({
 export const claimAttachmentsSchema = z.object({
   attachments: z
     .array(attachmentSchema)
-    .min(1, "At least one attachment is required")
     .max(10, "You can upload a maximum of 10 files"),
 });

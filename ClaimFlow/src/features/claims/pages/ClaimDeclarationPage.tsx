@@ -16,11 +16,14 @@ import { useClaimDeclarationForm } from "../hooks/useClaimDeclarationForm";
 import type { ClaimDeclarationData } from "../schemas/claim-declaration.schema";
 import { banners } from "@/features/shared-ui/configs/banners.config";
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
+import { useClaimStore } from "../utils/ClaimStore";
 
 export default function ClaimDeclarationPage() {
   const navigate = useNavigate();
 
   const { claimData, setStep } = useClaimWizard();
+
+  const { completeStep } = useClaimStore();
 
   const methods = useClaimDeclarationForm({
     defaultValues: claimData.declaration ?? {},
@@ -28,6 +31,9 @@ export default function ClaimDeclarationPage() {
 
   const submit = (data: ClaimDeclarationData) => {
     setStep("declaration", data);
+    
+
+    completeStep("declaration");
 
     navigate("/claims/documents");
   };

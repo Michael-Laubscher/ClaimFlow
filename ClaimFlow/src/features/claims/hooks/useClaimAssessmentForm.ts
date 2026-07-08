@@ -1,15 +1,25 @@
 import { useZodForm } from "@/shared/components/forms/hooks/useZodForm";
+
 import {
   claimAssessmentSchema,
   type ClaimAssessmentData,
 } from "../schemas/claim-assessment.schema";
 
+import {
+  CLAIM_STORAGE_KEYS,
+  usePersistedForm,
+} from "./usePersistedForm";
+
+
 type Props = {
   defaultValues?: Partial<ClaimAssessmentData>;
 };
 
-export function useClaimAssessmentForm({ defaultValues }: Props = {}) {
-  return useZodForm(claimAssessmentSchema, {
+
+export function useClaimAssessmentForm(
+  { defaultValues }: Props = {}
+) {
+  const methods = useZodForm(claimAssessmentSchema, {
     defaultValues: {
       assessorName: "",
       assessorEmail: "",
@@ -23,4 +33,13 @@ export function useClaimAssessmentForm({ defaultValues }: Props = {}) {
       ...defaultValues,
     },
   });
+
+
+  usePersistedForm(
+    methods,
+    CLAIM_STORAGE_KEYS.step7
+  );
+
+
+  return methods;
 }

@@ -9,7 +9,6 @@ import { Form } from "@/shared/components/forms/components/Form";
 
 import { banners } from "@/features/shared-ui/configs/banners.config";
 
-
 import ClaimReviewSection from "../components/sections/ClaimReviewSection";
 import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
 
@@ -19,23 +18,30 @@ import { useClaimWizard } from "../hooks/useClaimWizard";
 import type { ClaimAttachmentsData } from "../hooks/useClaimAttachmentsForm";
 import { ArrowLeft } from "lucide-react";
 import { AttachmentsSection } from "../components/sections/AttachmentSection";
+import { useClaimStore } from "../utils/ClaimStore";
 
 export default function ClaimDocumentsPage() {
   const navigate = useNavigate();
 
   const { claimData, setStep } = useClaimWizard();
 
+  const { completeStep } = useClaimStore();
+
   const methods = useClaimAttachmentsForm({
     attachments: claimData?.evidence?.attachments ?? [],
   });
 
-  const handleSubmit = (data: ClaimAttachmentsData) => {
-    setStep("evidence", {
-      attachments: data.attachments,
-    });
+const handleSubmit = (data: ClaimAttachmentsData) => {
 
-    navigate("/claims/success");
-  };
+  setStep("documents", {
+    attachments: data.attachments,
+  });
+
+  completeStep("documents");
+  completeStep("success");
+
+  navigate("/claims/success");
+};
 
   return (
     <>

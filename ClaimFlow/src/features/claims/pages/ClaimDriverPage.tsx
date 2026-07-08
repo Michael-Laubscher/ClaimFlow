@@ -16,7 +16,7 @@ import { useClaimWizard } from "../hooks/useClaimWizard";
 import type { ClaimDriverData } from "../schemas/claim-driver.schema";
 import { banners } from "@/features/shared-ui/configs/banners.config";
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
-
+import { useClaimStore } from "../utils/ClaimStore";
 
 export default function ClaimDriverPage() {
   const navigate = useNavigate();
@@ -24,34 +24,27 @@ export default function ClaimDriverPage() {
   const { setStep } = useClaimWizard();
 
   const methods = useClaimDriverForm();
-
+  const { completeStep } = useClaimStore();
 
   const submit = (data: ClaimDriverData) => {
     setStep("driver", data);
 
+    completeStep("driver");
+
     navigate("/claims/vehicle");
   };
 
-
   return (
     <Section className="bg-gradient-to-b from-slate-50 via-white to-slate-100 pb-16">
-
       <PageBanner {...banners.newClaim} />
 
       <Container>
-
         <div className="mx-auto max-w-5xl">
-
           <div className="my-10">
             <ClaimStepper current={3} />
           </div>
 
-
-          <Form
-            methods={methods}
-            onSubmit={submit}
-          >
-
+          <Form methods={methods} onSubmit={submit}>
             <Card
               className="
                 overflow-hidden
@@ -63,13 +56,9 @@ export default function ClaimDriverPage() {
                 shadow-slate-200/40
               "
             >
-
               <div className="p-8 md:p-10 lg:p-12">
-
                 <DriverSection />
-
               </div>
-
 
               <footer
                 className="
@@ -87,36 +76,20 @@ export default function ClaimDriverPage() {
                   lg:px-12
                 "
               >
-
                 <div>
-                  <p className="text-sm font-medium text-slate-900">
-                    Step 3 of 8
-                  </p>
+                  <p className="text-sm font-medium text-slate-900">Step 3 of 8</p>
 
-                  <p className="mt-1 text-sm text-slate-500">
-                    Driver information
-                  </p>
+                  <p className="mt-1 text-sm text-slate-500">Driver information</p>
                 </div>
 
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="min-w-[180px]"
-                >
+                <Button type="submit" size="lg" className="min-w-[180px]">
                   Continue
                 </Button>
-
               </footer>
-
             </Card>
-
           </Form>
-
         </div>
-
       </Container>
-
     </Section>
   );
 }

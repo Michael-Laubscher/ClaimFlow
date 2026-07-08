@@ -15,11 +15,13 @@ import { useClaimWizard } from "../hooks/useClaimWizard";
 import type { ClaimThirdPartyData } from "../schemas/claim-thirdparty.schema";
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { banners } from "@/features/shared-ui/configs/banners.config";
+import { useClaimStore } from "../utils/ClaimStore";
 
 export default function ClaimThirdPartyPage() {
   const navigate = useNavigate();
 
   const { claimData, setStep } = useClaimWizard();
+  const { completeStep } = useClaimStore();
 
   const methods = useClaimThirdPartyForm({
     defaultValues: claimData.thirdParty ?? {},
@@ -27,7 +29,7 @@ export default function ClaimThirdPartyPage() {
 
   const submit = (data: ClaimThirdPartyData) => {
     setStep("thirdParty", data);
-
+    completeStep("third-party");
     navigate("/claims/evidence");
   };
 
