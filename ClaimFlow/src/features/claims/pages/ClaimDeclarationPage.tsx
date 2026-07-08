@@ -94,7 +94,7 @@ export default function ClaimDeclarationPage() {
                     hover:bg-green-700
                   "
                 >
-                  Submit Claim
+                  Continue to Documents
                 </Button>
               </footer>
             </Card>

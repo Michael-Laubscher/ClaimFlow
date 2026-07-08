@@ -19,6 +19,7 @@ import type { ClaimAttachmentsData } from "../hooks/useClaimAttachmentsForm";
 import { ArrowLeft } from "lucide-react";
 import { AttachmentsSection } from "../components/sections/AttachmentSection";
 import { useClaimStore } from "../utils/ClaimStore";
+import { CLAIM_STORAGE_KEYS } from "../hooks/usePersistedForm";
 
 export default function ClaimDocumentsPage() {
   const navigate = useNavigate();
@@ -27,21 +28,28 @@ export default function ClaimDocumentsPage() {
 
   const { completeStep } = useClaimStore();
 
+  const clearClaimSession = () => {
+    Object.values(CLAIM_STORAGE_KEYS).forEach((key) => {
+      sessionStorage.removeItem(key);
+    });
+  };
+
   const methods = useClaimAttachmentsForm({
     attachments: claimData?.evidence?.attachments ?? [],
   });
 
-const handleSubmit = (data: ClaimAttachmentsData) => {
+  const handleSubmit = (data: ClaimAttachmentsData) => {
+    setStep("documents", {
+      attachments: data.attachments,
+    });
 
-  setStep("documents", {
-    attachments: data.attachments,
-  });
+    clearClaimSession();
 
-  completeStep("documents");
-  completeStep("success");
+    completeStep("documents");
+    completeStep("success");
 
-  navigate("/claims/success");
-};
+    navigate("/claims/success");
+  };
 
   return (
     <>
