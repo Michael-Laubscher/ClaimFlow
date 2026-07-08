@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback, useState } from "react";
+import { useRef, useEffect, useCallback, useState, useMemo } from "react";
 import { useController, useFormContext } from "react-hook-form";
 import axios from "axios";
 import { FileText, UploadCloud, X } from "lucide-react";
@@ -37,7 +37,7 @@ export function AttachmentsSection() {
     defaultValue: [],
   });
 
-  const attachments: Attachment[] = Array.isArray(value) ? value : [];
+  const attachments = useMemo<Attachment[]>(() => (Array.isArray(value) ? value : []), [value]);
 
   const MAX_SIZE = 10 * 1024 * 1024;
 
