@@ -10,28 +10,32 @@ import { Form } from "@/shared/components/forms/components/Form";
 import { banners } from "@/features/shared-ui/configs/banners.config";
 
 import AttachmentsSection from "../components/sections/AttachmentSection";
-import ClaimReviewSection from "../components/sections/ClaimReviewSection";
 import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
 
-import { useClaimAttachmentsForm } from "../hooks/useClaimAttachmentsForm";
-import { useClaimWizard } from "../hooks/useClaimWizard";
+import { useClaimStep3Form } from "../hooks/useClaimStep3Form";
+import { useSubmitClaim } from "../hooks/useSubmitClaim";
 
-import type { ClaimAttachmentsData } from "../hooks/useClaimAttachmentsForm";
-import { ArrowLeft } from "lucide-react";
+import { useAppStore } from "../../../app/store/useAppStore";
+
+import { claimSchema } from "../schemas/claim.schema";
+
+import type { ClaimStep3Data } from "../schemas/claim-step3.schema";
+import type { ClaimFormData } from "../schemas/claim.schema";
 
 export default function ClaimDocumentsPage() {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const { claimData, setStep } = useClaimWizard();
+  const previousData = (location.state as Partial<ClaimFormData>) ?? {};
 
   const methods = useClaimAttachmentsForm({
     attachments: claimData?.evidence?.attachments ?? [],
   });
 
-  const handleSubmit = (data: ClaimAttachmentsData) => {
-    setStep("evidence", {
-      attachments: data.attachments,
-    });
+  const { loading, error } = useAppStore();
+
+  const { submit } = useSubmitClaim(() => {
+    methods.reset();
 
     navigate("/claims/success");
   };
