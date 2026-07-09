@@ -9,7 +9,6 @@ import { Form } from "@/shared/components/forms/components/Form";
 
 import { banners } from "@/features/shared-ui/configs/banners.config";
 
-import AttachmentsSection from "../components/sections/AttachmentSection";
 import ClaimReviewSection from "../components/sections/ClaimReviewSection";
 import { ClaimStepper } from "../components/sections/stepper/ClaimStepper";
 
@@ -18,20 +17,36 @@ import { useClaimWizard } from "../hooks/useClaimWizard";
 
 import type { ClaimAttachmentsData } from "../hooks/useClaimAttachmentsForm";
 import { ArrowLeft } from "lucide-react";
+import { AttachmentsSection } from "../components/sections/AttachmentSection";
+import { useClaimStore } from "../utils/ClaimStore";
+import { CLAIM_STORAGE_KEYS } from "../hooks/usePersistedForm";
 
 export default function ClaimDocumentsPage() {
   const navigate = useNavigate();
 
   const { claimData, setStep } = useClaimWizard();
 
+  const { completeStep } = useClaimStore();
+
+  const clearClaimSession = () => {
+    Object.values(CLAIM_STORAGE_KEYS).forEach((key) => {
+      sessionStorage.removeItem(key);
+    });
+  };
+
   const methods = useClaimAttachmentsForm({
     attachments: claimData?.evidence?.attachments ?? [],
   });
 
   const handleSubmit = (data: ClaimAttachmentsData) => {
-    setStep("evidence", {
+    setStep("documents", {
       attachments: data.attachments,
     });
+
+    clearClaimSession();
+
+    completeStep("documents");
+    completeStep("success");
 
     navigate("/claims/success");
   };

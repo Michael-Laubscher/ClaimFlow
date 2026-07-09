@@ -22,6 +22,10 @@ export type ClaimData = {
     attachments: Attachment[];
   };
 
+  documents: {
+    attachments: Attachment[];
+  };
+
   assessment: Record<string, unknown>;
 
   declaration: Record<string, unknown>;

@@ -10,10 +10,10 @@ export const claimDriverSchema = z.object({
     .min(5, "License number is too short")
     .regex(/^[a-zA-Z0-9-]+$/, "Invalid license format"),
 
-  driverPhone: z
-    .string()
-    .min(10, "Phone number is required")
-    .regex(/^[0-9+ ]+$/, "Invalid phone number format"),
+ driverPhone: z
+  .string()
+  .min(10, "Phone number is required")
+  .regex(/^[0-9+\-() ]+$/, "Invalid phone number format"),
 
   driverAddress: z
     .string()

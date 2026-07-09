@@ -16,11 +16,14 @@ import { useClaimAssessmentForm } from "../hooks/useClaimAssessmentForm";
 import type { ClaimAssessmentData } from "../schemas/claim-assessment.schema";
 import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { banners } from "@/features/shared-ui/configs/banners.config";
+import { useClaimStore } from "../utils/ClaimStore";
 
 export default function ClaimAssessmentPage() {
   const navigate = useNavigate();
 
   const { claimData, setStep } = useClaimWizard();
+
+  const { completeStep } = useClaimStore();
 
   const methods = useClaimAssessmentForm({
     defaultValues: claimData.assessment ?? {},
@@ -28,6 +31,8 @@ export default function ClaimAssessmentPage() {
 
   const submit = (data: ClaimAssessmentData) => {
     setStep("assessment", data);
+
+    completeStep("assessment");
 
     navigate("/claims/declaration");
   };

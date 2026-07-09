@@ -174,7 +174,7 @@ export default function ProductDetailsPage() {
                   description={product.coverageDesc}
                 />
 
-                <Button
+                <Button  to="/claims/get-quote"
                   variant="primary"
                   size="lg"
                   className="

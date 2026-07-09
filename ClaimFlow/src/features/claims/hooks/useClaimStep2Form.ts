@@ -1,8 +1,9 @@
 import { useZodForm } from "@/shared/components/forms/hooks/useZodForm";
-import { claimStep2Schema, type ClaimStep2Data } from "../schemas/claim-step2.schema";
+import { type ClaimStep2Data, claimStep2Schema } from "../schemas/claim-step2.schema";
+import { CLAIM_STORAGE_KEYS, usePersistedForm } from "./usePersistedForm";
 
 export function useClaimStep2Form(defaultValues?: Partial<ClaimStep2Data>) {
-  return useZodForm(claimStep2Schema, {
+  const methods = useZodForm(claimStep2Schema, {
     defaultValues: {
       incidentDate: "",
       incidentTime: "",
@@ -18,4 +19,8 @@ export function useClaimStep2Form(defaultValues?: Partial<ClaimStep2Data>) {
       ...defaultValues,
     },
   });
+
+  usePersistedForm(methods, CLAIM_STORAGE_KEYS.step2);
+
+  return methods;
 }

@@ -5,10 +5,7 @@ import type { ClaimData } from "../types/ClaimData";
 type ClaimWizardState = {
   claimData: ClaimData;
 
-  setStep: <K extends keyof ClaimData>(
-    step: K,
-    data: Partial<ClaimData[K]>
-  ) => void;
+  setStep: <K extends keyof ClaimData>(step: K, data: Partial<ClaimData[K]>) => void;
 
   reset: () => void;
 };
@@ -25,6 +22,9 @@ export const useClaimWizard = create<ClaimWizardState>()(
         evidence: {
           witnesses: [],
           evidenceNotes: "",
+          attachments: [],
+        },
+        documents: {
           attachments: [],
         },
         assessment: {},
@@ -53,6 +53,9 @@ export const useClaimWizard = create<ClaimWizardState>()(
             evidence: {
               witnesses: [],
               evidenceNotes: "",
+              attachments: [],
+            },
+            documents: {
               attachments: [],
             },
             assessment: {},

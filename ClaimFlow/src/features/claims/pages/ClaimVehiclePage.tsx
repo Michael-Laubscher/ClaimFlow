@@ -18,11 +18,13 @@ import { useClaimVehicleForm } from "../hooks/useClaimVehicleForm";
 import type { ClaimVehicleData } from "../schemas/claim-vehicle.schema";
 
 import { banners } from "@/features/shared-ui/configs/banners.config";
+import { useClaimStore } from "../utils/ClaimStore";
 
 export default function ClaimVehiclePage() {
   const navigate = useNavigate();
 
   const { claimData, setStep } = useClaimWizard();
+  const { completeStep } = useClaimStore();
 
   const methods = useClaimVehicleForm({
     defaultValues: claimData.vehicle ?? {},
@@ -30,7 +32,7 @@ export default function ClaimVehiclePage() {
 
   const submit = (data: ClaimVehicleData) => {
     setStep("vehicle", data);
-
+    completeStep("vehicle");
     navigate("/claims/third-party");
   };
 
