@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
-import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { Card } from "@/shared/components/design-system/composite/card/Card";
-
+import { PageBanner } from "@/shared/components/design-system/composite/banner/banner";
 import { Container } from "@/shared/components/design-system/layout/Container";
 import { Section } from "@/shared/components/design-system/layout/Section";
 import { Button } from "@/shared/components/design-system/primitives/buttons/Button";
@@ -16,28 +15,32 @@ import { useClaimStep2Form } from "../hooks/useClaimStep2Form";
 import { useClaimWizard } from "../hooks/useClaimWizard";
 
 import type { ClaimStep2Data } from "../schemas/claim-step2.schema";
+import { banners } from "@/features/shared-ui/configs/banners.config";
+import { useClaimStore } from "../utils/ClaimStore";
 
 export default function ClaimIncidentPage() {
   const navigate = useNavigate();
 
   const methods = useClaimStep2Form();
 
-  const handleSubmit = (step2Data: ClaimStep2Data) => {
-    navigate("/claims/documents", {
-      state: {
-        ...previousData,
-        ...step2Data,
-      },
-    });
+  const { setStep } = useClaimWizard();
+  const { completeStep } = useClaimStore();
+
+  const submit = (data: ClaimStep2Data) => {
+
+    setStep("step2", data);
+    completeStep("incident");
+
+    navigate("/claims/driver");
   };
 
   return (
     <Section className="bg-gradient-to-b from-slate-50 via-white to-slate-100 pb-16">
       <PageBanner {...banners.newClaim} />
 
-      <Section className="bg-slate-50 py-16">
-        <Container>
-          <div className="mx-auto max-w-4xl">
+      <Container>
+        <div className="mx-auto max-w-5xl">
+          <div className="m-10">
             <ClaimStepper current={2} />
           </div>
 
