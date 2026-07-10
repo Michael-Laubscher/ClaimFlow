@@ -133,7 +133,7 @@ export default function ErrorPage() {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
           <Link
             to="/"
-            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#0F4FAF] px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0C3D8B] sm:px-7 sm:text-base"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0F4FAF] px-6 py-3 text-sm font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#0C3D8B] sm:px-7 sm:text-base"
           >
             <Home size={18} />
             Return home
@@ -141,7 +141,7 @@ export default function ErrorPage() {
 
           <button
             onClick={() => window.location.reload()}
-            className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#E2E8F0] bg-white px-6 py-3 text-sm font-medium text-[#10243E] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:px-7 sm:text-base"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-[#E2E8F0] bg-white px-6 py-3 text-sm font-medium text-[#10243E] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:px-7 sm:text-base"
           >
             <RefreshCw size={18} className="transition group-hover:rotate-180" />
             Reload page
