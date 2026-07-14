@@ -4,7 +4,9 @@ import { HeroContent } from "@/shared/components/design-system/hero/HeroContent"
 import { HeroVisual } from "@/shared/components/design-system/hero/HeroVisual";
 
 import { Container } from "@/shared/components/design-system/layout/Container";
+
 import { WaveDivider } from "@/shared/components/design-system/svg/wave";
+import { HeroBackground } from "@/shared/components/design-system/hero/HeroBackground";
 
 export function HeroSection() {
   const loaded = true;
@@ -12,41 +14,47 @@ export function HeroSection() {
   return (
     <section
       className="
-relative
-overflow-hidden
+  relative
+  isolate
+  overflow-hidden
 
-hero-bg
+  min-h-screen
 
-min-h-[760px]
+  bg-gradient-to-r
 
-"
+  from-blue-950
+
+  via-blue-900
+
+  to-slate-900
+
+  text-white
+  "
     >
+      <HeroBackground />
+
       <Container
         className="
-relative
-z-10
+        relative
+        z-20
 
-flex
-items-center
+        flex
+        min-h-screen
+        items-center
 
-py-20
-
-lg:py-28
-
-"
+        pt-36
+        pb-24
+        "
       >
         <div
           className="
-grid
-w-full
+          grid
+          w-full
+          items-center
+          gap-24
 
-gap-14
-
-lg:grid-cols-[1.05fr_.95fr]
-
-lg:items-center
-
-"
+          lg:grid-cols-[1.1fr_.9fr]
+          "
         >
           <HeroContent loaded={loaded} />
 

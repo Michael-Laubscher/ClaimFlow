@@ -6,40 +6,69 @@ export function HeroHeadline() {
   return (
     <h1
       className="
-mt-6
+      mt-8
 
-text-4xl
+      max-w-[14ch]
 
-font-bold
+      font-black
 
-leading-[1.05]
+      tracking-[-0.06em]
 
-tracking-tight
+      text-white
 
-text-white
+      leading-[0.92]
 
+      text-[2.6rem]
 
-sm:text-5xl
+      sm:text-[3rem]
 
-lg:text-6xl
+      lg:text-[3.8rem]
 
-"
+      xl:text-[3.8rem]
+      "
     >
-      {HERO_CONTENT.title.line1}
+      <span >
+        {HERO_CONTENT.title.line1} 
+      </span>
 
-      <br />
+      <span className="mt-2 font-semibold text-white/90">
+         {HERO_CONTENT.title.line2}
+      </span>
 
-      {HERO_CONTENT.title.line2}
+      <span className="relative mt-2 inline-block">
+        <GradientText>
+          {HERO_CONTENT.title.highlight}
+        </GradientText>
 
-      <br />
+        {/* Glow */}
+        <span
+          className="
+          absolute
 
-      <GradientText>{HERO_CONTENT.title.highlight}</GradientText>
+          inset-x-4
 
-      <span> {HERO_CONTENT.title.line3}</span>
+          bottom-2
 
-      <br />
+          -z-10
 
-      {HERO_CONTENT.title.line4}
+          h-6
+
+          rounded-full
+
+          bg-orange-500/30
+
+          blur-2xl
+          "
+        />
+      </span>
+
+      <span className=" font-semibold text-white/95">
+        {HERO_CONTENT.title.line3}
+      </span>
+
+      <span className="mt-2  text-white/70">
+        {HERO_CONTENT.title.line4}
+      </span>
     </h1>
   );
 }

@@ -24,10 +24,10 @@ export const HERO_CONTENT = {
   badge: "Trusted by 10,000+ transporters across Africa",
 
   title: {
-    line1: "Protecting",
-    line2: "African Trade,",
+    line1: "Protecting ",
+    line2: "African Trade, ",
     highlight: "One Journey",
-    line3: "at a",
+    line3: "at a ",
     line4: "Time",
   },
 

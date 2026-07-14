@@ -1,64 +1,148 @@
-import { HERO_CONTENT } from "@/features/shared-ui/configs";
+import ContainerImage from "@/shared/components/design-system/svg/images/Container.svg";
+import { ClaimsCard } from "../composite/card/ClaimsCard";
+import { LiveQuoteCard } from "../composite/card/LiveQuoteCard";
+import { AIRiskCard } from "../composite/card/AIRiskCard";
 
-import Container from "@/shared/components/design-system/svg/images/Container.svg";
-import { Card } from "../composite/card/Card";
-import { ShieldCheckIcon } from "../svg/icons";
-
-interface HeroVisualProps {
+interface Props {
   loaded: boolean;
 }
 
-export function HeroVisual({ loaded }: HeroVisualProps) {
+export function HeroVisual({ loaded }: Props) {
   return (
     <div
       className={`
-        pre-animate
-        ${loaded ? "animate-right delay-3" : ""}
-        relative flex flex-1 justify-center
-      `}
+relative
+
+flex
+
+justify-center
+
+items-center
+
+min-h-[720px]
+
+${loaded ? "animate-right delay-3" : ""}
+`}
     >
-      <div className="relative w-full max-w-md sm:max-w-lg">
-        <Card floating className="-right-4 -top-4 sm:-right-2 sm:-top-6">
-          <div className="claims-badge px-4 py-3 text-center text-white shadow-2xl sm:px-5">
-            <div className="text-xl font-extrabold sm:text-2xl">{HERO_CONTENT.claimsPaid}</div>
+      <div
+        className="
+absolute
 
-            <div className="mt-0.5 text-xs text-orange-100">Claims Paid</div>
-          </div>
-        </Card>
+h-[600px]
 
-        {
-        <div className="relative flex justify-center">
-          <img
-            src={Container}
-            alt="Truck Illustration"
-            className="w-full max-w-[500px] object-contain"
-          />
-        </div>
-}
+w-[600px]
 
-        <Card floating className="-bottom-4 -left-4 sm:-bottom-6 sm:-left-6">
-          <Card variant="glass" className="flex min-w-[220px] items-center gap-3 px-4 py-3 sm:px-5 sm:py-4">
-            <div
-              className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full"
-              style={{
-                background: "linear-gradient(135deg, #22c55e, #16a34a)",
-              }}
-            >
-              <ShieldCheckIcon size={20} className="text-white" />
-            </div>
+rounded-full
 
-            <div>
-              <div className="text-xl font-extrabold text-gray-900 sm:text-2xl">{HERO_CONTENT.satisfactionRate}</div>
+bg-orange-500/20
 
-              <div className="text-xs text-gray-400">Satisfaction Rate</div>
-            </div>
-          </Card>
-        </Card>
+blur-[150px]
+"
+      />
 
-        <div className="pointer-events-none absolute -bottom-10 -right-10 hidden h-40 w-40 rounded-full border border-white/10 lg:block" />
+      <div
+        className="
+absolute
 
-        <div className="pointer-events-none absolute -bottom-20 -right-20 hidden h-72 w-72 rounded-full border border-white/5 lg:block" />
+right-0
+
+top-20
+
+h-[500px]
+
+w-[500px]
+
+rounded-full
+
+bg-sky-500/15
+
+blur-[180px]
+"
+      />
+
+      <div className="relative z-20">
+        <img
+          src={ContainerImage}
+          alt="Container Truck"
+          className="
+w-[620px]
+
+drop-shadow-[0_40px_100px_rgba(0,0,0,.45)]
+
+transition-transform
+
+duration-700
+
+hover:scale-[1.02]
+"
+        />
+
+        <div
+          className="
+absolute
+
+left-10
+
+right-10
+
+bottom-[-55px]
+
+h-20
+
+bg-gradient-to-b
+
+from-white/10
+
+to-transparent
+
+blur-3xl
+
+opacity-20
+"
+        />
       </div>
+
+      {/* Floating Cards */}
+
+      <ClaimsCard />
+
+      <LiveQuoteCard />
+
+      <AIRiskCard />
+
+      {/* Ambient Rings */}
+
+      <div
+        className="
+absolute
+
+h-[700px]
+
+w-[700px]
+
+rounded-full
+
+border
+
+border-white/5
+"
+      />
+
+      <div
+        className="
+absolute
+
+h-[520px]
+
+w-[520px]
+
+rounded-full
+
+border
+
+border-white/5
+"
+      />
     </div>
   );
 }
