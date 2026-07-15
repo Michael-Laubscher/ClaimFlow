@@ -14,51 +14,76 @@ export function HeroSection() {
   return (
     <section
       className="
-  relative
-  isolate
-  overflow-hidden
+        relative
+        isolate
+        overflow-hidden
 
-  min-h-screen
+        bg-gradient-to-r
+        from-blue-950
+        via-blue-900
+        to-slate-900
 
-  bg-gradient-to-r
-
-  from-blue-950
-
-  via-blue-900
-
-  to-slate-900
-
-  text-white
-  "
+        text-white
+      "
     >
       <HeroBackground />
 
       <Container
         className="
-        relative
-        z-20
+          relative
+          z-20
 
-        flex
-        min-h-screen
-        items-center
+          flex
+          items-center
 
-        pt-36
-        pb-24
+          min-h-screen
+
+          pt-28
+          pb-16
+
+          sm:pt-32
+          sm:pb-20
+
+          lg:pt-36
+          lg:pb-24
         "
       >
         <div
           className="
-          grid
-          w-full
-          items-center
-          gap-24
+            w-full
 
-          lg:grid-cols-[1.1fr_.9fr]
+            flex
+            flex-col
+
+            items-center
+
+            gap-2
+
+            md:gap-20
+
+            lg:grid
+            lg:grid-cols-[1.1fr_.9fr]
+            lg:items-center
+            lg:gap-24
           "
         >
-          <HeroContent loaded={loaded} />
+          {/* Text */}
+          <div className="w-full">
+            <HeroContent loaded={loaded} />
+          </div>
 
-          <HeroVisual loaded={loaded} />
+          {/* Visual */}
+          <div
+            className="
+              flex
+              w-full
+              justify-center
+
+              lg:justify-end
+            "
+          >
+            <HeroVisual loaded={loaded} />
+          </div>
         </div>
       </Container>
 
