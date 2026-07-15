@@ -1,64 +1,134 @@
-import { HERO_CONTENT } from "@/features/shared-ui/configs";
+import ContainerImage from "@/shared/components/design-system/svg/images/Container.svg";
+import { ClaimsCard } from "../composite/card/ClaimsCard";
+import { LiveQuoteCard } from "../composite/card/LiveQuoteCard";
+import { AIRiskCard } from "../composite/card/AIRiskCard";
 
-import Container from "@/shared/components/design-system/svg/images/Container.svg";
-import { Card } from "../composite/card/Card";
-import { ShieldCheckIcon } from "../svg/icons";
-
-interface HeroVisualProps {
+interface Props {
   loaded: boolean;
 }
 
-export function HeroVisual({ loaded }: HeroVisualProps) {
+export function HeroVisual({ loaded }: Props) {
   return (
     <div
       className={`
-        pre-animate
+        relative
+        flex
+        items-center
+        justify-center
+        w-full
+        min-h-[500px]
+        md:min-h-[620px]
+        lg:min-h-[720px]
         ${loaded ? "animate-right delay-3" : ""}
-        relative flex flex-1 justify-center
       `}
     >
-      <div className="relative w-full max-w-md sm:max-w-lg">
-        <Card floating className="-right-4 -top-4 sm:-right-2 sm:-top-6">
-          <div className="claims-badge px-4 py-3 text-center text-white shadow-2xl sm:px-5">
-            <div className="text-xl font-extrabold sm:text-2xl">{HERO_CONTENT.claimsPaid}</div>
+      {/* Orange Glow */}
+      <div
+        className="
+          absolute
+          h-[420px]
+          w-[420px]
+          md:h-[500px]
+          md:w-[500px]
+          lg:h-[600px]
+          lg:w-[600px]
+          rounded-full
+          bg-orange-500/20
+          blur-[120px]
+          lg:blur-[150px]
+        "
+      />
 
-            <div className="mt-0.5 text-xs text-orange-100">Claims Paid</div>
-          </div>
-        </Card>
+      {/* Blue Glow */}
+      <div
+        className="
+          absolute
+          right-0
+          top-12
+          lg:top-20
+          h-[320px]
+          w-[320px]
+          md:h-[420px]
+          md:w-[420px]
+          lg:h-[500px]
+          lg:w-[500px]
+          rounded-full
+          bg-sky-500/15
+          blur-[120px]
+          lg:blur-[180px]
+        "
+      />
 
-        {
-        <div className="relative flex justify-center">
-          <img
-            src={Container}
-            alt="Truck Illustration"
-            className="w-full max-w-[500px] object-contain"
-          />
-        </div>
-}
+      {/* Truck */}
+      <div className="relative z-20 flex justify-center">
+        <img
+          src={ContainerImage}
+          alt="Container Truck"
+          className="
+            w-full
+            max-w-[420px]
+            md:max-w-[520px]
+            lg:max-w-[620px]
+            xl:max-w-[680px]
+            drop-shadow-[0_40px_100px_rgba(0,0,0,.45)]
+            transition-transform
+            duration-700
+            hover:scale-[1.02]
+          "
+        />
 
-        <Card floating className="-bottom-4 -left-4 sm:-bottom-6 sm:-left-6">
-          <Card variant="glass" className="flex min-w-[220px] items-center gap-3 px-4 py-3 sm:px-5 sm:py-4">
-            <div
-              className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full"
-              style={{
-                background: "linear-gradient(135deg, #22c55e, #16a34a)",
-              }}
-            >
-              <ShieldCheckIcon size={20} className="text-white" />
-            </div>
-
-            <div>
-              <div className="text-xl font-extrabold text-gray-900 sm:text-2xl">{HERO_CONTENT.satisfactionRate}</div>
-
-              <div className="text-xs text-gray-400">Satisfaction Rate</div>
-            </div>
-          </Card>
-        </Card>
-
-        <div className="pointer-events-none absolute -bottom-10 -right-10 hidden h-40 w-40 rounded-full border border-white/10 lg:block" />
-
-        <div className="pointer-events-none absolute -bottom-20 -right-20 hidden h-72 w-72 rounded-full border border-white/5 lg:block" />
+        <div
+          className="
+            absolute
+            left-8
+            right-8
+            bottom-[-45px]
+            lg:bottom-[-55px]
+            h-20
+            bg-gradient-to-b
+            from-white/10
+            to-transparent
+            blur-3xl
+            opacity-20
+          "
+        />
       </div>
+
+      {/* Floating Cards */}
+      <ClaimsCard />
+      <LiveQuoteCard />
+      <AIRiskCard />
+
+      {/* Ambient Rings */}
+      <div
+        className="
+          absolute
+          h-[520px]
+          w-[520px]
+          md:h-[620px]
+          md:w-[620px]
+          lg:h-[700px]
+          lg:w-[700px]
+          rounded-full
+          border
+          border-white/5
+        "
+      />
+
+      <div
+        className="
+          absolute
+          h-[380px]
+          w-[380px]
+          md:h-[450px]
+          md:w-[450px]
+          lg:h-[520px]
+          lg:w-[520px]
+          rounded-full
+          border
+          border-white/5
+        "
+      />
     </div>
   );
 }

@@ -49,9 +49,9 @@ export const footerConfig: FooterConfig = {
   ],
 
   socials: [
-    { label: "LinkedIn", href: "#", icon: "linkedin" },
-    { label: "Twitter", href: "#", icon: "twitter" },
-    { label: "Facebook", href: "#", icon: "facebook" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/faic-europe-bv/", icon: "linkedin" },
+    { label: "Twitter", href: "https://twitter.com/AskariInsurance", icon: "twitter" },
+    { label: "Facebook", href: "https://www.facebook.com/AskariInsurance", icon: "facebook" },
   ],
 
   trustBadges: ["24/7 Claims Support", "Pan-African Coverage", "Licensed Insurance Provider"],

@@ -4,7 +4,9 @@ import { HeroContent } from "@/shared/components/design-system/hero/HeroContent"
 import { HeroVisual } from "@/shared/components/design-system/hero/HeroVisual";
 
 import { Container } from "@/shared/components/design-system/layout/Container";
+
 import { WaveDivider } from "@/shared/components/design-system/svg/wave";
+import { HeroBackground } from "@/shared/components/design-system/hero/HeroBackground";
 
 export function HeroSection() {
   const loaded = true;
@@ -12,45 +14,76 @@ export function HeroSection() {
   return (
     <section
       className="
-relative
-overflow-hidden
+        relative
+        isolate
+        overflow-hidden
 
-hero-bg
+        bg-gradient-to-r
+        from-blue-950
+        via-blue-900
+        to-slate-900
 
-min-h-[760px]
-
-"
+        text-white
+      "
     >
+      <HeroBackground />
+
       <Container
         className="
-relative
-z-10
+          relative
+          z-20
 
-flex
-items-center
+          flex
+          items-center
 
-py-20
+          min-h-screen
 
-lg:py-28
+          pt-28
+          pb-16
 
-"
+          sm:pt-32
+          sm:pb-20
+
+          lg:pt-36
+          lg:pb-24
+        "
       >
         <div
           className="
-grid
-w-full
+            w-full
 
-gap-14
+            flex
+            flex-col
 
-lg:grid-cols-[1.05fr_.95fr]
+            items-center
 
-lg:items-center
+            gap-2
 
-"
+            md:gap-20
+
+            lg:grid
+            lg:grid-cols-[1.1fr_.9fr]
+            lg:items-center
+            lg:gap-24
+          "
         >
-          <HeroContent loaded={loaded} />
+          {/* Text */}
+          <div className="w-full">
+            <HeroContent loaded={loaded} />
+          </div>
 
-          <HeroVisual loaded={loaded} />
+          {/* Visual */}
+          <div
+            className="
+              flex
+              w-full
+              justify-center
+
+              lg:justify-end
+            "
+          >
+            <HeroVisual loaded={loaded} />
+          </div>
         </div>
       </Container>
 

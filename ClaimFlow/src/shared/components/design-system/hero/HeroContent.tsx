@@ -3,6 +3,7 @@ import { HERO_CONTENT } from "@/features/shared-ui/configs";
 import { Reveal } from "@/shared/components/design-system/feedback/Reveal";
 
 import { HeroActions } from "./HeroActions";
+
 import { HeroHeadline } from "./HeroHeadline";
 import { HeroStats } from "./HeroStats";
 import { HeroBadge } from "./Herobadge";
@@ -15,46 +16,57 @@ export function HeroContent({ loaded }: Props) {
   return (
     <div
       className="
-max-w-2xl
+      relative
 
-text-center
+      max-w-[720px]
 
-lg:text-left
-
-"
+      lg:pr-10
+      "
     >
+      {/* Announcement Badge */}
       <Reveal loaded={loaded} animation="animate-up">
         <HeroBadge />
       </Reveal>
 
-      <Reveal loaded={loaded} animation="animate-left">
+      {/* Headline */}
+      <Reveal loaded={loaded} animation="animate-up">
         <HeroHeadline />
       </Reveal>
 
+      {/* Description */}
       <Reveal loaded={loaded} animation="animate-up">
         <p
           className="
-mt-6
+          mt-10
 
-max-w-xl
+          max-w-2xl
 
-text-lg
+          text-[20px]
 
-leading-8
+          leading-[1.9]
 
-text-blue-100/80
+          tracking-[-0.01em]
 
-"
+          text-slate-300
+          "
         >
           {HERO_CONTENT.description}
         </p>
       </Reveal>
 
+      {/* CTA */}
       <Reveal loaded={loaded} animation="animate-up">
-        <HeroActions />
+        <div className="mt-12">
+          <HeroActions />
+        </div>
       </Reveal>
 
-      <HeroStats />
+      {/* Stats */}
+      <Reveal loaded={loaded} animation="animate-up">
+        <div className="mt-14">
+          <HeroStats />
+        </div>
+      </Reveal>
     </div>
   );
 }
