@@ -10,7 +10,6 @@ function requireEnv(name: string): string {
 
 export class NodemailerProvider implements IEmailProvider {
   async sendEmail(input: SendEmailInput) {
-
     console.log("EMAIL_PROVIDER =", process.env.EMAIL_PROVIDER);
 
     const transporter = nodemailer.createTransport({

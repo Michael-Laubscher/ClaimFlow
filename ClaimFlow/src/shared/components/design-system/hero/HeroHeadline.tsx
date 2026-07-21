@@ -27,18 +27,12 @@ export function HeroHeadline() {
       xl:text-[3.8rem]
       "
     >
-      <span >
-        {HERO_CONTENT.title.line1} 
-      </span>
+      <span>{HERO_CONTENT.title.line1}</span>
 
-      <span className="mt-2 font-semibold text-white/90">
-         {HERO_CONTENT.title.line2}
-      </span>
+      <span className="mt-2 font-semibold text-white/90">{HERO_CONTENT.title.line2}</span>
 
       <span className="relative mt-2 inline-block">
-        <GradientText>
-          {HERO_CONTENT.title.highlight}
-        </GradientText>
+        <GradientText>{HERO_CONTENT.title.highlight}</GradientText>
 
         {/* Glow */}
         <span
@@ -62,13 +56,9 @@ export function HeroHeadline() {
         />
       </span>
 
-      <span className=" font-semibold text-white/95">
-        {HERO_CONTENT.title.line3}
-      </span>
+      <span className=" font-semibold text-white/95">{HERO_CONTENT.title.line3}</span>
 
-      <span className="mt-2  text-white/70">
-        {HERO_CONTENT.title.line4}
-      </span>
+      <span className="mt-2  text-white/70">{HERO_CONTENT.title.line4}</span>
     </h1>
   );
 }

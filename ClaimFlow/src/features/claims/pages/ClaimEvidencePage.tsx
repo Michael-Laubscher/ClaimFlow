@@ -17,7 +17,6 @@ import type { ClaimEvidenceData } from "../schemas/claim-evidence.schema";
 import { EvidenceSection } from "../components/sections/EvidenceSection";
 import { useClaimStore } from "../utils/ClaimStore";
 
-
 export default function ClaimEvidencePage() {
   const navigate = useNavigate();
 

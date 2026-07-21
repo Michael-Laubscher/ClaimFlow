@@ -29,25 +29,25 @@ export function WhyChooseSection() {
         {/* Features + Image */}
         <div className="grid md:grid-cols-2 items-center gap-10">
           {/* Left Column */}
-            {/* Features List */}
-            <Stack direction="col" gap="md">
-              <InfoList
-                items={whyFeatures.map((feature) => ({
-                  id: feature.id,
-                  label: feature.label,
-                  type: "check",
-                }))}
-              />
+          {/* Features List */}
+          <Stack direction="col" gap="md">
+            <InfoList
+              items={whyFeatures.map((feature) => ({
+                id: feature.id,
+                label: feature.label,
+                type: "check",
+              }))}
+            />
 
-              <Button className="mt-6 w-max px-6 py-3 bg-[#071a54] rounded-full transition-transform duration-200 hover:scale-105" iconRight={<ArrowRightIcon size={20} />} >
-                <Link to="about">Learn More About Us</Link>
-              </Button>
-            </Stack>
+            <Button className="mt-6 w-max px-6 py-3 bg-[#071a54] rounded-full transition-transform duration-200 hover:scale-105" iconRight={<ArrowRightIcon size={20} />}>
+              <Link to="about">Learn More About Us</Link>
+            </Button>
+          </Stack>
 
-            {/* Right Column */}
-            <div className="relative flex justify-center">
+          {/* Right Column */}
+          <div className="relative flex justify-center">
             {/* Background shadow */}
-              <div
+            <div
               className="
                 absolute
                 -top-0
@@ -60,17 +60,18 @@ export function WhyChooseSection() {
                 from-[#233C7B]/10
                 to-[#0EA572]/10
               "
-              />
-              {/* Image */}
-              <img src={Trucks}
-              alt="Why Choose Us" 
+            />
+            {/* Image */}
+            <img
+              src={Trucks}
+              alt="Why Choose Us"
               className="
               w-full
               max-w-[608px]
               h-auto
-              " 
-              />
-            </div>
+              "
+            />
+          </div>
         </div>
       </Container>
     </section>

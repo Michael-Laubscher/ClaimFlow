@@ -7,19 +7,13 @@ new Worker(
   async (job) => {
     switch (job.name) {
       case "claim_received":
-        return emailService.sendClaimReceived(
-          job.data
-        );
+        return emailService.sendClaimReceived(job.data);
 
       case "claim_approved":
-        return emailService.sendClaimApproved(
-          job.data
-        );
+        return emailService.sendClaimApproved(job.data);
 
       case "otp":
-        return emailService.sendOtp(
-          job.data
-        );
+        return emailService.sendOtp(job.data);
     }
   },
 

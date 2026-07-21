@@ -9,7 +9,6 @@ import { FormField } from "@/shared/components/design-system/primitives/Input/Fo
 import type { ClaimEvidenceData } from "../../schemas/claim-evidence.schema";
 import { AttachmentsSection } from "./AttachmentSection";
 
-
 export function EvidenceSection() {
   const {
     register,

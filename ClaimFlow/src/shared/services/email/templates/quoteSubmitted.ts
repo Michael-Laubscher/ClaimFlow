@@ -4,10 +4,10 @@ type QuoteTemplateProps = {
   business: string;
   insuranceType: string;
   coverage: string;
-  text?: string
+  text?: string;
 };
 
-export function quoteSubmittedTemplate({ business, insuranceType, coverage,text }: QuoteTemplateProps): {
+export function quoteSubmittedTemplate({ business, insuranceType, coverage, text }: QuoteTemplateProps): {
   subject: string;
   html: string;
   text?: string;
@@ -201,7 +201,7 @@ export function quoteSubmittedTemplate({ business, insuranceType, coverage,text 
 </body>
 </html>
     `,
-        text: `
+    text: `
 ${text}
     `,
   };

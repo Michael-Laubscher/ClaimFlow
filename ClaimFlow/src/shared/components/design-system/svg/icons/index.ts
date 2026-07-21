@@ -39,11 +39,9 @@ export const TwitterIcon = createSvgIcon(TwitterSvg);
 
 export * from "./MapPinIcon";
 
-
 /* ──────────────────────────────────────────────────────────
    ABOUT PAGE ICONS
 ────────────────────────────────────────────────────────── */
-
 
 /* ──────────────────────────────────────────────────────────
    TYPES + HELPERS

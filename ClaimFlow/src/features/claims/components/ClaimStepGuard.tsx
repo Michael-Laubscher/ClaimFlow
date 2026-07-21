@@ -9,10 +9,7 @@ interface ClaimStepGuardProps {
   children: ReactNode;
 }
 
-export default function ClaimStepGuard({
-  step,
-  children,
-}: ClaimStepGuardProps) {
+export default function ClaimStepGuard({ step, children }: ClaimStepGuardProps) {
   const { canAccessStep, getRedirectStep } = useClaimStore();
 
   if (!canAccessStep(step)) {
