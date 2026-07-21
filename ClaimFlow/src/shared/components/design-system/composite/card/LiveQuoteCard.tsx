@@ -31,13 +31,9 @@ export function LiveQuoteCard() {
         </div>
 
         <div>
-          <p className="text-xs sm:text-sm font-semibold text-white">
-            Quote Approved
-          </p>
+          <p className="text-xs sm:text-sm font-semibold text-white">Quote Approved</p>
 
-          <p className="text-[10px] sm:text-xs text-white/50">
-            2 seconds ago
-          </p>
+          <p className="text-[10px] sm:text-xs text-white/50">2 seconds ago</p>
         </div>
       </div>
     </div>

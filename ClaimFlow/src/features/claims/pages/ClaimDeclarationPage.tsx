@@ -31,7 +31,6 @@ export default function ClaimDeclarationPage() {
 
   const submit = (data: ClaimDeclarationData) => {
     setStep("declaration", data);
-    
 
     completeStep("declaration");
 

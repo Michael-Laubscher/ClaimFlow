@@ -27,7 +27,6 @@ export default function ClaimIncidentPage() {
   const { completeStep } = useClaimStore();
 
   const submit = (data: ClaimStep2Data) => {
-
     setStep("step2", data);
     completeStep("incident");
 

@@ -27,13 +27,9 @@ export function ClaimsCard() {
         Claims performance
       </div>
 
-      <div className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">
-        15M+
-      </div>
+      <div className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">15M+</div>
 
-      <p className="mt-1 text-xs sm:text-sm text-white/50">
-        Claims paid successfully
-      </p>
+      <p className="mt-1 text-xs sm:text-sm text-white/50">Claims paid successfully</p>
     </div>
   );
 }

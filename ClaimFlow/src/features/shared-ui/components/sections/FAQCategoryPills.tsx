@@ -4,11 +4,7 @@ interface Props {
   onChange: (c: string) => void;
 }
 
-export function FAQCategoryPills({
-  categories,
-  active,
-  onChange,
-}: Props) {
+export function FAQCategoryPills({ categories, active, onChange }: Props) {
   return (
     <div
       className="

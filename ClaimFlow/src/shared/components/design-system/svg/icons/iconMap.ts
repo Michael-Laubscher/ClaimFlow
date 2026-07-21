@@ -1,4 +1,3 @@
-
 import { ArrowRightIcon, ClockIcon, GlobeIcon, ShieldIcon, TruckIcon, UsersIcon } from "lucide-react";
 import { CheckIcon, LiabilityIcon } from "./lucide";
 import { MapPinIcon } from "./MapPinIcon";
@@ -14,6 +13,5 @@ export const lucideIconMap = {
 
   truck: TruckIcon,
   location: MapPinIcon,
-  document: LiabilityIcon
-
+  document: LiabilityIcon,
 } as const;

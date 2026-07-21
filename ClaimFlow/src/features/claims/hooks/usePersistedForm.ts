@@ -1,10 +1,7 @@
 import { useEffect } from "react";
 import type { FieldValues, UseFormReturn } from "react-hook-form";
 
-export function usePersistedForm<T extends FieldValues>(
-  methods: UseFormReturn<T>,
-  storageKey: string,
-) {
+export function usePersistedForm<T extends FieldValues>(methods: UseFormReturn<T>, storageKey: string) {
   const { watch, reset } = methods;
 
   useEffect(() => {

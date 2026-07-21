@@ -11,16 +11,7 @@ export const claimStep2Schema = z.object({
 
   exactLocation: z.string().min(1),
 
-  claimType: z.enum([
-    "collision",
-    "theft",
-    "fire",
-    "vandalism",
-    "other",
-    "vehicle"
-  ]),
-
-  
+  claimType: z.enum(["collision", "theft", "fire", "vandalism", "other", "vehicle"]),
 
   description: z.string().min(20),
 
@@ -29,8 +20,8 @@ export const claimStep2Schema = z.object({
   emergencyServicesCalled: z.boolean(),
 
   policeReportNumber: z.string().optional(),
-  
-  vehicleRegistration:z.string().optional(),
+
+  vehicleRegistration: z.string().optional(),
 
   vehicleDrivable: z.boolean(),
 });

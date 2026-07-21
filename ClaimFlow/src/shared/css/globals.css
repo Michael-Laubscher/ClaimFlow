@@ -62,7 +62,6 @@ body {
   height: 80px;
 }
 
-
 .float-card {
   animation: floatUp 4s ease-in-out infinite;
   will-change: transform;
@@ -72,7 +71,6 @@ body {
   animation: floatUp 4s ease-in-out infinite 1s;
   will-change: transform;
 }
-
 
 .gradient-text {
   background: linear-gradient(135deg, #e8723a 0%, #f5a623 50%, #68c957 100%);

@@ -31,18 +31,14 @@ export function AIRiskCard() {
         </div>
 
         <div>
-          <p className="text-xs sm:text-sm font-semibold text-white">
-            AI Risk Analysis
-          </p>
+          <p className="text-xs sm:text-sm font-semibold text-white">AI Risk Analysis</p>
 
           <div className="mt-1 flex items-center gap-2">
             <div className="h-2 w-16 sm:w-20 lg:w-24 overflow-hidden rounded-full bg-white/10">
               <div className="h-full w-[97%] rounded-full bg-gradient-to-r from-blue-400 to-cyan-300" />
             </div>
 
-            <span className="text-[10px] sm:text-xs text-white/70">
-              97%
-            </span>
+            <span className="text-[10px] sm:text-xs text-white/70">97%</span>
           </div>
         </div>
       </div>

@@ -2,10 +2,7 @@ import { createEmailProvider } from "../services/EmailFactory";
 import type { EmailTestType } from "./emailTestRegistry";
 import { emailTestRegistry } from "./emailTestRegistry";
 
-export async function runEmailTest(
-  type: EmailTestType,
-  recipient: string
-) {
+export async function runEmailTest(type: EmailTestType, recipient: string) {
   console.log(`📧 Running email test: ${type}`);
 
   const template = emailTestRegistry[type]();

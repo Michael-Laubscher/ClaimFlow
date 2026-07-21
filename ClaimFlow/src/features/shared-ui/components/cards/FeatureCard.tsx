@@ -11,18 +11,8 @@ import { Text } from "@/shared/components/design-system/typography/Text";
 
 import type { FeatureCardProps } from "./FeatureCardProps";
 
-
-export function FeatureCard({
-  title,
-  description,
-  icon: Icon,
-  to,
-  ctaLabel = "Learn more",
-}: FeatureCardProps) {
-
-
+export function FeatureCard({ title, description, icon: Icon, to, ctaLabel = "Learn more" }: FeatureCardProps) {
   const content = (
-
     <Card
       variant="solid"
       className="
@@ -41,7 +31,6 @@ export function FeatureCard({
         hover:shadow-2xl
       "
     >
-
       <div
         className="
           absolute
@@ -55,12 +44,8 @@ export function FeatureCard({
         "
       />
 
-
       <Stack gap="lg">
-
-
         <IconSurface>
-
           <Icon
             className="
               h-6
@@ -68,28 +53,15 @@ export function FeatureCard({
               text-orange-500
             "
           />
-
         </IconSurface>
 
-
-
         <Stack gap="sm">
-
-          <Heading
-            as="h3"
-            size="lg"
-          >
+          <Heading as="h3" size="lg">
             {title}
           </Heading>
 
-
-          <Text color="muted">
-            {description}
-          </Text>
-
+          <Text color="muted">{description}</Text>
         </Stack>
-
-
 
         <div
           className="
@@ -100,9 +72,7 @@ export function FeatureCard({
             text-orange-500
           "
         >
-
           {ctaLabel}
-
 
           <ArrowRight
             className="
@@ -112,24 +82,13 @@ export function FeatureCard({
               group-hover:translate-x-2
             "
           />
-
-
         </div>
-
-
       </Stack>
-
-
     </Card>
-
   );
 
-
   return to ? (
-    <Link
-      to={to}
-      className="block h-full"
-    >
+    <Link to={to} className="block h-full">
       {content}
     </Link>
   ) : (

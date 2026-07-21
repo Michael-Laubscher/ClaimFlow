@@ -2,7 +2,6 @@ import { MockEmailProvider } from "../providers/MockEmailProvider";
 import { NodemailerProvider } from "../providers/NodemailerProvider";
 
 export function createEmailProvider() {
-
   console.log("EMAIL_PROVIDER =", process.env.EMAIL_PROVIDER);
 
   switch (process.env.EMAIL_PROVIDER) {
@@ -16,4 +15,3 @@ export function createEmailProvider() {
       throw new Error("Provider not configured");
   }
 }
-

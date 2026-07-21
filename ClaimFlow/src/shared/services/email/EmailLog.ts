@@ -11,10 +11,7 @@ export interface EmailLog {
 
   providerMessageId?: string;
 
-  status:
-    | "pending"
-    | "sent"
-    | "failed";
+  status: "pending" | "sent" | "failed";
 
   error?: string;
 

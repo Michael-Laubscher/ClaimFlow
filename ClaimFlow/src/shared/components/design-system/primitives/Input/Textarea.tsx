@@ -41,7 +41,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
           `,
         radius.lg,
 
-        
         !error &&
           !success &&
           `
@@ -55,7 +54,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
             focus:ring-orange-400/10
             `,
 
-      
         error &&
           `
             border-red-300
@@ -66,7 +64,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(({ classN
             focus:ring-red-400/10
             `,
 
-      
         success &&
           `
             border-emerald-300

@@ -35,7 +35,6 @@ export function HeroActions() {
           }
         >
           Get Your Instant Quote
-          
           <span
             className="
             pointer-events-none
@@ -129,7 +128,6 @@ export function HeroActions() {
 
           <span>Quotes in under 60 seconds</span>
         </div>
-        
       </div>
     </div>
   );
